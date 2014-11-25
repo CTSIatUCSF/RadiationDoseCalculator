@@ -1,16 +1,18 @@
 var express = require("express");
 var app = express();
+var path = require( "path" );
+
 
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + '../html/index.html');
+  res.sendFile(path.resolve("html/index.html"));
 });
 
 app.get('/js/app.js', function(req,res){
-    res.sendFile(__dirname + '../js/app.js');
+    res.sendFile(path.resolve("js/app.js"));
 });
 
 app.get('/css/styles.css', function(req,res){
-    res.sendFile(__dirname + '../css/styles.css');
+    res.sendFile(path.resolve("css/styles.css"));
 });
 
 var server = app.listen(3000, function () {

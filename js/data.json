@@ -1,6 +1,6 @@
 {	"ConsentNarrative": "This is a sample consent narrative.",
 	"ComparisonDoseSupportingLanguage": "This is a sample of comparison dose supporting langauge.",
-	"ComparisonDose": 100.0
+	"ComparisonDose": 100.0,
 	"DoseData": {
 	    "CT": {
 	        "Abdominal CT slngle slice": {

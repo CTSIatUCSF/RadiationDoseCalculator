@@ -1,4 +1,5 @@
 ---
 test:
   override:
-    - "./run_tests.sh"
+    - "./install_test_dependencies.sh"
+    - "make test"

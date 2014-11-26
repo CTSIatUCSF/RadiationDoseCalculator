@@ -898,6 +898,153 @@
                     "EDE (mixed)": 1.35
                 }
             }
-        ]
-    }
+        ],
+		"Flouro": {
+		    "Abdominal Aortogram": {
+		        "EDE (female)": 13,
+		        "EDE (male)": 13,
+		        "EDE (mixed)": 13
+		    },
+		    "Ankle/Knee Kinematics Analysis": {
+		        "EDE (female)": 0.144,
+		        "EDE (male)": 0.144,
+		        "EDE (mixed)": 0.144
+		    },
+		    "Barium Enema": {
+		        "EDE (female)": 5,
+		        "EDE (male)": 5,
+		        "EDE (mixed)": 5
+		    },
+		    "Brachial Catheter Placement/Fistulogram": {
+		        "EDE (female)": 6.6,
+		        "EDE (male)": 6.6,
+		        "EDE (mixed)": 6.6
+		    },
+		    "CT Cerebral Angiogram": {
+		        "EDE (female)": 1.4,
+		        "EDE (male)": 1.4,
+		        "EDE (mixed)": 1.4
+		    },
+		    "Cardiac Catheterization": {
+		        "EDE (female)": 4.4,
+		        "EDE (male)": 4.4,
+		        "EDE (mixed)": 4.4
+		    },
+		    "Cardiac Electrophysiology/Ablation": {
+		        "EDE (female)": 70.4,
+		        "EDE (male)": 70.4,
+		        "EDE (mixed)": 70.4
+		    },
+		    "Cardiac Electrophysiology/Defibrillator Implant": {
+		        "EDE (female)": 27.5,
+		        "EDE (male)": 27.5,
+		        "EDE (mixed)": 27.5
+		    },
+		    "Cardiac Electrophysiology/Diagnostic": {
+		        "EDE (female)": 7.05,
+		        "EDE (male)": 7.05,
+		        "EDE (mixed)": 7.05
+		    },
+		    "Cardiac Electrophysiology/Pacemaker Implant": {
+		        "EDE (female)": 9.4,
+		        "EDE (male)": 9.4,
+		        "EDE (mixed)": 9.4
+		    },
+		    "Cardiac Occluder/Stent Placement": {
+		        "EDE (female)": 16.4,
+		        "EDE (male)": 16.4,
+		        "EDE (mixed)": 16.4
+		    },
+		    "Carotid Stent Placement": {
+		        "EDE (female)": 34,
+		        "EDE (male)": 34,
+		        "EDE (mixed)": 34
+		    },
+		    "Carotid or Cerebral Angiogram": {
+		        "EDE (female)": 5.08,
+		        "EDE (male)": 5.08,
+		        "EDE (mixed)": 5.08
+		    },
+		    "Coronary Angioplasty": {
+		        "EDE (female)": 11.6,
+		        "EDE (male)": 11.6,
+		        "EDE (mixed)": 11.6
+		    },
+		    "Enteroclysis Procedure": {
+		        "EDE (female)": 21,
+		        "EDE (male)": 21,
+		        "EDE (mixed)": 21
+		    },
+		    "Femoral Arteriogram": {
+		        "EDE (female)": 15,
+		        "EDE (male)": 15,
+		        "EDE (mixed)": 15
+		    },
+		    "Femoral CT Angiogram": {
+		        "EDE (female)": 3,
+		        "EDE (male)": 3,
+		        "EDE (mixed)": 3
+		    },
+		    "Fistulogram (upper extremity)": {
+		        "EDE (female)": 3.8,
+		        "EDE (male)": 3.8,
+		        "EDE (mixed)": 3.8
+		    },
+		    "Hepatic Angioplasty": {
+		        "EDE (female)": 5,
+		        "EDE (male)": 5,
+		        "EDE (mixed)": 5
+		    },
+		    "Hysterosalpingogram": {
+		        "EDE (female)": 1.57,
+		        "EDE (male)": 1.57,
+		        "EDE (mixed)": 1.57
+		    },
+		    "Knee Positioning": {
+		        "EDE (female)": 0.07,
+		        "EDE (male)": 0.07,
+		        "EDE (mixed)": 0.07
+		    },
+		    "Lumbar Puncture (Fluoro-guided)": {
+		        "EDE (female)": 1.25,
+		        "EDE (male)": 1.25,
+		        "EDE (mixed)": 1.25
+		    },
+		    "Occipital Electrode Placement": {
+		        "EDE (female)": 0.48,
+		        "EDE (male)": 0.48,
+		        "EDE (mixed)": 0.48
+		    },
+		    "Pulmonary Angiogram": {
+		        "EDE (female)": 2.66,
+		        "EDE (male)": 2.66,
+		        "EDE (mixed)": 2.66
+		    },
+		    "Right Heart Catheterization": {
+		        "EDE (female)": 0.5,
+		        "EDE (male)": 0.5,
+		        "EDE (mixed)": 0.5
+		    },
+		    "Swallow Study (Speech Pathology)": {
+		        "EDE (female)": 0.18,
+		        "EDE (male)": 0.18,
+		        "EDE (mixed)": 0.18
+		    },
+		    "Thoracic Spine": {
+		        "EDE (female)": 5,
+		        "EDE (male)": 5,
+		        "EDE (mixed)": 5
+		    },
+		    "Trans Bronchial Biopsy (Fuoro-guided)": {
+		        "EDE (female)": 7.5,
+		        "EDE (male)": 7.5,
+		        "EDE (mixed)": 7.5
+		    },
+		    "Vertebroplasty/Kyphoplasty": {
+		        "EDE (female)": 12.8,
+		        "EDE (male)": 12.8,
+		        "EDE (mixed)": 12.8
+		    }
+		}
+	}
 }

@@ -1,4 +1,7 @@
 ---
 test:
   override:
+    - "cd node"
+    - "npm install"
+    - "cd .."
     - "make test"

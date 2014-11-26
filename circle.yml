@@ -1,10 +1,4 @@
 ---
 test:
   override:
-    - "pwd"
-    - "ls -la"
-    - "cd node"
-    - "pwd"
-    - "npm install"
-    - "cd .."
-    - "make test"
+    - "./run_tests.sh"

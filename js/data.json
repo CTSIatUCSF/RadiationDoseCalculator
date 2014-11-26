@@ -1,824 +1,903 @@
-{	"ConsentNarrative": "This is a sample consent narrative.",
-	"ComparisonDoseSupportingLanguage": "This is a sample of comparison dose supporting langauge.",
-	"ComparisonDose": 100.0,
-	"DoseData": {
-	    "CT": {
-	        "Abdominal CT slngle slice": {
-	            "EDE (female)": 0.24,
-	            "EDE (male)": 0.24,
-	            "EDE (mixed)": 0.24
-	        },
-	        "Abdominal CT with AND without constrast": {
-	            "EDE (female)": 7.8,
-	            "EDE (male)": 7.8,
-	            "EDE (mixed)": 7.8
-	        },
-	        "Abdominal CT with OR without contrast": {
-	            "EDE (female)": 3.9,
-	            "EDE (male)": 3.9,
-	            "EDE (mixed)": 3.9
-	        },
-	        "Attenuation Correction with CT": {
-	            "EDE (female)": 3.5,
-	            "EDE (male)": 3.5,
-	            "EDE (mixed)": 3.5
-	        },
-	        "Attenuation Correction with Sealed Source": {
-	            "EDE (female)": 0.12,
-	            "EDE (male)": 0.12,
-	            "EDE (mixed)": 0.12
-	        },
-	        "Brain CT with AND without contrast": {
-	            "EDE (female)": 6,
-	            "EDE (male)": 6,
-	            "EDE (mixed)": 6
-	        },
-	        "Brain CT with OR without contrast": {
-	            "EDE (female)": 3,
-	            "EDE (male)": 3,
-	            "EDE (mixed)": 3
-	        },
-	        "CT coronary angiography with OR without contrast": {
-	            "EDE (female)": 22,
-	            "EDE (male)": 22,
-	            "EDE (mixed)": 22
-	        },
-	        "CT femoral angiogram": {
-	            "EDE (female)": 0.07,
-	            "EDE (male)": 0.07,
-	            "EDE (mixed)": 0.07
-	        },
-	        "CT femoral vein patch": {
-	            "EDE (female)": 1.6,
-	            "EDE (male)": 1.6,
-	            "EDE (mixed)": 1.6
-	        },
-	        "CT-CoRegistration scan for PET/CT": {
-	            "EDE (female)": 8.6,
-	            "EDE (male)": 8.6,
-	            "EDE (mixed)": 8.6
-	        },
-	        "Cardiac Calcium Score": {
-	            "EDE (female)": 11,
-	            "EDE (male)": 11,
-	            "EDE (mixed)": 11
-	        },
-	        "Chest CT with AND without contrast": {
-	            "EDE (female)": 10.8,
-	            "EDE (male)": 10.8,
-	            "EDE (mixed)": 10.8
-	        },
-	        "Chest CT with OR without contrast": {
-	            "EDE (female)": 5.4,
-	            "EDE (male)": 5.4,
-	            "EDE (mixed)": 5.4
-	        },
-	        "Chest/Abdomen/Pelvis CT with OR without contrast": {
-	            "EDE (female)": 13,
-	            "EDE (male)": 13,
-	            "EDE (mixed)": 13
-	        },
-	        "Enteroclysis Helical CT 2-phase": {
-	            "EDE (female)": 32,
-	            "EDE (male)": 32,
-	            "EDE (mixed)": 32
-	        },
-	        "Guided biopsy with fluoro (low dose)": {
-	            "EDE (female)": 6.1,
-	            "EDE (male)": 6.1,
-	            "EDE (mixed)": 6.1
-	        },
-	        "Guided biopsy without fluoro": {
-	            "EDE (female)": 23,
-	            "EDE (male)": 23,
-	            "EDE (mixed)": 23
-	        },
-	        "Head CT  with AND without contrast": {
-	            "EDE (female)": 5,
-	            "EDE (male)": 5,
-	            "EDE (mixed)": 5
-	        },
-	        "Head CT with OR without contrast": {
-	            "EDE (female)": 2.5,
-	            "EDE (male)": 2.5,
-	            "EDE (mixed)": 2.5
-	        },
-	        "Hepatobiliary CT single slice": {
-	            "EDE (female)": 0.06,
-	            "EDE (male)": 0.06,
-	            "EDE (mixed)": 0.06
-	        },
-	        "High Resolution Lung CT": {
-	            "EDE (female)": 5.4,
-	            "EDE (male)": 5.4,
-	            "EDE (mixed)": 5.4
-	        },
-	        "Hypervascular Liver Lesion Protocol": {
-	            "EDE (female)": 17,
-	            "EDE (male)": 17,
-	            "EDE (mixed)": 17
-	        },
-	        "Hypervascular Liver Lesion Protocol (low kVp variant)": {
-	            "EDE (female)": 4.8,
-	            "EDE (male)": 4.8,
-	            "EDE (mixed)": 4.8
-	        },
-	        "Knee CT": {
-	            "EDE (female)": 0.02,
-	            "EDE (male)": 0.02,
-	            "EDE (mixed)": 0.02
-	        },
-	        "Lower Extremity CT (5 positions)": {
-	            "EDE (female)": 0.12,
-	            "EDE (male)": 0.12,
-	            "EDE (mixed)": 0.12
-	        },
-	        "Lumbar Spine CT (Axial)": {
-	            "EDE (female)": 5.9,
-	            "EDE (male)": 5.9,
-	            "EDE (mixed)": 5.9
-	        },
-	        "Lumbar Spine CT (Helical)": {
-	            "EDE (female)": 5,
-	            "EDE (male)": 5,
-	            "EDE (mixed)": 5
-	        },
-	        "Neck CT with AND without contrast": {
-	            "EDE (female)": 5,
-	            "EDE (male)": 5,
-	            "EDE (mixed)": 5
-	        },
-	        "Neck CT with OR without contrast": {
-	            "EDE (female)": 2.5,
-	            "EDE (male)": 2.5,
-	            "EDE (mixed)": 2.5
-	        },
-	        "Pelvic CT with AND without contrast": {
-	            "EDE (female)": 10,
-	            "EDE (male)": 10,
-	            "EDE (mixed)": 10
-	        },
-	        "Pelvic CT with OR without contrast": {
-	            "EDE (female)": 5,
-	            "EDE (male)": 5,
-	            "EDE (mixed)": 5
-	        },
-	        "Thigh CT single slice": {
-	            "EDE (female)": 0.05,
-	            "EDE (male)": 0.05,
-	            "EDE (mixed)": 0.05
-	        },
-	        "Whole body CT": {
-	            "EDE (female)": 8.5,
-	            "EDE (male)": 8.5,
-	            "EDE (mixed)": 8.5
-	        }
-	    },
-		"NM": {
-		    "C-11 Carbon Monoxide": {
-		        "EDE/mCi (female)": 0.24,
-		        "EDE/mCi (male)": 0.24,
-		        "EDE/mCi (mixed)": 0.24
-		    },
-		    "C-11 Nicotine (IV)": {
-		        "EDE/mCi (female)": 0.148,
-		        "EDE/mCi (male)": 0.148,
-		        "EDE/mCi (mixed)": 0.148
-		    },
-		    "C-11 Nicotine Inhalation": {
-		        "EDE/mCi (female)": 0.32,
-		        "EDE/mCi (male)": 0.32,
-		        "EDE/mCi (mixed)": 0.32
-		    },
-		    "Cu-62 ATSM": {
-		        "EDE/mCi (female)": 0.11,
-		        "EDE/mCi (male)": 0.11,
-		        "EDE/mCi (mixed)": 0.11
-		    },
-		    "F-18 FDG PET Scan": {
-		        "EDE/mCi (female)": 1.1,
-		        "EDE/mCi (male)": 1.1,
-		        "EDE/mCi (mixed)": 1.1
-		    },
-		    "F-18 Fluoro L-Dopa PET Scan": {
-		        "EDE/mCi (female)": 2,
-		        "EDE/mCi (male)": 2,
-		        "EDE/mCi (mixed)": 2
-		    },
-		    "F-18 Fluorothymidine (FLT) PET Scan": {
-		        "EDE/mCi (female)": 1.17,
-		        "EDE/mCi (male)": 1.17,
-		        "EDE/mCi (mixed)": 1.17
-		    },
-		    "F-18 PET/CT (Select appropriate CT from CT Studies)": {
-		        "EDE/mCi (female)": 1.1,
-		        "EDE/mCi (male)": 1.1,
-		        "EDE/mCi (mixed)": 1.1
-		    },
-		    "F-18 Sodium Fluoride PET Scan": {
-		        "EDE/mCi (female)": 0.95,
-		        "EDE/mCi (male)": 0.95,
-		        "EDE/mCi (mixed)": 0.95
-		    },
-		    "F-18 Thiapalmitate PET Scan": {
-		        "EDE/mCi (female)": 0.705,
-		        "EDE/mCi (male)": 0.705,
-		        "EDE/mCi (mixed)": 0.705
-		    },
-		    "Ga-67 Gallium Citrate Scan": {
-		        "EDE/mCi (female)": 4.1,
-		        "EDE/mCi (male)": 4.1,
-		        "EDE/mCi (mixed)": 4.1
-		    },
-		    "I-123 Altropane (IACFT) Brain Scan": {
-		        "EDE/mCi (female)": 1.4,
-		        "EDE/mCi (male)": 1.4,
-		        "EDE/mCi (mixed)": 1.4
-		    },
-		    "I-123 Beta-CIT Brain": {
-		        "EDE/mCi (female)": 1.3,
-		        "EDE/mCi (male)": 1.3,
-		        "EDE/mCi (mixed)": 1.3
-		    },
-		    "I-123 HSA Brain (IntraCerebral Infusion)": {
-		        "EDE/mCi (female)": 0.9,
-		        "EDE/mCi (male)": 0.9,
-		        "EDE/mCi (mixed)": 0.9
-		    },
-		    "I-123 Hippuran Renal": {
-		        "EDE/mCi (female)": 0.88,
-		        "EDE/mCi (male)": 0.88,
-		        "EDE/mCi (mixed)": 0.88
-		    },
-		    "I-123 MIBG": {
-		        "EDE/mCi (female)": 0.71,
-		        "EDE/mCi (male)": 0.71,
-		        "EDE/mCi (mixed)": 0.71
-		    },
-		    "I-123 Sodium Iodide": {
-		        "EDE/mCi (female)": 4.5,
-		        "EDE/mCi (male)": 4.5,
-		        "EDE/mCi (mixed)": 4.5
-		    },
-		    "I-123 Thyroid": {
-		        "EDE/mCi (female)": 4.5,
-		        "EDE/mCi (male)": 4.5,
-		        "EDE/mCi (mixed)": 4.5
-		    },
-		    "I-125 Sodium Iodide": {
-		        "EDE/mCi (female)": 120,
-		        "EDE/mCi (male)": 120,
-		        "EDE/mCi (mixed)": 120
-		    },
-		    "I-131 MIBG": {
-		        "EDE/mCi (female)": 7.8,
-		        "EDE/mCi (male)": 7.8,
-		        "EDE/mCi (mixed)": 7.8
-		    },
-		    "I-131 Sodium Iodide Thyroid Scan": {
-		        "EDE/mCi (female)": 390,
-		        "EDE/mCi (male)": 390,
-		        "EDE/mCi (mixed)": 390
-		    },
-		    "In-111 Capromab Pendetide (Prostascint Scan)": {
-		        "EDE/mCi (female)": 10.7,
-		        "EDE/mCi (male)": 10.7,
-		        "EDE/mCi (mixed)": 10.7
-		    },
-		    "In-111 DTPA CSF Flow (Cisternography)": {
-		        "EDE/mCi (female)": 3.1,
-		        "EDE/mCi (male)": 3.1,
-		        "EDE/mCi (mixed)": 3.1
-		    },
-		    "In-111 Dendritic Cells (Brain Tumor)": {
-		        "EDE/mCi (female)": 11,
-		        "EDE/mCi (male)": 11,
-		        "EDE/mCi (mixed)": 11
-		    },
-		    "In-111 Platelet Scan": {
-		        "EDE/mCi (female)": 7.5,
-		        "EDE/mCi (male)": 7.5,
-		        "EDE/mCi (mixed)": 7.5
-		    },
-		    "In-111 White Cell Scan": {
-		        "EDE/mCi (female)": 24,
-		        "EDE/mCi (male)": 24,
-		        "EDE/mCi (mixed)": 24
-		    },
-		    "N-13 Ammonia PET Perfusion Scan": {
-		        "EDE/mCi (female)": 0.083,
-		        "EDE/mCi (male)": 0.083,
-		        "EDE/mCi (mixed)": 0.083
-		    },
-		    "O-15 Bolus Water PET Scan": {
-		        "EDE/mCi (female)": 0.042,
-		        "EDE/mCi (male)": 0.042,
-		        "EDE/mCi (mixed)": 0.042
-		    },
-		    "O-15 Continuous Inhalation PET Scan": {
-		        "EDE/mCi (female)": 0.041,
-		        "EDE/mCi (male)": 0.041,
-		        "EDE/mCi (mixed)": 0.041
-		    },
-		    "O-15 Water 3-D PET Acquisition": {
-		        "EDE/mCi (female)": 0.042,
-		        "EDE/mCi (male)": 0.042,
-		        "EDE/mCi (mixed)": 0.042
-		    },
-		    "P-32 Sodium Phosphate": {
-		        "EDE/mCi (female)": 45,
-		        "EDE/mCi (male)": 45,
-		        "EDE/mCi (mixed)": 45
-		    },
-		    "Rb-82 Rubidium Cloride Perfusion PET Scan": {
-		        "EDE/mCi (female)": 0.043,
-		        "EDE/mCi (male)": 0.043,
-		        "EDE/mCi (mixed)": 0.043
-		    },
-		    "Tc-99m Apomate": {
-		        "EDE/mCi (female)": 0.356,
-		        "EDE/mCi (male)": 0.356,
-		        "EDE/mCi (mixed)": 0.356
-		    },
-		    "Tc-99m DMSA Renal Scan": {
-		        "EDE/mCi (female)": 0.6,
-		        "EDE/mCi (male)": 0.6,
-		        "EDE/mCi (mixed)": 0.6
-		    },
-		    "Tc-99m DTPA Aerosol Ventilation": {
-		        "EDE/mCi (female)": 0.22,
-		        "EDE/mCi (male)": 0.22,
-		        "EDE/mCi (mixed)": 0.22
-		    },
-		    "Tc-99m DTPA Injection": {
-		        "EDE/mCi (female)": 0.3,
-		        "EDE/mCi (male)": 0.3,
-		        "EDE/mCi (mixed)": 0.3
-		    },
-		    "Tc-99m Gastic Emptying Scan": {
-		        "EDE/mCi (female)": 0.93,
-		        "EDE/mCi (male)": 0.93,
-		        "EDE/mCi (mixed)": 0.93
-		    },
-		    "Tc-99m Glucoheptonate Renal Scan": {
-		        "EDE/mCi (female)": 0.38,
-		        "EDE/mCi (male)": 0.38,
-		        "EDE/mCi (mixed)": 0.38
-		    },
-		    "Tc-99m HMPAO Brain Perfusion": {
-		        "EDE/mCi (female)": 0.5,
-		        "EDE/mCi (male)": 0.5,
-		        "EDE/mCi (mixed)": 0.5
-		    },
-		    "Tc-99m Hepatobiliary (Gallbladder/Biliary)": {
-		        "EDE/mCi (female)": 0.93,
-		        "EDE/mCi (male)": 0.93,
-		        "EDE/mCi (mixed)": 0.93
-		    },
-		    "Tc-99m Human Serum Albumin": {
-		        "EDE/mCi (female)": 0.29,
-		        "EDE/mCi (male)": 0.29,
-		        "EDE/mCi (mixed)": 0.29
-		    },
-		    "Tc-99m MAA (Lung Perfusion Scan)": {
-		        "EDE/mCi (female)": 0.47,
-		        "EDE/mCi (male)": 0.47,
-		        "EDE/mCi (mixed)": 0.47
-		    },
-		    "Tc-99m MAG (3) Renal Scan": {
-		        "EDE/mCi (female)": 0.44,
-		        "EDE/mCi (male)": 0.44,
-		        "EDE/mCi (mixed)": 0.44
-		    },
-		    "Tc-99m MDP Bone Scan": {
-		        "EDE/mCi (female)": 0.22,
-		        "EDE/mCi (male)": 0.22,
-		        "EDE/mCi (mixed)": 0.22
-		    },
-		    "Tc-99m MUGA (Tagged Red Blood Cells)": {
-		        "EDE/mCi (female)": 0.27,
-		        "EDE/mCi (male)": 0.27,
-		        "EDE/mCi (mixed)": 0.27
-		    },
-		    "Tc-99m NC100697 Brain Scan": {
-		        "EDE/mCi (female)": 0.5,
-		        "EDE/mCi (male)": 0.5,
-		        "EDE/mCi (mixed)": 0.5
-		    },
-		    "Tc-99m Pertechnate Thyroid Scan": {
-		        "EDE/mCi (female)": 0.39,
-		        "EDE/mCi (male)": 0.39,
-		        "EDE/mCi (mixed)": 0.39
-		    },
-		    "Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Lung)": {
-		        "EDE/mCi (female)": 1.2,
-		        "EDE/mCi (male)": 1.2,
-		        "EDE/mCi (mixed)": 1.2
-		    },
-		    "Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Melanoma)": {
-		        "EDE/mCi (female)": 1.2,
-		        "EDE/mCi (male)": 1.2,
-		        "EDE/mCi (mixed)": 1.2
-		    },
-		    "Tc-99m Sestamibi Cardiac Scan (Rest)": {
-		        "EDE/mCi (female)": 0.55,
-		        "EDE/mCi (male)": 0.55,
-		        "EDE/mCi (mixed)": 0.55
-		    },
-		    "Tc-99m Sestamibi Cardiac Scan (Stress)": {
-		        "EDE/mCi (female)": 0.48,
-		        "EDE/mCi (male)": 0.48,
-		        "EDE/mCi (mixed)": 0.48
-		    },
-		    "Tc-99m Setamibi Breast Scan": {
-		        "EDE/mCi (female)": 0.55,
-		        "EDE/mCi (male)": 0.55,
-		        "EDE/mCi (mixed)": 0.55
-		    },
-		    "Tc-99m Sulfur Colloid Aerosol": {
-		        "EDE/mCi (female)": 2.55,
-		        "EDE/mCi (male)": 2.55,
-		        "EDE/mCi (mixed)": 2.55
-		    },
-		    "Tc-99m Sulfur Colloid Liver (Cirrhosis)": {
-		        "EDE/mCi (female)": 0.8,
-		        "EDE/mCi (male)": 0.8,
-		        "EDE/mCi (mixed)": 0.8
-		    },
-		    "Tc-99m Sulfur Colloid Liver (Normal)": {
-		        "EDE/mCi (female)": 0.5,
-		        "EDE/mCi (male)": 0.5,
-		        "EDE/mCi (mixed)": 0.5
-		    },
-		    "Tc-99m White Cells": {
-		        "EDE/mCi (female)": 0.74,
-		        "EDE/mCi (male)": 0.74,
-		        "EDE/mCi (mixed)": 0.74
-		    },
-		    "Thallium-201 Cardiac Scan (Rest)": {
-		        "EDE/mCi (female)": 6.7,
-		        "EDE/mCi (male)": 6.7,
-		        "EDE/mCi (mixed)": 6.7
-		    },
-		    "Thallium-201 Cardiac Scan (Stress)": {
-		        "EDE/mCi (female)": 6,
-		        "EDE/mCi (male)": 6,
-		        "EDE/mCi (mixed)": 6
-		    },
-		    "Xenon-133 Ventilation (5 minute rebreathe)": {
-		        "EDE/mCi (female)": 0.028,
-		        "EDE/mCi (male)": 0.028,
-		        "EDE/mCi (mixed)": 0.028
-		    },
-		    "Xenon-133 Xenon Ventilation (breath hold)": {
-		        "EDE/mCi (female)": 0.0071,
-		        "EDE/mCi (male)": 0.0071,
-		        "EDE/mCi (mixed)": 0.0071
-		    }
-		},
-		"XRay": {
-		    "AP DXA Spine/Hip": {
-		        "EDE (female)": 0.02,
-		        "EDE (male)": 0.02,
-		        "EDE (mixed)": 0.02
-		    },
-		    "Abdomen X-ray": {
-		        "EDE (female)": 0.94,
-		        "EDE (male)": 0.49,
-		        "EDE (mixed)": 0.94
-		    },
-		    "Arm X-ray": {
-		        "EDE (female)": 0.03,
-		        "EDE (male)": 0.03,
-		        "EDE (mixed)": 0.03
-		    },
-		    "Barium Swallow": {
-		        "EDE (female)": 0.61,
-		        "EDE (male)": 0.36,
-		        "EDE (mixed)": 0.61
-		    },
-		    "Breast Tomosynthesis": {
-		        "EDE (female)": 0.18,
-		        "EDE (male)": 0.18,
-		        "EDE (mixed)": 0.18
-		    },
-		    "Cervical Spine X-ray": {
-		        "EDE (female)": 0.35,
-		        "EDE (male)": 0.35,
-		        "EDE (mixed)": 0.35
-		    },
-		    "Chest X-ray": {
-		        "EDE (female)": 0.21,
-		        "EDE (male)": 0.19,
-		        "EDE (mixed)": 0.21
-		    },
-		    "Cholecystogram": {
-		        "EDE (female)": 0.25,
-		        "EDE (male)": 0.25,
-		        "EDE (mixed)": 0.25
-		    },
-		    "DXA (Wrist/Ankle/Heel)": {
-		        "EDE (female)": 0.05,
-		        "EDE (male)": 0.05,
-		        "EDE (mixed)": 0.05
-		    },
-		    "DXA Distal Forearm": {
-		        "EDE (female)": 0.0001,
-		        "EDE (male)": 0.0001,
-		        "EDE (mixed)": 0.0001
-		    },
-		    "DXA Hip": {
-		        "EDE (female)": 0.0059,
-		        "EDE (male)": 0.0059,
-		        "EDE (mixed)": 0.0059
-		    },
-		    "DXA Lateral Spine": {
-		        "EDE (female)": 0.0012,
-		        "EDE (male)": 0.0012,
-		        "EDE (mixed)": 0.0012
-		    },
-		    "DXA Lumbar Spine": {
-		        "EDE (female)": 0.023,
-		        "EDE (male)": 0.0145,
-		        "EDE (mixed)": 0.023
-		    },
-		    "DXA Proximal Femur": {
-		        "EDE (female)": 0.0059,
-		        "EDE (male)": 0.0059,
-		        "EDE (mixed)": 0.0059
-		    },
-		    "DXA Total Body Composition": {
-		        "EDE (female)": 0.05,
-		        "EDE (male)": 0.04,
-		        "EDE (mixed)": 0.05
-		    },
-		    "Dental X-ray": {
-		        "EDE (female)": 0.03,
-		        "EDE (male)": 0.03,
-		        "EDE (mixed)": 0.03
-		    },
-		    "Femur X-ray": {
-		        "EDE (female)": 0.04,
-		        "EDE (male)": 0.04,
-		        "EDE (mixed)": 0.04
-		    },
-		    "Femur/Tib/Fib/Ankle Digital ": {
-		        "EDE (female)": 0.15,
-		        "EDE (male)": 0.15,
-		        "EDE (mixed)": 0.15
-		    },
-		    "Femur/Tib/Fib/Ankle Screen-Film": {
-		        "EDE (female)": 0.51,
-		        "EDE (male)": 0.51,
-		        "EDE (mixed)": 0.51
-		    },
-		    "Foot X-ray": {
-		        "EDE (female)": 0.03,
-		        "EDE (male)": 0.03,
-		        "EDE (mixed)": 0.03
-		    },
-		    "Full Spine X-ray": {
-		        "EDE (female)": 1.13,
-		        "EDE (male)": 0.62,
-		        "EDE (mixed)": 1.13
-		    },
-		    "Hand X-ray ": {
-		        "EDE (female)": 0.03,
-		        "EDE (male)": 0.03,
-		        "EDE (mixed)": 0.03
-		    },
-		    "Hip X-ray": {
-		        "EDE (female)": 0.47,
-		        "EDE (male)": 1.17,
-		        "EDE (mixed)": 1.17
-		    },
-		    "Intravenous Pyelogram": {
-		        "EDE (female)": 2.3,
-		        "EDE (male)": 1.01,
-		        "EDE (mixed)": 2.3
-		    },
-		    "Knee X-ray AP AND LAT": {
-		        "EDE (female)": 0.06,
-		        "EDE (male)": 0.06,
-		        "EDE (mixed)": 0.06
-		    },
-		    "Knee X-ray AP OR LAT": {
-		        "EDE (female)": 0.03,
-		        "EDE (male)": 0.03,
-		        "EDE (mixed)": 0.03
-		    },
-		    "Knee X-ray Bilateral AP AND LAT": {
-		        "EDE (female)": 0.12,
-		        "EDE (male)": 0.12,
-		        "EDE (mixed)": 0.12
-		    },
-		    "Lumbar Spine (LAT ONLY)": {
-		        "EDE (female)": 1.58,
-		        "EDE (male)": 1.26,
-		        "EDE (mixed)": 1.58
-		    },
-		    "Lumbar Spine X-ray": {
-		        "EDE (female)": 2.3,
-		        "EDE (male)": 1.45,
-		        "EDE (mixed)": 2.3
-		    },
-		    "Mammography (2 views)": {
-		        "EDE (female)": 0.33,
-		        "EDE (male)": 0.33,
-		        "EDE (mixed)": 0.33
-		    },
-		    "Mammography (4 views)": {
-		        "EDE (female)": 0.65,
-		        "EDE (male)": 0.65,
-		        "EDE (mixed)": 0.65
-		    },
-		    "Pelvic X-ray": {
-		        "EDE (female)": 0.85,
-		        "EDE (male)": 0.65,
-		        "EDE (mixed)": 0.85
-		    },
-		    "Rib X-ray": {
-		        "EDE (female)": 0.61,
-		        "EDE (male)": 0.36,
-		        "EDE (mixed)": 0.61
-		    },
-		    "Shoulder X-ray": {
-		        "EDE (female)": 0.18,
-		        "EDE (male)": 0.1,
-		        "EDE (mixed)": 0.18
-		    },
-		    "Skeletal Survey": {
-		        "EDE (female)": 2.63,
-		        "EDE (male)": 2.31,
-		        "EDE (mixed)": 2.63
-		    },
-		    "Skull X-ray": {
-		        "EDE (female)": 0.42,
-		        "EDE (male)": 0.42,
-		        "EDE (mixed)": 0.42
-		    },
-		    "Thoracic Spine X-ray": {
-		        "EDE (female)": 1.79,
-		        "EDE (male)": 2.34,
-		        "EDE (mixed)": 2.34
-		    },
-		    "Upper GI Study": {
-		        "EDE (female)": 0.92,
-		        "EDE (male)": 0.82,
-		        "EDE (mixed)": 0.92
-		    },
-		    "Venogram (Lower Extremity)": {
-		        "EDE (female)": 1.35,
-		        "EDE (male)": 1.35,
-		        "EDE (mixed)": 1.35
-		    }
-		},
-		"Flouro": {
-		    "Abdominal Aortogram": {
-		        "EDE (female)": 13,
-		        "EDE (male)": 13,
-		        "EDE (mixed)": 13
-		    },
-		    "Ankle/Knee Kinematics Analysis": {
-		        "EDE (female)": 0.144,
-		        "EDE (male)": 0.144,
-		        "EDE (mixed)": 0.144
-		    },
-		    "Barium Enema": {
-		        "EDE (female)": 5,
-		        "EDE (male)": 5,
-		        "EDE (mixed)": 5
-		    },
-		    "Brachial Catheter Placement/Fistulogram": {
-		        "EDE (female)": 6.6,
-		        "EDE (male)": 6.6,
-		        "EDE (mixed)": 6.6
-		    },
-		    "CT Cerebral Angiogram": {
-		        "EDE (female)": 1.4,
-		        "EDE (male)": 1.4,
-		        "EDE (mixed)": 1.4
-		    },
-		    "Cardiac Catheterization": {
-		        "EDE (female)": 4.4,
-		        "EDE (male)": 4.4,
-		        "EDE (mixed)": 4.4
-		    },
-		    "Cardiac Electrophysiology/Ablation": {
-		        "EDE (female)": 70.4,
-		        "EDE (male)": 70.4,
-		        "EDE (mixed)": 70.4
-		    },
-		    "Cardiac Electrophysiology/Defibrillator Implant": {
-		        "EDE (female)": 27.5,
-		        "EDE (male)": 27.5,
-		        "EDE (mixed)": 27.5
-		    },
-		    "Cardiac Electrophysiology/Diagnostic": {
-		        "EDE (female)": 7.05,
-		        "EDE (male)": 7.05,
-		        "EDE (mixed)": 7.05
-		    },
-		    "Cardiac Electrophysiology/Pacemaker Implant": {
-		        "EDE (female)": 9.4,
-		        "EDE (male)": 9.4,
-		        "EDE (mixed)": 9.4
-		    },
-		    "Cardiac Occluder/Stent Placement": {
-		        "EDE (female)": 16.4,
-		        "EDE (male)": 16.4,
-		        "EDE (mixed)": 16.4
-		    },
-		    "Carotid Stent Placement": {
-		        "EDE (female)": 34,
-		        "EDE (male)": 34,
-		        "EDE (mixed)": 34
-		    },
-		    "Carotid or Cerebral Angiogram": {
-		        "EDE (female)": 5.08,
-		        "EDE (male)": 5.08,
-		        "EDE (mixed)": 5.08
-		    },
-		    "Coronary Angioplasty": {
-		        "EDE (female)": 11.6,
-		        "EDE (male)": 11.6,
-		        "EDE (mixed)": 11.6
-		    },
-		    "Enteroclysis Procedure": {
-		        "EDE (female)": 21,
-		        "EDE (male)": 21,
-		        "EDE (mixed)": 21
-		    },
-		    "Femoral Arteriogram": {
-		        "EDE (female)": 15,
-		        "EDE (male)": 15,
-		        "EDE (mixed)": 15
-		    },
-		    "Femoral CT Angiogram": {
-		        "EDE (female)": 3,
-		        "EDE (male)": 3,
-		        "EDE (mixed)": 3
-		    },
-		    "Fistulogram (upper extremity)": {
-		        "EDE (female)": 3.8,
-		        "EDE (male)": 3.8,
-		        "EDE (mixed)": 3.8
-		    },
-		    "Hepatic Angioplasty": {
-		        "EDE (female)": 5,
-		        "EDE (male)": 5,
-		        "EDE (mixed)": 5
-		    },
-		    "Hysterosalpingogram": {
-		        "EDE (female)": 1.57,
-		        "EDE (male)": 1.57,
-		        "EDE (mixed)": 1.57
-		    },
-		    "Knee Positioning": {
-		        "EDE (female)": 0.07,
-		        "EDE (male)": 0.07,
-		        "EDE (mixed)": 0.07
-		    },
-		    "Lumbar Puncture (Fluoro-guided)": {
-		        "EDE (female)": 1.25,
-		        "EDE (male)": 1.25,
-		        "EDE (mixed)": 1.25
-		    },
-		    "Occipital Electrode Placement": {
-		        "EDE (female)": 0.48,
-		        "EDE (male)": 0.48,
-		        "EDE (mixed)": 0.48
-		    },
-		    "Pulmonary Angiogram": {
-		        "EDE (female)": 2.66,
-		        "EDE (male)": 2.66,
-		        "EDE (mixed)": 2.66
-		    },
-		    "Right Heart Catheterization": {
-		        "EDE (female)": 0.5,
-		        "EDE (male)": 0.5,
-		        "EDE (mixed)": 0.5
-		    },
-		    "Swallow Study (Speech Pathology)": {
-		        "EDE (female)": 0.18,
-		        "EDE (male)": 0.18,
-		        "EDE (mixed)": 0.18
-		    },
-		    "Thoracic Spine": {
-		        "EDE (female)": 5,
-		        "EDE (male)": 5,
-		        "EDE (mixed)": 5
-		    },
-		    "Trans Bronchial Biopsy (Fuoro-guided)": {
-		        "EDE (female)": 7.5,
-		        "EDE (male)": 7.5,
-		        "EDE (mixed)": 7.5
-		    },
-		    "Vertebroplasty/Kyphoplasty": {
-		        "EDE (female)": 12.8,
-		        "EDE (male)": 12.8,
-		        "EDE (mixed)": 12.8
-		    }
-		}
-	}
+{
+    "ComparisonDose": 100.0,
+    "ComparisonDoseSupportingLanguage": "This is a sample of comparison dose supporting langauge.",
+    "ConsentNarrative": "This is a sample consent narrative.",
+    "DoseData": {
+        "CT": {
+            "Abdominal CT slngle slice": {
+                "EDE (female)": 0.24,
+                "EDE (male)": 0.24,
+                "EDE (mixed)": 0.24
+            },
+            "Abdominal CT with AND without constrast": {
+                "EDE (female)": 7.8,
+                "EDE (male)": 7.8,
+                "EDE (mixed)": 7.8
+            },
+            "Abdominal CT with OR without contrast": {
+                "EDE (female)": 3.9,
+                "EDE (male)": 3.9,
+                "EDE (mixed)": 3.9
+            },
+            "Attenuation Correction with CT": {
+                "EDE (female)": 3.5,
+                "EDE (male)": 3.5,
+                "EDE (mixed)": 3.5
+            },
+            "Attenuation Correction with Sealed Source": {
+                "EDE (female)": 0.12,
+                "EDE (male)": 0.12,
+                "EDE (mixed)": 0.12
+            },
+            "Brain CT with AND without contrast": {
+                "EDE (female)": 6,
+                "EDE (male)": 6,
+                "EDE (mixed)": 6
+            },
+            "Brain CT with OR without contrast": {
+                "EDE (female)": 3,
+                "EDE (male)": 3,
+                "EDE (mixed)": 3
+            },
+            "CT coronary angiography with OR without contrast": {
+                "EDE (female)": 22,
+                "EDE (male)": 22,
+                "EDE (mixed)": 22
+            },
+            "CT femoral angiogram": {
+                "EDE (female)": 0.07,
+                "EDE (male)": 0.07,
+                "EDE (mixed)": 0.07
+            },
+            "CT femoral vein patch": {
+                "EDE (female)": 1.6,
+                "EDE (male)": 1.6,
+                "EDE (mixed)": 1.6
+            },
+            "CT-CoRegistration scan for PET/CT": {
+                "EDE (female)": 8.6,
+                "EDE (male)": 8.6,
+                "EDE (mixed)": 8.6
+            },
+            "Cardiac Calcium Score": {
+                "EDE (female)": 11,
+                "EDE (male)": 11,
+                "EDE (mixed)": 11
+            },
+            "Chest CT with AND without contrast": {
+                "EDE (female)": 10.8,
+                "EDE (male)": 10.8,
+                "EDE (mixed)": 10.8
+            },
+            "Chest CT with OR without contrast": {
+                "EDE (female)": 5.4,
+                "EDE (male)": 5.4,
+                "EDE (mixed)": 5.4
+            },
+            "Chest/Abdomen/Pelvis CT with OR without contrast": {
+                "EDE (female)": 13,
+                "EDE (male)": 13,
+                "EDE (mixed)": 13
+            },
+            "Enteroclysis Helical CT 2-phase": {
+                "EDE (female)": 32,
+                "EDE (male)": 32,
+                "EDE (mixed)": 32
+            },
+            "Guided biopsy with fluoro (low dose)": {
+                "EDE (female)": 6.1,
+                "EDE (male)": 6.1,
+                "EDE (mixed)": 6.1
+            },
+            "Guided biopsy without fluoro": {
+                "EDE (female)": 23,
+                "EDE (male)": 23,
+                "EDE (mixed)": 23
+            },
+            "Head CT  with AND without contrast": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Head CT with OR without contrast": {
+                "EDE (female)": 2.5,
+                "EDE (male)": 2.5,
+                "EDE (mixed)": 2.5
+            },
+            "Hepatobiliary CT single slice": {
+                "EDE (female)": 0.06,
+                "EDE (male)": 0.06,
+                "EDE (mixed)": 0.06
+            },
+            "High Resolution Lung CT": {
+                "EDE (female)": 5.4,
+                "EDE (male)": 5.4,
+                "EDE (mixed)": 5.4
+            },
+            "Hypervascular Liver Lesion Protocol": {
+                "EDE (female)": 17,
+                "EDE (male)": 17,
+                "EDE (mixed)": 17
+            },
+            "Hypervascular Liver Lesion Protocol (low kVp variant)": {
+                "EDE (female)": 4.8,
+                "EDE (male)": 4.8,
+                "EDE (mixed)": 4.8
+            },
+            "Knee CT": {
+                "EDE (female)": 0.02,
+                "EDE (male)": 0.02,
+                "EDE (mixed)": 0.02
+            },
+            "Lower Extremity CT (5 positions)": {
+                "EDE (female)": 0.12,
+                "EDE (male)": 0.12,
+                "EDE (mixed)": 0.12
+            },
+            "Lumbar Spine CT (Axial)": {
+                "EDE (female)": 5.9,
+                "EDE (male)": 5.9,
+                "EDE (mixed)": 5.9
+            },
+            "Lumbar Spine CT (Helical)": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Neck CT with AND without contrast": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Neck CT with OR without contrast": {
+                "EDE (female)": 2.5,
+                "EDE (male)": 2.5,
+                "EDE (mixed)": 2.5
+            },
+            "Pelvic CT with AND without contrast": {
+                "EDE (female)": 10,
+                "EDE (male)": 10,
+                "EDE (mixed)": 10
+            },
+            "Pelvic CT with OR without contrast": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Thigh CT single slice": {
+                "EDE (female)": 0.05,
+                "EDE (male)": 0.05,
+                "EDE (mixed)": 0.05
+            },
+            "Whole body CT": {
+                "EDE (female)": 8.5,
+                "EDE (male)": 8.5,
+                "EDE (mixed)": 8.5
+            }
+        },
+        "Flouro": {
+            "Abdominal Aortogram": {
+                "EDE (female)": 13,
+                "EDE (male)": 13,
+                "EDE (mixed)": 13
+            },
+            "Ankle/Knee Kinematics Analysis": {
+                "EDE (female)": 0.144,
+                "EDE (male)": 0.144,
+                "EDE (mixed)": 0.144
+            },
+            "Barium Enema": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Brachial Catheter Placement/Fistulogram": {
+                "EDE (female)": 6.6,
+                "EDE (male)": 6.6,
+                "EDE (mixed)": 6.6
+            },
+            "CT Cerebral Angiogram": {
+                "EDE (female)": 1.4,
+                "EDE (male)": 1.4,
+                "EDE (mixed)": 1.4
+            },
+            "Cardiac Catheterization": {
+                "EDE (female)": 4.4,
+                "EDE (male)": 4.4,
+                "EDE (mixed)": 4.4
+            },
+            "Cardiac Electrophysiology/Ablation": {
+                "EDE (female)": 70.4,
+                "EDE (male)": 70.4,
+                "EDE (mixed)": 70.4
+            },
+            "Cardiac Electrophysiology/Defibrillator Implant": {
+                "EDE (female)": 27.5,
+                "EDE (male)": 27.5,
+                "EDE (mixed)": 27.5
+            },
+            "Cardiac Electrophysiology/Diagnostic": {
+                "EDE (female)": 7.05,
+                "EDE (male)": 7.05,
+                "EDE (mixed)": 7.05
+            },
+            "Cardiac Electrophysiology/Pacemaker Implant": {
+                "EDE (female)": 9.4,
+                "EDE (male)": 9.4,
+                "EDE (mixed)": 9.4
+            },
+            "Cardiac Occluder/Stent Placement": {
+                "EDE (female)": 16.4,
+                "EDE (male)": 16.4,
+                "EDE (mixed)": 16.4
+            },
+            "Carotid Stent Placement": {
+                "EDE (female)": 34,
+                "EDE (male)": 34,
+                "EDE (mixed)": 34
+            },
+            "Carotid or Cerebral Angiogram": {
+                "EDE (female)": 5.08,
+                "EDE (male)": 5.08,
+                "EDE (mixed)": 5.08
+            },
+            "Coronary Angioplasty": {
+                "EDE (female)": 11.6,
+                "EDE (male)": 11.6,
+                "EDE (mixed)": 11.6
+            },
+            "Enteroclysis Procedure": {
+                "EDE (female)": 21,
+                "EDE (male)": 21,
+                "EDE (mixed)": 21
+            },
+            "Femoral Arteriogram": {
+                "EDE (female)": 15,
+                "EDE (male)": 15,
+                "EDE (mixed)": 15
+            },
+            "Femoral CT Angiogram": {
+                "EDE (female)": 3,
+                "EDE (male)": 3,
+                "EDE (mixed)": 3
+            },
+            "Fistulogram (upper extremity)": {
+                "EDE (female)": 3.8,
+                "EDE (male)": 3.8,
+                "EDE (mixed)": 3.8
+            },
+            "Hepatic Angioplasty": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Hysterosalpingogram": {
+                "EDE (female)": 1.57,
+                "EDE (male)": 1.57,
+                "EDE (mixed)": 1.57
+            },
+            "Knee Positioning": {
+                "EDE (female)": 0.07,
+                "EDE (male)": 0.07,
+                "EDE (mixed)": 0.07
+            },
+            "Lumbar Puncture (Fluoro-guided)": {
+                "EDE (female)": 1.25,
+                "EDE (male)": 1.25,
+                "EDE (mixed)": 1.25
+            },
+            "Occipital Electrode Placement": {
+                "EDE (female)": 0.48,
+                "EDE (male)": 0.48,
+                "EDE (mixed)": 0.48
+            },
+            "Pulmonary Angiogram": {
+                "EDE (female)": 2.66,
+                "EDE (male)": 2.66,
+                "EDE (mixed)": 2.66
+            },
+            "Right Heart Catheterization": {
+                "EDE (female)": 0.5,
+                "EDE (male)": 0.5,
+                "EDE (mixed)": 0.5
+            },
+            "Swallow Study (Speech Pathology)": {
+                "EDE (female)": 0.18,
+                "EDE (male)": 0.18,
+                "EDE (mixed)": 0.18
+            },
+            "Thoracic Spine": {
+                "EDE (female)": 5,
+                "EDE (male)": 5,
+                "EDE (mixed)": 5
+            },
+            "Trans Bronchial Biopsy (Fuoro-guided)": {
+                "EDE (female)": 7.5,
+                "EDE (male)": 7.5,
+                "EDE (mixed)": 7.5
+            },
+            "Vertebroplasty/Kyphoplasty": {
+                "EDE (female)": 12.8,
+                "EDE (male)": 12.8,
+                "EDE (mixed)": 12.8
+            }
+        },
+        "NM": {
+            "C-11 Carbon Monoxide": {
+                "EDE/mCi (female)": 0.24,
+                "EDE/mCi (male)": 0.24,
+                "EDE/mCi (mixed)": 0.24
+            },
+            "C-11 Nicotine (IV)": {
+                "EDE/mCi (female)": 0.148,
+                "EDE/mCi (male)": 0.148,
+                "EDE/mCi (mixed)": 0.148
+            },
+            "C-11 Nicotine Inhalation": {
+                "EDE/mCi (female)": 0.32,
+                "EDE/mCi (male)": 0.32,
+                "EDE/mCi (mixed)": 0.32
+            },
+            "Cu-62 ATSM": {
+                "EDE/mCi (female)": 0.11,
+                "EDE/mCi (male)": 0.11,
+                "EDE/mCi (mixed)": 0.11
+            },
+            "F-18 FDG PET Scan": {
+                "EDE/mCi (female)": 1.1,
+                "EDE/mCi (male)": 1.1,
+                "EDE/mCi (mixed)": 1.1
+            },
+            "F-18 Fluoro L-Dopa PET Scan": {
+                "EDE/mCi (female)": 2,
+                "EDE/mCi (male)": 2,
+                "EDE/mCi (mixed)": 2
+            },
+            "F-18 Fluorothymidine (FLT) PET Scan": {
+                "EDE/mCi (female)": 1.17,
+                "EDE/mCi (male)": 1.17,
+                "EDE/mCi (mixed)": 1.17
+            },
+            "F-18 PET/CT (Select appropriate CT from CT Studies)": {
+                "EDE/mCi (female)": 1.1,
+                "EDE/mCi (male)": 1.1,
+                "EDE/mCi (mixed)": 1.1
+            },
+            "F-18 Sodium Fluoride PET Scan": {
+                "EDE/mCi (female)": 0.95,
+                "EDE/mCi (male)": 0.95,
+                "EDE/mCi (mixed)": 0.95
+            },
+            "F-18 Thiapalmitate PET Scan": {
+                "EDE/mCi (female)": 0.705,
+                "EDE/mCi (male)": 0.705,
+                "EDE/mCi (mixed)": 0.705
+            },
+            "Ga-67 Gallium Citrate Scan": {
+                "EDE/mCi (female)": 4.1,
+                "EDE/mCi (male)": 4.1,
+                "EDE/mCi (mixed)": 4.1
+            },
+            "I-123 Altropane (IACFT) Brain Scan": {
+                "EDE/mCi (female)": 1.4,
+                "EDE/mCi (male)": 1.4,
+                "EDE/mCi (mixed)": 1.4
+            },
+            "I-123 Beta-CIT Brain": {
+                "EDE/mCi (female)": 1.3,
+                "EDE/mCi (male)": 1.3,
+                "EDE/mCi (mixed)": 1.3
+            },
+            "I-123 HSA Brain (IntraCerebral Infusion)": {
+                "EDE/mCi (female)": 0.9,
+                "EDE/mCi (male)": 0.9,
+                "EDE/mCi (mixed)": 0.9
+            },
+            "I-123 Hippuran Renal": {
+                "EDE/mCi (female)": 0.88,
+                "EDE/mCi (male)": 0.88,
+                "EDE/mCi (mixed)": 0.88
+            },
+            "I-123 MIBG": {
+                "EDE/mCi (female)": 0.71,
+                "EDE/mCi (male)": 0.71,
+                "EDE/mCi (mixed)": 0.71
+            },
+            "I-123 Sodium Iodide": {
+                "EDE/mCi (female)": 4.5,
+                "EDE/mCi (male)": 4.5,
+                "EDE/mCi (mixed)": 4.5
+            },
+            "I-123 Thyroid": {
+                "EDE/mCi (female)": 4.5,
+                "EDE/mCi (male)": 4.5,
+                "EDE/mCi (mixed)": 4.5
+            },
+            "I-125 Sodium Iodide": {
+                "EDE/mCi (female)": 120,
+                "EDE/mCi (male)": 120,
+                "EDE/mCi (mixed)": 120
+            },
+            "I-131 MIBG": {
+                "EDE/mCi (female)": 7.8,
+                "EDE/mCi (male)": 7.8,
+                "EDE/mCi (mixed)": 7.8
+            },
+            "I-131 Sodium Iodide Thyroid Scan": {
+                "EDE/mCi (female)": 390,
+                "EDE/mCi (male)": 390,
+                "EDE/mCi (mixed)": 390
+            },
+            "In-111 Capromab Pendetide (Prostascint Scan)": {
+                "EDE/mCi (female)": 10.7,
+                "EDE/mCi (male)": 10.7,
+                "EDE/mCi (mixed)": 10.7
+            },
+            "In-111 DTPA CSF Flow (Cisternography)": {
+                "EDE/mCi (female)": 3.1,
+                "EDE/mCi (male)": 3.1,
+                "EDE/mCi (mixed)": 3.1
+            },
+            "In-111 Dendritic Cells (Brain Tumor)": {
+                "EDE/mCi (female)": 11,
+                "EDE/mCi (male)": 11,
+                "EDE/mCi (mixed)": 11
+            },
+            "In-111 Platelet Scan": {
+                "EDE/mCi (female)": 7.5,
+                "EDE/mCi (male)": 7.5,
+                "EDE/mCi (mixed)": 7.5
+            },
+            "In-111 White Cell Scan": {
+                "EDE/mCi (female)": 24,
+                "EDE/mCi (male)": 24,
+                "EDE/mCi (mixed)": 24
+            },
+            "N-13 Ammonia PET Perfusion Scan": {
+                "EDE/mCi (female)": 0.083,
+                "EDE/mCi (male)": 0.083,
+                "EDE/mCi (mixed)": 0.083
+            },
+            "O-15 Bolus Water PET Scan": {
+                "EDE/mCi (female)": 0.042,
+                "EDE/mCi (male)": 0.042,
+                "EDE/mCi (mixed)": 0.042
+            },
+            "O-15 Continuous Inhalation PET Scan": {
+                "EDE/mCi (female)": 0.041,
+                "EDE/mCi (male)": 0.041,
+                "EDE/mCi (mixed)": 0.041
+            },
+            "O-15 Water 3-D PET Acquisition": {
+                "EDE/mCi (female)": 0.042,
+                "EDE/mCi (male)": 0.042,
+                "EDE/mCi (mixed)": 0.042
+            },
+            "P-32 Sodium Phosphate": {
+                "EDE/mCi (female)": 45,
+                "EDE/mCi (male)": 45,
+                "EDE/mCi (mixed)": 45
+            },
+            "Rb-82 Rubidium Cloride Perfusion PET Scan": {
+                "EDE/mCi (female)": 0.043,
+                "EDE/mCi (male)": 0.043,
+                "EDE/mCi (mixed)": 0.043
+            },
+            "Tc-99m Apomate": {
+                "EDE/mCi (female)": 0.356,
+                "EDE/mCi (male)": 0.356,
+                "EDE/mCi (mixed)": 0.356
+            },
+            "Tc-99m DMSA Renal Scan": {
+                "EDE/mCi (female)": 0.6,
+                "EDE/mCi (male)": 0.6,
+                "EDE/mCi (mixed)": 0.6
+            },
+            "Tc-99m DTPA Aerosol Ventilation": {
+                "EDE/mCi (female)": 0.22,
+                "EDE/mCi (male)": 0.22,
+                "EDE/mCi (mixed)": 0.22
+            },
+            "Tc-99m DTPA Injection": {
+                "EDE/mCi (female)": 0.3,
+                "EDE/mCi (male)": 0.3,
+                "EDE/mCi (mixed)": 0.3
+            },
+            "Tc-99m Gastic Emptying Scan": {
+                "EDE/mCi (female)": 0.93,
+                "EDE/mCi (male)": 0.93,
+                "EDE/mCi (mixed)": 0.93
+            },
+            "Tc-99m Glucoheptonate Renal Scan": {
+                "EDE/mCi (female)": 0.38,
+                "EDE/mCi (male)": 0.38,
+                "EDE/mCi (mixed)": 0.38
+            },
+            "Tc-99m HMPAO Brain Perfusion": {
+                "EDE/mCi (female)": 0.5,
+                "EDE/mCi (male)": 0.5,
+                "EDE/mCi (mixed)": 0.5
+            },
+            "Tc-99m Hepatobiliary (Gallbladder/Biliary)": {
+                "EDE/mCi (female)": 0.93,
+                "EDE/mCi (male)": 0.93,
+                "EDE/mCi (mixed)": 0.93
+            },
+            "Tc-99m Human Serum Albumin": {
+                "EDE/mCi (female)": 0.29,
+                "EDE/mCi (male)": 0.29,
+                "EDE/mCi (mixed)": 0.29
+            },
+            "Tc-99m MAA (Lung Perfusion Scan)": {
+                "EDE/mCi (female)": 0.47,
+                "EDE/mCi (male)": 0.47,
+                "EDE/mCi (mixed)": 0.47
+            },
+            "Tc-99m MAG (3) Renal Scan": {
+                "EDE/mCi (female)": 0.44,
+                "EDE/mCi (male)": 0.44,
+                "EDE/mCi (mixed)": 0.44
+            },
+            "Tc-99m MDP Bone Scan": {
+                "EDE/mCi (female)": 0.22,
+                "EDE/mCi (male)": 0.22,
+                "EDE/mCi (mixed)": 0.22
+            },
+            "Tc-99m MUGA (Tagged Red Blood Cells)": {
+                "EDE/mCi (female)": 0.27,
+                "EDE/mCi (male)": 0.27,
+                "EDE/mCi (mixed)": 0.27
+            },
+            "Tc-99m NC100697 Brain Scan": {
+                "EDE/mCi (female)": 0.5,
+                "EDE/mCi (male)": 0.5,
+                "EDE/mCi (mixed)": 0.5
+            },
+            "Tc-99m Pertechnate Thyroid Scan": {
+                "EDE/mCi (female)": 0.39,
+                "EDE/mCi (male)": 0.39,
+                "EDE/mCi (mixed)": 0.39
+            },
+            "Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Lung)": {
+                "EDE/mCi (female)": 1.2,
+                "EDE/mCi (male)": 1.2,
+                "EDE/mCi (mixed)": 1.2
+            },
+            "Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Melanoma)": {
+                "EDE/mCi (female)": 1.2,
+                "EDE/mCi (male)": 1.2,
+                "EDE/mCi (mixed)": 1.2
+            },
+            "Tc-99m Sestamibi Cardiac Scan (Rest)": {
+                "EDE/mCi (female)": 0.55,
+                "EDE/mCi (male)": 0.55,
+                "EDE/mCi (mixed)": 0.55
+            },
+            "Tc-99m Sestamibi Cardiac Scan (Stress)": {
+                "EDE/mCi (female)": 0.48,
+                "EDE/mCi (male)": 0.48,
+                "EDE/mCi (mixed)": 0.48
+            },
+            "Tc-99m Setamibi Breast Scan": {
+                "EDE/mCi (female)": 0.55,
+                "EDE/mCi (male)": 0.55,
+                "EDE/mCi (mixed)": 0.55
+            },
+            "Tc-99m Sulfur Colloid Aerosol": {
+                "EDE/mCi (female)": 2.55,
+                "EDE/mCi (male)": 2.55,
+                "EDE/mCi (mixed)": 2.55
+            },
+            "Tc-99m Sulfur Colloid Liver (Cirrhosis)": {
+                "EDE/mCi (female)": 0.8,
+                "EDE/mCi (male)": 0.8,
+                "EDE/mCi (mixed)": 0.8
+            },
+            "Tc-99m Sulfur Colloid Liver (Normal)": {
+                "EDE/mCi (female)": 0.5,
+                "EDE/mCi (male)": 0.5,
+                "EDE/mCi (mixed)": 0.5
+            },
+            "Tc-99m White Cells": {
+                "EDE/mCi (female)": 0.74,
+                "EDE/mCi (male)": 0.74,
+                "EDE/mCi (mixed)": 0.74
+            },
+            "Thallium-201 Cardiac Scan (Rest)": {
+                "EDE/mCi (female)": 6.7,
+                "EDE/mCi (male)": 6.7,
+                "EDE/mCi (mixed)": 6.7
+            },
+            "Thallium-201 Cardiac Scan (Stress)": {
+                "EDE/mCi (female)": 6,
+                "EDE/mCi (male)": 6,
+                "EDE/mCi (mixed)": 6
+            },
+            "Xenon-133 Ventilation (5 minute rebreathe)": {
+                "EDE/mCi (female)": 0.028,
+                "EDE/mCi (male)": 0.028,
+                "EDE/mCi (mixed)": 0.028
+            },
+            "Xenon-133 Xenon Ventilation (breath hold)": {
+                "EDE/mCi (female)": 0.0071,
+                "EDE/mCi (male)": 0.0071,
+                "EDE/mCi (mixed)": 0.0071
+            }
+        },
+        "XRay": [
+            {
+                "AP DXA Spine/Hip": {
+                    "EDE (female)": 0.02,
+                    "EDE (male)": 0.02,
+                    "EDE (mixed)": 0.02
+                }
+            },
+            {
+                "Abdomen X-ray": {
+                    "EDE (female)": 0.94,
+                    "EDE (male)": 0.49,
+                    "EDE (mixed)": 0.94
+                }
+            },
+            {
+                "Arm X-ray": {
+                    "EDE (female)": 0.03,
+                    "EDE (male)": 0.03,
+                    "EDE (mixed)": 0.03
+                }
+            },
+            {
+                "Barium Swallow": {
+                    "EDE (female)": 0.61,
+                    "EDE (male)": 0.36,
+                    "EDE (mixed)": 0.61
+                }
+            },
+            {
+                "Breast Tomosynthesis": {
+                    "EDE (female)": 0.18,
+                    "EDE (male)": 0.18,
+                    "EDE (mixed)": 0.18
+                }
+            },
+            {
+                "Cervical Spine X-ray": {
+                    "EDE (female)": 0.35,
+                    "EDE (male)": 0.35,
+                    "EDE (mixed)": 0.35
+                }
+            },
+            {
+                "Chest X-ray": {
+                    "EDE (female)": 0.21,
+                    "EDE (male)": 0.19,
+                    "EDE (mixed)": 0.21
+                }
+            },
+            {
+                "Cholecystogram": {
+                    "EDE (female)": 0.25,
+                    "EDE (male)": 0.25,
+                    "EDE (mixed)": 0.25
+                }
+            },
+            {
+                "DXA (Wrist/Ankle/Heel)": {
+                    "EDE (female)": 0.05,
+                    "EDE (male)": 0.05,
+                    "EDE (mixed)": 0.05
+                }
+            },
+            {
+                "DXA Distal Forearm": {
+                    "EDE (female)": 0.0001,
+                    "EDE (male)": 0.0001,
+                    "EDE (mixed)": 0.0001
+                }
+            },
+            {
+                "DXA Hip": {
+                    "EDE (female)": 0.0059,
+                    "EDE (male)": 0.0059,
+                    "EDE (mixed)": 0.0059
+                }
+            },
+            {
+                "DXA Lateral Spine": {
+                    "EDE (female)": 0.0012,
+                    "EDE (male)": 0.0012,
+                    "EDE (mixed)": 0.0012
+                }
+            },
+            {
+                "DXA Lumbar Spine": {
+                    "EDE (female)": 0.023,
+                    "EDE (male)": 0.0145,
+                    "EDE (mixed)": 0.023
+                }
+            },
+            {
+                "DXA Proximal Femur": {
+                    "EDE (female)": 0.0059,
+                    "EDE (male)": 0.0059,
+                    "EDE (mixed)": 0.0059
+                }
+            },
+            {
+                "DXA Total Body Composition": {
+                    "EDE (female)": 0.05,
+                    "EDE (male)": 0.04,
+                    "EDE (mixed)": 0.05
+                }
+            },
+            {
+                "Dental X-ray": {
+                    "EDE (female)": 0.03,
+                    "EDE (male)": 0.03,
+                    "EDE (mixed)": 0.03
+                }
+            },
+            {
+                "Femur X-ray": {
+                    "EDE (female)": 0.04,
+                    "EDE (male)": 0.04,
+                    "EDE (mixed)": 0.04
+                }
+            },
+            {
+                "Femur/Tib/Fib/Ankle Digital ": {
+                    "EDE (female)": 0.15,
+                    "EDE (male)": 0.15,
+                    "EDE (mixed)": 0.15
+                }
+            },
+            {
+                "Femur/Tib/Fib/Ankle Screen-Film": {
+                    "EDE (female)": 0.51,
+                    "EDE (male)": 0.51,
+                    "EDE (mixed)": 0.51
+                }
+            },
+            {
+                "Foot X-ray": {
+                    "EDE (female)": 0.03,
+                    "EDE (male)": 0.03,
+                    "EDE (mixed)": 0.03
+                }
+            },
+            {
+                "Full Spine X-ray": {
+                    "EDE (female)": 1.13,
+                    "EDE (male)": 0.62,
+                    "EDE (mixed)": 1.13
+                }
+            },
+            {
+                "Hand X-ray ": {
+                    "EDE (female)": 0.03,
+                    "EDE (male)": 0.03,
+                    "EDE (mixed)": 0.03
+                }
+            },
+            {
+                "Hip X-ray": {
+                    "EDE (female)": 0.47,
+                    "EDE (male)": 1.17,
+                    "EDE (mixed)": 1.17
+                }
+            },
+            {
+                "Intravenous Pyelogram": {
+                    "EDE (female)": 2.3,
+                    "EDE (male)": 1.01,
+                    "EDE (mixed)": 2.3
+                }
+            },
+            {
+                "Knee X-ray AP AND LAT": {
+                    "EDE (female)": 0.06,
+                    "EDE (male)": 0.06,
+                    "EDE (mixed)": 0.06
+                }
+            },
+            {
+                "Knee X-ray AP OR LAT": {
+                    "EDE (female)": 0.03,
+                    "EDE (male)": 0.03,
+                    "EDE (mixed)": 0.03
+                }
+            },
+            {
+                "Knee X-ray Bilateral AP AND LAT": {
+                    "EDE (female)": 0.12,
+                    "EDE (male)": 0.12,
+                    "EDE (mixed)": 0.12
+                }
+            },
+            {
+                "Lumbar Spine (LAT ONLY)": {
+                    "EDE (female)": 1.58,
+                    "EDE (male)": 1.26,
+                    "EDE (mixed)": 1.58
+                }
+            },
+            {
+                "Lumbar Spine X-ray": {
+                    "EDE (female)": 2.3,
+                    "EDE (male)": 1.45,
+                    "EDE (mixed)": 2.3
+                }
+            },
+            {
+                "Mammography (2 views)": {
+                    "EDE (female)": 0.33,
+                    "EDE (male)": 0.33,
+                    "EDE (mixed)": 0.33
+                }
+            },
+            {
+                "Mammography (4 views)": {
+                    "EDE (female)": 0.65,
+                    "EDE (male)": 0.65,
+                    "EDE (mixed)": 0.65
+                }
+            },
+            {
+                "Pelvic X-ray": {
+                    "EDE (female)": 0.85,
+                    "EDE (male)": 0.65,
+                    "EDE (mixed)": 0.85
+                }
+            },
+            {
+                "Rib X-ray": {
+                    "EDE (female)": 0.61,
+                    "EDE (male)": 0.36,
+                    "EDE (mixed)": 0.61
+                }
+            },
+            {
+                "Shoulder X-ray": {
+                    "EDE (female)": 0.18,
+                    "EDE (male)": 0.1,
+                    "EDE (mixed)": 0.18
+                }
+            },
+            {
+                "Skeletal Survey": {
+                    "EDE (female)": 2.63,
+                    "EDE (male)": 2.31,
+                    "EDE (mixed)": 2.63
+                }
+            },
+            {
+                "Skull X-ray": {
+                    "EDE (female)": 0.42,
+                    "EDE (male)": 0.42,
+                    "EDE (mixed)": 0.42
+                }
+            },
+            {
+                "Thoracic Spine X-ray": {
+                    "EDE (female)": 1.79,
+                    "EDE (male)": 2.34,
+                    "EDE (mixed)": 2.34
+                }
+            },
+            {
+                "Upper GI Study": {
+                    "EDE (female)": 0.92,
+                    "EDE (male)": 0.82,
+                    "EDE (mixed)": 0.92
+                }
+            },
+            {
+                "Venogram (Lower Extremity)": {
+                    "EDE (female)": 1.35,
+                    "EDE (male)": 1.35,
+                    "EDE (mixed)": 1.35
+                }
+            }
+        ]
+    }
 }

@@ -25,6 +25,14 @@ app.get("/js/data.json", function(req,res){
     res.sendFile(root + "js/data.json");
 });
 
+app.get("/js/controllers.js", function(req,res){
+    res.sendFile(root + "js/controllers.js");
+});
+
+app.get("/js/services.js", function(req,res){
+    res.sendFile(root + "js/services.js");
+});
+
 var server = app.listen(3000, function () {
 
   var host = server.address().address;

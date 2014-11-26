@@ -1,7 +1,9 @@
 ---
 test:
   override:
+    - "pwd"
     - "cd node"
+    - "pwd"
     - "npm install"
     - "cd .."
     - "make test"

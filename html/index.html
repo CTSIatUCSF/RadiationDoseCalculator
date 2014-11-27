@@ -26,9 +26,8 @@
                     <td class="text-center vert-align study-number">{{exam.study_num}}</td>
                     <td>
                         <select class="form-control" ng-model="exam.exam">
-                            <option value="" default>Exam type 1</option>
-                            <option value="">Exam type 2</option>
-                            <option value="">Exam type 3</option>
+                            <option value="" disabled selected>Please select procedure...</option>
+                            <option value="{{examInfo.name}}" ng-repeat="examInfo in getAllProcedures(form.id)">{{examInfo.name}}</option>
                         </select>
                     </td>
                     <td><input class="form-control" type="number" ng-model="exam.scans" /></td>
@@ -38,19 +37,21 @@
                     </td>
                     <td>
                         <select class="form-control" ng-model="exam.gender">
-                            <option value="0" default>Female</option>
-                            <option value="1">Male</option>
+                            <option value="mixed" selected>None</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
                         </select>
                     </td>
-                    <td><input class="form-control" type="number" ng-model="exam.ede" /></td>
+                    <td><input class="form-control" type="number" ng-model="exam.ede"
+                        value="{{calculatedEDE(form, exam)}}" /></td>
                 </tr>
             </table>
             </div>
             <!--<button ng-click="submit(form)">Submit</button>-->
         </form>
 
-        <div>NARRATIVE:</div>
-        <div>{{narrative}}</div>
+<!--         <div>NARRATIVE:</div>
+        <div>{{narrative}}</div> -->
     </div>
 
 

@@ -1,0 +1,35 @@
+div.exam-table-title {
+    color:#ffffff;
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 5px 10px 5px 10px;
+    background-color: #308EB3;
+    display: inline-block;
+}
+
+div.data-entry-tables-wrapper {
+    margin-left:40px;
+    margin-right:40px;
+}
+
+div.data-entry-table {
+    margin-bottom:50px;
+}
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
+
+.table tbody>tr>td.study-number {
+    font-size:1.2em;
+    font-weight:bold;
+}
+
+.table tbody>tr>td.soe-label {
+    padding-left:20px;
+}
+
+.table tbody>tr>th.exam-headers {
+    border-top:0;
+}

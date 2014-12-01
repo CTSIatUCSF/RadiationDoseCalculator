@@ -1,0 +1,3267 @@
+{
+    "ConsentNarrative":"This is a sample consent narrative.",
+    "ComparisonDoseSupportingLanguage":"This is a sample of comparison dose supporting langauge.",
+    "ComparisonDose":100,
+    "DoseData":[
+        {
+            "name":"CT",
+            "exams":[
+                {
+                    "name":"Abdominal CT slngle slice",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.24
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.24
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.24
+                        }
+                    ]
+                },
+                {
+                    "name":"Abdominal CT with AND without constrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":7.8
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":7.8
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":7.8
+                        }
+                    ]
+                },
+                {
+                    "name":"Abdominal CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":3.9
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":3.9
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":3.9
+                        }
+                    ]
+                },
+                {
+                    "name":"Attenuation Correction with CT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":3.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":3.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":3.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Attenuation Correction with Sealed Source",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.12
+                        }
+                    ]
+                },
+                {
+                    "name":"Brain CT with AND without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":6
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":6
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":6
+                        }
+                    ]
+                },
+                {
+                    "name":"Brain CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":3
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":3
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":3
+                        }
+                    ]
+                },
+                {
+                    "name":"CT coronary angiography with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":22
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":22
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":22
+                        }
+                    ]
+                },
+                {
+                    "name":"CT femoral angiogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.07
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.07
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.07
+                        }
+                    ]
+                },
+                {
+                    "name":"CT femoral vein patch",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.6
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.6
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.6
+                        }
+                    ]
+                },
+                {
+                    "name":"CT-CoRegistration scan for PET/CT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":8.6
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":8.6
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":8.6
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Calcium Score",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":11
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":11
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":11
+                        }
+                    ]
+                },
+                {
+                    "name":"Chest CT with AND without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":10.8
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":10.8
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":10.8
+                        }
+                    ]
+                },
+                {
+                    "name":"Chest CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Chest/Abdomen/Pelvis CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":13
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":13
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":13
+                        }
+                    ]
+                },
+                {
+                    "name":"Enteroclysis Helical CT 2-phase",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":32
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":32
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":32
+                        }
+                    ]
+                },
+                {
+                    "name":"Guided biopsy with fluoro (low dose)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":6.1
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":6.1
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":6.1
+                        }
+                    ]
+                },
+                {
+                    "name":"Guided biopsy without fluoro",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":23
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":23
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":23
+                        }
+                    ]
+                },
+                {
+                    "name":"Head CT with AND without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Head CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":2.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Hepatobiliary CT single slice",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.06
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.06
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.06
+                        }
+                    ]
+                },
+                {
+                    "name":"High Resolution Lung CT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Hypervascular Liver Lesion Protocol",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":17
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":17
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":17
+                        }
+                    ]
+                },
+                {
+                    "name":"Hypervascular Liver Lesion Protocol (low kVp variant)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":4.8
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":4.8
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":4.8
+                        }
+                    ]
+                },
+                {
+                    "name":"Knee CT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.02
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.02
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.02
+                        }
+                    ]
+                },
+                {
+                    "name":"Lower Extremity CT (5 positions)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.12
+                        }
+                    ]
+                },
+                {
+                    "name":"Lumbar Spine CT (Axial)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5.9
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5.9
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5.9
+                        }
+                    ]
+                },
+                {
+                    "name":"Lumbar Spine CT (Helical)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Neck CT with AND without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Neck CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":2.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Pelvic CT with AND without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":10
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":10
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":10
+                        }
+                    ]
+                },
+                {
+                    "name":"Pelvic CT with OR without contrast",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Thigh CT single slice",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.05
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.05
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.05
+                        }
+                    ]
+                },
+                {
+                    "name":"Whole body CT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":8.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":8.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":8.5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"NM",
+            "exams":[
+                {
+                    "name":"C-11 Carbon Monoxide",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.24
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.24
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.24
+                        }
+                    ]
+                },
+                {
+                    "name":"C-11 Nicotine (IV)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.148
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.148
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.148
+                        }
+                    ]
+                },
+                {
+                    "name":"C-11 Nicotine Inhalation",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.32
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.32
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.32
+                        }
+                    ]
+                },
+                {
+                    "name":"Cu-62 ATSM",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.11
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.11
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.11
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 FDG PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.1
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.1
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.1
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 Fluoro L-Dopa PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":2
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":2
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":2
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 Fluorothymidine (FLT) PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.17
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.17
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.17
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 PET/CT (Select appropriate CT from CT Studies)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.1
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.1
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.1
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 Sodium Fluoride PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.95
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.95
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.95
+                        }
+                    ]
+                },
+                {
+                    "name":"F-18 Thiapalmitate PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.705
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.705
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.705
+                        }
+                    ]
+                },
+                {
+                    "name":"Ga-67 Gallium Citrate Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":4.1
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":4.1
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":4.1
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 Altropane (IACFT) Brain Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.4
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.4
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.4
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 Beta-CIT Brain",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.3
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.3
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.3
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 HSA Brain (IntraCerebral Infusion)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.9
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.9
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.9
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 Hippuran Renal",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.88
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.88
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.88
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 MIBG",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.71
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.71
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.71
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 Sodium Iodide",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":4.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":4.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":4.5
+                        }
+                    ]
+                },
+                {
+                    "name":"I-123 Thyroid",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":4.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":4.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":4.5
+                        }
+                    ]
+                },
+                {
+                    "name":"I-125 Sodium Iodide",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":120
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":120
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":120
+                        }
+                    ]
+                },
+                {
+                    "name":"I-131 MIBG",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":7.8
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":7.8
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":7.8
+                        }
+                    ]
+                },
+                {
+                    "name":"I-131 Sodium Iodide Thyroid Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":390
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":390
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":390
+                        }
+                    ]
+                },
+                {
+                    "name":"In-111 Capromab Pendetide (Prostascint Scan)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":10.7
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":10.7
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":10.7
+                        }
+                    ]
+                },
+                {
+                    "name":"In-111 DTPA CSF Flow (Cisternography)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":3.1
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":3.1
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":3.1
+                        }
+                    ]
+                },
+                {
+                    "name":"In-111 Dendritic Cells (Brain Tumor)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":11
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":11
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":11
+                        }
+                    ]
+                },
+                {
+                    "name":"In-111 Platelet Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":7.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":7.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":7.5
+                        }
+                    ]
+                },
+                {
+                    "name":"In-111 White Cell Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":24
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":24
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":24
+                        }
+                    ]
+                },
+                {
+                    "name":"N-13 Ammonia PET Perfusion Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.083
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.083
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.083
+                        }
+                    ]
+                },
+                {
+                    "name":"O-15 Bolus Water PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.042
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.042
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.042
+                        }
+                    ]
+                },
+                {
+                    "name":"O-15 Continuous Inhalation PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.041
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.041
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.041
+                        }
+                    ]
+                },
+                {
+                    "name":"O-15 Water 3-D PET Acquisition",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.042
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.042
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.042
+                        }
+                    ]
+                },
+                {
+                    "name":"P-32 Sodium Phosphate",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":45
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":45
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":45
+                        }
+                    ]
+                },
+                {
+                    "name":"Rb-82 Rubidium Cloride Perfusion PET Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.043
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.043
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.043
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Apomate",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.356
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.356
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.356
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m DMSA Renal Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.6
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.6
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.6
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m DTPA Aerosol Ventilation",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.22
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.22
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.22
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m DTPA Injection",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.3
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.3
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.3
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Gastic Emptying Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.93
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.93
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.93
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Glucoheptonate Renal Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.38
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.38
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.38
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m HMPAO Brain Perfusion",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Hepatobiliary (Gallbladder/Biliary)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.93
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.93
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.93
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Human Serum Albumin",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.29
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.29
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.29
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m MAA (Lung Perfusion Scan)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.47
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.47
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.47
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m MAG (3) Renal Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.44
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.44
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.44
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m MDP Bone Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.22
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.22
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.22
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m MUGA (Tagged Red Blood Cells)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.27
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.27
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.27
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m NC100697 Brain Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Pertechnate Thyroid Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.39
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.39
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.39
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Lung)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.2
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.2
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.2
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Melanoma)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":1.2
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":1.2
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":1.2
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sestamibi Cardiac Scan (Rest)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.55
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.55
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.55
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sestamibi Cardiac Scan (Stress)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.48
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.48
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.48
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Setamibi Breast Scan",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.55
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.55
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.55
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sulfur Colloid Aerosol",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":2.55
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":2.55
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":2.55
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sulfur Colloid Liver (Cirrhosis)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.8
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.8
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.8
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m Sulfur Colloid Liver (Normal)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Tc-99m White Cells",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.74
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.74
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.74
+                        }
+                    ]
+                },
+                {
+                    "name":"Thallium-201 Cardiac Scan (Rest)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":6.7
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":6.7
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":6.7
+                        }
+                    ]
+                },
+                {
+                    "name":"Thallium-201 Cardiac Scan (Stress)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":6
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":6
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":6
+                        }
+                    ]
+                },
+                {
+                    "name":"Xenon-133 Ventilation (5 minute rebreathe)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.028
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.028
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.028
+                        }
+                    ]
+                },
+                {
+                    "name":"Xenon-133 Xenon Ventilation (breath hold)",
+                    "properties":[
+                        {
+                            "name":"EDE/mCi (female)",
+                            "gender":"female",
+                            "value":0.0071
+                        },
+                        {
+                            "name":"EDE/mCi (male)",
+                            "gender":"male",
+                            "value":0.0071
+                        },
+                        {
+                            "name":"EDE/mCi (mixed)",
+                            "gender":"mixed",
+                            "value":0.0071
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"XRay",
+            "exams":[
+                {
+                    "name":"AP DXA Spine/Hip",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.02
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.02
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.02
+                        }
+                    ]
+                },
+                {
+                    "name":"Abdomen X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.94
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.49
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.94
+                        }
+                    ]
+                },
+                {
+                    "name":"Arm X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.03
+                        }
+                    ]
+                },
+                {
+                    "name":"Barium Swallow",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.61
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.36
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.61
+                        }
+                    ]
+                },
+                {
+                    "name":"Breast Tomosynthesis",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.18
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.18
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.18
+                        }
+                    ]
+                },
+                {
+                    "name":"Cervical Spine X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.35
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.35
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.35
+                        }
+                    ]
+                },
+                {
+                    "name":"Chest X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.21
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.19
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.21
+                        }
+                    ]
+                },
+                {
+                    "name":"Cholecystogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.25
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.25
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.25
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA (Wrist/Ankle/Heel)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.05
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.05
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.05
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Distal Forearm",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.0001
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.0001
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.0001
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Hip",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.0059
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.0059
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.0059
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Lateral Spine",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.0012
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.0012
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.0012
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Lumbar Spine",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.023
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.0145
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.023
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Proximal Femur",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.0059
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.0059
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.0059
+                        }
+                    ]
+                },
+                {
+                    "name":"DXA Total Body Composition",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.05
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.04
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.05
+                        }
+                    ]
+                },
+                {
+                    "name":"Dental X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.03
+                        }
+                    ]
+                },
+                {
+                    "name":"Femur X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.04
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.04
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.04
+                        }
+                    ]
+                },
+                {
+                    "name":"Femur/Tib/Fib/Ankle Digital ",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.15
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.15
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.15
+                        }
+                    ]
+                },
+                {
+                    "name":"Femur/Tib/Fib/Ankle Screen-Film",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.51
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.51
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.51
+                        }
+                    ]
+                },
+                {
+                    "name":"Foot X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.03
+                        }
+                    ]
+                },
+                {
+                    "name":"Full Spine X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.13
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.62
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.13
+                        }
+                    ]
+                },
+                {
+                    "name":"Hand X-ray ",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.03
+                        }
+                    ]
+                },
+                {
+                    "name":"Hip X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.47
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.17
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.17
+                        }
+                    ]
+                },
+                {
+                    "name":"Intravenous Pyelogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.3
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.01
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.3
+                        }
+                    ]
+                },
+                {
+                    "name":"Knee X-ray AP AND LAT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.06
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.06
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.06
+                        }
+                    ]
+                },
+                {
+                    "name":"Knee X-ray AP OR LAT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.03
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.03
+                        }
+                    ]
+                },
+                {
+                    "name":"Knee X-ray Bilateral AP AND LAT",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.12
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.12
+                        }
+                    ]
+                },
+                {
+                    "name":"Lumbar Spine (LAT ONLY)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.58
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.26
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.58
+                        }
+                    ]
+                },
+                {
+                    "name":"Lumbar Spine X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.3
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.45
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.3
+                        }
+                    ]
+                },
+                {
+                    "name":"Mammography (2 views)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.33
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.33
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.33
+                        }
+                    ]
+                },
+                {
+                    "name":"Mammography (4 views)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.65
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.65
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.65
+                        }
+                    ]
+                },
+                {
+                    "name":"Pelvic X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.85
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.65
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.85
+                        }
+                    ]
+                },
+                {
+                    "name":"Rib X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.61
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.36
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.61
+                        }
+                    ]
+                },
+                {
+                    "name":"Shoulder X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.18
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.1
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.18
+                        }
+                    ]
+                },
+                {
+                    "name":"Skeletal Survey",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.63
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":2.31
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.63
+                        }
+                    ]
+                },
+                {
+                    "name":"Skull X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.42
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.42
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.42
+                        }
+                    ]
+                },
+                {
+                    "name":"Thoracic Spine X-ray",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.79
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":2.34
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.34
+                        }
+                    ]
+                },
+                {
+                    "name":"Upper GI Study",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.92
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.82
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.92
+                        }
+                    ]
+                },
+                {
+                    "name":"Venogram (Lower Extremity)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.35
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.35
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.35
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"Flouro",
+            "exams":[
+                {
+                    "name":"Abdominal Aortogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":13
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":13
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":13
+                        }
+                    ]
+                },
+                {
+                    "name":"Ankle/Knee Kinematics Analysis",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.144
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.144
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.144
+                        }
+                    ]
+                },
+                {
+                    "name":"Barium Enema",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Brachial Catheter Placement/Fistulogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":6.6
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":6.6
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":6.6
+                        }
+                    ]
+                },
+                {
+                    "name":"CT Cerebral Angiogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Catheterization",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":4.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":4.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":4.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Electrophysiology/Ablation",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":70.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":70.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":70.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Electrophysiology/Defibrillator Implant",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":27.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":27.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":27.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Electrophysiology/Diagnostic",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":7.05
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":7.05
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":7.05
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Electrophysiology/Pacemaker Implant",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":9.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":9.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":9.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Cardiac Occluder/Stent Placement",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":16.4
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":16.4
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":16.4
+                        }
+                    ]
+                },
+                {
+                    "name":"Carotid Stent Placement",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":34
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":34
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":34
+                        }
+                    ]
+                },
+                {
+                    "name":"Carotid or Cerebral Angiogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5.08
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5.08
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5.08
+                        }
+                    ]
+                },
+                {
+                    "name":"Coronary Angioplasty",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":11.6
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":11.6
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":11.6
+                        }
+                    ]
+                },
+                {
+                    "name":"Enteroclysis Procedure",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":21
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":21
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":21
+                        }
+                    ]
+                },
+                {
+                    "name":"Femoral Arteriogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":15
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":15
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":15
+                        }
+                    ]
+                },
+                {
+                    "name":"Femoral CT Angiogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":3
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":3
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":3
+                        }
+                    ]
+                },
+                {
+                    "name":"Fistulogram (upper extremity)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":3.8
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":3.8
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":3.8
+                        }
+                    ]
+                },
+                {
+                    "name":"Hepatic Angioplasty",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Hysterosalpingogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.57
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.57
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.57
+                        }
+                    ]
+                },
+                {
+                    "name":"Knee Positioning",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.07
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.07
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.07
+                        }
+                    ]
+                },
+                {
+                    "name":"Lumbar Puncture (Fluoro-guided)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":1.25
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":1.25
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":1.25
+                        }
+                    ]
+                },
+                {
+                    "name":"Occipital Electrode Placement",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.48
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.48
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.48
+                        }
+                    ]
+                },
+                {
+                    "name":"Pulmonary Angiogram",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":2.66
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":2.66
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":2.66
+                        }
+                    ]
+                },
+                {
+                    "name":"Right Heart Catheterization",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Swallow Study (Speech Pathology)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":0.18
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":0.18
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":0.18
+                        }
+                    ]
+                },
+                {
+                    "name":"Thoracic Spine",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":5
+                        }
+                    ]
+                },
+                {
+                    "name":"Trans Bronchial Biopsy (Fuoro-guided)",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":7.5
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":7.5
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":7.5
+                        }
+                    ]
+                },
+                {
+                    "name":"Vertebroplasty/Kyphoplasty",
+                    "properties":[
+                        {
+                            "name":"EDE (female)",
+                            "gender":"female",
+                            "value":12.8
+                        },
+                        {
+                            "name":"EDE (male)",
+                            "gender":"male",
+                            "value":12.8
+                        },
+                        {
+                            "name":"EDE (mixed)",
+                            "gender":"mixed",
+                            "value":12.8
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

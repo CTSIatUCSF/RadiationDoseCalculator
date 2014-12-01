@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>Radiation Dose Calculator</title>
+</head>
+<body ng-app="RadCalc">
+
+    <div id="page-title" style="padding 25px; margin-bottom: 50px; font-size:16pt; font-weight: bold;">
+        Radiation Dose Calculator
+    </div>
+
+    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
+        <form name="{{form.name}}" ng-repeat="form in forms">
+            <div class="img-rounded exam-table-title">
+                {{form.name}}
+            </div>
+            <button class="btn btn-link" ng-click="addFields(form)">+ Add Exam</button>
+            <div class="data-entry-table">
+            <table class="table table-hover table-condensed">
+                <tr>
+                    <th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th>
+                </tr>
+                <tr ng-repeat="exam in form.exams">
+                    <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                    <td>
+                        <select class="form-control" ng-model="exam.exam">
+                            <option value="" disabled selected>Please select procedure...</option>
+                            <option value="{{examInfo.name}}" ng-repeat="examInfo in getAllProcedures(form.id)">{{examInfo.name}}</option>
+                        </select>
+                    </td>
+                    <td><input class="form-control" type="number" ng-model="exam.scans" /></td>
+                    <td class="soe-label vert-align">
+                        <input type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
+                        {{socLabel(exam.soc)}}
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="exam.gender">
+                            <option value="mixed" selected>None</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </td>
+                    <td><input class="form-control" type="number" ng-model="exam.ede"
+                        value="{{calculatedEDE(form, exam)}}" /></td>
+                </tr>
+            </table>
+            </div>
+            <!--<button ng-click="submit(form)">Submit</button>-->
+        </form>
+
+<!--         <div>NARRATIVE:</div>
+        <div>{{narrative}}</div> -->
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

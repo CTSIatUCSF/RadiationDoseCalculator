@@ -69,9 +69,6 @@ angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($s
         $scope.examData = response.data;
     }, function (error) {
         console.error(error);
-    }).then(function() {
-        $scope.examData = getDataService.reformatJsonData($scope.examData);
-        console.log($scope.examData);
     });
 
     function defaultTomographyExam(currentCount) {

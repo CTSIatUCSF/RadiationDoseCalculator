@@ -57,6 +57,14 @@ module.exports = function(grunt) {
     },
 
 
+    //-- KARMA TESTS
+    karma: {
+      unit: {
+        configFile: "karma.conf.js"
+      }
+    },
+
+
     //-- WATCH
     watch: {
       files: ["<%= jshint.files %>"],
@@ -130,13 +138,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( "grunt-contrib-copy" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-clean" );
+  grunt.loadNpmTasks( "grunt-karma" );
 
 
   //-- Register tasks
-  grunt.registerTask( "test", ["jshint", "mochaTest"] );
+  grunt.registerTask( "test", ["jshint", "karma"] );
   grunt.registerTask( "buildDebug", ["test", "clean", "minifyDebug", "copy"] );
   grunt.registerTask( "minifyDebug", ["concat:dist", "uglify:debug"] );
   grunt.registerTask( "minifyDist", ["concat:dist", "uglify:dist"] );
-  grunt.registerTask( "default", ["test", "clean", "minifyDebug", "copy", "concurrent:dev"] );
+  grunt.registerTask( "default", ["clean", "minifyDebug", "copy", "concurrent:dev"] );
 
 };

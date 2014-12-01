@@ -25,8 +25,14 @@ angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($s
             exam.exam === undefined) {
             return 0;
         }
+        // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = $scope.getProcedurePropertyValue(form.id, exam.exam, exam.gender);
-        exam.ede = singleScanEDE * exam.scans;
+        console.log("singleScanEDE: " + singleScanEDE);
+        var digitCount = countDecimalPlaces(singleScanEDE);
+        console.log("digitCount: " + digitCount);
+        var adjustedEde = (singleScanEDE * exam.scans).toFixed(digitCount);
+        console.log("adjustedEde: " + adjustedEde);
+        exam.ede = parseFloat(adjustedEde);
         return exam.ede;
     };
 
@@ -74,6 +80,16 @@ angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($s
     function defaultTomographyExam(currentCount) {
         currentCount++;
         return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+    }
+
+    function countDecimalPlaces(value) {
+        var valueString = "" + value;
+        var ary = valueString.split(("."));
+        if (ary.length < 2) {
+            return 0;
+        } else {
+            return ary[1].length;
+        }
     }
 
 });

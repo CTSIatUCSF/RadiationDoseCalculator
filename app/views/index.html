@@ -30,7 +30,7 @@
                             <option value="{{examInfo.name}}" ng-repeat="examInfo in getAllProcedures(form.id)">{{examInfo.name}}</option>
                         </select>
                     </td>
-                    <td><input class="form-control" type="number" ng-model="exam.scans" /></td>
+                    <td><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
                     <td class="soe-label vert-align">
                         <input type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
                         {{socLabel(exam.soc)}}

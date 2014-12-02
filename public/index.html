@@ -49,6 +49,43 @@
         </div>
         <!-- CT form end -->
 
+        <!-- NM form start -->
+        <div class="data-entry-tables-wrapper table-responsive"  ng-controller="NMFormCtrl">
+            <form name="{{form.name}}">
+                <div class="img-rounded exam-table-title">{{form.name}}</div>
+                <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+                <div class="data-entry-table">
+                <table class="table table-hover table-condensed">
+                    <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
+                    <tr ng-repeat="exam in form.exams">
+                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td>
+                            <select class="form-control" ng-model="exam.exam">
+                                <option value="" disabled selected>Please select procedure...</option>
+                                <option value="{{examInfo.name}}" ng-repeat="examInfo in allProcedures(form.id)">{{examInfo.name}}</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                        <td class="soe-label vert-align">
+                            <input type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
+                            {{socLabel(exam.soc)}}
+                        </td>
+                        <td>
+                            <select class="form-control" ng-model="exam.gender">
+                                <option value="mixed" selected>None</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" /></td>
+                        <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                    </tr>
+                </table>
+                </div>
+            </form>
+        </div>
+        <!-- NM form end -->
+
         <!-- XRay form start -->
         <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
             <form name="{{form.name}}">
@@ -84,6 +121,43 @@
             </form>
         </div>
         <!-- XRay form end -->
+
+        <!-- Flouroscopy form start -->
+        <div class="data-entry-tables-wrapper table-responsive"  ng-controller="FlouroscopyFormCtrl">
+            <form name="{{form.name}}">
+                <div class="img-rounded exam-table-title">{{form.name}}</div>
+                <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+                <div class="data-entry-table">
+                <table class="table table-hover table-condensed">
+                    <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
+                    <tr ng-repeat="exam in form.exams">
+                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td>
+                            <select class="form-control" ng-model="exam.exam">
+                                <option value="" disabled selected>Please select procedure...</option>
+                                <option value="{{examInfo.name}}" ng-repeat="examInfo in allProcedures(form.id)">{{examInfo.name}}</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                        <td class="soe-label vert-align">
+                            <input type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
+                            {{socLabel(exam.soc)}}
+                        </td>
+                        <td>
+                            <select class="form-control" ng-model="exam.gender">
+                                <option value="mixed" selected>None</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </td>
+                        <td><input class="form-control" type="number" ng-model="exam.minutes" min="0" /></td>
+                        <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                    </tr>
+                </table>
+                </div>
+            </form>
+        </div>
+        <!-- Flouroscopy form end -->
 
     </div>
 

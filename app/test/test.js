@@ -3,16 +3,10 @@
 
 describe ( "XRay Form Controller", function () {
 
-    var formID = "XRay";
+    var formID   = "XRay";
     var formName = "X-ray Examinations";
     var controller, scope;
-    beforeEach(module('RadCalc'));
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope.$new(); 
-        controller = $controller('XRayFormCtrl', { $scope: scope });
-    }));
-
-    testdata = {
+    var testdata = {
         "ConsentNarrative":"This is a sample consent narrative.",
         "ComparisonDoseSupportingLanguage":"This is a sample of comparison dose supporting langauge.",
         "ComparisonDose":100,
@@ -41,6 +35,12 @@ describe ( "XRay Form Controller", function () {
                 ]}
         ]
     };
+
+    beforeEach(module('RadCalc'));
+    beforeEach(inject(function ($controller, $rootScope) {
+        scope = $rootScope.$new(); 
+        controller = $controller('XRayFormCtrl', { $scope: scope });
+    }));
 
     describe ( "form properties",
         function ()
@@ -140,33 +140,52 @@ describe ( "XRay Form Controller", function () {
         }
     );
 
-    describe ( "countDecimalPlaces",
-        function ()
-        {
-            it ( "returns zero when there is no decimal",
-                function ( done ) {
-                    var numberToTest = 1;
-                    expect(scope.countDecimalPlaces(numberToTest)).to.equal(0);
-                    done();
-                }
-            );
+    describe ( "countDecimalPlaces", function () {
+        it ( "returns zero when there is no decimal",
+            function ( done ) {
+                var numberToTest = 1;
+                expect(scope.countDecimalPlaces(numberToTest)).to.equal(0);
+                done();
+            }
+        );
 
-            it ( "returns correct number when there is a decimal",
-                function ( done ) {
-                    var numberToTest = 5.123;
-                    expect(scope.countDecimalPlaces(numberToTest)).to.equal(3);
-                    done();
-                }
-            );
+        it ( "returns correct number when there is a decimal",
+            function ( done ) {
+                var numberToTest = 5.123;
+                expect(scope.countDecimalPlaces(numberToTest)).to.equal(3);
+                done();
+            }
+        );
 
-            it ( "returns correct number when there is no leading zero",
-                function ( done ) {
-                    var numberToTest = .49;
-                    expect(scope.countDecimalPlaces(numberToTest)).to.equal(2);
-                    done();
-                }
-            );
-        }
-    );
+        it ( "returns correct number when there is no leading zero",
+            function ( done ) {
+                var numberToTest = .49;
+                expect(scope.countDecimalPlaces(numberToTest)).to.equal(2);
+                done();
+            }
+        );
+    });
+
+    describe ( "getAllProcedures", function () {
+        it ( "returns expected array of procedures",
+            function ( done ) {
+                scope.examData = testdata;
+                var procedures, procedure, property;
+
+                procedures = scope.getAllProcedures("NM");
+                expect(procedures.length).to.equal(2);
+
+                procedure = procedures[1];
+                expect(procedure.name).to.equal("Abdominal CT with AND without constrast");
+                expect(procedure.properties.length).to.equal(3);
+
+                property = procedure.properties[1];
+                expect(property.gender).to.equal("male");
+                expect(property.value).to.equal(7.8);
+
+                done();
+            }
+        );
+    });
 
 });

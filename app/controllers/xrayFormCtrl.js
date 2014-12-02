@@ -1,18 +1,18 @@
 angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($scope, getDataService) {
 
-    $scope.forms = [{
+    $scope.form = {
       id: "XRay",
       name: "X-ray Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
       exams:[ defaultTomographyExam(0) ]
-    }];
-    
-    $scope.addFields = function (form) {
-        form.exams.push( defaultTomographyExam(form.exams.length) );
     };
     
-    $scope.submit = function(form){
-        console.log(form.exams);
+    $scope.createRow = function () {
+        $scope.form.exams.push( defaultTomographyExam($scope.form.exams.length) );
+    };
+    
+    $scope.submit = function(){
+        console.log($scope.form.exams);
     };
 
     $scope.socLabel = function(value) {
@@ -20,20 +20,36 @@ angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($s
         return "No";
     };
 
-    $scope.calculatedEDE = function(form, exam) {
+    $scope.EDE = function(exam) {
         if (exam.exam === "" ||
             exam.exam === undefined) {
             return 0;
         }
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
-        var singleScanEDE = $scope.getProcedurePropertyValue(form.id, exam.exam, exam.gender);
-        console.log("singleScanEDE: " + singleScanEDE);
-        var digitCount = countDecimalPlaces(singleScanEDE);
-        console.log("digitCount: " + digitCount);
-        var adjustedEde = (singleScanEDE * exam.scans).toFixed(digitCount);
-        console.log("adjustedEde: " + adjustedEde);
-        exam.ede = parseFloat(adjustedEde);
+        var singleScanEDE = $scope.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
+        var decimalPlaces = $scope.countDecimalPlaces(singleScanEDE);
+        var unadjustedEDE = $scope.calculateEDE(singleScanEDE, exam.scans);
+        var adjustedEDE   = $scope.roundEDE(unadjustedEDE, decimalPlaces);
+        exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
+    };
+
+    $scope.calculateEDE = function(singleEDE, numScans) {
+        return singleEDE * numScans;
+    };
+
+    $scope.roundEDE = function(unadjustedEDE, decimalPlaces) {
+        return unadjustedEDE.toFixed(decimalPlaces);
+    };
+
+    $scope.countDecimalPlaces = function(value) {
+        var valueString = "" + value;
+        var ary = valueString.split(("."));
+        if (ary.length < 2) {
+            return 0;
+        } else {
+            return ary[1].length;
+        }
     };
 
     $scope.getAllProcedures = function(categoryID) {
@@ -80,16 +96,6 @@ angular.module("RadCalc.controllers", []).controller("XRayFormCtrl", function($s
     function defaultTomographyExam(currentCount) {
         currentCount++;
         return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
-    }
-
-    function countDecimalPlaces(value) {
-        var valueString = "" + value;
-        var ary = valueString.split(("."));
-        if (ary.length < 2) {
-            return 0;
-        } else {
-            return ary[1].length;
-        }
     }
 
 });

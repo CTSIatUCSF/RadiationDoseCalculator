@@ -9,4 +9,9 @@ test:
 			--slow 20 \
 			--growl \
 			$(TESTS)
-.PHONY: test
+
+test-karma:
+	@printf "==> [Test :: Karma (PhantomJS)]\n"
+	@NODE_ENV=test ./node/node_modules/karma/bin/karma start node/karma.conf.js 
+
+.PHONY: test-karma

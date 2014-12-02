@@ -12,11 +12,11 @@
     </div>
 
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
-        <form name="{{form.name}}" ng-repeat="form in forms">
+        <form name="{{form.name}}">
             <div class="img-rounded exam-table-title">
                 {{form.name}}
             </div>
-            <button class="btn btn-link" ng-click="addFields(form)">+ Add Exam</button>
+            <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
             <div class="data-entry-table">
             <table class="table table-hover table-condensed">
                 <tr>
@@ -43,15 +43,12 @@
                         </select>
                     </td>
                     <td><input class="form-control" type="number" ng-model="exam.ede"
-                        value="{{calculatedEDE(form, exam)}}" ng-readonly="true" /></td>
+                        value="{{calculatedEDE(exam)}}" ng-readonly="true" /></td>
                 </tr>
             </table>
             </div>
-            <!--<button ng-click="submit(form)">Submit</button>-->
+            <!--<button ng-click="submit()">Submit</button>-->
         </form>
-
-<!--         <div>NARRATIVE:</div>
-        <div>{{narrative}}</div> -->
     </div>
 
 

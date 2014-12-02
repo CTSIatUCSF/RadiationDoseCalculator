@@ -1,8 +1,8 @@
-angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, getDataService, edeCalculationService) {
+angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, getDataService, edeCalculationService) {
 
     $scope.form = {
-      id: "XRay",
-      name: "X-ray Examinations",
+      id: "CT",
+      name: "X-ray Computed Tomography Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
       exams:[ defaultTomographyExam(0) ]
     };

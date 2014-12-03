@@ -16,6 +16,16 @@ div.data-entry-table {
     margin-bottom:50px;
 }
 
+div#consentTextContainer {
+    margin:0 40px 40px 40px;
+    font-size: 18pt;
+}
+
+textarea#consentText {
+    margin-top:10px;
+    height: 100px;
+}
+
 td.totalsRowLabel {
     text-align:right;
     font-weight:bold;

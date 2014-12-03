@@ -89,10 +89,6 @@ var app = angular.module("RadCalc", [
         return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     }
 
-});;angular.module("RadCalc.controllers").controller("CommonFormCtrl", function($scope, getDataService) {
-
-    $scope.testVariable = "This is my test variable!";
-
 });;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, getDataService, edeCalculationService) {
 
     var uniqueProcedureId = 0;
@@ -262,6 +258,10 @@ var app = angular.module("RadCalc", [
         uniqueProcedureId++;
         return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
     }
+
+});;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, getDataService) {
+
+    $scope.supplementalConsentLanguage = "";
 
 });;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, getDataService, edeCalculationService) {
 

@@ -122,7 +122,7 @@ describe ( "Form Controllers", function () {
         var scope, form;
 
         it ( "blank name returns zero", function () {
-            var testProcedure = { study_num: 1, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+            var testProcedure = { id: 1, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
@@ -131,11 +131,47 @@ describe ( "Form Controllers", function () {
         });
 
         it ( "undefined name returns zero", function () {
-            var testProcedure = { study_num: 1, scans: 0, soc: false, gender: "mixed", ede: 0 };
+            var testProcedure = { id: 1, scans: 0, soc: false, gender: "mixed", ede: 0 };
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
                 expect(scope.calculateEDE(testProcedure)).to.equal(0);
+            }
+        });
+
+    });
+
+    describe("EDE totals", function() {
+
+        var procedures = [
+            { ede:1.01, soc:false },
+            { ede:2, soc:true },
+            { ede:3.001, soc:false },
+            { ede:4, soc:true },
+            { ede:5.0001, soc:false },
+            { ede:6, soc:true }
+        ];
+
+        var procedures2 = [
+            { ede:1.0001, soc:false },
+            { ede:2.01, soc:true }
+        ];
+
+        it("with SOC", function() {
+            for (var formIndex in forms) {
+                form = forms[formIndex];
+                scope = form.scope;
+                scope.form.exams = procedures;
+                expect(scope.edeTotal()).to.equal(21.0111);
+            }
+        });
+
+        it("without SOC", function() {
+            for (var formIndex in forms) {
+                form = forms[formIndex];
+                scope = form.scope;
+                scope.form.exams = procedures;
+                expect(scope.edeTotalWithoutSOC()).to.equal(9.0111);
             }
         });
 
@@ -146,9 +182,10 @@ describe ( "Form Controllers", function () {
         it ( "XRayFormCtrl ede calculation is correct", function () {
             fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
 
-            var testProcedure = { study_num: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
+            var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeEdeCalculationService.roundEdeToDecimalPlaces = function() { return expectedValue; };
+            fakeEdeCalculationService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
 
             var actual = xrayScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -158,9 +195,10 @@ describe ( "Form Controllers", function () {
         it ( "CTFormCtrl ede calculation is correct", function () {
             fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
 
-            var testProcedure = { study_num: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
+            var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeEdeCalculationService.roundEdeToDecimalPlaces = function() { return expectedValue; };
+            fakeEdeCalculationService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
 
             var actual = ctScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -170,7 +208,7 @@ describe ( "Form Controllers", function () {
         it ( "NMFormCtrl ede calculation is correct", function () {
             fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
 
-            var testProcedure = { study_num: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", injectedDose:2.0, ede: 0 };
+            var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", injectedDose:2.0, ede: 0 };
             var ede = 0.1234;
             fakeEdeCalculationService.simpleEdeCalculation = function() { return ede; };
             fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
@@ -184,7 +222,7 @@ describe ( "Form Controllers", function () {
         it ( "FlouroscopyFormCtrl ede calculation is correct", function () {
             fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
 
-            var testProcedure = { study_num: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", minutes:2.0, ede: 0 };
+            var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", minutes:2.0, ede: 0 };
             var ede = 0.1234;
             fakeEdeCalculationService.simpleEdeCalculation = function() { return ede; };
             fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };

@@ -93,7 +93,8 @@ module.exports = function(grunt) {
           { expand: true, flatten: true, src: ["../app/views/img/*", "!../app/views/img/*.ico"], dest: "../public/img/", filter: "isFile" },
           { expand: true, flatten: true, src: ["../app/views/img/favicon.ico"], dest: "../public/", filter: "isFile" },
           { expand: true, flatten: true, src: ["../app/views/index.html"], dest: "../public/", filter: "isFile" },
-          { expand: true, flatten: true, src: ["../app/views/*", "!../app/views/index.html"], dest: "../public/views/", filter: "isFile" }
+          { expand: true, flatten: true, src: ["../app/views/*", "!../app/views/index.html"], dest: "../public/views/", filter: "isFile" },
+          { expand: true, flatten: true, src: ["../app/js/MathRounding.js"], dest: "../public/js/", filter: "isFile" }
         ],
       },
     },

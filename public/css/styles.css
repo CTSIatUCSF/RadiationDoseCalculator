@@ -16,6 +16,11 @@ div.data-entry-table {
     margin-bottom:50px;
 }
 
+td.totalsRowLabel {
+    text-align:right;
+    font-weight:bold;
+}
+
 .table tbody>tr>td.vert-align{
     vertical-align: middle;
 }

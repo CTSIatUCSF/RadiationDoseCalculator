@@ -47,16 +47,6 @@ describe ( "EDE Calculation Service", function () {
         expect(edeCalculationService.simpleEdeCalculation(singleEDE, numScans)).to.equal(expectedValue);
     });
 
-    it ( "roundEdeToDecimalPlaces addresses a floating point rounding error", function() {
-        var singleEDE = 0.03;
-        var numScans  = 11;
-        var decimalPlaces = 2;
-        var edeWithFloatingPointRoundingError = singleEDE * numScans;
-        var expected = ("0.33");
-        var actual = edeCalculationService.roundEdeToDecimalPlaces(edeWithFloatingPointRoundingError, decimalPlaces);
-        expect(actual).to.equal(expected);
-    });
-
     describe ( "countDecimalPlaces",
     function ()
     {

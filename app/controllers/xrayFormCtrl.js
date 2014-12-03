@@ -33,7 +33,7 @@ angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope
         var singleScanEDE = getDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
         var unadjustedEDE = edeCalculationService.simpleEdeCalculation(singleScanEDE, exam.scans);
         var decimalPlaces = edeCalculationService.countDecimalPlaces(singleScanEDE);
-        var adjustedEDE   = edeCalculationService.roundEdeToDecimalPlaces(unadjustedEDE, decimalPlaces);
+        var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
     };
@@ -49,6 +49,33 @@ angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope
             }
         }
     };
+
+    $scope.edeTotal = function() {
+        return edeTotal(true);
+    };
+
+    $scope.edeTotalWithoutSOC = function() {
+        return edeTotal(false);
+    };
+
+    function edeTotal(includeSOC) {
+        var decimalPlaceCount = 0;
+        var total = 0;
+        if (includeSOC === true) {
+            angular.forEach($scope.form.exams, function(item) {
+                decimalPlaceCount = -edeCalculationService.maxDecimalPlaces(total, item.ede);
+                total += item.ede;
+            });
+        } else {
+            angular.forEach($scope.form.exams, function(item) {
+                if (!item.soc) {
+                    decimalPlaceCount = -edeCalculationService.maxDecimalPlaces(total, item.ede);
+                    total += item.ede;
+                }
+            });
+        }
+        return Math.round10(total, decimalPlaceCount);
+    }
 
     function defaultTomographyExam() {
         uniqueProcedureId++;

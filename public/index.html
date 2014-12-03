@@ -22,7 +22,7 @@
                 <table class="table table-hover table-condensed">
                     <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
                     <tr ng-repeat="exam in form.exams">
-                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td class="text-center vert-align study-number">{{$index + 1}}</td>
                         <td>
                             <select class="form-control" ng-model="exam.exam">
                                 <option value="" disabled selected>Please select procedure...</option>
@@ -42,6 +42,9 @@
                             </select>
                         </td>
                         <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                        <td class="text-center vert-align">
+                           <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       </td>
                     </tr>
                 </table>
                 </div>
@@ -58,7 +61,7 @@
                 <table class="table table-hover table-condensed">
                     <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
                     <tr ng-repeat="exam in form.exams">
-                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td class="text-center vert-align study-number">{{$index + 1}}</td>
                         <td>
                             <select class="form-control" ng-model="exam.exam">
                                 <option value="" disabled selected>Please select procedure...</option>
@@ -79,6 +82,9 @@
                         </td>
                         <td><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" /></td>
                         <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                        <td class="text-center vert-align">
+                           <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       </td>
                     </tr>
                 </table>
                 </div>
@@ -95,7 +101,7 @@
                 <table class="table table-hover table-condensed">
                     <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
                     <tr ng-repeat="exam in form.exams">
-                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td class="text-center vert-align study-number">{{$index + 1}}</td>
                         <td>
                             <select class="form-control" ng-model="exam.exam">
                                 <option value="" disabled selected>Please select procedure...</option>
@@ -115,6 +121,9 @@
                             </select>
                         </td>
                         <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                        <td class="text-center vert-align">
+                           <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       </td>
                     </tr>
                 </table>
                 </div>
@@ -131,7 +140,7 @@
                 <table class="table table-hover table-condensed">
                     <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
                     <tr ng-repeat="exam in form.exams">
-                        <td class="text-center vert-align study-number">{{exam.study_num}}</td>
+                        <td class="text-center vert-align study-number">{{$index + 1}}</td>
                         <td>
                             <select class="form-control" ng-model="exam.exam">
                                 <option value="" disabled selected>Please select procedure...</option>
@@ -152,6 +161,9 @@
                         </td>
                         <td><input class="form-control" type="number" ng-model="exam.minutes" min="0" /></td>
                         <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
+                        <td class="text-center vert-align">
+                           <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       </td>
                     </tr>
                 </table>
                 </div>

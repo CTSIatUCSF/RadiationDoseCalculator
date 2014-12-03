@@ -7,11 +7,13 @@ var app = angular.module("RadCalc", [
   "RadCalc.controllers"
 ]);;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, getDataService, edeCalculationService) {
 
+    var uniqueProcedureId = 0;
+
     $scope.form = {
       id: "CT",
       name: "X-ray Computed Tomography Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
-      exams:[ defaultTomographyExam(0) ]
+      exams:[ defaultTomographyExam() ]
     };
 
     $scope.allProcedures = function(categoryId) {
@@ -19,7 +21,7 @@ var app = angular.module("RadCalc", [
     };
     
     $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam($scope.form.exams.length) );
+        $scope.form.exams.push( defaultTomographyExam() );
     };
     
     $scope.submit = function(){
@@ -43,9 +45,21 @@ var app = angular.module("RadCalc", [
         return exam.ede;
     };
 
-    function defaultTomographyExam(currentCount) {
-        currentCount++;
-        return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+    $scope.removeProcedure = function(procedureId) {
+        var i, procedure;
+        console.log(procedureId);
+        for (i=0; i<$scope.form.exams.length; i++) {
+            procedure = $scope.form.exams[i];
+            if (procedureId === procedure.id) {
+                $scope.form.exams.splice(i, 1);
+                return;
+            }
+        }
+    };
+
+    function defaultTomographyExam() {
+        uniqueProcedureId++;
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     }
 
 });;angular.module("RadCalc.controllers").controller("CommonFormCtrl", function($scope, getDataService) {
@@ -54,11 +68,13 @@ var app = angular.module("RadCalc", [
 
 });;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, getDataService, edeCalculationService) {
 
+    var uniqueProcedureId = 0;
+
     $scope.form = {
       id: "Flouro",
       name: "Flouroscopy Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE(mSv)"],
-      exams:[ defaultTomographyExam(0) ]
+      exams:[ defaultTomographyExam() ]
     };
 
     $scope.allProcedures = function(categoryId) {
@@ -66,7 +82,7 @@ var app = angular.module("RadCalc", [
     };
     
     $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam($scope.form.exams.length) );
+        $scope.form.exams.push( defaultTomographyExam() );
     };
     
     $scope.submit = function(){
@@ -91,18 +107,32 @@ var app = angular.module("RadCalc", [
         return exam.ede;
     };
 
-    function defaultTomographyExam(currentCount) {
-        currentCount++;
-        return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 };
+    $scope.removeProcedure = function(procedureId) {
+        var i, procedure;
+        console.log(procedureId);
+        for (i=0; i<$scope.form.exams.length; i++) {
+            procedure = $scope.form.exams[i];
+            if (procedureId === procedure.id) {
+                $scope.form.exams.splice(i, 1);
+                return;
+            }
+        }
+    };
+
+    function defaultTomographyExam() {
+        uniqueProcedureId++;
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 };
     }
 
 });;angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, getDataService, edeCalculationService) {
+
+    var uniqueProcedureId = 0;
 
     $scope.form = {
       id: "NM",
       name: "Nuclear Medicine Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "InjectedDose (mCi)", "EDE(mSv)"],
-      exams:[ defaultTomographyExam(0) ]
+      exams:[ defaultTomographyExam() ]
     };
 
     $scope.allProcedures = function(categoryId) {
@@ -110,7 +140,7 @@ var app = angular.module("RadCalc", [
     };
     
     $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam($scope.form.exams.length) );
+        $scope.form.exams.push( defaultTomographyExam() );
     };
     
     $scope.submit = function(){
@@ -135,18 +165,32 @@ var app = angular.module("RadCalc", [
         return exam.ede;
     };
 
-    function defaultTomographyExam(currentCount) {
-        currentCount++;
-        return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
+    $scope.removeProcedure = function(procedureId) {
+        var i, procedure;
+        console.log(procedureId);
+        for (i=0; i<$scope.form.exams.length; i++) {
+            procedure = $scope.form.exams[i];
+            if (procedureId === procedure.id) {
+                $scope.form.exams.splice(i, 1);
+                return;
+            }
+        }
+    };
+
+    function defaultTomographyExam() {
+        uniqueProcedureId++;
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
     }
 
 });;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, getDataService, edeCalculationService) {
+
+    var uniqueProcedureId = 0;
 
     $scope.form = {
       id: "XRay",
       name: "X-ray Examinations",
       headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
-      exams:[ defaultTomographyExam(0) ]
+      exams:[ defaultTomographyExam() ]
     };
 
     $scope.allProcedures = function(categoryId) {
@@ -154,7 +198,7 @@ var app = angular.module("RadCalc", [
     };
     
     $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam($scope.form.exams.length) );
+        $scope.form.exams.push( defaultTomographyExam() );
     };
     
     $scope.submit = function(){
@@ -178,9 +222,21 @@ var app = angular.module("RadCalc", [
         return exam.ede;
     };
 
-    function defaultTomographyExam(currentCount) {
-        currentCount++;
-        return { study_num: currentCount, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+    $scope.removeProcedure = function(procedureId) {
+        var i, procedure;
+        console.log(procedureId);
+        for (i=0; i<$scope.form.exams.length; i++) {
+            procedure = $scope.form.exams[i];
+            if (procedureId === procedure.id) {
+                $scope.form.exams.splice(i, 1);
+                return;
+            }
+        }
+    };
+
+    function defaultTomographyExam() {
+        uniqueProcedureId++;
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     }
 
 });;angular.module("RadCalc.services").factory("edeCalculationService", function() {

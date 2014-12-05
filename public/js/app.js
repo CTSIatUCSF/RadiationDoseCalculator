@@ -390,11 +390,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.FormattedReportClicked = function() {
-        $state.go("report-formatted", {storedData: storedData}, {location: false, inherit: false});
+        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.PlainTextReportClicked = function() {
-        $state.go("report-plaintext", {storedData: storedData}, {location: false, inherit: false});
+        $state.go("report-plaintext", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.Print = function() {

@@ -39,7 +39,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         var n1Count = countDecimalPlaces(n1);
         var n2Count = countDecimalPlaces(n2);
         if (n1Count > n2Count) {
-                return n1Count;
+            return n1Count;
         }
         return n2Count;
     };
@@ -151,45 +151,51 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     Returns total EDE for the entire report, regardless of Standard of Care value
     */
     edeReportTotal: function() {
-        var formIndex, form;
+        var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
         for (formIndex in userData.formData) {
             form = userData.formData[formIndex];
-            total += this.edeTotal(form.id);
-            decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+            ede = this.edeTotal(form.id);
+            decimalPlaceCount = maxDecimalPlaces(total, ede);
+            total += ede;
+            total = Math.round10(total, -decimalPlaceCount);
         }
-        return Math.round10(total, decimalPlaceCount);
+        return total;
     },
 
     /*
     Returns total EDE for the entire report, excluding items marked as Standard of Care
     */
     edeReportTotalWithoutSOC: function() {
-        var formIndex, form;
+        var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
         for (formIndex in userData.formData) {
             form = userData.formData[formIndex];
-            total += this.edeTotalWithoutSOC(form.id);
-            decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+            ede = this.edeTotalWithoutSOC(form.id);
+            decimalPlaceCount = maxDecimalPlaces(total, ede);
+            total += ede;
+            total = Math.round10(total, -decimalPlaceCount);
         }
-        return Math.round10(total, decimalPlaceCount);
+        return total;
     },
 
     /*
     Returns total EDE for the entire report, excluding items that are not marked as Standard of Care
     */
     edeReportTotalOnlySOC: function() {
-        var formIndex, form;
+        var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
         for (formIndex in userData.formData) {
             form = userData.formData[formIndex];
-            total += this.edeTotalOnlySOC(form.id);
-            decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+            ede = this.edeTotalOnlySOC(form.id);
+            decimalPlaceCount = maxDecimalPlaces(total, ede);
+            total += ede;
+            total = Math.round10(total, -decimalPlaceCount);
         }
-        return Math.round10(total, decimalPlaceCount);
+        return total;
     }
 
   };

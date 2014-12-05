@@ -48,7 +48,6 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
         },
 
         getAllProcedureProperties: function(categoryID, procedureName) {
-            console.log(procedureName);
             if (procedureName === null) { return; }
             var procedure = this.getProcedure(categoryID, procedureName);
             return procedure.properties;

@@ -159,7 +159,6 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
             total += this.edeTotal(form.id);
             decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
         }
-        console.log("decimalPlaceCount = " + decimalPlaceCount);
         return Math.round10(total, decimalPlaceCount);
     },
 
@@ -175,7 +174,6 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
             total += this.edeTotalWithoutSOC(form.id);
             decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
         }
-        console.log("decimalPlaceCount = " + decimalPlaceCount);
         return Math.round10(total, decimalPlaceCount);
     },
 
@@ -191,7 +189,6 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
             total += this.edeTotalOnlySOC(form.id);
             decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
         }
-        console.log("decimalPlaceCount = " + decimalPlaceCount);
         return Math.round10(total, decimalPlaceCount);
     }
 

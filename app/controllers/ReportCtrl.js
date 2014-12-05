@@ -1,7 +1,7 @@
-angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, getDataService, StoredDataService) {
+angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
 
     var storedData = StoredDataService.storedData();
-    var userData = getDataService.userData();
+    var userData = UserDataService.userData();
 
     $scope.consentNarrative = storedData.ConsentNarrative;
     $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage;
@@ -19,7 +19,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     };
 
     function updateSupplementalConsentText() {
-        getDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
+        UserDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
     }
 
     function validateUserData() {
@@ -27,31 +27,31 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     }
 
     $scope.getScanCount = function(formId) {
-        return getDataService.getScanCount(formId);
+        return UserDataService.getScanCount(formId);
     };
 
     $scope.edeTotal = function(formId) {
-        return getDataService.edeTotal(formId);
+        return UserDataService.edeTotal(formId);
     };
 
     $scope.edeTotalWithoutSOC = function(formId) {
-        return getDataService.edeTotalWithoutSOC(formId);
+        return UserDataService.edeTotalWithoutSOC(formId);
     };
 
     $scope.edeTotalOnlySOC = function(formId) {
-        return getDataService.edeTotalOnlySOC(formId);
+        return UserDataService.edeTotalOnlySOC(formId);
     };
 
     $scope.edeReportTotal = function() {
-        return getDataService.edeReportTotal();
+        return UserDataService.edeReportTotal();
     };
 
     $scope.edeReportTotalOnlySOC = function() {
-        return getDataService.edeReportTotalOnlySOC();
+        return UserDataService.edeReportTotalOnlySOC();
     };
 
     $scope.edeReportTotalWithoutSOC = function() {
-        return getDataService.edeReportTotalWithoutSOC();
+        return UserDataService.edeReportTotalWithoutSOC();
     };
 
 });

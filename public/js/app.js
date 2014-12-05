@@ -32,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/report",
             templateUrl: "views/partial-report.html"
         });
-});;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, getDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
     var defaultTomographyExam;
@@ -54,8 +54,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.form = initializeForm();
 
-    if (getDataService.getFormData(id) !== null) {
-        $scope.form.exams = getDataService.getFormData(id).exams;
+    if (UserDataService.getFormData(id) !== null) {
+        $scope.form.exams = UserDataService.getFormData(id).exams;
     }
 
     $scope.allProcedures = function() {
@@ -77,7 +77,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.$watch("form", function() {
         // console.log("watch!");
-        getDataService.updateFormData($scope.form);
+        UserDataService.updateFormData($scope.form);
     }, true);
 
     $scope.calculateEDE = function(exam) {
@@ -85,8 +85,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = getDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        var decimalPlaces = getDataService.countDecimalPlaces(singleScanEDE);
+        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
+        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
         var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
@@ -105,18 +105,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.edeTotal = function() {
-        return getDataService.edeTotal($scope.form.id);
+        return UserDataService.edeTotal($scope.form.id);
     };
 
     $scope.edeTotalWithoutSOC = function() {
-        return getDataService.edeTotalWithoutSOC($scope.form.id);
+        return UserDataService.edeTotalWithoutSOC($scope.form.id);
     };
 
     $scope.edeTotalOnlySOC = function() {
-        return getDataService.edeTotalOnlySOC($scope.form.id);
+        return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
-});;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, getDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
     var defaultTomographyExam;
@@ -138,8 +138,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.form = initializeForm();
 
-    if (getDataService.getFormData(id) !== null) {
-        $scope.form.exams = getDataService.getFormData(id).exams;
+    if (UserDataService.getFormData(id) !== null) {
+        $scope.form.exams = UserDataService.getFormData(id).exams;
     }
 
     $scope.allProcedures = function() {
@@ -161,7 +161,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.$watch("form", function() {
         // console.log("watch!");
-        getDataService.updateFormData($scope.form);
+        UserDataService.updateFormData($scope.form);
     }, true);
 
     $scope.calculateEDE = function(exam) {
@@ -169,9 +169,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = getDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
+        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
         unadjustedEDE = unadjustedEDE * exam.minutes;
-        var decimalPlaces = getDataService.countDecimalPlaces(singleScanEDE);
+        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
         var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
@@ -190,18 +190,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.edeTotal = function() {
-        return getDataService.edeTotal($scope.form.id);
+        return UserDataService.edeTotal($scope.form.id);
     };
 
     $scope.edeTotalWithoutSOC = function() {
-        return getDataService.edeTotalWithoutSOC($scope.form.id);
+        return UserDataService.edeTotalWithoutSOC($scope.form.id);
     };
 
     $scope.edeTotalOnlySOC = function() {
-        return getDataService.edeTotalOnlySOC($scope.form.id);
+        return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
-});;angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, getDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
     var defaultTomographyExam;
@@ -223,8 +223,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.form = initializeForm();
 
-    if (getDataService.getFormData(id) !== null) {
-        $scope.form.exams = getDataService.getFormData(id).exams;
+    if (UserDataService.getFormData(id) !== null) {
+        $scope.form.exams = UserDataService.getFormData(id).exams;
     }
 
     $scope.allProcedures = function() {
@@ -246,7 +246,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.$watch("form", function() {
         // console.log("watch!");
-        getDataService.updateFormData($scope.form);
+        UserDataService.updateFormData($scope.form);
     }, true);
 
     $scope.calculateEDE = function(exam) {
@@ -254,9 +254,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = getDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
+        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
         unadjustedEDE = unadjustedEDE * exam.injectedDose;
-        var decimalPlaces = getDataService.countDecimalPlaces(singleScanEDE);
+        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
         var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
@@ -275,21 +275,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.edeTotal = function() {
-        return getDataService.edeTotal($scope.form.id);
+        return UserDataService.edeTotal($scope.form.id);
     };
 
     $scope.edeTotalWithoutSOC = function() {
-        return getDataService.edeTotalWithoutSOC($scope.form.id);
+        return UserDataService.edeTotalWithoutSOC($scope.form.id);
     };
 
     $scope.edeTotalOnlySOC = function() {
-        return getDataService.edeTotalOnlySOC($scope.form.id);
+        return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
-});;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, getDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
 
     var storedData = StoredDataService.storedData();
-    var userData = getDataService.userData();
+    var userData = UserDataService.userData();
 
     $scope.consentNarrative = storedData.ConsentNarrative;
     $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage;
@@ -307,7 +307,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     function updateSupplementalConsentText() {
-        getDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
+        UserDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
     }
 
     function validateUserData() {
@@ -315,34 +315,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
     }
 
     $scope.getScanCount = function(formId) {
-        return getDataService.getScanCount(formId);
+        return UserDataService.getScanCount(formId);
     };
 
     $scope.edeTotal = function(formId) {
-        return getDataService.edeTotal(formId);
+        return UserDataService.edeTotal(formId);
     };
 
     $scope.edeTotalWithoutSOC = function(formId) {
-        return getDataService.edeTotalWithoutSOC(formId);
+        return UserDataService.edeTotalWithoutSOC(formId);
     };
 
     $scope.edeTotalOnlySOC = function(formId) {
-        return getDataService.edeTotalOnlySOC(formId);
+        return UserDataService.edeTotalOnlySOC(formId);
     };
 
     $scope.edeReportTotal = function() {
-        return getDataService.edeReportTotal();
+        return UserDataService.edeReportTotal();
     };
 
     $scope.edeReportTotalOnlySOC = function() {
-        return getDataService.edeReportTotalOnlySOC();
+        return UserDataService.edeReportTotalOnlySOC();
     };
 
     $scope.edeReportTotalWithoutSOC = function() {
-        return getDataService.edeReportTotalWithoutSOC();
+        return UserDataService.edeReportTotalWithoutSOC();
     };
 
-});;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, getDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
     var defaultTomographyExam;
@@ -364,8 +364,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.form = initializeForm();
 
-    if (getDataService.getFormData(id) !== null) {
-        $scope.form.exams = getDataService.getFormData(id).exams;
+    if (UserDataService.getFormData(id) !== null) {
+        $scope.form.exams = UserDataService.getFormData(id).exams;
     }
 
     $scope.allProcedures = function() {
@@ -387,7 +387,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.$watch("form", function() {
         // console.log("watch!");
-        getDataService.updateFormData($scope.form);
+        UserDataService.updateFormData($scope.form);
     }, true);
 
     $scope.calculateEDE = function(exam) {
@@ -395,8 +395,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = getDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        var decimalPlaces = getDataService.countDecimalPlaces(singleScanEDE);
+        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
+        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
         var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
@@ -415,15 +415,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.edeTotal = function() {
-        return getDataService.edeTotal($scope.form.id);
+        return UserDataService.edeTotal($scope.form.id);
     };
 
     $scope.edeTotalWithoutSOC = function() {
-        return getDataService.edeTotalWithoutSOC($scope.form.id);
+        return UserDataService.edeTotalWithoutSOC($scope.form.id);
     };
 
     $scope.edeTotalOnlySOC = function() {
-        return getDataService.edeTotalOnlySOC($scope.form.id);
+        return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
 });;angular.module("RadCalc.services").factory("StoredDataService", function($q, $http) {
@@ -494,7 +494,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
 
     };
-});;angular.module("RadCalc.services").factory("getDataService", function($q, $http) {
+});;angular.module("RadCalc.services").factory("UserDataService", function($q, $http) {
 
   var userData = { "formData": []};
   var doesExist, edeTotal;

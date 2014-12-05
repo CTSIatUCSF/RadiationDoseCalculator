@@ -1,4 +1,4 @@
-angular.module("RadCalc.services").factory("getDataService", function($q, $http) {
+angular.module("RadCalc.services").factory("UserDataService", function($q, $http) {
 
   var userData = { "formData": []};
   var doesExist, edeTotal;

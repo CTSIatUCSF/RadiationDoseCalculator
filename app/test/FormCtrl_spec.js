@@ -5,7 +5,7 @@ describe ( "Form Controllers", function () {
 
     var xrayFormID = "XRay";
     var formName = "X-ray Examinations";
-    var controller, scope, fakeGetDataService, fakeStoredDataService;
+    var controller, scope, fakeUserDataService, fakeStoredDataService;
 
     var forms = [];
     var xrayController, xrayScope;
@@ -15,8 +15,8 @@ describe ( "Form Controllers", function () {
 
     beforeEach(module("RadCalc"));
 
-    beforeEach(inject(function ($controller, $rootScope, getDataService, StoredDataService) {
-        fakeGetDataService = getDataService;
+    beforeEach(inject(function ($controller, $rootScope, UserDataService, StoredDataService) {
+        fakeUserDataService = UserDataService;
         fakeStoredDataService = StoredDataService;
 
         xrayScope = $rootScope.$new();
@@ -39,7 +39,7 @@ describe ( "Form Controllers", function () {
         var formIndex, form;
         for (formIndex in forms) {
             form = forms[formIndex];
-            fakeGetDataService.updateFormData(form);
+            fakeUserDataService.updateFormData(form);
         }
 
     }));
@@ -163,7 +163,7 @@ describe ( "Form Controllers", function () {
             for (formIndex in forms) {
                 form = forms[formIndex];
                 form.exams = procedures;
-                fakeGetDataService.updateFormData(form);
+                fakeUserDataService.updateFormData(form);
             }
         });
         
@@ -172,7 +172,7 @@ describe ( "Form Controllers", function () {
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
-                expect(fakeGetDataService.edeTotal(scope.form.id)).to.equal(21.0111);
+                expect(fakeUserDataService.edeTotal(scope.form.id)).to.equal(21.0111);
             }
         });
 
@@ -180,7 +180,7 @@ describe ( "Form Controllers", function () {
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
-                expect(fakeGetDataService.edeTotalWithoutSOC(scope.form.id)).to.equal(9.0111);
+                expect(fakeUserDataService.edeTotalWithoutSOC(scope.form.id)).to.equal(9.0111);
             }
         });
 
@@ -193,8 +193,8 @@ describe ( "Form Controllers", function () {
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeGetDataService.simpleEdeCalculation = function() { return expectedValue; };
-            fakeGetDataService.countDecimalPlaces = function() { return 4; };
+            fakeUserDataService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeUserDataService.countDecimalPlaces = function() { return 4; };
 
             var actual = xrayScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -206,8 +206,8 @@ describe ( "Form Controllers", function () {
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeGetDataService.simpleEdeCalculation = function() { return expectedValue; };
-            fakeGetDataService.countDecimalPlaces = function() { return 4; };
+            fakeUserDataService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeUserDataService.countDecimalPlaces = function() { return 4; };
 
             var actual = ctScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -219,8 +219,8 @@ describe ( "Form Controllers", function () {
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", injectedDose:2.0, ede: 0 };
             var ede = 0.1234;
-            fakeGetDataService.simpleEdeCalculation = function() { return ede; };
-            fakeGetDataService.countDecimalPlaces = function() { return 4; };
+            fakeUserDataService.simpleEdeCalculation = function() { return ede; };
+            fakeUserDataService.countDecimalPlaces = function() { return 4; };
             var expectedValue = ede * testProcedure.injectedDose;
 
             var actual = nmScope.calculateEDE(testProcedure);
@@ -233,8 +233,8 @@ describe ( "Form Controllers", function () {
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", minutes:2.0, ede: 0 };
             var ede = 0.1234;
-            fakeGetDataService.simpleEdeCalculation = function() { return ede; };
-            fakeGetDataService.countDecimalPlaces = function() { return 4; };
+            fakeUserDataService.simpleEdeCalculation = function() { return ede; };
+            fakeUserDataService.countDecimalPlaces = function() { return 4; };
             var expectedValue = ede * testProcedure.minutes;
 
             var actual = floScope.calculateEDE(testProcedure);

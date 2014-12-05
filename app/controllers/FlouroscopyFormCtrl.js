@@ -1,4 +1,4 @@
-angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, getDataService, StoredDataService) {
+angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
     var defaultTomographyExam;
@@ -20,8 +20,8 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
 
     $scope.form = initializeForm();
 
-    if (getDataService.getFormData(id) !== null) {
-        $scope.form.exams = getDataService.getFormData(id).exams;
+    if (UserDataService.getFormData(id) !== null) {
+        $scope.form.exams = UserDataService.getFormData(id).exams;
     }
 
     $scope.allProcedures = function() {
@@ -43,7 +43,7 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
 
     $scope.$watch("form", function() {
         // console.log("watch!");
-        getDataService.updateFormData($scope.form);
+        UserDataService.updateFormData($scope.form);
     }, true);
 
     $scope.calculateEDE = function(exam) {
@@ -51,9 +51,9 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
 
         // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
         var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = getDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
+        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
         unadjustedEDE = unadjustedEDE * exam.minutes;
-        var decimalPlaces = getDataService.countDecimalPlaces(singleScanEDE);
+        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
         var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
         exam.ede = parseFloat(adjustedEDE);
         return exam.ede;
@@ -72,15 +72,15 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
     };
 
     $scope.edeTotal = function() {
-        return getDataService.edeTotal($scope.form.id);
+        return UserDataService.edeTotal($scope.form.id);
     };
 
     $scope.edeTotalWithoutSOC = function() {
-        return getDataService.edeTotalWithoutSOC($scope.form.id);
+        return UserDataService.edeTotalWithoutSOC($scope.form.id);
     };
 
     $scope.edeTotalOnlySOC = function() {
-        return getDataService.edeTotalOnlySOC($scope.form.id);
+        return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
 });

@@ -3,19 +3,19 @@
 
 describe ( "Get Data Service", function () {
 
-        var getDataService;
+        var UserDataService;
 
         beforeEach(module('RadCalc'));
 
-        beforeEach(inject(function (_getDataService_) {
-            getDataService = _getDataService_;
+        beforeEach(inject(function (_UserDataService_) {
+            UserDataService = _UserDataService_;
         }));
 
         it ( "simpleEdeCalculation returns expected value", function() {
             var singleEDE = 0.03;
             var numScans  = 10;
             var expectedValue = 0.3;
-            expect(getDataService.simpleEdeCalculation(singleEDE, numScans)).to.equal(expectedValue);
+            expect(UserDataService.simpleEdeCalculation(singleEDE, numScans)).to.equal(expectedValue);
         });
 
         describe ( "countDecimalPlaces",
@@ -25,7 +25,7 @@ describe ( "Get Data Service", function () {
                 function () {
                     var numberToTest = 1;
                     var expected = 0;
-                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
                 }
             );
 
@@ -33,7 +33,7 @@ describe ( "Get Data Service", function () {
                 function () {
                     var numberToTest = 5.123;
                     var expected = 3;
-                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
                 }
             );
 
@@ -41,7 +41,7 @@ describe ( "Get Data Service", function () {
                 function () {
                     var numberToTest = .49;
                     var expected = 2;
-                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
                 }
             );
         });
@@ -50,7 +50,7 @@ describe ( "Get Data Service", function () {
             it ( "returns zero when given an invalid formId", function () {
                 var formId = "badFormId";
                 var expected = 0;
-                expect(getDataService.getScanCount(formId)).to.equal(expected);
+                expect(UserDataService.getScanCount(formId)).to.equal(expected);
             });
 
             it ( "returns correct value for given formId", function () {
@@ -64,8 +64,8 @@ describe ( "Get Data Service", function () {
                 for (formIndex in forms) {
                     form = forms[formIndex];
                     data = form.data;
-                    getDataService.updateFormData(data);
-                    expect(getDataService.getScanCount(data.id)).to.equal(form.expected);
+                    UserDataService.updateFormData(data);
+                    expect(UserDataService.getScanCount(data.id)).to.equal(form.expected);
                 }
             });
         });

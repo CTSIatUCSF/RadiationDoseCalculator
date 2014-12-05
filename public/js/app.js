@@ -15,7 +15,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     $stateProvider
         
-        // HOME STATES AND NESTED VIEWS ========================================
         .state("dataEntry", {
             controller: "ReportCtrl",
             url: "/",
@@ -26,12 +25,45 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state("report", {
-            url: "/report",
-            templateUrl: "views/partial-report.html"
+
+        .state("report-formatted", {
+            url: "/report-formatted",
+            templateUrl: "views/partial-report-formatted.html"
+        })
+
+        .state("report-plaintext", {
+            url: "/report-plaintext",
+            templateUrl: "views/partial-report-plaintext.html"
         });
+        
+        // .state("report", {
+        //     url: "/report",
+        //     views: {
+
+        //         // the main template
+        //         "": {
+        //             templateUrl: "views/partial-report.html",
+        //         },
+
+        //         "formatted@report": {
+        //             templateUrl: "views/partial-report-formatted.html"
+        //         },
+
+        //         "plaintext@report": {
+        //             templateUrl: "views/partial-report-plaintext.html"
+        //         }
+        //     }
+        // })
+
+        // .state("report.formatted", {
+        //     url: "/report-formatted",
+        //     templateUrl: "views/partial-report-formatted.html"
+        // })
+
+        // .state("report.plaintext", {
+        //     url: "/report-plaintext",
+        //     templateUrl: "views/partial-report-plaintext.html"
+        // });
 });;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
@@ -379,11 +411,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.GenerateReportClicked = function() {
         validateUserData();
         updateSupplementalConsentText();
-        $state.go("report", {storedData: storedData}, {location: true, inherit: false});
+        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.DataEntryClicked = function() {
         $state.go("dataEntry", {storedData: storedData}, {location: true, inherit: false});
+    };
+
+    $scope.FormattedReportClicked = function() {
+        $state.go("report-formatted", {storedData: storedData}, {location: false, inherit: false});
+    };
+
+    $scope.PlainTextReportClicked = function() {
+        $state.go("report-plaintext", {storedData: storedData}, {location: false, inherit: false});
     };
 
     function updateSupplementalConsentText() {

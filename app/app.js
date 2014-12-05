@@ -15,7 +15,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     $stateProvider
         
-        // HOME STATES AND NESTED VIEWS ========================================
         .state("dataEntry", {
             controller: "ReportCtrl",
             url: "/",
@@ -26,10 +25,43 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state("report", {
-            url: "/report",
-            templateUrl: "views/partial-report.html"
+
+        .state("report-formatted", {
+            url: "/report-formatted",
+            templateUrl: "views/partial-report-formatted.html"
+        })
+
+        .state("report-plaintext", {
+            url: "/report-plaintext",
+            templateUrl: "views/partial-report-plaintext.html"
         });
+        
+        // .state("report", {
+        //     url: "/report",
+        //     views: {
+
+        //         // the main template
+        //         "": {
+        //             templateUrl: "views/partial-report.html",
+        //         },
+
+        //         "formatted@report": {
+        //             templateUrl: "views/partial-report-formatted.html"
+        //         },
+
+        //         "plaintext@report": {
+        //             templateUrl: "views/partial-report-plaintext.html"
+        //         }
+        //     }
+        // })
+
+        // .state("report.formatted", {
+        //     url: "/report-formatted",
+        //     templateUrl: "views/partial-report-formatted.html"
+        // })
+
+        // .state("report.plaintext", {
+        //     url: "/report-plaintext",
+        //     templateUrl: "views/partial-report-plaintext.html"
+        // });
 });

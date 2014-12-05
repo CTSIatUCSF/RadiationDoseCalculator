@@ -1,7 +1,11 @@
 <div ng-controller="ReportCtrl">
-
+    
     <div style="margin:20px 40px 60px 40px;">
         <button class="btn btn-success" ng-click="DataEntryClicked()">Back to data</button>
+    </div>
+
+    <div style="margin:20px 40px 60px 40px;">
+        <button class="btn btn-success" ng-click="PlainTextReportClicked()">Plain Text</button>
     </div>
 
     <table class="table table-hover table-condensed">
@@ -62,9 +66,4 @@
 
     <h1>Supplemental Consent Language</h1>
     <p>{{supplementalConsentLanguage}}</p>
-
-    <pre>
-        {{makePlainText()}}
-    </pre>
-
 </div>

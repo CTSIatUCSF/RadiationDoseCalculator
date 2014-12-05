@@ -15,10 +15,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     $stateProvider
         
-        .state("dataEntry", {
+        .state("data-entry", {
             controller: "ReportCtrl",
             url: "/",
-            templateUrl: "views/partial-dataEntry.html",
+            templateUrl: "views/partial-data-entry.html",
             resolve: {
                 "storedDataService":function(StoredDataService) {
                     return StoredDataService.promise;
@@ -35,33 +35,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/report-plaintext",
             templateUrl: "views/partial-report-plaintext.html"
         });
-        
-        // .state("report", {
-        //     url: "/report",
-        //     views: {
-
-        //         // the main template
-        //         "": {
-        //             templateUrl: "views/partial-report.html",
-        //         },
-
-        //         "formatted@report": {
-        //             templateUrl: "views/partial-report-formatted.html"
-        //         },
-
-        //         "plaintext@report": {
-        //             templateUrl: "views/partial-report-plaintext.html"
-        //         }
-        //     }
-        // })
-
-        // .state("report.formatted", {
-        //     url: "/report-formatted",
-        //     templateUrl: "views/partial-report-formatted.html"
-        // })
-
-        // .state("report.plaintext", {
-        //     url: "/report-plaintext",
-        //     templateUrl: "views/partial-report-plaintext.html"
-        // });
 });

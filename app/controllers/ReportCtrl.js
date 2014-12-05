@@ -106,6 +106,10 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         $state.go("report-plaintext", {storedData: storedData}, {location: false, inherit: false});
     };
 
+    $scope.Print = function() {
+        window.print();
+    };
+    
     function updateSupplementalConsentText() {
         UserDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
     }

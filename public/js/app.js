@@ -50,7 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return {
             id: id,
             name: "X-ray Computed Tomography Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };
@@ -134,7 +134,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return {
             id: id,
             name: "Flouroscopy Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };
@@ -219,7 +219,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return {
             id: id,
             name: "Nuclear Medicine Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "InjectedDose (mCi)", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };
@@ -452,7 +452,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return {
             id: id,
             name: "X-ray Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };

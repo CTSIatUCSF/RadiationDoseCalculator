@@ -13,7 +13,7 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
         return {
             id: id,
             name: "Flouroscopy Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };

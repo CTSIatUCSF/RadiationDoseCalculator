@@ -13,7 +13,7 @@ angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, 
         return {
             id: id,
             name: "Nuclear Medicine Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "InjectedDose (mCi)", "EDE(mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };

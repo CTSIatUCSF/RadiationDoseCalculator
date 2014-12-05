@@ -4,36 +4,6 @@
 describe ( "Get Data Service", function () {
 
         var getDataService;
-        var $httpBackend;
-        var testdata = {
-            "ConsentNarrative":"This is a sample consent narrative.",
-            "ComparisonDoseSupportingLanguage":"This is a sample of comparison dose supporting langauge.",
-            "ComparisonDose":100,
-            "DoseData":[{
-                    "name":"CT",
-                    "exams":[
-                        { "name":"Abdominal CT slngle slice", "properties":[
-                                { "gender":"female", "value":0.24 },
-                                { "gender":"male", "value":0.24 },
-                                { "gender":"mixed", "value":0.24 } ]},
-                        { "name":"Abdominal CT with AND without constrast", "properties":[
-                                { "gender":"female", "value":7.8 },
-                                { "gender":"male", "value":7.8 },
-                                { "gender":"mixed", "value":7.8 } ]}
-                    ]}, {
-                    "name":"NM",
-                    "exams":[
-                        { "name":"Abdominal CT slngle slice", "properties":[
-                                { "gender":"female", "value":0.24 },
-                                { "gender":"male", "value":0.24 },
-                                { "gender":"mixed", "value":0.24 } ]},
-                        { "name":"Abdominal CT with AND without constrast", "properties":[
-                                { "gender":"female", "value":7.8 },
-                                { "gender":"male", "value":7.8 },
-                                { "gender":"mixed", "value":7.8 } ]}
-                    ]}
-            ]
-        };
 
         beforeEach(module('RadCalc'));
 
@@ -41,70 +11,65 @@ describe ( "Get Data Service", function () {
             getDataService = _getDataService_;
         }));
 
-        beforeEach(inject(function ($injector) {
-            $httpBackend = $injector.get( "$httpBackend" );
-            $httpBackend.when("GET", "/js/data.json").respond(200, testdata);
-        }));
-
-        afterEach(function () {
-            $httpBackend.flush();
-            $httpBackend.verifyNoOutstandingExpectation();
-            $httpBackend.verifyNoOutstandingRequest();
+        it ( "simpleEdeCalculation returns expected value", function() {
+            var singleEDE = 0.03;
+            var numScans  = 10;
+            var expectedValue = 0.3;
+            expect(getDataService.simpleEdeCalculation(singleEDE, numScans)).to.equal(expectedValue);
         });
 
-        it ( "loads data", function() {
-            getDataService.data().then(function (response) {
-                expect(testdata).to.deep.equal(response.data);
-            }, function (error) {
-                console.error(error);
-            });
+        describe ( "countDecimalPlaces",
+        function ()
+        {
+            it ( "returns zero when there is no decimal",
+                function () {
+                    var numberToTest = 1;
+                    var expected = 0;
+                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                }
+            );
+
+            it ( "returns correct number when there is a decimal",
+                function () {
+                    var numberToTest = 5.123;
+                    var expected = 3;
+                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                }
+            );
+
+            it ( "returns correct number when there is no leading zero",
+                function () {
+                    var numberToTest = .49;
+                    var expected = 2;
+                    expect(getDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
+                }
+            );
         });
 
-        it ( "getAllProcedures returns array of procedures", function() {
-            var categoryId = "CT";
-            var expectedCount = 2;
-            getDataService.data().then(function (response) {
-                var data = getDataService.getAllProcedures(categoryId);
-                expect(expectedCount).to.equal(data.length);
-            }, function (error) {
-                console.error(error);
+        describe ( "getScanCount", function () {
+            it ( "returns zero when given an invalid formId", function () {
+                var formId = "badFormId";
+                var expected = 0;
+                expect(getDataService.getScanCount(formId)).to.equal(expected);
+            });
+
+            it ( "returns correct value for given formId", function () {
+                var forms = [];
+                forms.push({"expected": 3, "data": {"id":"XRay", "exams": [{"exam": "a", "scans": 1}, {"exam": "b", "scans": 2}]}});
+                forms.push({"expected": 5, "data": {"id":"CT", "exams": [{"exam": "a", "scans": 2}, {"exam": "b", "scans": 3}]}});
+                forms.push({"expected": 7, "data": {"id":"NM", "exams": [{"exam": "a", "scans": 3}, {"exam": "b", "scans": 4}]}});
+                forms.push({"expected": 9, "data": {"id":"Flouro", "exams": [{"exam": "a", "scans": 4}, {"exam": "b", "scans": 5}]}});
+
+                var formIndex, form, data;
+                for (formIndex in forms) {
+                    form = forms[formIndex];
+                    data = form.data;
+                    getDataService.updateFormData(data);
+                    expect(getDataService.getScanCount(data.id)).to.equal(form.expected);
+                }
             });
         });
-
-        it ("getProcedure returns a procedure object", function() {
-            var categoryId = "NM";
-            var procedureName = "Abdominal CT slngle slice";
-            getDataService.data().then(function (response) {
-                var data = getDataService.getProcedure(categoryId, procedureName);
-                expect(data.name).to.equal(procedureName);
-            }, function (error) {
-                console.error(error);
-            });
-        });
-
-        it ("getAllProcedureProperties returns an array of procedure properties", function() {
-            var categoryId = "NM";
-            var procedureName = "Abdominal CT with AND without constrast";
-            var expectedCount = 3;
-            getDataService.data().then(function (response) {
-                var data = getDataService.getAllProcedureProperties(categoryId, procedureName);
-                expect(data.length).to.equal(expectedCount);
-            }, function (error) {
-                console.error(error);
-            });
-        }); 
-
-        it ("getProcedurePropertyValue returns the correct property value", function() {
-            var categoryId = "CT";
-            var procedureName = "Abdominal CT with AND without constrast";
-            var genderName = "female";
-            var expectedValue = 7.8;
-            getDataService.data().then(function (response) {
-                var data = getDataService.getProcedurePropertyValue(categoryId, procedureName, genderName);
-                expect(data).to.equal(expectedValue);
-            }, function (error) {
-                console.error(error);
-            });
-        });
+        
     }
+    
 );

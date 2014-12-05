@@ -5,7 +5,7 @@ describe ( "Form Controllers", function () {
 
     var xrayFormID = "XRay";
     var formName = "X-ray Examinations";
-    var controller, scope, fakeGetDataService, fakeEdeCalculationService;
+    var controller, scope, fakeGetDataService, fakeStoredDataService;
 
     var forms = [];
     var xrayController, xrayScope;
@@ -15,9 +15,9 @@ describe ( "Form Controllers", function () {
 
     beforeEach(module("RadCalc"));
 
-    beforeEach(inject(function ($controller, $rootScope, getDataService, edeCalculationService) {
+    beforeEach(inject(function ($controller, $rootScope, getDataService, StoredDataService) {
         fakeGetDataService = getDataService;
-        fakeEdeCalculationService = edeCalculationService;
+        fakeStoredDataService = StoredDataService;
 
         xrayScope = $rootScope.$new();
         xrayController = $controller("XRayFormCtrl", { $scope: xrayScope });
@@ -31,10 +31,16 @@ describe ( "Form Controllers", function () {
         floScope = $rootScope.$new();
         floController = $controller("FlouroscopyFormCtrl", { $scope: floScope });
 
-        forms.push({"formID":"XRay", "formName":"X-ray Examinations", "scope":xrayScope});
-        forms.push({"formID":"CT", "formName":"X-ray Computed Tomography Examinations", "scope":ctScope});
-        forms.push({"formID":"NM", "formName":"Nuclear Medicine Examinations", "scope":nmScope});
-        forms.push({"formID":"Flouro", "formName":"Flouroscopy Examinations", "scope":floScope});
+        forms.push({"id":"XRay", "formName":"X-ray Examinations", "scope":xrayScope, "exams": [{"ede": 100}]});
+        forms.push({"id":"CT", "formName":"X-ray Computed Tomography Examinations", "scope":ctScope, "exams": [{"ede": 100}]});
+        forms.push({"id":"NM", "formName":"Nuclear Medicine Examinations", "scope":nmScope, "exams": [{"ede": 100}]});
+        forms.push({"id":"Flouro", "formName":"Flouroscopy Examinations", "scope":floScope, "exams": [{"ede": 100}]});
+
+        var formIndex, form;
+        for (formIndex in forms) {
+            form = forms[formIndex];
+            fakeGetDataService.updateFormData(form);
+        }
 
     }));
 
@@ -78,7 +84,7 @@ describe ( "Form Controllers", function () {
                 for (var formIndex in forms) {
                     form = forms[formIndex];
                     scope = form.scope;
-                    id = form.formID;
+                    id = form.id;
                     expect(scope.form.id).to.equal(id);
                 }
             });
@@ -143,26 +149,30 @@ describe ( "Form Controllers", function () {
 
     describe("EDE totals", function() {
 
-        var procedures = [
-            { ede:1.01, soc:false },
-            { ede:2, soc:true },
-            { ede:3.001, soc:false },
-            { ede:4, soc:true },
-            { ede:5.0001, soc:false },
-            { ede:6, soc:true }
-        ];
+        beforeEach(function() {
+            var procedures = [
+                { ede:1.01, soc:false },
+                { ede:2, soc:true },
+                { ede:3.001, soc:false },
+                { ede:4, soc:true },
+                { ede:5.0001, soc:false },
+                { ede:6, soc:true }
+            ];
 
-        var procedures2 = [
-            { ede:1.0001, soc:false },
-            { ede:2.01, soc:true }
-        ];
+            var formIndex, form;
+            for (formIndex in forms) {
+                form = forms[formIndex];
+                form.exams = procedures;
+                fakeGetDataService.updateFormData(form);
+            }
+        });
+        
 
         it("with SOC", function() {
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
-                scope.form.exams = procedures;
-                expect(scope.edeTotal()).to.equal(21.0111);
+                expect(fakeGetDataService.edeTotal(scope.form.id)).to.equal(21.0111);
             }
         });
 
@@ -170,8 +180,7 @@ describe ( "Form Controllers", function () {
             for (var formIndex in forms) {
                 form = forms[formIndex];
                 scope = form.scope;
-                scope.form.exams = procedures;
-                expect(scope.edeTotalWithoutSOC()).to.equal(9.0111);
+                expect(fakeGetDataService.edeTotalWithoutSOC(scope.form.id)).to.equal(9.0111);
             }
         });
 
@@ -180,12 +189,12 @@ describe ( "Form Controllers", function () {
     describe("Each controller calculates ede", function() {
 
         it ( "XRayFormCtrl ede calculation is correct", function () {
-            fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
+            fakeStoredDataService.getProcedurePropertyValue = function() { return 0; };
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeEdeCalculationService.simpleEdeCalculation = function() { return expectedValue; };
-            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
+            fakeGetDataService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeGetDataService.countDecimalPlaces = function() { return 4; };
 
             var actual = xrayScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -193,12 +202,12 @@ describe ( "Form Controllers", function () {
         });
 
         it ( "CTFormCtrl ede calculation is correct", function () {
-            fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
+            fakeStoredDataService.getProcedurePropertyValue = function() { return 0; };
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", ede: 0 };
             var expectedValue = 0.1234;
-            fakeEdeCalculationService.simpleEdeCalculation = function() { return expectedValue; };
-            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
+            fakeGetDataService.simpleEdeCalculation = function() { return expectedValue; };
+            fakeGetDataService.countDecimalPlaces = function() { return 4; };
 
             var actual = ctScope.calculateEDE(testProcedure);
             expect(actual).to.equal(expectedValue);
@@ -206,12 +215,12 @@ describe ( "Form Controllers", function () {
         });
 
         it ( "NMFormCtrl ede calculation is correct", function () {
-            fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
+            fakeStoredDataService.getProcedurePropertyValue = function() { return 0; };
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", injectedDose:2.0, ede: 0 };
             var ede = 0.1234;
-            fakeEdeCalculationService.simpleEdeCalculation = function() { return ede; };
-            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
+            fakeGetDataService.simpleEdeCalculation = function() { return ede; };
+            fakeGetDataService.countDecimalPlaces = function() { return 4; };
             var expectedValue = ede * testProcedure.injectedDose;
 
             var actual = nmScope.calculateEDE(testProcedure);
@@ -220,12 +229,12 @@ describe ( "Form Controllers", function () {
         });
 
         it ( "FlouroscopyFormCtrl ede calculation is correct", function () {
-            fakeGetDataService.getProcedurePropertyValue = function() { return 0; };
+            fakeStoredDataService.getProcedurePropertyValue = function() { return 0; };
 
             var testProcedure = { id: 1, exam: "testProcedure", scans: 1, soc: false, gender: "mixed", minutes:2.0, ede: 0 };
             var ede = 0.1234;
-            fakeEdeCalculationService.simpleEdeCalculation = function() { return ede; };
-            fakeEdeCalculationService.countDecimalPlaces = function() { return 4; };
+            fakeGetDataService.simpleEdeCalculation = function() { return ede; };
+            fakeGetDataService.countDecimalPlaces = function() { return 4; };
             var expectedValue = ede * testProcedure.minutes;
 
             var actual = floScope.calculateEDE(testProcedure);

@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     //-- LINTING
     jshint: {
       // define the files to lint
-      files: ["gruntfile.js", "../app/**/*.js", "test/**/*.js"],
+      files: ["gruntfile.js", "../app/**/*.js", "test/**/*.js", "!../app/js/angular-ui-router.min.js"],
       options: {
         globals: {
           jQuery: true,

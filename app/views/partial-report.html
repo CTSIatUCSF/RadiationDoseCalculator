@@ -1,0 +1,66 @@
+<div ng-controller="ReportCtrl">
+
+    <div style="margin:20px 40px 60px 40px;">
+        <button class="btn btn-success" ng-click="DataEntryClicked()">Back to data</button>
+    </div>
+
+    <table class="table table-hover table-condensed">
+        <tr>
+            <th class="exam-headers" >Types of Procedures</th>
+            <th class="exam-headers" >Number of Scans</th>
+            <th class="exam-headers" >EDE (mSv)</th>
+        </tr>
+        <tr>
+            <td>X-Ray CT</td>
+            <td>{{getScanCount("CT")}}</td>
+            <td>{{edeTotal("CT")}}</td>
+        </tr>
+        <tr>
+            <td>Nuclear Medicine</td>
+            <td>{{getScanCount("NM")}}</td>
+            <td>{{edeTotal("NM")}}</td>
+        </tr>
+        <tr>
+            <td>Radiography</td>
+            <td>{{getScanCount("XRay")}}</td>
+            <td>{{edeTotal("XRay")}}</td>
+        </tr>
+        <tr>
+            <td>Flouroscopy</td>
+            <td>{{getScanCount("Flouro")}}</td>
+            <td>{{edeTotal("Flouro")}}</td>
+        </tr>
+    </table>
+
+    <table class="table table-hover table-condensed">
+        <tr>
+            <td>Research EDE (mSv)</td>
+            <td>{{edeReportTotalWithoutSOC()}}</td>
+        </tr>
+        <tr>
+            <td>Standard of Care (mSv)</td>
+            <td>{{edeReportTotalOnlySOC()}}</td>
+        </tr>
+        <tr>
+            <td>Total EDE (mSv)</td>
+            <td>{{edeReportTotal()}}</td>
+        </tr>
+    </table>
+
+    <table class="table table-hover table-condensed">
+        <tr>
+            <td>Comparison Dose (mSv)</td>
+            <td>{{comparisonDose}}</td>
+        </tr>
+    </table>
+
+    <h1>Comparison Dose Support Language</h1>
+    <p>{{comparisonDoseSupportingLanguage}}</p>
+
+    <h1>Consent Narrative</h1>
+    <p>{{consentNarrative}}</p>
+
+    <h1>Supplemental Consent Language</h1>
+    <p>{{supplementalConsentLanguage}}</p>
+
+</div>

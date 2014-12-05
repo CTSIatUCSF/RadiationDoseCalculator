@@ -1,63 +1,161 @@
 angular.module("RadCalc.services").factory("getDataService", function($q, $http) {
 
-  var data = {};
-  var getData;
+  var userData = { "formData": []};
+  var doesExist, edeTotal;
 
-  getData = function() {
-    var deferred = $q.defer(),
-        httpPromise = $http.get("/js/data.json");
-
-    httpPromise.then(function (response) {
-      deferred.resolve(response);
-    }, function (error) {
-      console.error(error);
-    });
-
-    return deferred.promise;
+  doesExist = function(formId) {
+    var index, item;
+    for (index in userData.formData) {
+      item = userData.formData[index];
+      if (item.id === formId) { return true; }
+    }
+    return false;
   };
 
-  getData().then(function (response) {
-      data = response.data;
-  }, function (error) {
-      console.error(error);
-  });
+  edeTotal = function(onlySOC, formId) {
+      var decimalPlaceCount = 0;
+      var total = 0;
+      var formData = getFormData(formId);
+      angular.forEach(formData.exams, function(item) {
+          if (item.soc === onlySOC) {
+              decimalPlaceCount = -maxDecimalPlaces(total, item.ede);
+              total += item.ede;
+          }
+      });
+      return Math.round10(total, decimalPlaceCount);
+  };
+
+  getFormData = function(formId) {
+    var index, item;
+    for (index in userData.formData) {
+      item = userData.formData[index];
+      if (item.id === formId) { return item; }
+    }
+    return null;
+  };
+
+  maxDecimalPlaces = function(n1, n2) {
+      var n1Count = countDecimalPlaces(n1);
+      var n2Count = countDecimalPlaces(n2);
+      if (n1Count > n2Count) {
+          return n1Count;
+      }
+      return n2Count;
+  };
+
+  countDecimalPlaces = function(value) {
+      var valueString = "" + value;
+      var ary = valueString.split(("."));
+      if (ary.length < 2) {
+          return 0;
+      } else {
+          return ary[1].length;
+      }
+  };
+
+  getScanCount = function(formId) {
+    var count = 0;
+    if (doesExist(formId)) {
+      var formData = getFormData(formId);
+      angular.forEach(formData.exams, function(item) {
+        if (item.exam !== "") {
+          count += item.scans;
+        }
+      });
+    }
+    return count;
+  };
 
   return {
 
-    data: getData,
+    getFormData: getFormData,
+    countDecimalPlaces:countDecimalPlaces,
+    getScanCount: getScanCount,
 
-    getAllProcedures: function(categoryID) {
-        for (var categoryIndex in data.DoseData) {
-            var category = data.DoseData[categoryIndex];
-            if (category.name == categoryID) {
-                return category.exams;
+    updateFormData: function(formData) {
+      if (doesExist(formData.id) === false) {
+        userData.formData.push(formData);
+        return;
+      }
+
+      var oldFormData = userData.formData;
+      userData.formData = [];
+      angular.forEach(oldFormData, function(item) {
+        if (item.exam !== "") {
+            if (item.id === formData.id) {
+              userData.formData.push(formData);
+            } else {
+              userData.formData.push(item);
             }
         }
+      });
     },
 
-    getProcedure: function(categoryID, procedureName) {
-        var allProcedures = this.getAllProcedures(categoryID);
-        for (var procedureIndex in allProcedures) {
-            var procedure = allProcedures[procedureIndex];
-            if (procedure.name == procedureName) {
-                return procedure;
-            }
-        }
+    updateSupplementalConsentText: function(supplementalConsentText) {
+      userData.supplementalConsentText = supplementalConsentText;
     },
 
-    getAllProcedureProperties: function(categoryID, procedureName) {
-        var procedure = this.getProcedure(categoryID, procedureName);
-        return procedure.properties;
+    userData: function() {
+      return userData;
     },
 
-    getProcedurePropertyValue: function(categoryID, procedureName, genderPredominance) {
-        var properties = this.getAllProcedureProperties(categoryID, procedureName);
-        for (var propertyIndex in properties) {
-            var property = properties[propertyIndex];
-            if (property.gender == genderPredominance) {
-                return property.value;
-            }
-        }
+    simpleEdeCalculation: function(singleEde, scanCount) {
+        return singleEde * scanCount;
+    },
+
+    edeTotal: function(formId) {
+        var onlySOC = this.edeTotalOnlySOC(formId);
+        var withoutSOC = this.edeTotalWithoutSOC(formId);
+        var totalSOC = onlySOC + withoutSOC;
+        var decimalPlaceCount = -maxDecimalPlaces(onlySOC, withoutSOC);
+        return Math.round10(totalSOC, decimalPlaceCount);
+    },
+
+    edeTotalWithoutSOC: function(formId) {
+        return edeTotal(false, formId);
+    },
+
+    edeTotalOnlySOC: function(formId) {
+        return edeTotal(true, formId);
+    },
+
+    edeReportTotal: function() {
+      var formIndex, form;
+      var total = 0;
+      var decimalPlaceCount = 0;
+      for (formIndex in userData.formData) {
+        form = userData.formData[formIndex];
+        total += this.edeTotal(form.id);
+        decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+      }
+      console.log("decimalPlaceCount = " + decimalPlaceCount);
+      return Math.round10(total, decimalPlaceCount);
+    },
+
+    edeReportTotalOnlySOC: function() {
+      var formIndex, form;
+      var total = 0;
+      var decimalPlaceCount = 0;
+      for (formIndex in userData.formData) {
+        form = userData.formData[formIndex];
+        total += this.edeTotalOnlySOC(form.id);
+        decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+      }
+      console.log("decimalPlaceCount = " + decimalPlaceCount);
+      return Math.round10(total, decimalPlaceCount);
+    },
+
+    edeReportTotalWithoutSOC: function() {
+      var formIndex, form;
+      var total = 0;
+      var decimalPlaceCount = 0;
+      for (formIndex in userData.formData) {
+        form = userData.formData[formIndex];
+        total += this.edeTotalWithoutSOC(form.id);
+        decimalPlaceCount = -maxDecimalPlaces(total, form.ede);
+      }
+      console.log("decimalPlaceCount = " + decimalPlaceCount);
+      return Math.round10(total, decimalPlaceCount);
     }
 
   };

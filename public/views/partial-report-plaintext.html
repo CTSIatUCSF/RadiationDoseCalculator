@@ -1,15 +1,9 @@
 <div ng-controller="ReportCtrl">
-
-    <div class="no-print" style="margin:20px 40px 60px 40px;">
-        <button class="btn btn-success" ng-click="DataEntryClicked()">Back to data</button>
-    </div>
-
-    <div class="no-print" style="margin:20px 40px 60px 40px;">
-        <button class="btn btn-success" ng-click="FormattedReportClicked()">Formatted</button>
-    </div>
-
-    <div class="no-print" style="margin:20px 40px 60px 40px;">
-        <button class="btn btn-success" ng-click="Print()">Print</button>
+    
+    <div class="no-print" style="margin:20px 40px 30px 70px;">
+        <button class="btn btn-success report-button" ng-click="DataEntryClicked()">Back to data</button>
+        <button class="btn btn-success report-button" ng-click="FormattedReportClicked()">Formatted</button>
+        <button class="btn btn-success report-button" ng-click="Print()">Print</button>
     </div>
 
     <pre>

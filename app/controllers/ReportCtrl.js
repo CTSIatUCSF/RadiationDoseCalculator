@@ -95,7 +95,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     };
 
     $scope.DataEntryClicked = function() {
-        $state.go("dataEntry", {storedData: storedData}, {location: true, inherit: false});
+        $state.go("data-entry", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.FormattedReportClicked = function() {

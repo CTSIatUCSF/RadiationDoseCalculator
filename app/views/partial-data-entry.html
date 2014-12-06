@@ -11,7 +11,7 @@
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="CTFormCtrl">
         <form name="{{form.name}}">
             <div class="exam-table-title">{{form.name}}</div>
-            <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+            <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             <div class="data-entry-table">
             <table class="table table-hover table-condensed">
                 <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
@@ -37,7 +37,7 @@
                     <td class="timedose-width"></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
-                       <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                    </td>
                 </tr>
                 <tr>
@@ -58,7 +58,7 @@
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="NMFormCtrl">
         <form name="{{form.name}}">
             <div class="exam-table-title">{{form.name}}</div>
-            <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+            <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             <div class="data-entry-table">
             <table class="table table-hover table-condensed">
                 <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
@@ -84,7 +84,7 @@
                     <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" /></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
-                       <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                    </td>
                 </tr>
                 <tr>
@@ -105,7 +105,7 @@
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
         <form name="{{form.name}}">
             <div class="exam-table-title">{{form.name}}</div>
-            <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+            <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             <div class="data-entry-table">
             <table class="table table-hover table-condensed">
                 <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
@@ -131,7 +131,7 @@
                     <td class="timedose-width"></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
-                       <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                    </td>
                 </tr>
                 <tr>
@@ -152,7 +152,7 @@
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="FlouroscopyFormCtrl">
         <form name="{{form.name}}">
             <div class="exam-table-title">{{form.name}}</div>
-            <button class="btn btn-link" ng-click="createRow()">+ Add Exam</button>
+            <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             <div class="data-entry-table">
             <table class="table table-hover table-condensed">
                 <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
@@ -178,7 +178,7 @@
                     <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.minutes" min="0" /></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
-                       <button type="button" class="close" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                    </td>
                 </tr>
                 <tr>

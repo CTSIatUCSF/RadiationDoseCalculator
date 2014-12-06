@@ -9,9 +9,9 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         "col4":80
     };
 
-    $scope.consentNarrative = storedData.ConsentNarrative;
-    $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage;
-    $scope.comparisonDose = storedData.ComparisonDose;
+    $scope.consentNarrative = storedData.ConsentNarrative || "";
+    $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage || "";
+    $scope.comparisonDose = storedData.ComparisonDose || "";
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
 
     addPadding = function(string, maxWidth, spacer) {

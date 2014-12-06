@@ -16,13 +16,15 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     edeTotal = function(onlySOC, formId) {
         var decimalPlaceCount = 0;
         var total = 0;
-        var formData = getFormData(formId);
-        angular.forEach(formData.exams, function(item) {
-            if (item.soc === onlySOC) {
-                decimalPlaceCount = -maxDecimalPlaces(total, item.ede);
-                total += item.ede;
-            }
-        });
+        if (doesExist(formId)) {
+            var formData = getFormData(formId);
+            angular.forEach(formData.exams, function(item) {
+                if (item.soc === onlySOC) {
+                    decimalPlaceCount = -maxDecimalPlaces(total, item.ede);
+                    total += item.ede;
+                }
+            });
+        }
         return Math.round10(total, decimalPlaceCount);
     };
 
@@ -154,12 +156,14 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
-        for (formIndex in userData.formData) {
-            form = userData.formData[formIndex];
-            ede = this.edeTotal(form.id);
-            decimalPlaceCount = maxDecimalPlaces(total, ede);
-            total += ede;
-            total = Math.round10(total, -decimalPlaceCount);
+        if (userData) {
+            for (formIndex in userData.formData) {
+                form = userData.formData[formIndex];
+                ede = this.edeTotal(form.id);
+                decimalPlaceCount = maxDecimalPlaces(total, ede);
+                total += ede;
+                total = Math.round10(total, -decimalPlaceCount);
+            }
         }
         return total;
     },
@@ -171,12 +175,14 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
-        for (formIndex in userData.formData) {
-            form = userData.formData[formIndex];
-            ede = this.edeTotalWithoutSOC(form.id);
-            decimalPlaceCount = maxDecimalPlaces(total, ede);
-            total += ede;
-            total = Math.round10(total, -decimalPlaceCount);
+        if (userData) {
+            for (formIndex in userData.formData) {
+                form = userData.formData[formIndex];
+                ede = this.edeTotalWithoutSOC(form.id);
+                decimalPlaceCount = maxDecimalPlaces(total, ede);
+                total += ede;
+                total = Math.round10(total, -decimalPlaceCount);
+            }
         }
         return total;
     },
@@ -188,12 +194,14 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         var formIndex, form, ede;
         var total = 0;
         var decimalPlaceCount = 0;
-        for (formIndex in userData.formData) {
-            form = userData.formData[formIndex];
-            ede = this.edeTotalOnlySOC(form.id);
-            decimalPlaceCount = maxDecimalPlaces(total, ede);
-            total += ede;
-            total = Math.round10(total, -decimalPlaceCount);
+        if (userData) {
+            for (formIndex in userData.formData) {
+                form = userData.formData[formIndex];
+                ede = this.edeTotalOnlySOC(form.id);
+                decimalPlaceCount = maxDecimalPlaces(total, ede);
+                total += ede;
+                total = Math.round10(total, -decimalPlaceCount);
+            }
         }
         return total;
     }

@@ -27,7 +27,7 @@ div.data-entry-tables-wrapper {
 }
 
 .procedures {
-    width:400px;
+    width:520px;
 }
 
 .exam-num {
@@ -35,11 +35,11 @@ div.data-entry-tables-wrapper {
 }
 
 .scan-width {
-    width:200px;
+    width:80px;
 }
 
 .soc-width {
-    width:175px;
+    width:150px;
 }
 
 .gender-width {
@@ -52,7 +52,7 @@ div.data-entry-tables-wrapper {
 }
 
 .timedose-width {
-    width:175px;
+    width:150px;
 }
 
 div.data-entry-table {
@@ -89,7 +89,7 @@ label.socLabel {
 }
 
 .table tbody>tr>td.soe-label {
-    padding-left:20px;
+    padding-left:40px;
 }
 
 .table tbody>tr>th.exam-headers {

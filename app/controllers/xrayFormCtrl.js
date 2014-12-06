@@ -13,7 +13,7 @@ angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope
         return {
             id: id,
             name: "X-ray Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "EDE (mSv)"],
+            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)"],
             exams:[ defaultTomographyExam() ]
         };
     };

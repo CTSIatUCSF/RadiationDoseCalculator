@@ -1,7 +1,3 @@
-body {
-    font-family:verdana;
-}
-
 div.exam-table-title {
     color:#ffffff;
     font-size: 18pt;
@@ -9,11 +5,54 @@ div.exam-table-title {
     padding: 5px 10px 5px 10px;
     background-color: #308EB3;
     display: inline-block;
-}
+} 
 
 div.data-entry-tables-wrapper {
-    margin-left:40px;
-    margin-right:40px;
+    margin-left:70px;
+    margin-right:80px;
+}
+
+.form-control {
+    border-radius:0;
+}
+
+.btn-link {
+    font-size: 1.2em;
+}
+
+.report-button {
+    width:140px;
+    height:40px;
+    border-radius:0;
+}
+
+.procedures {
+    width:400px;
+}
+
+.exam-num {
+    width:50px;
+}
+
+.scan-width {
+    width:200px;
+}
+
+.soc-width {
+    width:175px;
+}
+
+.gender-width {
+    width:175px;
+}
+
+.ede-width {
+    width:300px;
+    float:right;
+}
+
+.timedose-width {
+    width:175px;
 }
 
 div.data-entry-table {
@@ -21,7 +60,7 @@ div.data-entry-table {
 }
 
 div#consentTextContainer {
-    margin:0 40px 40px 40px;
+    margin:0 80px 40px 70px;
     font-size: 18pt;
 }
 

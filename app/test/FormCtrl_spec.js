@@ -5,7 +5,7 @@ describe ( "Form Controllers", function () {
 
     var xrayFormID = "XRay";
     var formName = "X-ray Examinations";
-    var controller, scope, fakeUserDataService, fakeStoredDataService;
+    var controller, scope, testdata, defaultExamRows, fakeUserDataService, fakeStoredDataService;
 
     var forms = [];
     var xrayController, xrayScope;
@@ -43,6 +43,13 @@ describe ( "Form Controllers", function () {
         }
 
     }));
+
+    defaultExamRows = {
+        "CT":     { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 },
+        "NM":     { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 },
+        "XRay":   { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 },
+        "Flouro": { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 }
+    };
 
     testdata = {
         "ConsentNarrative":"This is a sample consent narrative.",
@@ -181,6 +188,34 @@ describe ( "Form Controllers", function () {
                 form = forms[formIndex];
                 scope = form.scope;
                 expect(fakeUserDataService.edeTotalWithoutSOC(scope.form.id)).to.equal(9.0111);
+            }
+        });
+
+    });
+
+    describe ( "removing procedures", function () {
+
+        it ( "removes sucessfully", function () {
+            var formIndex, testexam;
+            for (formIndex in forms) {
+                form = forms[formIndex];
+                scope = form.scope;
+
+                testexam0 = defaultExamRows[form.id];
+                testexam1 = defaultExamRows[form.id];
+                testexam2 = defaultExamRows[form.id];
+
+                testexam0.id = 0;
+                testexam1.id = 1;
+                testexam2.id = 2;
+
+                scope.form.exams = [];
+                scope.form.exams.push(testexam0);
+                scope.form.exams.push(testexam1);
+                scope.form.exams.push(testexam2);
+                scope.removeProcedure(testexam1.id);
+
+                expect(2).to.equal(scope.form.exams.length);
             }
         });
 

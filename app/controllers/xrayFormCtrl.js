@@ -48,7 +48,6 @@ angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope
     };
 
     $scope.$watch("form", function() {
-        // console.log("watch!");
         UserDataService.updateFormData($scope.form);
     }, true);
 
@@ -66,7 +65,6 @@ angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope
 
     $scope.removeProcedure = function(procedureId) {
         var i, procedure;
-        console.log(procedureId);
         for (i=0; i<$scope.form.exams.length; i++) {
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {

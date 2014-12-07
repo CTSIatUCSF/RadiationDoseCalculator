@@ -9,6 +9,12 @@ angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, 
         return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     };
 
+    enforceMinimumExamCount = function() {
+        if ($scope.form.exams.length < 1) {
+            $scope.form.exams.push(defaultTomographyExam());
+        }
+    };
+
     initializeForm = function() {
         return {
             id: id,
@@ -65,6 +71,7 @@ angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, 
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {
                 $scope.form.exams.splice(i, 1);
+                enforceMinimumExamCount();
                 return;
             }
         }

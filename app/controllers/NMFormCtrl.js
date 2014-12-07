@@ -6,7 +6,7 @@ angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, 
 
     defaultTomographyExam = function() {
         uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
     };
 
     enforceMinimumExamCount = function() {

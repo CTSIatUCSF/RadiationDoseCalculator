@@ -6,7 +6,7 @@ angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function
 
     defaultTomographyExam = function() {
         uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 };
     };
 
     enforceMinimumExamCount = function() {

@@ -23,12 +23,13 @@ If you want to use Node.js as your web server, follow steps 1-4 of the **Simple 
 1. Copy the **/node** folder to the same location you copied the **/public** folder.
 2. Using the command line, navigate into the **/node** folder.
 3. If you want to change the port number, you can edit it on line 10 of **server.js**.
-4. Run **npm install** to install dependencies.
+4. Run **npm install** to install the project's dependencies.
 5. Run **node server.js** to start the node server.
 
-### Advanced Install
+### Advanced Install / Rebuilding the Project
 
-If you want to edit any of the javascript files, you'll want to make your changes in the **/app** folder and re-build the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
+If you want to edit any of the javascript files, it is best to make your changes in the **/app** folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
 
-1. **WARNING!:** If you have already edited any of the files in the **/public** folder, you'll want to copy your changes to the same files in the **/app** folder. Step 2 will overwrite the **/public** folder.
+1. **WARNING!:** If you have already edited any of the files in the **/public** folder, you'll want to copy your changes into the **/app** folder. Otherwise, Step 2 will overwrite the **/public** folder and wipe out your changes.
 2. From the **/node** folder, run **grunt deploy**. This will rebuild the application and replace the files in the **/public** folder.
+3. Follow the **Simple Install** or **Node.js Install** instructions to complete the installation  

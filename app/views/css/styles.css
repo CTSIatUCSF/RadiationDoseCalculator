@@ -77,9 +77,13 @@ table.table-over {
 
 div.data-entry-table {
     margin-bottom:50px;
-    border-top-color:#308EB3;
-    border-top-width:2px;
-    border-top-style:solid;
+}
+
+div.bottom-border {
+    border-bottom-color:#308EB3;
+    border-bottom-width:2px;
+    border-bottom-style:solid;
+    margin-bottom:3px;
 }
 
 div#consentTextContainer {

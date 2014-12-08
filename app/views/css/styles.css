@@ -1,11 +1,28 @@
+/* COLOR STYLES */
+body {
+    color:#000000;
+    background-color: #ffffff;
+}
+
 div.exam-table-title {
     color:#ffffff;
+    background-color: #308EB3;
+}
+
+
+
+/* LAYOUT AND FORMATTING STYLES */
+body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:10pt;
+}
+
+div.exam-table-title {
     font-size: 18pt;
     font-weight: bold;
     padding: 5px 10px 6px 10px;
-    background-color: #308EB3;
     display: inline-block;
-} 
+}
 
 div.data-entry-tables-wrapper {
     margin-left:70px;
@@ -37,7 +54,7 @@ table.priority-border {
 .report-button {
     width:140px;
     height:40px;
-    margin-right:20px; 
+    margin-right:20px;
 }
 
 .procedures {
@@ -84,6 +101,7 @@ table.priority-border {
 }
 
 table.table-over {
+<<<<<<< HEAD
     width:100%;
     min-width:500px;
     margin-bottom: 20px;
@@ -98,6 +116,13 @@ table, th, tr, td {
 th, tr, td {
     height:30px;
     padding-left:3px;
+=======
+  width:100%;
+  margin-bottom: 20px;
+  border-color:#4d4d4d;
+  border-width:1px;
+  border-style:solid;
+>>>>>>> 950fad71f8c0da1e69e3e22d8dd6cef551802027
 }
 
 div.data-entry-table {
@@ -161,11 +186,13 @@ pre.plaintext {
     padding-bottom:20px;
     padding-left:50px;
     padding-right:50px;
+    min-width: 600px;
     background-color: #ffffff;
     border:2px solid #4d4d4d;
 }
 
 div.button-row {
+    white-space: nowrap;
     margin-bottom:30px;
     min-width:500px;
 }

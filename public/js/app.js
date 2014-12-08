@@ -626,7 +626,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // Private
     var userData = { "formData": []};
-    var doesExist, edeTotal;
+    var doesExist, edeTotal, getFormData, maxDecimalPlaces, countDecimalPlaces, getScanCount;
 
     doesExist = function(formId) {
         var index, item;

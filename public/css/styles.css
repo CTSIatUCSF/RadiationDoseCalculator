@@ -1,15 +1,37 @@
+/* COLOR STYLES */
+body {
+    color:#000000;
+    background-color: #ffffff;
+}
+
 div.exam-table-title {
     color:#ffffff;
+    background-color: #308EB3;
+}
+
+
+
+/* LAYOUT AND FORMATTING STYLES */
+body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:10pt;
+}
+
+div.exam-table-title {
     font-size: 18pt;
     font-weight: bold;
     padding: 5px 10px 6px 10px;
-    background-color: #308EB3;
     display: inline-block;
-} 
+}
 
 div.data-entry-tables-wrapper {
     margin-left:70px;
     margin-right:80px;
+}
+
+h2 {
+    font-weight:bold;
+    color:#4d4d4d;
 }
 
 .btn-link {
@@ -19,7 +41,7 @@ div.data-entry-tables-wrapper {
 .report-button {
     width:140px;
     height:40px;
-    margin-right:20px; 
+    margin-right:20px;
 }
 
 .procedures {
@@ -66,13 +88,11 @@ div.data-entry-tables-wrapper {
 }
 
 table.table-over {
-  width:90%;
-  max-width:90%;
+  width:100%;
   margin-bottom: 20px;
-  margin-left:80px;
   border-color:#4d4d4d;
   border-width:1px;
-  border-style:solid;  
+  border-style:solid;
 }
 
 div.data-entry-table {
@@ -83,7 +103,6 @@ div.bottom-border {
     border-bottom-color:#308EB3;
     border-bottom-width:2px;
     border-bottom-style:solid;
-    margin-bottom:3px;
 }
 
 div#consentTextContainer {
@@ -127,7 +146,7 @@ label.socLabel {
 
 div.report-wrapper {
     margin-left:70px;
-    margin-right:70px;
+    margin-right:1000px;
     margin-top:20px;
     margin-bottom:20px;
 }
@@ -137,11 +156,13 @@ pre.plaintext {
     padding-bottom:20px;
     padding-left:50px;
     padding-right:50px;
+    min-width: 600px;
     background-color: #ffffff;
     border:2px solid #4d4d4d;
 }
 
 div.button-row {
+    white-space: nowrap;
     margin-bottom:30px;
 }
 

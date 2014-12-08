@@ -1,9 +1,9 @@
 # Radiation Dose Calculator
 ![Circle CI](https://circleci.com/gh/CranestyleLabs/RadiationDoseCalculator.png?circle-token=c352826043e69c5309b91e489d06f0a16e4b7392)
 
-# Installation Instructions
+## Installation Instructions
 
-## Simple Install
+### Simple Install
 
 The **public** folder contains all of the files needed to run the calculator. Just follow these steps:  
 
@@ -16,7 +16,7 @@ The **public** folder contains all of the files needed to run the calculator. Ju
 4. TODO: color palette configuration
 5. Copy all files in the **/public** folder to your web server and start it up.
 
-## Node.js Install
+### Node.js Install
 
 If you want to use Node.js as your web server, follow steps 1-4 of the **Simple Install** instructions above, then complete the following steps:
 
@@ -26,7 +26,7 @@ If you want to use Node.js as your web server, follow steps 1-4 of the **Simple 
 4. Run **npm install** to install dependencies.
 5. Run **node server.js** to start the node server.
 
-## Advanced Install
+### Advanced Install
 
 If you want to edit any of the javascript files, you'll want to make your changes in the **/app** folder and re-build the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
 

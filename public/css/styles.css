@@ -1,11 +1,28 @@
+/* COLOR STYLES */
+body {
+    color:#000000;
+    background-color: #ffffff;
+}
+
 div.exam-table-title {
     color:#ffffff;
+    background-color: #308EB3;
+}
+
+
+
+/* LAYOUT AND FORMATTING STYLES */
+body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size:10pt;
+}
+
+div.exam-table-title {
     font-size: 18pt;
     font-weight: bold;
     padding: 5px 10px 6px 10px;
-    background-color: #308EB3;
     display: inline-block;
-} 
+}
 
 div.data-entry-tables-wrapper {
     margin-left:70px;
@@ -72,7 +89,7 @@ table.table-over {
   margin-left:80px;
   border-color:#4d4d4d;
   border-width:1px;
-  border-style:solid;  
+  border-style:solid;
 }
 
 div.data-entry-table {
@@ -137,6 +154,7 @@ pre.plaintext {
     padding-bottom:20px;
     padding-left:50px;
     padding-right:50px;
+    min-width: 600px;
     background-color: #ffffff;
     border:2px solid #4d4d4d;
 }

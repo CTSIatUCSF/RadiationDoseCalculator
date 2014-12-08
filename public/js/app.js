@@ -38,7 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "CT";
 
     defaultTomographyExam = function() {
@@ -127,7 +127,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "Flouro";
 
     defaultTomographyExam = function() {
@@ -217,7 +217,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });;angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "NM";
 
     defaultTomographyExam = function() {
@@ -455,7 +455,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "XRay";
 
     defaultTomographyExam = function() {
@@ -541,6 +541,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return UserDataService.edeTotalOnlySOC($scope.form.id);
     };
 
+});;angular.module("RadCalc").directive("numbersOnly", function() {
+    return function(scope, element, attrs) {
+        var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,190];
+        element.bind("keydown", function(event) {
+            if($.inArray(event.which,keyCode) == -1) {
+                scope.$apply(function(){
+                    scope.$eval(attrs.onlyNum);
+                    event.preventDefault();
+                });
+                event.preventDefault();
+            }
+
+        });
+    };
 });;angular.module("RadCalc.services").factory("StoredDataService", function($q, $http) {
 
     var storedData = {};

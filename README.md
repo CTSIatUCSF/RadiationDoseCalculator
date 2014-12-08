@@ -10,11 +10,14 @@ The **public** folder contains all of the files needed to run the calculator. Ju
 1. Open `/public/js/data.json` and edit the following values:
 	* ConsentNarrative  
 	* ComparisonDoseSupportingLanguage  
-	* ComparisonDose    
-2. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. Save your changes.
-3. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
-4. TODO: color palette configuration
-5. Copy all files in the `/public` folder to your web server and start it up.
+	* ComparisonDose
+	* Existing procedures can be edited to change their names and dose values
+	* New procedures can be added to the existing DoseData categories. Copying/Pasting then editing an existing procedure is probably the easiest way to do this.
+2. Copy the edited json into a [json validator] (http://jsonlint.com/) to make sure it is valid before proceeding.
+3. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. Save your changes.
+4. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
+5. TODO: color palette configuration
+6. Copy all files in the `/public` folder to your web server and start it up.
 
 ### Node.js Install
 
@@ -28,7 +31,7 @@ If you want to use Node.js as your web server, follow steps 1-4 of the **Simple 
 
 ### Advanced Install / Rebuilding the Project
 
-If you want to edit any of the javascript files, it is best to make your changes in the **/app** folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
+If you want to edit any of the javascript files, it is best to make your changes in the git a/app** folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
 
 1. **WARNING!:** If you have already edited any of the files in the `/public` folder, you'll want to copy your changes into the `/app` folder. Otherwise, Step 2 will overwrite the `/public` folder and wipe out your changes.
 2. From the `/node` folder, run `grunt deploy`. This will rebuild the application and replace the files in the `public` folder.

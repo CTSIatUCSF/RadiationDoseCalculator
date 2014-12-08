@@ -46,6 +46,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     };
 
+    enforceMinimumExamCount = function() {
+        if ($scope.form.exams.length < 1) {
+            $scope.form.exams.push(defaultTomographyExam());
+        }
+    };
+
     initializeForm = function() {
         return {
             id: id,
@@ -79,7 +85,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.$watch("form", function() {
-        // console.log("watch!");
         UserDataService.updateFormData($scope.form);
     }, true);
 
@@ -97,11 +102,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.removeProcedure = function(procedureId) {
         var i, procedure;
-        console.log(procedureId);
         for (i=0; i<$scope.form.exams.length; i++) {
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {
                 $scope.form.exams.splice(i, 1);
+                enforceMinimumExamCount();
                 return;
             }
         }
@@ -127,7 +132,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     defaultTomographyExam = function() {
         uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 };
+    };
+
+    enforceMinimumExamCount = function() {
+        if ($scope.form.exams.length < 1) {
+            $scope.form.exams.push(defaultTomographyExam());
+        }
     };
 
     initializeForm = function() {
@@ -163,7 +174,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.$watch("form", function() {
-        // console.log("watch!");
         UserDataService.updateFormData($scope.form);
     }, true);
 
@@ -182,11 +192,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.removeProcedure = function(procedureId) {
         var i, procedure;
-        console.log(procedureId);
         for (i=0; i<$scope.form.exams.length; i++) {
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {
                 $scope.form.exams.splice(i, 1);
+                enforceMinimumExamCount();
                 return;
             }
         }
@@ -212,7 +222,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     defaultTomographyExam = function() {
         uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
+    };
+
+    enforceMinimumExamCount = function() {
+        if ($scope.form.exams.length < 1) {
+            $scope.form.exams.push(defaultTomographyExam());
+        }
     };
 
     initializeForm = function() {
@@ -248,7 +264,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.$watch("form", function() {
-        // console.log("watch!");
         UserDataService.updateFormData($scope.form);
     }, true);
 
@@ -267,11 +282,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.removeProcedure = function(procedureId) {
         var i, procedure;
-        console.log(procedureId);
         for (i=0; i<$scope.form.exams.length; i++) {
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {
                 $scope.form.exams.splice(i, 1);
+                enforceMinimumExamCount();
                 return;
             }
         }
@@ -448,6 +463,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
     };
 
+    enforceMinimumExamCount = function() {
+        if ($scope.form.exams.length < 1) {
+            $scope.form.exams.push(defaultTomographyExam());
+        }
+    };
+
     initializeForm = function() {
         return {
             id: id,
@@ -481,7 +502,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.$watch("form", function() {
-        // console.log("watch!");
         UserDataService.updateFormData($scope.form);
     }, true);
 
@@ -499,11 +519,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.removeProcedure = function(procedureId) {
         var i, procedure;
-        console.log(procedureId);
         for (i=0; i<$scope.form.exams.length; i++) {
             procedure = $scope.form.exams[i];
             if (procedureId === procedure.id) {
                 $scope.form.exams.splice(i, 1);
+                enforceMinimumExamCount();
                 return;
             }
         }

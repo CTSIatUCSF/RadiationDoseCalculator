@@ -147,6 +147,11 @@ div.button-row {
     margin-bottom:30px;
 }
 
+img.rad-logo {
+    display:inline-block;
+    margin-right:15px;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

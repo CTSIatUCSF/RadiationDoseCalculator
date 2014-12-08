@@ -101,18 +101,16 @@ table.table-over {
     border-spacing:0; 
 }
 
-table, th, tr, td {
+table.table-borders th,
+table.table-borders tr,
+table.table-borders td {
     border:1px solid #4d4d4d;
-}
-
-th, tr, td {
     height:30px;
     padding-left:3px;
-    width:100%;
-    margin-bottom: 20px;
-    border-color:#4d4d4d;
-    border-width:1px;
-    border-style:solid;
+}
+
+table.table-borders td.total {
+    width:150px;
 }
 
 div.data-entry-table {

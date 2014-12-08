@@ -10,11 +10,14 @@ The **public** folder contains all of the files needed to run the calculator. Ju
 1. Open `/public/js/data.json` and edit the following values:
 	* ConsentNarrative  
 	* ComparisonDoseSupportingLanguage  
-	* ComparisonDose    
-2. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. Save your changes.
-3. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
-4. TODO: color palette configuration
-5. Copy all files in the `/public` folder to your web server and start it up.
+	* ComparisonDose
+	* Existing procedures can be edited to change their names and dose values
+	* New procedures can be added to the existing DoseData categories. Copying/Pasting then editing an existing procedure is probably the easiest way to do this.
+2. Copy the edited json into a [json validator] (http://jsonlint.com/) to make sure it is valid before proceeding.
+3. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. Save your changes.
+4. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
+5. TODO: color palette configuration
+6. Copy all files in the `/public` folder to your web server and start it up.
 
 ### Node.js Install
 

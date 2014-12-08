@@ -2,7 +2,7 @@ div.exam-table-title {
     color:#ffffff;
     font-size: 18pt;
     font-weight: bold;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 6px 10px;
     background-color: #308EB3;
     display: inline-block;
 } 
@@ -12,10 +12,6 @@ div.data-entry-tables-wrapper {
     margin-right:80px;
 }
 
-.form-control {
-    border-radius:0;
-}
-
 .btn-link {
     font-size: 1.2em;
 }
@@ -23,41 +19,62 @@ div.data-entry-tables-wrapper {
 .report-button {
     width:140px;
     height:40px;
-    border-radius:0;
     margin-right:20px; 
 }
 
 .procedures {
-    width:520px;
+    width:580px;
+    min-width:550px;
+    max-width:100%;
 }
 
 .exam-num {
     width:50px;
+    min-width:50px;
 }
 
 .scan-width {
-    width:80px;
+    width:75px;
+    min-width:75px;
 }
 
 .soc-width {
     width:150px;
+    min-width:100px;
 }
 
 .gender-width {
-    width:175px;
+    width:150px;
+    min-width:150px;
 }
 
 .ede-width {
-    width:300px;
-    float:right;
+    width:150px;
+    max-width:150px;
+    min-width:100px;
 }
 
 .timedose-width {
     width:150px;
+    max-width:150px;
+    min-width:100px;
+}
+
+table.table-over {
+  width:90%;
+  max-width:90%;
+  margin-bottom: 20px;
+  margin-left:80px;
+  border-color:#4d4d4d;
+  border-width:1px;
+  border-style:solid;  
 }
 
 div.data-entry-table {
     margin-bottom:50px;
+    border-top-color:#308EB3;
+    border-top-width:2px;
+    border-top-style:solid;
 }
 
 div#consentTextContainer {

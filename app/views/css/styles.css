@@ -162,6 +162,7 @@ pre.plaintext {
 }
 
 div.button-row {
+    white-space: nowrap;
     margin-bottom:30px;
 }
 

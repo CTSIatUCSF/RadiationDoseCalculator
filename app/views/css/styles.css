@@ -121,7 +121,27 @@ label.socLabel {
     white-space: nowrap;
 }
 
-@media print {    
+div.report-wrapper {
+    margin-left:70px;
+    margin-right:70px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+pre.plaintext {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:50px;
+    padding-right:50px;
+    background-color: #ffffff;
+    border:2px solid #4d4d4d;
+}
+
+div.button-row {
+    margin-bottom:30px;
+}
+
+@media print {
     .no-print, .no-print * {
         display: none !important;
     }

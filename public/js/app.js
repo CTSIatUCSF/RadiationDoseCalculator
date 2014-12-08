@@ -340,7 +340,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += addPadding("Number of Scans", opt.col3 - opt.col2);
         plaintext += "EDE (mSv)\n";
 
-        plaintext += addPadding("", opt.col4, "-");
+        plaintext += addPadding("", 56, "-");
         plaintext += "\n";
 
         plaintext += addPadding("X-Ray CT", opt.col2);
@@ -360,7 +360,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += $scope.edeTotal("Flouro") + "\n";
 
         plaintext += "\n";
-        plaintext += addPadding("", opt.col4, "-");
+        plaintext += addPadding("", 56, "-");
         plaintext += "\n";
 
         plaintext += addPadding("Research EDE (mSv)", opt.col3);
@@ -373,7 +373,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += $scope.edeReportTotal() + "\n";
 
         plaintext += "\n";
-        plaintext += addPadding("", opt.col4, "-");
+        plaintext += addPadding("", 56, "-");
         plaintext += "\n";
 
         plaintext += addPadding("Comparison Dose (mSv)", opt.col3);

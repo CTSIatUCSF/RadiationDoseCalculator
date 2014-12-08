@@ -117,6 +117,8 @@ label.socLabel {
 
 .table tbody>tr>th.exam-headers {
     border-top:0;
+    vertical-align: bottom;
+    white-space: nowrap;
 }
 
 @media print {    

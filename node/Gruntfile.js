@@ -147,6 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask( "buildDebug", ["test", "clean", "minifyDebug", "copy"] );
   grunt.registerTask( "minifyDebug", ["concat:dist", "uglify:debug"] );
   grunt.registerTask( "minifyDist", ["concat:dist", "uglify:dist"] );
+  grunt.registerTask( "deploy", ["clean", "minifyDist", "copy"] );
   grunt.registerTask( "default", ["clean", "minifyDebug", "copy", "concurrent:dev"] );
 
 };

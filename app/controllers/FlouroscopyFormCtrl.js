@@ -1,7 +1,7 @@
 angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "Flouro";
 
     defaultTomographyExam = function() {

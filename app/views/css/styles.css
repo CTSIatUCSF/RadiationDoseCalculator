@@ -15,10 +15,23 @@ div.data-entry-tables-wrapper {
 h2 {
     font-weight:bold;
     color:#4d4d4d;
+    min-width:600px;
+}
+
+.language {
+    margin:0;
+    padding-left:4px;
 }
 
 .btn-link {
     font-size: 1.2em;
+}
+
+table.priority-border {
+    border-top-color:#4d4d4d !important;
+    border-top-width:1px !important;
+    border-top-style:solid !important;
+    border-collapse:none !important;
 }
 
 .report-button {
@@ -71,11 +84,20 @@ h2 {
 }
 
 table.table-over {
-  width:100%;
-  margin-bottom: 20px;
-  border-color:#4d4d4d;
-  border-width:1px;
-  border-style:solid;  
+    width:100%;
+    min-width:500px;
+    margin-bottom: 20px;
+    border-collapse:none;
+    border-spacing:0; 
+}
+
+table, th, tr, td {
+    border:1px solid #4d4d4d;
+}
+
+th, tr, td {
+    height:30px;
+    padding-left:3px;
 }
 
 div.data-entry-table {
@@ -145,6 +167,7 @@ pre.plaintext {
 
 div.button-row {
     margin-bottom:30px;
+    min-width:500px;
 }
 
 img.rad-logo {

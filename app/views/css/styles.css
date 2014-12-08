@@ -43,9 +43,14 @@ div.data-entry-tables-wrapper {
     min-width:100px;
 }
 
+.close-width {
+   width:30px;
+   min-width:30px; 
+}
+
 .gender-width {
-    width:150px;
-    min-width:150px;
+    width:170px;
+    min-width:170px;
 }
 
 .ede-width {

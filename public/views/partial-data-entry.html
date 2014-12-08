@@ -22,7 +22,7 @@
                             <option value="">Please select procedure...</option>
                         </select>
                     </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
                     <td class="soe-label vert-align soc-width">
                         <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
                         <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
@@ -69,7 +69,7 @@
                             <option value="">Please select procedure...</option>
                         </select>
                     </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
                     <td class="soe-label vert-align soc-width">
                         <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
                         <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
@@ -81,7 +81,7 @@
                             <option value="male">Male</option>
                         </select>
                     </td>
-                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" /></td>
+                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" numbers-only /></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
                        <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -116,7 +116,7 @@
                             <option value="">Please select procedure...</option>
                         </select>
                     </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
                     <td class="soe-label vert-align soc-width">
                         <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
                         <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
@@ -163,7 +163,7 @@
                             <option value="">Please select procedure...</option>
                         </select>
                     </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" /></td>
+                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
                     <td class="soe-label vert-align soc-width">
                         <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
                         <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
@@ -175,7 +175,7 @@
                             <option value="male">Male</option>
                         </select>
                     </td>
-                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.minutes" min="0" /></td>
+                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.minutes" min="0" numbers-only /></td>
                     <td><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
                     <td class="text-center vert-align">
                        <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>

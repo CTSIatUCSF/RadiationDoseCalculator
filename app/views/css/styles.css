@@ -12,6 +12,11 @@ div.data-entry-tables-wrapper {
     margin-right:80px;
 }
 
+h2 {
+    font-weight:bold;
+    color:#4d4d4d;
+}
+
 .btn-link {
     font-size: 1.2em;
 }
@@ -66,10 +71,8 @@ div.data-entry-tables-wrapper {
 }
 
 table.table-over {
-  width:90%;
-  max-width:90%;
+  width:100%;
   margin-bottom: 20px;
-  margin-left:80px;
   border-color:#4d4d4d;
   border-width:1px;
   border-style:solid;  
@@ -83,7 +86,6 @@ div.bottom-border {
     border-bottom-color:#308EB3;
     border-bottom-width:2px;
     border-bottom-style:solid;
-    margin-bottom:3px;
 }
 
 div#consentTextContainer {
@@ -127,7 +129,7 @@ label.socLabel {
 
 div.report-wrapper {
     margin-left:70px;
-    margin-right:70px;
+    margin-right:1000px;
     margin-top:20px;
     margin-bottom:20px;
 }

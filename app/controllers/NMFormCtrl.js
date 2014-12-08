@@ -1,7 +1,7 @@
 angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, UserDataService, StoredDataService) {
 
     var uniqueProcedureId = 0;
-    var defaultTomographyExam;
+    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
     var id = "NM";
 
     defaultTomographyExam = function() {

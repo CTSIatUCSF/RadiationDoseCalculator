@@ -8,7 +8,7 @@
             <button class="btn btn-success report-button" ng-click="Print()">Print</button>
         </div>
 
-        <table class="table table-hover table-over">
+        <table class="table-over hover-table table-borders">
             <tr>
                 <th class="exam-headers" >Types of Procedures</th>
                 <th class="exam-headers" >Number of Scans</th>
@@ -36,36 +36,42 @@
             </tr>
         </table>
 
-        <table class="table table-over table-hover">
+        <table class="table-over hover-table table-borders">
             <tr>
                 <td>Research EDE (mSv)</td>
-                <td>{{edeReportTotalWithoutSOC()}}</td>
+                <td class="total">{{edeReportTotalWithoutSOC()}}</td>
             </tr>
             <tr>
                 <td>Standard of Care (mSv)</td>
-                <td>{{edeReportTotalOnlySOC()}}</td>
+                <td class="total">{{edeReportTotalOnlySOC()}}</td>
             </tr>
             <tr>
                 <td>Total EDE (mSv)</td>
-                <td>{{edeReportTotal()}}</td>
+                <td class="total">{{edeReportTotal()}}</td>
             </tr>
         </table>
 
-        <table class="table table-over table-hover">
+        <table class="table-over hover-table table-borders">
             <tr>
                 <td>Comparison Dose (mSv)</td>
-                <td>{{comparisonDose}}</td>
+                <td class="total">{{comparisonDose}}</td>
             </tr>
         </table>
 
-        <h2>Comparison Dose Support Language</h2>
-        <p>{{comparisonDoseSupportingLanguage}}</p>
+        <div class="report-language-wrapper">
+            <div class="report-language-title">Comparison Dose Support Language</div>
+            <p class="language-text">{{comparisonDoseSupportingLanguage}}</p>
+        </div>
 
-        <h2>Consent Narrative</h2>
-        <p>{{consentNarrative}}</p>
+        <div class="report-language-wrapper">
+            <div class="report-language-title">Consent Narrative</div>
+            <p class="language-text">{{consentNarrative}}</p>
+        </div>
 
-        <h2>Supplemental Consent Language</h2>
-        <p>{{supplementalConsentLanguage}}</p>
+        <div class="report-language-wrapper">
+            <div class="report-language-title">Supplemental Consent Language</div>
+            <p class="language-text">{{supplementalConsentLanguage}}</p>
+        </div>
 
     </div>
 </div>

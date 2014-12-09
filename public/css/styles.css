@@ -29,9 +29,20 @@ div.data-entry-tables-wrapper {
     margin-right:80px;
 }
 
-h2 {
+div.report-language-wrapper {
+    min-width:500px;
+    margin-bottom:30px;
+}
+
+div.report-language-title {
     font-weight:bold;
     color:#4d4d4d;
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+p.language-text {
+    margin:0;
 }
 
 .btn-link {
@@ -88,11 +99,23 @@ h2 {
 }
 
 table.table-over {
-  width:100%;
-  margin-bottom: 20px;
-  border-color:#4d4d4d;
-  border-width:1px;
-  border-style:solid;
+    width:100%;
+    min-width:500px;
+    margin-bottom: 20px;
+    border-collapse:none;
+    border-spacing:0; 
+}
+
+table.table-borders th,
+table.table-borders tr,
+table.table-borders td {
+    border:1px solid #4d4d4d;
+    height:30px;
+    padding-left:3px;
+}
+
+table.table-borders td.total {
+    width:150px;
 }
 
 div.data-entry-table {
@@ -164,6 +187,7 @@ pre.plaintext {
 div.button-row {
     white-space: nowrap;
     margin-bottom:30px;
+    min-width:500px;
 }
 
 img.rad-logo {

@@ -29,15 +29,20 @@ div.data-entry-tables-wrapper {
     margin-right:80px;
 }
 
-h2 {
-    font-weight:bold;
-    color:#4d4d4d;
-    min-width:600px;
+div.report-language-wrapper {
+    min-width:500px;
+    margin-bottom:30px;
 }
 
-.language {
+div.report-language-title {
+    font-weight:bold;
+    color:#4d4d4d;
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+p.language-text {
     margin:0;
-    padding-left:4px;
 }
 
 .btn-link {

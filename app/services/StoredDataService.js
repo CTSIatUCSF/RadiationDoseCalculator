@@ -3,7 +3,7 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
     var storedData = {};
     var promise;
 
-    promise = $http.get("/js/data.json").success(function (response) {
+    promise = $http.get("/js/data/data.json").success(function (response) {
       storedData = response;
     });
 

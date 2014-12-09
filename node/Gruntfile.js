@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     //-- LINTING
     jshint: {
       // define the files to lint
-      files: ["gruntfile.js", "../app/**/*.js", "test/**/*.js", "!../app/js/angular-ui-router.min.js"],
+      files: ["gruntfile.js", "../app/**/*.js", "test/**/*.js", "!../app/js/lib/*", "!../app/js/angular-ui-router.min.js"],
       options: {
         globals: {
           jQuery: true,
@@ -88,7 +88,8 @@ module.exports = function(grunt) {
     copy: {
       dist: {
         files: [
-          { expand: true, flatten: true, src: ["../app/js/data.json"], dest: "../public/js/", filter: "isFile" },
+          { expand: true, flatten: true, src: ["../app/js/data/*"], dest: "../public/js/data/", filter: "isFile" },
+          { expand: true, flatten: true, src: ["../app/js/lib/*"], dest: "../public/js/lib/", filter: "isFile" },
           { expand: true, flatten: true, src: ["../app/views/css/*"], dest: "../public/css/", filter: "isFile" },
           { expand: true, flatten: true, src: ["../app/views/img/*", "!../app/views/img/*.ico"], dest: "../public/img/", filter: "isFile" },
           { expand: true, flatten: true, src: ["../app/views/img/favicon.ico"], dest: "../public/", filter: "isFile" },
@@ -122,7 +123,7 @@ module.exports = function(grunt) {
         options: {
           force: true
         },
-        src: ["../public/css/*", "../public/img/*", "../public/js/*", "../public/views/*", "../public/index.html"]
+        src: ["../public/css/*", "../public/img/*", "../public/js/*","../public/js/lib/*", "../public/views/*", "../public/index.html"]
       }
     }
 

@@ -43,7 +43,7 @@ describe ( "Stored Data Service", function () {
 
         beforeEach(inject(function ($injector) {
             $httpBackend = $injector.get( "$httpBackend" );
-            $httpBackend.when("GET", "/js/data.json").respond(200, testdata);
+            $httpBackend.when("GET", "/js/data/data.json").respond(200, testdata);
         }));
 
         afterEach(function () {

@@ -3,12 +3,12 @@
     <div class="report-wrapper">
     
         <div class="button-row no-print">
-            <button class="btn btn-success report-button" ng-click="DataEntryClicked()">Back to data</button>
-            <button class="btn btn-success report-button" ng-click="PlainTextReportClicked()">Plain Text</button>
-            <button class="btn btn-success report-button" ng-click="Print()">Print</button>
+            <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()">Back to data</button>
+            <button class="btn standard-btn plaintext" ng-click="PlainTextReportClicked()">Plain Text</button>
+            <button class="btn standard-btn print" ng-click="Print()">Print</button>
         </div>
 
-        <table class="table-over hover-table table-borders">
+        <table class="table-over hover-table table-borders-report">
             <tr>
                 <th class="exam-headers" >Types of Procedures</th>
                 <th class="exam-headers" >Number of Scans</th>
@@ -36,7 +36,7 @@
             </tr>
         </table>
 
-        <table class="table-over hover-table table-borders">
+        <table class="table-over hover-table table-borders-report">
             <tr>
                 <td>Research EDE (mSv)</td>
                 <td class="total">{{edeReportTotalWithoutSOC()}}</td>
@@ -51,7 +51,7 @@
             </tr>
         </table>
 
-        <table class="table-over hover-table table-borders">
+        <table class="table-over hover-table table-borders-report">
             <tr>
                 <td>Comparison Dose (mSv)</td>
                 <td class="total">{{comparisonDose}}</td>

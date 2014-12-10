@@ -1,20 +1,36 @@
-/* COLOR STYLES */
-body {
-    color:#000000;
-    background-color: #ffffff;
-}
-
-div.exam-table-title {
-    color:#ffffff;
-    background-color: #308EB3;
-}
-
-
-
 /* LAYOUT AND FORMATTING STYLES */
 body {
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size:10pt;
+}
+
+header {
+    padding-top: 30px;
+    padding-left: 70px;
+    padding-bottom:30px;
+    padding-left: 70px;
+    white-space: nowrap;
+}
+
+footer {
+    padding-top: 30px;
+    padding-left: 70px;
+    font-size: 22pt;
+    font-weight: bold;
+    height: 50px;
+}
+
+div#logo {
+    display:inline-block;
+    margin-right:15px;
+    vertical-align: middle;
+}
+
+div#title {
+    font-size: 22pt;
+    font-weight: bold;
+    position: relative;
+    display:inline-block;
 }
 
 div.exam-table-title {
@@ -45,11 +61,11 @@ p.language-text {
     margin:0;
 }
 
-.btn-link {
+button.btn-link {
     font-size: 1.2em;
 }
 
-.report-button {
+button.standard-btn {
     width:140px;
     height:40px;
     margin-right:20px;
@@ -106,10 +122,11 @@ table.table-over {
     border-spacing:0; 
 }
 
-table.table-borders th,
-table.table-borders tr,
-table.table-borders td {
-    border:1px solid #4d4d4d;
+table.table-borders-report th,
+table.table-borders-report tr,
+table.table-borders-report td {
+    border-width: 1px;
+    border-style: solid;
     height:30px;
     padding-left:3px;
 }
@@ -123,7 +140,6 @@ div.data-entry-table {
 }
 
 div.bottom-border {
-    border-bottom-color:#308EB3;
     border-bottom-width:2px;
     border-bottom-style:solid;
 }

@@ -1,6 +1,6 @@
 <!-- routing navigation -->
 <div class="no-print" style="margin:20px 40px 30px 70px;">
-    <button class="btn btn-success report-button" ng-click="GenerateReportClicked()">Generate Report</button>
+    <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()">Generate Report</button>
 </div>
 
 <!-- allforms start -->
@@ -9,7 +9,7 @@
     <!-- CT form start -->
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="CTFormCtrl">
         <form name="{{form.name}}">
-            <div class="bottom-border">
+            <div class="bottom-border exam-table-header-border">
                 <div class="exam-table-title">{{form.name}}</div>
                 <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             </div>
@@ -58,7 +58,7 @@
     <!-- NM form start -->
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="NMFormCtrl">
         <form name="{{form.name}}">
-            <div class="bottom-border">
+            <div class="bottom-border exam-table-header-border">
                 <div class="exam-table-title">{{form.name}}</div>
                 <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             </div>
@@ -107,7 +107,7 @@
     <!-- XRay form start -->
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
         <form name="{{form.name}}">
-            <div class="bottom-border">
+            <div class="bottom-border exam-table-header-border">
                 <div class="exam-table-title">{{form.name}}</div>
                 <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             </div>
@@ -156,7 +156,7 @@
     <!-- Flouroscopy form start -->
     <div class="data-entry-tables-wrapper table-responsive"  ng-controller="FlouroscopyFormCtrl">
         <form name="{{form.name}}">
-            <div class="bottom-border">
+            <div class="bottom-border exam-table-header-border">
                 <div class="exam-table-title">{{form.name}}</div>
                 <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
             </div>
@@ -210,5 +210,5 @@
 </div>
 <!-- allforms end -->
 <div style="margin:20px 40px 30px 70px;">
-    <button class="btn btn-success report-button" ng-click="GenerateReportClicked()">Generate Report</button>
+    <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()">Generate Report</button>
 </div>

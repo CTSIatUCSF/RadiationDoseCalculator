@@ -16,15 +16,19 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
         },
 
         consentNarrative: function() {
-          return storedData.ConsentNarrative;
-        },
-
-        comparisonDoseSupportingLanguage: function() {
-          return storedData.ComparisonDoseSupportingLanguage;
+            return storedData.ConsentNarrative;
         },
 
         comparisonDose: function() {
-          return storedData.ComparisonDose;
+            return storedData.ComparisonDose;
+        },
+
+        comparisonDoseUnit: function() {
+            return storedData.ComparisonDoseUnit;
+        },
+
+        effectiveDoseType: function() {
+            return storedData.EffectiveDoseType;
         },
 
         getAllProcedures: function(categoryID) {

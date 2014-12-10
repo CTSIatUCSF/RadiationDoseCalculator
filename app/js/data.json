@@ -1,7 +1,8 @@
 {
-    "ConsentNarrative":"This is a sample consent narrative.",
-    "ComparisonDoseSupportingLanguage":"This is a sample of comparison dose supporting langauge.",
-    "ComparisonDose":100,
+    "ConsentNarrative":"By participating in this study, you will be exposed to ionizing radiation. This radiation will result from the use of standard medical procedures required by the study. This radiation is not required for your medical care and is for research purposes only. The levels of radiation that you will receive are within the range of that typically given to individuals receiving these medical procedures. The amount of radiation you will receive in this study is equal to an effective dose of <<effectiveDose>> <<comparisonDoseUnit>>. This amount of radiation is about the equivalent to what you would receive from <<comparisonDoseQuotient>> years of natural exposure i.e. <<comparisonDose>> <<comparisonDoseUnit>> per year (known as background radiation) but would be in addition to the normal background radiation you are already exposed to and, therefore, potentially carries an increased risk of cancer over your lifetime. If you are especially concerned with exposure to ionizing radiation, you may wish to discuss this with your study doctor.",
+    "ComparisonDose":0.3, 
+    "ComparisonDoseUnit": "rem",
+    "EffectiveDoseType":"Research",
     "DoseData":[
         {
             "name":"CT",

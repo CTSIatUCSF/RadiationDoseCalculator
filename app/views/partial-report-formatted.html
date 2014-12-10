@@ -50,22 +50,10 @@
                 <td class="total">{{edeReportTotal()}}</td>
             </tr>
         </table>
-
-        <table class="table-over hover-table table-borders-report">
-            <tr>
-                <td>Comparison Dose (mSv)</td>
-                <td class="total">{{comparisonDose}}</td>
-            </tr>
-        </table>
-
-        <div class="report-language-wrapper">
-            <div class="report-language-title">Comparison Dose Support Language</div>
-            <p class="language-text">{{comparisonDoseSupportingLanguage}}</p>
-        </div>
-
+        
         <div class="report-language-wrapper">
             <div class="report-language-title">Consent Narrative</div>
-            <p class="language-text">{{consentNarrative}}</p>
+            <p class="language-text">{{consentNarrative()}}</p>
         </div>
 
         <div class="report-language-wrapper">

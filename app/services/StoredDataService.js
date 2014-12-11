@@ -51,6 +51,12 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
             }
         },
 
+        getProcedureCitation: function(categoryID, procedureName) {
+            if (procedureName === null) { return; }
+            var procedure = this.getProcedure(categoryID, procedureName);
+            return procedure.citation;
+        },
+
         getAllProcedureProperties: function(categoryID, procedureName) {
             if (procedureName === null) { return; }
             var procedure = this.getProcedure(categoryID, procedureName);

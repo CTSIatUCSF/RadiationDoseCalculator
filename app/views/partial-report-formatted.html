@@ -61,5 +61,10 @@
             <p class="language-text">{{supplementalConsentLanguage}}</p>
         </div>
 
+        <div class="report-language-wrapper">
+            <div class="report-language-title">Citations</div>
+            <p class="language-text" ng-repeat="citation in citations()">{{$index + 1}} {{citation}}</p>
+        </div>
+
     </div>
 </div>

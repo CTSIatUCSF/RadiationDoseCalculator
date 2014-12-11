@@ -12,22 +12,22 @@ describe ( "Stored Data Service", function () {
             "DoseData":[{
                     "name":"CT",
                     "exams":[
-                        { "name":"Abdominal CT slngle slice", "properties":[
+                        { "name":"Abdominal CT slngle slice", "citation":"sample citation a", "properties":[
                                 { "gender":"female", "value":0.24 },
                                 { "gender":"male", "value":0.24 },
                                 { "gender":"mixed", "value":0.24 } ]},
-                        { "name":"Abdominal CT with AND without constrast", "properties":[
+                        { "name":"Abdominal CT with AND without constrast", "citation":"sample citation b", "properties":[
                                 { "gender":"female", "value":7.8 },
                                 { "gender":"male", "value":7.8 },
                                 { "gender":"mixed", "value":7.8 } ]}
                     ]}, {
                     "name":"NM",
                     "exams":[
-                        { "name":"Abdominal CT slngle slice", "properties":[
+                        { "name":"Abdominal CT slngle slice", "citation":"sample citation c", "properties":[
                                 { "gender":"female", "value":0.24 },
                                 { "gender":"male", "value":0.24 },
                                 { "gender":"mixed", "value":0.24 } ]},
-                        { "name":"Abdominal CT with AND without constrast", "properties":[
+                        { "name":"Abdominal CT with AND without constrast", "citation":"sample citation d", "properties":[
                                 { "gender":"female", "value":7.8 },
                                 { "gender":"male", "value":7.8 },
                                 { "gender":"mixed", "value":7.8 } ]}
@@ -77,6 +77,18 @@ describe ( "Stored Data Service", function () {
             StoredDataService.promise.success(function(data) {
                 var procedure = StoredDataService.getProcedure(categoryId, procedureName);
                 expect(procedure.name).to.equal(procedureName);
+            }).error(function(err) {
+                console.error(err);
+            });
+        });
+
+        it ("getProcedureCitation returns correct citation", function() {
+            var categoryId = "NM";
+            var procedureName = "Abdominal CT with AND without constrast";
+            var expected = "sample citation d";
+            StoredDataService.promise.success(function(data) {
+                var citation = StoredDataService.getProcedureCitation(categoryId, procedureName);
+                expect(citation).to.equal(expected);
             }).error(function(err) {
                 console.error(err);
             });

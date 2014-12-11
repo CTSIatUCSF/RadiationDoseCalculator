@@ -1,13 +1,15 @@
 {
-    "ConsentNarrative":"This is a sample consent narrative.",
-    "ComparisonDoseSupportingLanguage":"This is a sample of comparison dose supporting langauge.",
-    "ComparisonDose":100,
+    "ConsentNarrative":"By participating in this study, you will be exposed to ionizing radiation. This radiation will result from the use of standard medical procedures required by the study. This radiation is not required for your medical care and is for research purposes only. The levels of radiation that you will receive are within the range of that typically given to individuals receiving these medical procedures. The amount of radiation you will receive in this study is equal to an effective dose of <<effectiveDose>> <<comparisonDoseUnit>>. This amount of radiation is about the equivalent to what you would receive from <<comparisonDoseQuotient>> years of natural exposure i.e. <<comparisonDose>> <<comparisonDoseUnit>> per year (known as background radiation) but would be in addition to the normal background radiation you are already exposed to and, therefore, potentially carries an increased risk of cancer over your lifetime. If you are especially concerned with exposure to ionizing radiation, you may wish to discuss this with your study doctor.",
+    "ComparisonDose":0.3, 
+    "ComparisonDoseUnit": "rem",
+    "EffectiveDoseType":"Research",
     "DoseData":[
         {
             "name":"CT",
             "exams":[
                 {
                     "name":"Abdominal CT slngle slice",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -28,6 +30,7 @@
                 },
                 {
                     "name":"Abdominal CT with AND without constrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -48,6 +51,7 @@
                 },
                 {
                     "name":"Abdominal CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -68,6 +72,7 @@
                 },
                 {
                     "name":"Attenuation Correction with CT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -88,6 +93,7 @@
                 },
                 {
                     "name":"Attenuation Correction with Sealed Source",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -108,6 +114,7 @@
                 },
                 {
                     "name":"Brain CT with AND without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -128,6 +135,7 @@
                 },
                 {
                     "name":"Brain CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -148,6 +156,7 @@
                 },
                 {
                     "name":"CT coronary angiography with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -168,6 +177,7 @@
                 },
                 {
                     "name":"CT femoral angiogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -188,6 +198,7 @@
                 },
                 {
                     "name":"CT femoral vein patch",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -208,6 +219,7 @@
                 },
                 {
                     "name":"CT-CoRegistration scan for PET/CT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -228,6 +240,7 @@
                 },
                 {
                     "name":"Cardiac Calcium Score",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -248,6 +261,7 @@
                 },
                 {
                     "name":"Chest CT with AND without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -268,6 +282,7 @@
                 },
                 {
                     "name":"Chest CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -288,6 +303,7 @@
                 },
                 {
                     "name":"Chest/Abdomen/Pelvis CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -308,6 +324,7 @@
                 },
                 {
                     "name":"Enteroclysis Helical CT 2-phase",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -328,6 +345,7 @@
                 },
                 {
                     "name":"Guided biopsy with fluoro (low dose)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -348,6 +366,7 @@
                 },
                 {
                     "name":"Guided biopsy without fluoro",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -368,6 +387,7 @@
                 },
                 {
                     "name":"Head CT with AND without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -388,6 +408,7 @@
                 },
                 {
                     "name":"Head CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -408,6 +429,7 @@
                 },
                 {
                     "name":"Hepatobiliary CT single slice",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -428,6 +450,7 @@
                 },
                 {
                     "name":"High Resolution Lung CT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -448,6 +471,7 @@
                 },
                 {
                     "name":"Hypervascular Liver Lesion Protocol",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -468,6 +492,7 @@
                 },
                 {
                     "name":"Hypervascular Liver Lesion Protocol (low kVp variant)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -488,6 +513,7 @@
                 },
                 {
                     "name":"Knee CT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -508,6 +534,7 @@
                 },
                 {
                     "name":"Lower Extremity CT (5 positions)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -528,6 +555,7 @@
                 },
                 {
                     "name":"Lumbar Spine CT (Axial)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -548,6 +576,7 @@
                 },
                 {
                     "name":"Lumbar Spine CT (Helical)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -568,6 +597,7 @@
                 },
                 {
                     "name":"Neck CT with AND without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -588,6 +618,7 @@
                 },
                 {
                     "name":"Neck CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -608,6 +639,7 @@
                 },
                 {
                     "name":"Pelvic CT with AND without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -628,6 +660,7 @@
                 },
                 {
                     "name":"Pelvic CT with OR without contrast",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -648,6 +681,7 @@
                 },
                 {
                     "name":"Thigh CT single slice",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -668,6 +702,7 @@
                 },
                 {
                     "name":"Whole body CT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -693,6 +728,7 @@
             "exams":[
                 {
                     "name":"C-11 Carbon Monoxide",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -713,6 +749,7 @@
                 },
                 {
                     "name":"C-11 Nicotine (IV)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -733,6 +770,7 @@
                 },
                 {
                     "name":"C-11 Nicotine Inhalation",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -753,6 +791,7 @@
                 },
                 {
                     "name":"Cu-62 ATSM",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -773,6 +812,7 @@
                 },
                 {
                     "name":"F-18 FDG PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -793,6 +833,7 @@
                 },
                 {
                     "name":"F-18 Fluoro L-Dopa PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -813,6 +854,7 @@
                 },
                 {
                     "name":"F-18 Fluorothymidine (FLT) PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -833,6 +875,7 @@
                 },
                 {
                     "name":"F-18 PET/CT (Select appropriate CT from CT Studies)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -853,6 +896,7 @@
                 },
                 {
                     "name":"F-18 Sodium Fluoride PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -873,6 +917,7 @@
                 },
                 {
                     "name":"F-18 Thiapalmitate PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -893,6 +938,7 @@
                 },
                 {
                     "name":"Ga-67 Gallium Citrate Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -913,6 +959,7 @@
                 },
                 {
                     "name":"I-123 Altropane (IACFT) Brain Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -933,6 +980,7 @@
                 },
                 {
                     "name":"I-123 Beta-CIT Brain",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -953,6 +1001,7 @@
                 },
                 {
                     "name":"I-123 HSA Brain (IntraCerebral Infusion)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -973,6 +1022,7 @@
                 },
                 {
                     "name":"I-123 Hippuran Renal",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -993,6 +1043,7 @@
                 },
                 {
                     "name":"I-123 MIBG",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1013,6 +1064,7 @@
                 },
                 {
                     "name":"I-123 Sodium Iodide",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1033,6 +1085,7 @@
                 },
                 {
                     "name":"I-123 Thyroid",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1053,6 +1106,7 @@
                 },
                 {
                     "name":"I-125 Sodium Iodide",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1073,6 +1127,7 @@
                 },
                 {
                     "name":"I-131 MIBG",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1093,6 +1148,7 @@
                 },
                 {
                     "name":"I-131 Sodium Iodide Thyroid Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1113,6 +1169,7 @@
                 },
                 {
                     "name":"In-111 Capromab Pendetide (Prostascint Scan)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1133,6 +1190,7 @@
                 },
                 {
                     "name":"In-111 DTPA CSF Flow (Cisternography)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1153,6 +1211,7 @@
                 },
                 {
                     "name":"In-111 Dendritic Cells (Brain Tumor)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1173,6 +1232,7 @@
                 },
                 {
                     "name":"In-111 Platelet Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1193,6 +1253,7 @@
                 },
                 {
                     "name":"In-111 White Cell Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1213,6 +1274,7 @@
                 },
                 {
                     "name":"N-13 Ammonia PET Perfusion Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1233,6 +1295,7 @@
                 },
                 {
                     "name":"O-15 Bolus Water PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1253,6 +1316,7 @@
                 },
                 {
                     "name":"O-15 Continuous Inhalation PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1273,6 +1337,7 @@
                 },
                 {
                     "name":"O-15 Water 3-D PET Acquisition",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1293,6 +1358,7 @@
                 },
                 {
                     "name":"P-32 Sodium Phosphate",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1313,6 +1379,7 @@
                 },
                 {
                     "name":"Rb-82 Rubidium Cloride Perfusion PET Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1333,6 +1400,7 @@
                 },
                 {
                     "name":"Tc-99m Apomate",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1353,6 +1421,7 @@
                 },
                 {
                     "name":"Tc-99m DMSA Renal Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1373,6 +1442,7 @@
                 },
                 {
                     "name":"Tc-99m DTPA Aerosol Ventilation",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1393,6 +1463,7 @@
                 },
                 {
                     "name":"Tc-99m DTPA Injection",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1413,6 +1484,7 @@
                 },
                 {
                     "name":"Tc-99m Gastic Emptying Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1433,6 +1505,7 @@
                 },
                 {
                     "name":"Tc-99m Glucoheptonate Renal Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1453,6 +1526,7 @@
                 },
                 {
                     "name":"Tc-99m HMPAO Brain Perfusion",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1473,6 +1547,7 @@
                 },
                 {
                     "name":"Tc-99m Hepatobiliary (Gallbladder/Biliary)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1493,6 +1568,7 @@
                 },
                 {
                     "name":"Tc-99m Human Serum Albumin",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1513,6 +1589,7 @@
                 },
                 {
                     "name":"Tc-99m MAA (Lung Perfusion Scan)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1533,6 +1610,7 @@
                 },
                 {
                     "name":"Tc-99m MAG (3) Renal Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1553,6 +1631,7 @@
                 },
                 {
                     "name":"Tc-99m MDP Bone Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1573,6 +1652,7 @@
                 },
                 {
                     "name":"Tc-99m MUGA (Tagged Red Blood Cells)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1593,6 +1673,7 @@
                 },
                 {
                     "name":"Tc-99m NC100697 Brain Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1613,6 +1694,7 @@
                 },
                 {
                     "name":"Tc-99m Pertechnate Thyroid Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1633,6 +1715,7 @@
                 },
                 {
                     "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Lung)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1653,6 +1736,7 @@
                 },
                 {
                     "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Melanoma)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1673,6 +1757,7 @@
                 },
                 {
                     "name":"Tc-99m Sestamibi Cardiac Scan (Rest)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1693,6 +1778,7 @@
                 },
                 {
                     "name":"Tc-99m Sestamibi Cardiac Scan (Stress)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1713,6 +1799,7 @@
                 },
                 {
                     "name":"Tc-99m Setamibi Breast Scan",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1733,6 +1820,7 @@
                 },
                 {
                     "name":"Tc-99m Sulfur Colloid Aerosol",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1753,6 +1841,7 @@
                 },
                 {
                     "name":"Tc-99m Sulfur Colloid Liver (Cirrhosis)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1773,6 +1862,7 @@
                 },
                 {
                     "name":"Tc-99m Sulfur Colloid Liver (Normal)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1793,6 +1883,7 @@
                 },
                 {
                     "name":"Tc-99m White Cells",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1813,6 +1904,7 @@
                 },
                 {
                     "name":"Thallium-201 Cardiac Scan (Rest)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1833,6 +1925,7 @@
                 },
                 {
                     "name":"Thallium-201 Cardiac Scan (Stress)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1853,6 +1946,7 @@
                 },
                 {
                     "name":"Xenon-133 Ventilation (5 minute rebreathe)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1873,6 +1967,7 @@
                 },
                 {
                     "name":"Xenon-133 Xenon Ventilation (breath hold)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE/mCi (female)",
@@ -1898,6 +1993,7 @@
             "exams":[
                 {
                     "name":"AP DXA Spine/Hip",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -1918,6 +2014,7 @@
                 },
                 {
                     "name":"Abdomen X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -1938,6 +2035,7 @@
                 },
                 {
                     "name":"Arm X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -1958,6 +2056,7 @@
                 },
                 {
                     "name":"Barium Swallow",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -1978,6 +2077,7 @@
                 },
                 {
                     "name":"Breast Tomosynthesis",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -1998,6 +2098,7 @@
                 },
                 {
                     "name":"Cervical Spine X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2018,6 +2119,7 @@
                 },
                 {
                     "name":"Chest X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2038,6 +2140,7 @@
                 },
                 {
                     "name":"Cholecystogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2058,6 +2161,7 @@
                 },
                 {
                     "name":"DXA (Wrist/Ankle/Heel)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2078,6 +2182,7 @@
                 },
                 {
                     "name":"DXA Distal Forearm",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2098,6 +2203,7 @@
                 },
                 {
                     "name":"DXA Hip",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2118,6 +2224,7 @@
                 },
                 {
                     "name":"DXA Lateral Spine",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2138,6 +2245,7 @@
                 },
                 {
                     "name":"DXA Lumbar Spine",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2158,6 +2266,7 @@
                 },
                 {
                     "name":"DXA Proximal Femur",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2178,6 +2287,7 @@
                 },
                 {
                     "name":"DXA Total Body Composition",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2198,6 +2308,7 @@
                 },
                 {
                     "name":"Dental X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2218,6 +2329,7 @@
                 },
                 {
                     "name":"Femur X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2238,6 +2350,7 @@
                 },
                 {
                     "name":"Femur/Tib/Fib/Ankle Digital ",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2258,6 +2371,7 @@
                 },
                 {
                     "name":"Femur/Tib/Fib/Ankle Screen-Film",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2278,6 +2392,7 @@
                 },
                 {
                     "name":"Foot X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2298,6 +2413,7 @@
                 },
                 {
                     "name":"Full Spine X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2318,6 +2434,7 @@
                 },
                 {
                     "name":"Hand X-ray ",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2338,6 +2455,7 @@
                 },
                 {
                     "name":"Hip X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2358,6 +2476,7 @@
                 },
                 {
                     "name":"Intravenous Pyelogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2378,6 +2497,7 @@
                 },
                 {
                     "name":"Knee X-ray AP AND LAT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2398,6 +2518,7 @@
                 },
                 {
                     "name":"Knee X-ray AP OR LAT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2418,6 +2539,7 @@
                 },
                 {
                     "name":"Knee X-ray Bilateral AP AND LAT",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2438,6 +2560,7 @@
                 },
                 {
                     "name":"Lumbar Spine (LAT ONLY)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2458,6 +2581,7 @@
                 },
                 {
                     "name":"Lumbar Spine X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2478,6 +2602,7 @@
                 },
                 {
                     "name":"Mammography (2 views)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2498,6 +2623,7 @@
                 },
                 {
                     "name":"Mammography (4 views)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2518,6 +2644,7 @@
                 },
                 {
                     "name":"Pelvic X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2538,6 +2665,7 @@
                 },
                 {
                     "name":"Rib X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2558,6 +2686,7 @@
                 },
                 {
                     "name":"Shoulder X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2578,6 +2707,7 @@
                 },
                 {
                     "name":"Skeletal Survey",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2598,6 +2728,7 @@
                 },
                 {
                     "name":"Skull X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2618,6 +2749,7 @@
                 },
                 {
                     "name":"Thoracic Spine X-ray",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2638,6 +2770,7 @@
                 },
                 {
                     "name":"Upper GI Study",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2658,6 +2791,7 @@
                 },
                 {
                     "name":"Venogram (Lower Extremity)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2683,6 +2817,7 @@
             "exams":[
                 {
                     "name":"Abdominal Aortogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2703,6 +2838,7 @@
                 },
                 {
                     "name":"Ankle/Knee Kinematics Analysis",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2723,6 +2859,7 @@
                 },
                 {
                     "name":"Barium Enema",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2743,6 +2880,7 @@
                 },
                 {
                     "name":"Brachial Catheter Placement/Fistulogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2763,6 +2901,7 @@
                 },
                 {
                     "name":"CT Cerebral Angiogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2783,6 +2922,7 @@
                 },
                 {
                     "name":"Cardiac Catheterization",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2803,6 +2943,7 @@
                 },
                 {
                     "name":"Cardiac Electrophysiology/Ablation",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2823,6 +2964,7 @@
                 },
                 {
                     "name":"Cardiac Electrophysiology/Defibrillator Implant",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2843,6 +2985,7 @@
                 },
                 {
                     "name":"Cardiac Electrophysiology/Diagnostic",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2863,6 +3006,7 @@
                 },
                 {
                     "name":"Cardiac Electrophysiology/Pacemaker Implant",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2883,6 +3027,7 @@
                 },
                 {
                     "name":"Cardiac Occluder/Stent Placement",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2903,6 +3048,7 @@
                 },
                 {
                     "name":"Carotid Stent Placement",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2923,6 +3069,7 @@
                 },
                 {
                     "name":"Carotid or Cerebral Angiogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2943,6 +3090,7 @@
                 },
                 {
                     "name":"Coronary Angioplasty",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2963,6 +3111,7 @@
                 },
                 {
                     "name":"Enteroclysis Procedure",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -2983,6 +3132,7 @@
                 },
                 {
                     "name":"Femoral Arteriogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3003,6 +3153,7 @@
                 },
                 {
                     "name":"Femoral CT Angiogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3023,6 +3174,7 @@
                 },
                 {
                     "name":"Fistulogram (upper extremity)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3043,6 +3195,7 @@
                 },
                 {
                     "name":"Hepatic Angioplasty",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3063,6 +3216,7 @@
                 },
                 {
                     "name":"Hysterosalpingogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3083,6 +3237,7 @@
                 },
                 {
                     "name":"Knee Positioning",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3103,6 +3258,7 @@
                 },
                 {
                     "name":"Lumbar Puncture (Fluoro-guided)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3123,6 +3279,7 @@
                 },
                 {
                     "name":"Occipital Electrode Placement",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3143,6 +3300,7 @@
                 },
                 {
                     "name":"Pulmonary Angiogram",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3163,6 +3321,7 @@
                 },
                 {
                     "name":"Right Heart Catheterization",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3183,6 +3342,7 @@
                 },
                 {
                     "name":"Swallow Study (Speech Pathology)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3203,6 +3363,7 @@
                 },
                 {
                     "name":"Thoracic Spine",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3223,6 +3384,7 @@
                 },
                 {
                     "name":"Trans Bronchial Biopsy (Fuoro-guided)",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",
@@ -3243,6 +3405,7 @@
                 },
                 {
                     "name":"Vertebroplasty/Kyphoplasty",
+                    "citation": "sample citation",
                     "properties":[
                         {
                             "name":"EDE (female)",

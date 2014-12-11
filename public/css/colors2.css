@@ -1,0 +1,137 @@
+/****************** GENERAL ******************/
+body {
+    color:#000000;
+    background-color: #ffffff;
+}
+
+a {
+    color:#308EB3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/*********************************************/
+
+
+/*****************  HEADER  ******************/
+header {
+    color: #FFFFFF;
+    background-color: #1295D8;
+}
+
+div#logo {
+    background-image: url("/img/radsym2.png");
+    background-repeat: no-repeat;
+    height:43px;
+    width:46px;
+}
+
+div#title {
+    background-color: #1295D8;
+    color:#ffffff;
+    top : 0.2em;
+}
+/*********************************************/
+
+
+/*****************  FOOTER  ******************/
+footer {
+    color: #4d4d4d;
+    background-color: #1295D8;
+}
+/*********************************************/
+
+
+/*****************  BUTTONS  *****************/
+button.standard-btn {
+    background-color: #18A3AC;
+    border: 1px solid #138289;
+    color: #FFFFFF;
+}
+
+button.standard-btn:hover {
+    background-color: #5DBFC5;
+    border: 1px solid #5DBFC5;
+    color: #E1E3E6;
+}
+
+button.generate-report {
+    background-color: #00778B;
+    border: 1px solid #056778;
+    color: #FFFFFF;
+}
+
+button.generate-report:hover {
+    background-color: #00A3AD;
+    border: 1px solid #00A3AD;
+    color: #DBD5CD;
+}
+
+button.back-to-data {
+    background-color: #00778B;
+    border: 1px solid #056778;
+    color: #FFFFFF;
+}
+
+button.back-to-data:hover {
+    background-color: #00A3AD;
+    border: 1px solid #00A3AD;
+    color: #DBD5CD;
+}
+
+button.plaintext {
+    background-color: #FF6E1B;
+    border: 1px solid #D05916;
+    color: #FFFFFF;
+}
+
+button.plaintext:hover {
+    background-color: #FF8F28;
+    border: 1px solid #FF8F28;
+    color: #DBD5CD;
+}
+
+button.print {
+    background-color: #FF6E1B;
+    border: 1px solid #D05916;
+    color: #FFFFFF;
+}
+
+button.print:hover {
+    background-color: #FF8F28;
+    border: 1px solid #FF8F28;
+    color: #DBD5CD;
+}
+/*********************************************/
+
+
+/****************** TABLES *******************/
+div.exam-table-header-border {
+    border-bottom-color:#FFB511;
+}
+
+div.exam-table-title {
+    color:#ffffff;
+    background-color: #FFB511;
+    border: 1px solid #FFB511;
+    color: #ffffff;
+}
+
+table.table-borders-report th,
+table.table-borders-report tr,
+table.table-borders-report td {
+    border-color: #005581;
+    background-color: #FFFFFF;
+}
+/*********************************************/
+
+
+/************  PLAINTEXT REPORT  *************/
+pre.plaintext {
+    color: #000000;
+    background-color: #efefef;
+    border-color: #4d4d4d;
+}
+/*********************************************/

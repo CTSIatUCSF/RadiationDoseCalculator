@@ -8,11 +8,80 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         "col3":45,
         "col4":80
     };
+    var comparisonDoseMsv, effectiveDose, convertMsvToRem, convertRemToMsv, comparisonDoseQuotient, addPadding, citationArray;
 
-    $scope.consentNarrative = storedData.ConsentNarrative || "";
-    $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage || "";
-    $scope.comparisonDose = storedData.ComparisonDose || "";
-    $scope.supplementalConsentLanguage = UserDataService.getSupplementalConsentText() || "";
+    comparisonDoseMsv = function () {
+        var dose;
+        if (storedData.ComparisonDoseUnit === "rem") {
+            dose = convertRemToMsv(storedData.ComparisonDose);
+        } else if (storedData.ComparisonDoseUnit === "mSv") {
+            dose = storedData.ComparisonDose;
+        }
+        return Math.round10(dose, -2);
+    };
+
+    effectiveDose = function(unit) {
+        var dose;
+        if (storedData.EffectiveDoseType === "Research") {
+            dose = $scope.edeReportTotalWithoutSOC();
+        } else {
+            dose = $scope.edeReportTotal();
+        }
+        if (unit === "rem") {
+            dose = convertMsvToRem(dose);
+        }
+        return Math.round10(dose, -2);
+    };
+
+    convertMsvToRem = function(mSv_number) {
+        return Math.round10(mSv_number/10, -2);
+    };
+
+    convertRemToMsv = function(rem_number) {
+        return Math.round10(rem_number*10, -2);
+    };
+
+    comparisonDoseQuotient = function() {
+        var dose = effectiveDose("mSv");
+        var cdq = dose / comparisonDoseMsv();
+        cdq = cdq || 0;
+        return Math.round10(cdq, -2);
+    };
+
+    $scope.consentNarrative = function() {
+        var cn;
+        var unit = storedData.ComparisonDoseUnit;
+
+        cn = storedData.ConsentNarrative || "";
+        cn = cn.split("<<effectiveDose>>").join(effectiveDose(unit));
+        cn = cn.split("<<comparisonDose>>").join(storedData.ComparisonDose);
+        cn = cn.split("<<comparisonDoseUnit>>").join(storedData.ComparisonDoseUnit);
+        cn = cn.split("<<comparisonDoseQuotient>>").join(comparisonDoseQuotient());
+        return cn;
+    };
+    
+    $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
+
+    $scope.citations = function() {
+        var citationArray = [];
+        var formIndex, form, examIndex, exam, citation;
+        // var index = 0;
+        if (userData) {
+            for (formIndex in userData.formData) {
+                form = userData.formData[formIndex];
+                for (examIndex in form.exams) {
+                    exam = form.exams[examIndex];
+                    if (exam.exam) {
+                        citation = StoredDataService.getProcedureCitation(form.id, exam.exam);
+                        // index++;
+                        // citationObject = {"index": index, "citation": citation, "section": form.id};
+                        citationArray.push(citation);
+                    }
+                }
+            }
+        }
+        return citationArray;
+    };
 
     addPadding = function(string, maxWidth, spacer) {
         spacer = spacer || " ";

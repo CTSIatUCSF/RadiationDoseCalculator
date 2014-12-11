@@ -16,15 +16,19 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
         },
 
         consentNarrative: function() {
-          return storedData.ConsentNarrative;
-        },
-
-        comparisonDoseSupportingLanguage: function() {
-          return storedData.ComparisonDoseSupportingLanguage;
+            return storedData.ConsentNarrative;
         },
 
         comparisonDose: function() {
-          return storedData.ComparisonDose;
+            return storedData.ComparisonDose;
+        },
+
+        comparisonDoseUnit: function() {
+            return storedData.ComparisonDoseUnit;
+        },
+
+        effectiveDoseType: function() {
+            return storedData.EffectiveDoseType;
         },
 
         getAllProcedures: function(categoryID) {
@@ -45,6 +49,12 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
                     return procedure;
                 }
             }
+        },
+
+        getProcedureCitation: function(categoryID, procedureName) {
+            if (procedureName === null) { return; }
+            var procedure = this.getProcedure(categoryID, procedureName);
+            return procedure.citation;
         },
 
         getAllProcedureProperties: function(categoryID, procedureName) {

@@ -64,20 +64,15 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
 
     $scope.citations = function() {
         var citationArray = [];
-        var formIndex, form, examIndex, exam, citation;
+        var procedureIndex, procedure, citation;
         // var index = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                for (examIndex in form.exams) {
-                    exam = form.exams[examIndex];
-                    if (exam.exam) {
-                        citation = StoredDataService.getProcedureCitation(form.id, exam.exam);
-                        // index++;
-                        // citationObject = {"index": index, "citation": citation, "section": form.id};
-                        citationArray.push(citation);
-                    }
-                }
+        for (procedureIndex in userData) {
+            procedure = userData[procedureIndex];
+            if (procedure.exam) {
+                citation = StoredDataService.getProcedureCitation(procedure.categoryid, procedure.exam);
+                // index++;
+                // citationObject = {"index": index, "citation": citation, "section": procedure.id};
+                citationArray.push(citation);
             }
         }
         return citationArray;
@@ -139,20 +134,12 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += addPadding("", 56, "-");
         plaintext += "\n";
 
-        plaintext += addPadding("Comparison Dose (mSv)", opt.col3);
-        plaintext += $scope.comparisonDose + "\n";
-        plaintext += "\n";
-
-        plaintext += "Comparison Dose Support Language" + "\n";
-        plaintext += $scope.comparisonDoseSupportingLanguage + "\n";
-        plaintext += "\n";
-
         plaintext += "Consent Narrative" + "\n";
-        plaintext += $scope.consentNarrative + "\n";
+        plaintext += $scope.consentNarrative() + "\n";
         plaintext += "\n";
 
         plaintext += "Supplemental Consent Language" + "\n";
-        plaintext += $scope.supplementalConsentLanguage + "\n";
+        plaintext += $scope.getSupplementalConsentText() + "\n";
 
         return plaintext;
     };
@@ -171,6 +158,10 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
 
     $scope.Print = function() {
         window.print();
+    };
+
+    $scope.getSupplementalConsentText = function() {
+        return UserDataService.getSupplementalConsentText();
     };
 
     $scope.getScanCount = function(formId) {

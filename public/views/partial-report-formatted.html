@@ -15,22 +15,22 @@
                 <th class="exam-headers" >EDE (mSv)</th>
             </tr>
             <tr>
-                <td>X-Ray CT</td>
+                <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
                 <td>{{getScanCount("CT")}}</td>
                 <td>{{edeTotal("CT")}}</td>
             </tr>
             <tr>
-                <td>Nuclear Medicine</td>
+                <td>Nuclear Medicine <sup class="super">{{footnotes("NM")}}</sup></td>
                 <td>{{getScanCount("NM")}}</td>
                 <td>{{edeTotal("NM")}}</td>
             </tr>
             <tr>
-                <td>Radiography</td>
+                <td>Radiography <sup class="super">{{footnotes("XRay")}}</sup></td>
                 <td>{{getScanCount("XRay")}}</td>
                 <td>{{edeTotal("XRay")}}</td>
             </tr>
             <tr>
-                <td>Flouroscopy</td>
+                <td>Flouroscopy <sup class="super">{{footnotes("Flouro")}}</sup></td>
                 <td>{{getScanCount("Flouro")}}</td>
                 <td>{{edeTotal("Flouro")}}</td>
             </tr>
@@ -63,7 +63,7 @@
 
         <div class="report-language-wrapper">
             <div class="report-language-title">Citations</div>
-            <p class="language-text" ng-repeat="citation in citations()">{{$index + 1}} {{citation}}</p>
+            <p class="language-text" ng-repeat="citation in citations()">{{citation}}</p>
         </div>
 
     </div>

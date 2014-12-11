@@ -1,7 +1,7 @@
 angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
 
     var storedData = StoredDataService.storedData();
-    var userData = UserDataService.userData();
+    var userData   = UserDataService.getAllProcedures();
     var plainTextFormattingOptions = {
         "col1":1,
         "col2":25,
@@ -12,7 +12,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     $scope.consentNarrative = storedData.ConsentNarrative || "";
     $scope.comparisonDoseSupportingLanguage = storedData.ComparisonDoseSupportingLanguage || "";
     $scope.comparisonDose = storedData.ComparisonDose || "";
-    $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
+    $scope.supplementalConsentLanguage = UserDataService.getSupplementalConsentText() || "";
 
     addPadding = function(string, maxWidth, spacer) {
         spacer = spacer || " ";
@@ -88,12 +88,6 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         return plaintext;
     };
 
-    $scope.GenerateReportClicked = function() {
-        validateUserData();
-        updateSupplementalConsentText();
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
-    };
-
     $scope.DataEntryClicked = function() {
         $state.go("data-entry", {storedData: storedData}, {location: true, inherit: false});
     };
@@ -109,14 +103,6 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     $scope.Print = function() {
         window.print();
     };
-    
-    function updateSupplementalConsentText() {
-        UserDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
-    }
-
-    function validateUserData() {
-        console.log("validateUserData");
-    }
 
     $scope.getScanCount = function(formId) {
         return UserDataService.getScanCount(formId);

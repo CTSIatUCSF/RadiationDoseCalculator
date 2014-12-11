@@ -1,0 +1,42 @@
+<div class="bottom-border exam-table-header-border">
+    <div class="exam-table-title">{{getCategoryConfig('CT').name}}</div>
+    <button class="btn btn-link no-print" ng-click="newProcedure('CT')">+ Add Exam</button>
+</div>
+<div class="data-entry-table">
+    <table class="table table-hover table-condensed">
+        <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('CT').headers">{{header}}</th></tr>
+        <tr ng-repeat="procedure in getProcedures('CT')">
+            <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
+            <td class="procedures">
+                <select class="form-control" ng-model="procedure.exam" ng-options="procedureInfo.name as procedureInfo.name for procedureInfo in getStoredProcedures('CT')">
+                    <option value="">Please select procedure...</option>
+                </select>
+            </td>
+            <td class="scan-width"><input class="form-control" type="number" ng-model="procedure.scans" min="0" numbers-only /></td>
+            <td class="soe-label vert-align soc-width">
+                <input id="soc.{{procedure.categoryid}}{{procedure.id}}" type="checkbox" style="margin-right:4px;" ng-model="procedure.soc" ng-init="checked=false" />
+                <label for="soc.{{procedure.categoryid}}{{procedure.id}}" class="socLabel">Yes</label>
+            </td>
+            <td class="gender-width">
+                <select class="form-control" ng-model="procedure.gender">
+                    <option value="mixed" selected>None</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </td>
+            <td class="timedose-width"></td>
+            <td class="ede-width"><input class="form-control" type="number" ng-model="procedure.ede" value="{{getProcedureEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="text-center vert-align close-width">
+               <button type="button" class="close no-print" ng-click="removeProcedure('CT', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+           </td>
+        </tr>
+        <tr>
+            <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
+            <td colspan="2">{{edeTotalWithoutSOC("CT")}}</td>
+        </tr>
+        <tr>
+            <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
+            <td colspan="2">{{edeTotal("CT")}}</td>
+        </tr>
+    </table>
+</div>

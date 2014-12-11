@@ -1,7 +1,7 @@
 /*jshint expr: true*/
 /*jshint -W008 */
 
-describe ( "Get Data Service", function () {
+describe ( "UserDataService", function () {
 
         var UserDataService;
 
@@ -11,62 +11,55 @@ describe ( "Get Data Service", function () {
             UserDataService = _UserDataService_;
         }));
 
-        it ( "simpleEdeCalculation returns expected value", function() {
-            var singleEDE = 0.03;
-            var numScans  = 10;
-            var expectedValue = 0.3;
-            expect(UserDataService.simpleEdeCalculation(singleEDE, numScans)).to.equal(expectedValue);
-        });
-
-        describe ( "countDecimalPlaces",
-        function ()
-        {
-            it ( "returns zero when there is no decimal",
-                function () {
-                    var numberToTest = 1;
-                    var expected = 0;
-                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
-                }
-            );
-
-            it ( "returns correct number when there is a decimal",
-                function () {
-                    var numberToTest = 5.123;
-                    var expected = 3;
-                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
-                }
-            );
-
-            it ( "returns correct number when there is no leading zero",
-                function () {
-                    var numberToTest = .49;
-                    var expected = 2;
-                    expect(UserDataService.countDecimalPlaces(numberToTest)).to.equal(expected);
-                }
-            );
+        describe("getProcedureEdeCalculation", function() {
+            it ( "returns expected value for CT procedures", function() {
+                var testProcedure  = { "id": 1, "categoryid": "CT", "scans": 3, "soc": false, "gender": "mixed", "ede": 0 };
+                var baseEDE = 0.03;
+                var expectedValue = 0.09;
+                expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
+            });
+            it ( "returns expected value for XRay procedures", function() {
+                var testProcedure = { "id": 1, "categoryid": "XRay",   "scans": 9, "soc": false, "gender": "mixed", "ede": 0 };
+                var baseEDE = 0.033;
+                var expectedValue = 0.30;
+                expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
+            });
+            it ( "returns expected value for NM procedures", function() {
+                var testProcedure = { "id": 1, "categoryid": "NM", "scans": 11, "soc": false, "gender": "mixed", "injectedDose": 2, "ede": 0 };
+                var baseEDE = 0.03;
+                var expectedValue = 0.66;
+                expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
+            });
+            it ( "returns expected value for Flouro procedures", function() {
+                var testProcedure = { "id": 1, "categoryid": "Flouro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 };
+                var baseEDE = 0.03;
+                var expectedValue = 1.14;
+                expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
+            });
         });
 
         describe ( "getScanCount", function () {
+
+            beforeEach(function() {
+                var procedures = [
+                                    { "id": 1, "categoryid": "CT", "scans": 3, "soc": false, "gender": "mixed", "ede": 0 },
+                                    { "id": 1, "categoryid": "XRay",   "scans": 9, "soc": false, "gender": "mixed", "ede": 0 },
+                                    { "id": 1, "categoryid": "NM", "scans": 11, "soc": false, "gender": "mixed", "injectedDose": 2, "ede": 0 },
+                                    { "id": 1, "categoryid": "Flouro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 }
+                                ];
+                UserDataService.updateProcedures(procedures);
+            });
+
             it ( "returns zero when given an invalid formId", function () {
-                var formId = "badFormId";
+                var categoryId = "badId";
                 var expected = 0;
-                expect(UserDataService.getScanCount(formId)).to.equal(expected);
+                expect(expected).to.equal(UserDataService.getScanCount(categoryId));
             });
 
             it ( "returns correct value for given formId", function () {
-                var forms = [];
-                forms.push({"expected": 3, "data": {"id":"XRay", "exams": [{"exam": "a", "scans": 1}, {"exam": "b", "scans": 2}]}});
-                forms.push({"expected": 5, "data": {"id":"CT", "exams": [{"exam": "a", "scans": 2}, {"exam": "b", "scans": 3}]}});
-                forms.push({"expected": 7, "data": {"id":"NM", "exams": [{"exam": "a", "scans": 3}, {"exam": "b", "scans": 4}]}});
-                forms.push({"expected": 9, "data": {"id":"Flouro", "exams": [{"exam": "a", "scans": 4}, {"exam": "b", "scans": 5}]}});
-
-                var formIndex, form, data;
-                for (formIndex in forms) {
-                    form = forms[formIndex];
-                    data = form.data;
-                    UserDataService.updateFormData(data);
-                    expect(UserDataService.getScanCount(data.id)).to.equal(form.expected);
-                }
+                var categoryId = "XRay";
+                var expected = 9;
+                expect(expected).to.equal(UserDataService.getScanCount(categoryId));
             });
         });
         

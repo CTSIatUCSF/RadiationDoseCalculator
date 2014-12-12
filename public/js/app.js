@@ -546,7 +546,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 {
                     "id": "CT",
                     "name": "X-ray Computed Tomography Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
                     "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
                 },
                 {
@@ -558,7 +558,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 {
                     "id": "XRay",
                     "name": "X-ray Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
                     "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
                 },
                 {

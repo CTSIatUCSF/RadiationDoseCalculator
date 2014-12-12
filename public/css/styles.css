@@ -43,6 +43,7 @@ div.exam-table-title {
 div.data-entry-tables-wrapper {
     margin-left:70px;
     margin-right:80px;
+    min-width:500px;
 }
 
 div.report-language-wrapper {
@@ -71,57 +72,40 @@ button.standard-btn {
     margin-right:20px;
 }
 
-.procedures {
-    width:580px;
-    min-width:550px;
-    max-width:100%;
+td.exam-num {
+    width:10px;
 }
 
-.exam-num {
-    width:50px;
-    min-width:50px;
-}
-
-.scan-width {
-    width:75px;
-    min-width:75px;
+td.scan-width {
+    width:120px;
 }
 
 td.scansyear-width {
-    width:75px;
-    min-width:75px;
+    width:97px;
 }
 
-td.annualede {
-    width:75px;
-    min-width:75px;
-}
-
-.soc-width {
-    width:150px;
-    min-width:100px;
-}
-
-.close-width {
-   width:30px;
-   min-width:30px; 
-}
-
-.gender-width {
-    width:170px;
-    min-width:170px;
-}
-
-.ede-width {
+td.annualede-width {
     width:100px;
-    max-width:100px;
-    min-width:100px;
 }
 
-.timedose-width {
-    width:150px;
-    max-width:150px;
-    min-width:100px;
+td.soc-width {
+    width:100px;
+}
+
+td.close-width {
+   width:30px;
+}
+
+td.gender-width {
+    width:115px;
+}
+
+td.ede-width {
+    width:100px;
+}
+
+td.timedose-width {
+    width:95px;
 }
 
 table.procedure-totals {
@@ -164,6 +148,7 @@ table.table-borders td.total {
 
 div.data-entry-table {
     margin-bottom:80px;
+    min-width:500px;
 }
 
 div.bottom-border {
@@ -201,13 +186,12 @@ label.socLabel {
 }
 
 .table tbody>tr>td.soe-label {
-    padding-left:40px;
+    padding-left:10px;
 }
 
 .table tbody>tr>th.exam-headers {
     border-top:0;
     vertical-align: bottom;
-    white-space: nowrap;
 }
 
 div.report-wrapper {

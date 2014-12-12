@@ -4,7 +4,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     var storedData = StoredDataService.storedData();
     var userData   = UserDataService.getAllProcedures();
 
-    var enforceMinimumExamCount, defaultProcedure, getProcedureId, 
+    var enforceMinimumExamCount, defaultProcedure, getProcedureId,
         getCategoryConfig, updateUserDataService, isValidProcedure;
 
     enforceMinimumExamCount = function(categoryId) {
@@ -102,6 +102,15 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
         return calculatedEde;
     };
 
+    $scope.getProcedureAnnualEdeCalculation = function(procedure) {
+        var baseEde = StoredDataService.getProcedurePropertyValue(procedure.categoryid, procedure.exam, procedure.gender);
+        var calculatedEde = UserDataService.getProcedureEdeCalculation(procedure, baseEde);
+        var annualEde = calculatedEde/(procedure.scans/procedure.annualscans);
+        annualEde = Math.round10(annualEde, -2);
+        procedure.annualede = annualEde;
+        return annualEde;
+    };
+
     $scope.edeTotal = function(categoryId) {
         return UserDataService.edeTotal(categoryId);
     };
@@ -112,6 +121,18 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
 
     $scope.edeTotalOnlySOC = function(categoryId) {
         return UserDataService.edeTotalOnlySOC(categoryId);
+    };
+
+    $scope.edeAnnualTotal = function(categoryId) {
+        return UserDataService.edeAnnualTotal(categoryId);
+    };
+
+    $scope.edeAnnualTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalWithoutSOC(categoryId);
+    };
+
+    $scope.edeAnnualTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalOnlySOC(categoryId);
     };
 
     $scope.GenerateReportClicked = function() {

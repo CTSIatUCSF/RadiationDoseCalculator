@@ -12,7 +12,7 @@
                     <option value="">Please select procedure...</option>
                 </select>
             </td>
-            <td class="scan-width"><input class="form-control" type="number" ng-model="procedure.scans" min="0" numbers-only /></td>
+            <td class="scan-width"><input class="form-control" type="number" ng-model="procedure.scans" min="1" numbers-only /></td>
             <td class="soe-label vert-align soc-width">
                 <input id="soc.{{procedure.categoryid}}{{procedure.id}}" type="checkbox" style="margin-right:4px;" ng-model="procedure.soc" ng-init="checked=false" />
                 <label for="soc.{{procedure.categoryid}}{{procedure.id}}" class="socLabel">Yes</label>
@@ -26,17 +26,28 @@
             </td>
             <td class="timedose-width"></td>
             <td class="ede-width"><input class="form-control" type="number" ng-model="procedure.ede" value="{{getProcedureEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="scansyear-width"><input class="form-control" type="number" ng-model="procedure.annualscans" min="1" max="{{procedure.scans}}" numbers-only /></td>
+            <td class="annualede-width"><input class="form-control" type="number" ng-model="procedure.annualede" value="{{getProcedureAnnualEdeCalculation(procedure)}}" ng-readonly="true" /></td>
             <td class="text-center vert-align close-width">
                <button type="button" class="close no-print" ng-click="removeProcedure('CT', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-           </td>
+            </td>
+        </tr>
+    </table>
+    <table class="procedure-totals" style="float:right;">
+        <tr>
+            <th>&nbsp;</th>
+            <th class="exam-headers">Total</th>
+            <th class="exam-headers">Annual</th>
         </tr>
         <tr>
-            <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
-            <td colspan="2">{{edeTotalWithoutSOC("CT")}}</td>
+            <td class="rowlabel">Total additional EDE</td>
+            <td class="rowvalue">{{edeTotalWithoutSOC("CT")}}</td>
+            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("CT")}}</td>
         </tr>
         <tr>
-            <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
-            <td colspan="2">{{edeTotal("CT")}}</td>
+            <td class="rowlabel">Total EDE including Standard of Care</td>
+            <td class="rowvalue">{{edeTotal("CT")}}</td>
+            <td class="rowvalue">{{edeAnnualTotal("CT")}}</td>
         </tr>
     </table>
 </div>

@@ -87,6 +87,16 @@ button.standard-btn {
     min-width:75px;
 }
 
+td.scansyear-width {
+    width:75px;
+    min-width:75px;
+}
+
+td.annualede {
+    width:75px;
+    min-width:75px;
+}
+
 .soc-width {
     width:150px;
     min-width:100px;
@@ -103,8 +113,8 @@ button.standard-btn {
 }
 
 .ede-width {
-    width:150px;
-    max-width:150px;
+    width:100px;
+    max-width:100px;
     min-width:100px;
 }
 
@@ -112,6 +122,23 @@ button.standard-btn {
     width:150px;
     max-width:150px;
     min-width:100px;
+}
+
+table.procedure-totals {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+table.procedure-totals td.rowlabel {
+    text-align: right;
+    font-weight: bold;
+    padding-right:20px;
+    width:300px;
+}
+table.procedure-totals td.rowvalue {
+    text-align: left;
+    font-weight: bold;
+    width:100px;
 }
 
 table.table-over {
@@ -136,7 +163,7 @@ table.table-borders td.total {
 }
 
 div.data-entry-table {
-    margin-bottom:50px;
+    margin-bottom:80px;
 }
 
 div.bottom-border {
@@ -195,7 +222,7 @@ pre.plaintext {
     padding-bottom:20px;
     padding-left:50px;
     padding-right:50px;
-    min-width: 600px;
+    min-width: 700px;
     background-color: #ffffff;
     border:2px solid #4d4d4d;
 }

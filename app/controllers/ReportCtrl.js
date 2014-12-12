@@ -5,8 +5,10 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     var plainTextFormattingOptions = {
         "col1":1,
         "col2":30,
-        "col3":50,
-        "col4":85
+        "col3":40,
+        "col4":50,
+        "col5":60,
+        "col6":70,
     };
     var comparisonDoseMsv, effectiveDose, convertMsvToRem, convertRemToMsv,
         comparisonDoseQuotient, buildBibliography, addPadding, getCitationText,
@@ -137,50 +139,84 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         var opt = plainTextFormattingOptions;
         var citations = $scope.bibliography.citations;
         var citationIndex, citation;
-        var edeLabelText = "EDE (mSv)";
+        var edeLabelText = "EDE(mSv)";
 
         var plaintext = "\n";
         plaintext += "Radiation Dose Calculator\n";
         plaintext += "\n";
 
-        plaintext += addPadding("Types of Procedures", opt.col2);
-        plaintext += addPadding("Number of Scans", opt.col3 - opt.col2);
-        plaintext += edeLabelText + "\n";
+        plaintext += addPadding(" ", opt.col2);
+        plaintext += addPadding("Total", opt.col3 - opt.col2);
+        plaintext += addPadding("Total", opt.col4 - opt.col3);
+        plaintext += addPadding("Annual", opt.col5 - opt.col4);
+        plaintext += addPadding("Annual", opt.col6 - opt.col5);
+        plaintext += "\n";
 
-        plaintext += addPadding("", opt.col3 + edeLabelText.length, "-");
+        plaintext += addPadding("Types of Procedures", opt.col2);
+        plaintext += addPadding("Scans", opt.col3 - opt.col2);
+        plaintext += addPadding(edeLabelText, opt.col4 - opt.col3);
+        plaintext += addPadding("Scans", opt.col5 - opt.col4);
+        plaintext += addPadding(edeLabelText, opt.col6 - opt.col5);
+        plaintext += "\n";
+
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += "\n";
 
         plaintext += addPadding("X-Ray CT " + footnotePlainText("CT"), opt.col2);
         plaintext += addPadding($scope.getScanCount("CT"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("CT") + "\n";
+        plaintext += addPadding($scope.edeTotal("CT"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("CT"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("CT"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
         plaintext += addPadding("Nuclear Medicine " + footnotePlainText("NM"), opt.col2);
         plaintext += addPadding($scope.getScanCount("NM"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("NM") + "\n";
+        plaintext += addPadding($scope.edeTotal("NM"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("NM"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("NM"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
         plaintext += addPadding("Radiography " + footnotePlainText("XRay"), opt.col2);
         plaintext += addPadding($scope.getScanCount("XRay"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("XRay") + "\n";
+        plaintext += addPadding($scope.edeTotal("XRay"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("XRay"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("XRay"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
         plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
         plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("Flouro") + "\n";
+        plaintext += addPadding($scope.edeTotal("Flouro"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("Flouro"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
         plaintext += "\n";
-        plaintext += addPadding("", opt.col3 + edeLabelText.length, "-");
+        plaintext += "\n";
+        plaintext += addPadding(" ", opt.col2);
+        plaintext += addPadding("Total", opt.col3 - opt.col2);
+        plaintext += addPadding("Annual", opt.col4 - opt.col3);
+        plaintext += "\n";
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += "\n";
 
-        plaintext += addPadding("Research EDE (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotalWithoutSOC() + "\n";
+        plaintext += addPadding("Research EDE (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotalWithoutSOC(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotalWithoutSOC(), opt.col4 - opt.col3);
+        plaintext += "\n";
 
-        plaintext += addPadding("Standard of Care (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotalOnlySOC() + "\n";
+        plaintext += addPadding("Standard of Care (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotalOnlySOC(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotalOnlySOC(), opt.col4 - opt.col3);
+        plaintext += "\n";
 
-        plaintext += addPadding("Total EDE (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotal() + "\n";
+        plaintext += addPadding("Total EDE (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotal(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotal(), opt.col4 - opt.col3);
+        plaintext += "\n";
 
         plaintext += "\n";
-        plaintext += addPadding("", opt.col3 + edeLabelText.length, "-");
+        plaintext += "\n";
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += "\n";
 
         plaintext += "Consent Narrative" + "\n";
@@ -221,20 +257,24 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         return UserDataService.getSupplementalConsentText();
     };
 
-    $scope.getScanCount = function(formId) {
-        return UserDataService.getScanCount(formId);
+    $scope.getScanCount = function(categoryId) {
+        return UserDataService.getScanCount(categoryId);
     };
 
-    $scope.edeTotal = function(formId) {
-        return UserDataService.edeTotal(formId);
+    $scope.getAnnualScanCount = function(categoryId) {
+        return UserDataService.getAnnualScanCount(categoryId);
     };
 
-    $scope.edeTotalWithoutSOC = function(formId) {
-        return UserDataService.edeTotalWithoutSOC(formId);
+    $scope.edeTotal = function(categoryId) {
+        return UserDataService.edeTotal(categoryId);
     };
 
-    $scope.edeTotalOnlySOC = function(formId) {
-        return UserDataService.edeTotalOnlySOC(formId);
+    $scope.edeTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeTotalWithoutSOC(categoryId);
+    };
+
+    $scope.edeTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeTotalOnlySOC(categoryId);
     };
 
     $scope.edeReportTotal = function() {
@@ -249,4 +289,27 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         return UserDataService.edeReportTotalWithoutSOC();
     };
 
+    $scope.edeReportAnnualTotal = function() {
+        return UserDataService.edeReportAnnualTotal();
+    };
+
+    $scope.edeReportAnnualTotalOnlySOC = function() {
+        return UserDataService.edeReportAnnualTotalOnlySOC();
+    };
+
+    $scope.edeReportAnnualTotalWithoutSOC = function() {
+        return UserDataService.edeReportAnnualTotalWithoutSOC();
+    };
+
+    $scope.edeAnnualTotal = function(categoryId) {
+        return UserDataService.edeAnnualTotal(categoryId);
+    };
+
+    $scope.edeAnnualTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalOnlySOC(categoryId);
+    };
+
+    $scope.edeAnnualTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalWithoutSOC(categoryId);
+    };
 });

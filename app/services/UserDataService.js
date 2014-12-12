@@ -5,7 +5,8 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     var allProcedures = [];
     var getProcedures, addProcedure, getCategoryEdeTotal,
         addSupplementalConsentText, getSupplementalConsentText,
-        getProcedureEdeCalculation, updateProcedures, getScanCount;
+        getProcedureEdeCalculation, getReportAnnualEdeTotal, updateProcedures,
+        getAnnualScanCount, getScanCount;
 
     getAllProcedures = function() {
         return allProcedures;
@@ -40,6 +41,31 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
             }
         }
         return Math.round10(ede, -2);
+    };
+
+    getCategoryAnnualEdeTotal = function(categoryId, onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0,
+            procedures = getProcedures(categoryId);
+        for (procedureIndex in procedures) {
+            procedure = procedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
+    };
+
+    getReportAnnualEdeTotal = function(onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0;
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
     };
 
     addSupplementalConsentText = function(supplementalConsentText) {
@@ -88,6 +114,15 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         return count;
     };
 
+    getAnnualScanCount = function(categoryId) {
+        var count = 0;
+        var procedures = getProcedures(categoryId);
+        angular.forEach(procedures, function(procedure) {
+            count += procedure.annualscans;
+        });
+        return count;
+    };
+
     // Section Totals
 
     /*
@@ -122,6 +157,23 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     */
     edeTotalOnlySOC = function(categoryId) {
         return getCategoryEdeTotal(categoryId, true);
+    };
+
+
+    edeAnnualTotal = function(categoryId) {
+        var onlySOC = edeAnnualTotalOnlySOC(categoryId);
+        var withoutSOC = edeAnnualTotalWithoutSOC(categoryId);
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeAnnualTotalWithoutSOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, false);
+    };
+
+    edeAnnualTotalOnlySOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, true);
     };
 
     // Report Totals 
@@ -172,6 +224,22 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         return Math.round10(total, -2);
     };
 
+    edeReportAnnualTotal = function() {
+        var onlySOC = edeReportAnnualTotalOnlySOC();
+        var withoutSOC = edeReportAnnualTotalWithoutSOC();
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeReportAnnualTotalWithoutSOC = function() {
+        return getReportAnnualEdeTotal(false);
+    };
+
+    edeReportAnnualTotalOnlySOC = function() {
+        return getReportAnnualEdeTotal(true);
+    };
+
   return {
 
     // Public
@@ -187,10 +255,17 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     edeTotal: edeTotal,
     edeTotalWithoutSOC: edeTotalWithoutSOC,
     edeTotalOnlySOC: edeTotalOnlySOC,
+    edeAnnualTotal: edeAnnualTotal,
+    edeAnnualTotalOnlySOC: edeAnnualTotalOnlySOC,
+    edeAnnualTotalWithoutSOC: edeAnnualTotalWithoutSOC,
     edeReportTotal: edeReportTotal,
     edeReportTotalWithoutSOC: edeReportTotalWithoutSOC,
     edeReportTotalOnlySOC: edeReportTotalOnlySOC,
+    edeReportAnnualTotal: edeReportAnnualTotal,
+    edeReportAnnualTotalWithoutSOC: edeReportAnnualTotalWithoutSOC,
+    edeReportAnnualTotalOnlySOC: edeReportAnnualTotalOnlySOC,
     getScanCount: getScanCount,
+    getAnnualScanCount: getAnnualScanCount
 
   };
 });

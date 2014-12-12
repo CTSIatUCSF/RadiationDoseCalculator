@@ -1,210 +1,271 @@
 angular.module("RadCalc.services").factory("UserDataService", function($q, $http) {
 
     // Private
-    var userData = { "formData": []};
-    var doesExist, edeTotal, getFormData, maxDecimalPlaces, countDecimalPlaces, getScanCount;
+    var userData = {};
+    var allProcedures = [];
+    var getProcedures, addProcedure, getCategoryEdeTotal,
+        addSupplementalConsentText, getSupplementalConsentText,
+        getProcedureEdeCalculation, getReportAnnualEdeTotal, updateProcedures,
+        getAnnualScanCount, getScanCount;
 
-    doesExist = function(formId) {
-        var index, item;
-        for (index in userData.formData) {
-            item = userData.formData[index];
-            if (item.id === formId) { return true; }
-        }
-        return false;
+    getAllProcedures = function() {
+        return allProcedures;
     };
 
-    edeTotal = function(onlySOC, formId) {
-        var decimalPlaceCount = 0;
-        var total = 0;
-        if (doesExist(formId)) {
-            var formData = getFormData(formId);
-            angular.forEach(formData.exams, function(item) {
-                if (item.soc === onlySOC) {
-                    decimalPlaceCount = -maxDecimalPlaces(total, item.ede);
-                    total += item.ede;
-                }
-            });
+    getProcedures = function(categoryId) {
+        var procedureIndex, procedure,
+            procedures = [];
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.categoryid === categoryId) {
+                procedures.push(procedure);
+            }
         }
-        return Math.round10(total, decimalPlaceCount);
+        return procedures;
     };
 
-    getFormData = function(formId) {
-        var index, item;
-        for (index in userData.formData) {
-            item = userData.formData[index];
-            if (item.id === formId) { return item; }
-        }
-        return null;
-    };
-
-    maxDecimalPlaces = function(n1, n2) {
-        var n1Count = countDecimalPlaces(n1);
-        var n2Count = countDecimalPlaces(n2);
-        if (n1Count > n2Count) {
-            return n1Count;
-        }
-        return n2Count;
-    };
-
-    countDecimalPlaces = function(value) {
-        var valueString = "" + value;
-        var ary = valueString.split(("."));
-        if (ary.length < 2) {
-            return 0;
-        } else {
-            return ary[1].length;
+    addProcedure = function(procedure) {
+        if (procedure.exam !== "" && procedure.exam !== undefined) {
+            allProcedures.push(procedure);
         }
     };
 
-    getScanCount = function(formId) {
+    getCategoryEdeTotal = function(categoryId, onlySOC) {
+        var procedureIndex, procedure,
+            ede = 0,
+            procedures = getProcedures(categoryId);
+        for (procedureIndex in procedures) {
+            procedure = procedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                ede += procedure.ede;
+            }
+        }
+        return Math.round10(ede, -2);
+    };
+
+    getCategoryAnnualEdeTotal = function(categoryId, onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0,
+            procedures = getProcedures(categoryId);
+        for (procedureIndex in procedures) {
+            procedure = procedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
+    };
+
+    getReportAnnualEdeTotal = function(onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0;
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
+    };
+
+    addSupplementalConsentText = function(supplementalConsentText) {
+        userData.supplementalConsentText = supplementalConsentText;
+    };
+
+    getSupplementalConsentText = function() {
+        return userData.supplementalConsentText ;
+    };
+
+    getProcedureEdeCalculation = function(procedure, baseEde) {
+        var calculation = 0;
+        
+        // simple calculation for all
+        if (procedure.hasOwnProperty("scans")) {
+            calculation = procedure.scans * baseEde;
+        }
+
+        // adjust for NM calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "NM" ) {
+            if (procedure.hasOwnProperty("injectedDose")) {
+                calculation = procedure.injectedDose * calculation;
+            }
+        }
+
+        // adjust for Flouro calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Flouro" ) {
+            if (procedure.hasOwnProperty("minutes")) {
+                calculation = procedure.minutes * calculation;
+            }
+        }
+
+        return Math.round10(calculation, -2);
+    };
+
+    updateProcedures = function(procedures) {
+        allProcedures = procedures;
+    };
+
+    getScanCount = function(categoryId) {
         var count = 0;
-        if (doesExist(formId)) {
-            var formData = getFormData(formId);
-            angular.forEach(formData.exams, function(item) {
-                if (item.exam !== "") {
-                    count += item.scans;
-                }
-            });
-        }
+        var procedures = getProcedures(categoryId);
+        angular.forEach(procedures, function(procedure) {
+            count += procedure.scans;
+        });
         return count;
     };
 
-  return {
-    // Public
-
-    // Getters
-    getScanCount: getScanCount,
-    getFormData: getFormData,
-
-    userData: function() {
-        return userData;
-    },
-
-    // Setters
-    updateFormData: function(formData) {
-        if (doesExist(formData.id) === false) {
-            userData.formData.push(formData);
-            return;
-        }
-
-        var oldFormData = userData.formData;
-        userData.formData = [];
-        angular.forEach(oldFormData, function(item) {
-            if (item.exam !== "") {
-                if (item.id === formData.id) {
-                    userData.formData.push(formData);
-                } else {
-                    userData.formData.push(item);
-                }
-            }
+    getAnnualScanCount = function(categoryId) {
+        var count = 0;
+        var procedures = getProcedures(categoryId);
+        angular.forEach(procedures, function(procedure) {
+            count += procedure.annualscans;
         });
-    },
-
-    updateSupplementalConsentText: function(supplementalConsentText) {
-        userData.supplementalConsentText = supplementalConsentText;
-    },
-
-    // Basic Calculations
-    countDecimalPlaces:countDecimalPlaces,
-
-    simpleEdeCalculation: function(singleEde, scanCount) {
-        return singleEde * scanCount;
-    },
+        return count;
+    };
 
     // Section Totals
 
     /*
-    formId = identifies which section of the report to return data for.
+    categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, regardless of Standard of Care value
     */
-    edeTotal: function(formId) {
-        var onlySOC = this.edeTotalOnlySOC(formId);
-        var withoutSOC = this.edeTotalWithoutSOC(formId);
+    edeTotal = function(categoryId) {
+        var onlySOC = edeTotalOnlySOC(categoryId);
+        var withoutSOC = edeTotalWithoutSOC(categoryId);
         var totalSOC = onlySOC + withoutSOC;
-        var decimalPlaceCount = -maxDecimalPlaces(onlySOC, withoutSOC);
-        return Math.round10(totalSOC, decimalPlaceCount);
-    },
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
 
     /*
-    formId = Identifies which section of the report to return data for.
+    categoryId = Identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, excluding items marked as Standard of Care
     */
-    edeTotalWithoutSOC: function(formId) {
-        return edeTotal(false, formId);
-    },
+    edeTotalWithoutSOC = function(categoryId) {
+        return getCategoryEdeTotal(categoryId, false);
+    };
 
     /*
-    formId = identifies which section of the report to return data for.
+    categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, excluding items that are not marked as Standard of Care
     */
-    edeTotalOnlySOC: function(formId) {
-        return edeTotal(true, formId);
-    },
+    edeTotalOnlySOC = function(categoryId) {
+        return getCategoryEdeTotal(categoryId, true);
+    };
+
+
+    edeAnnualTotal = function(categoryId) {
+        var onlySOC = edeAnnualTotalOnlySOC(categoryId);
+        var withoutSOC = edeAnnualTotalWithoutSOC(categoryId);
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeAnnualTotalWithoutSOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, false);
+    };
+
+    edeAnnualTotalOnlySOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, true);
+    };
 
     // Report Totals 
 
     /*
     Returns total EDE for the entire report, regardless of Standard of Care value
     */
-    edeReportTotal: function() {
-        var formIndex, form, ede;
+    edeReportTotal = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotal(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
-            }
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            total += procedure.ede;
         }
-        return total;
-    },
+        
+        return Math.round10(total, -2);
+    };
 
     /*
     Returns total EDE for the entire report, excluding items marked as Standard of Care
     */
-    edeReportTotalWithoutSOC: function() {
-        var formIndex, form, ede;
+    edeReportTotalWithoutSOC = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotalWithoutSOC(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === false) {
+                total += procedure.ede;
             }
         }
-        return total;
-    },
+        
+        return Math.round10(total, -2);
+    };
 
     /*
     Returns total EDE for the entire report, excluding items that are not marked as Standard of Care
     */
-    edeReportTotalOnlySOC: function() {
-        var formIndex, form, ede;
+    edeReportTotalOnlySOC = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotalOnlySOC(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === true) {
+                total += procedure.ede;
             }
         }
-        return total;
-    }
+        
+        return Math.round10(total, -2);
+    };
+
+    edeReportAnnualTotal = function() {
+        var onlySOC = edeReportAnnualTotalOnlySOC();
+        var withoutSOC = edeReportAnnualTotalWithoutSOC();
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeReportAnnualTotalWithoutSOC = function() {
+        return getReportAnnualEdeTotal(false);
+    };
+
+    edeReportAnnualTotalOnlySOC = function() {
+        return getReportAnnualEdeTotal(true);
+    };
+
+  return {
+
+    // Public
+    
+    getAllProcedures: getAllProcedures,
+    getProcedures: getProcedures,
+    addProcedure: addProcedure,
+    getCategoryEdeTotal: getCategoryEdeTotal,
+    addSupplementalConsentText: addSupplementalConsentText,
+    getSupplementalConsentText: getSupplementalConsentText,
+    getProcedureEdeCalculation: getProcedureEdeCalculation,
+    updateProcedures: updateProcedures,
+    edeTotal: edeTotal,
+    edeTotalWithoutSOC: edeTotalWithoutSOC,
+    edeTotalOnlySOC: edeTotalOnlySOC,
+    edeAnnualTotal: edeAnnualTotal,
+    edeAnnualTotalOnlySOC: edeAnnualTotalOnlySOC,
+    edeAnnualTotalWithoutSOC: edeAnnualTotalWithoutSOC,
+    edeReportTotal: edeReportTotal,
+    edeReportTotalWithoutSOC: edeReportTotalWithoutSOC,
+    edeReportTotalOnlySOC: edeReportTotalOnlySOC,
+    edeReportAnnualTotal: edeReportAnnualTotal,
+    edeReportAnnualTotalWithoutSOC: edeReportAnnualTotalWithoutSOC,
+    edeReportAnnualTotalOnlySOC: edeReportAnnualTotalOnlySOC,
+    getScanCount: getScanCount,
+    getAnnualScanCount: getAnnualScanCount
 
   };
 });

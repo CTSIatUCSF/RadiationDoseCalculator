@@ -6,209 +6,23 @@
 <!-- allforms start -->
 <div id="allforms">
 
-    <!-- CT form start -->
-    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="CTFormCtrl">
-        <form name="{{form.name}}">
-            <div class="bottom-border exam-table-header-border">
-                <div class="exam-table-title">{{form.name}}</div>
-                <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
-            </div>
-            <div class="data-entry-table">
-            <table class="table table-hover table-condensed">
-                <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
-                <tr ng-repeat="exam in form.exams">
-                    <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
-                    <td class="procedures">
-                        <select class="form-control" ng-model="exam.exam" ng-options="examInfo.name as examInfo.name for examInfo in allProcedures()">
-                            <option value="">Please select procedure...</option>
-                        </select>
-                    </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
-                    <td class="soe-label vert-align soc-width">
-                        <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
-                        <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
-                    </td>
-                    <td class="gender-width">
-                        <select class="form-control" ng-model="exam.gender">
-                            <option value="mixed" selected>None</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </td>
-                    <td class="timedose-width"></td>
-                    <td class="ede-width"><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
-                    <td class="text-center vert-align close-width">
-                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                   </td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
-                    <td colspan="2">{{edeTotalWithoutSOC()}}</td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
-                    <td colspan="2">{{edeTotal()}}</td>
-                </tr>
-            </table>
-            </div>
-        </form>
-    </div>
-    <!-- CT form end -->
-
-    <!-- NM form start -->
-    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="NMFormCtrl">
-        <form name="{{form.name}}">
-            <div class="bottom-border exam-table-header-border">
-                <div class="exam-table-title">{{form.name}}</div>
-                <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
-            </div>
-            <div class="data-entry-table">
-            <table class="table table-hover table-condensed">
-                <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
-                <tr ng-repeat="exam in form.exams">
-                    <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
-                    <td class="procedures">
-                        <select class="form-control" ng-model="exam.exam" ng-options="examInfo.name as examInfo.name for examInfo in allProcedures()">
-                            <option value="">Please select procedure...</option>
-                        </select>
-                    </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
-                    <td class="soe-label vert-align soc-width">
-                        <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
-                        <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
-                    </td>
-                    <td class="gender-width">
-                        <select class="form-control" ng-model="exam.gender">
-                            <option value="mixed" selected>None</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </td>
-                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.injectedDose" min="0" numbers-only /></td>
-                    <td class="ede-width"><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
-                    <td class="text-center vert-align close-width">
-                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                   </td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
-                    <td colspan="2">{{edeTotalWithoutSOC()}}</td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
-                    <td colspan="2">{{edeTotal()}}</td>
-                </tr>
-            </table>
-            </div>
-        </form>
-    </div>
-    <!-- NM form end -->
-
-    <!-- XRay form start -->
-    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="XRayFormCtrl">
-        <form name="{{form.name}}">
-            <div class="bottom-border exam-table-header-border">
-                <div class="exam-table-title">{{form.name}}</div>
-                <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
-            </div>
-            <div class="data-entry-table">
-            <table class="table table-hover table-condensed">
-                <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
-                <tr ng-repeat="exam in form.exams">
-                    <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
-                    <td class="procedures">
-                        <select class="form-control" ng-model="exam.exam" ng-options="examInfo.name as examInfo.name for examInfo in allProcedures()">
-                            <option value="">Please select procedure...</option>
-                        </select>
-                    </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
-                    <td class="soe-label vert-align soc-width">
-                        <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
-                        <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
-                    </td>
-                    <td class="gender-width">
-                        <select class="form-control" ng-model="exam.gender">
-                            <option value="mixed" selected>None</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </td>
-                    <td class="timedose-width"></td>
-                    <td class="ede-width"><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
-                    <td class="text-center vert-align close-width">
-                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                   </td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
-                    <td colspan="2">{{edeTotalWithoutSOC()}}</td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
-                    <td colspan="2">{{edeTotal()}}</td>
-                </tr>
-            </table>
-            </div>
-        </form>
-    </div>
-    <!-- XRay form end -->
-
-    <!-- Flouroscopy form start -->
-    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="FlouroscopyFormCtrl">
-        <form name="{{form.name}}">
-            <div class="bottom-border exam-table-header-border">
-                <div class="exam-table-title">{{form.name}}</div>
-                <button class="btn btn-link no-print" ng-click="createRow()">+ Add Exam</button>
-            </div>
-            <div class="data-entry-table">
-            <table class="table table-hover table-condensed">
-                <tr><th class="exam-headers" ng-repeat="header in form.headers">{{header}}</th></tr>
-                <tr ng-repeat="exam in form.exams">
-                    <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
-                    <td class="procedures">
-                        <select class="form-control" ng-model="exam.exam" ng-options="examInfo.name as examInfo.name for examInfo in allProcedures()">
-                            <option value="">Please select procedure...</option>
-                        </select>
-                    </td>
-                    <td class="scan-width"><input class="form-control" type="number" ng-model="exam.scans" min="0" numbers-only /></td>
-                    <td class="soe-label vert-align soc-width">
-                        <input id="soc.{{form.name}}" type="checkbox" style="margin-right:4px;" ng-model="exam.soc" ng-init="checked=false" />
-                        <label for="soc.{{form.name}}" class="socLabel" for="squaredFour">Yes</label>
-                    </td>
-                    <td class="gender-width">
-                        <select class="form-control" ng-model="exam.gender">
-                            <option value="mixed" selected>None</option>
-                            <option value="female">Female</option>
-                            <option value="male">Male</option>
-                        </select>
-                    </td>
-                    <td class="timedose-width"><input class="form-control" type="number" ng-model="exam.minutes" min="0" numbers-only /></td>
-                    <td class="ede-width"><input class="form-control" type="number" ng-model="exam.ede" value="{{calculateEDE(exam)}}" ng-readonly="true" /></td>
-                    <td class="text-center vert-align close-width">
-                       <button type="button" class="close no-print" ng-click="removeProcedure(exam.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                   </td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total additional EDE</td>
-                    <td colspan="2">{{edeTotalWithoutSOC()}}</td>
-                </tr>
-                <tr>
-                    <td class="totalsRowLabel" colspan="6">Total EDE including Standard of Care</td>
-                    <td colspan="2">{{edeTotal()}}</td>
-                </tr>
-            </table>
-            </div>
-        </form>
-    </div>
-    <!-- Flouroscopy form end -->
-
-    <div id="consentTextContainer" class="alert-heading">
-        <div id="consentTextTitle" class="exam-table-title">Supplemental Consent Language</div>
-        <textarea id="consentText" class="form-control" ng-model="supplementalConsentLanguage"></textarea>
+    <div class="data-entry-tables-wrapper table-responsive"  ng-controller="DataEntryCtrl">
+        
+        <ct-table></ct-table>
+        <nm-table></nm-table>
+        <xray-table></xray-table>
+        <flouro-table></flouro-table>
+        
     </div>
 
 </div>
 <!-- allforms end -->
+
+<div id="consentTextContainer" class="alert-heading">
+    <div id="consentTextTitle" class="exam-table-title">Supplemental Consent Language</div>
+    <textarea id="consentText" class="form-control" ng-model="supplementalConsentLanguage"></textarea>
+</div>
+
 <div style="margin:20px 40px 30px 70px;">
     <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()">Generate Report</button>
 </div>

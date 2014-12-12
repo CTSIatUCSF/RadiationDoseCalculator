@@ -16,7 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         
         .state("data-entry", {
-            controller: "ReportCtrl",
+            controller: "DataEntryCtrl",
             url: "/",
             templateUrl: "views/partial-data-entry.html",
             resolve: {

@@ -1,0 +1,53 @@
+<div class="bottom-border exam-table-header-border">
+    <div class="exam-table-title">{{getCategoryConfig('Flouro').name}}</div>
+    <button class="btn btn-link no-print" ng-click="newProcedure('Flouro')">+ Add Exam</button>
+</div>
+<div class="data-entry-table">
+    <table class="table table-hover table-condensed">
+        <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('Flouro').headers">{{header}}</th></tr>
+        <tr ng-repeat="procedure in getProcedures('Flouro')">
+            <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
+            <td class="procedures">
+                <select class="form-control" ng-model="procedure.exam" ng-options="procedureInfo.name as procedureInfo.name for procedureInfo in getStoredProcedures('Flouro')">
+                    <option value="">Please select procedure...</option>
+                </select>
+            </td>
+            <td class="scan-width"><input class="form-control" type="number" ng-model="procedure.scans" min="1" numbers-only /></td>
+            <td class="soe-label vert-align soc-width">
+                <input id="soc.{{procedure.categoryid}}{{procedure.id}}" type="checkbox" style="margin-right:4px;" ng-model="procedure.soc" ng-init="checked=false" />
+                <label for="soc.{{procedure.categoryid}}{{procedure.id}}" class="socLabel">Yes</label>
+            </td>
+            <td class="gender-width">
+                <select class="form-control" ng-model="procedure.gender">
+                    <option value="mixed" selected>None</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </td>
+            <td class="timedose-width"><input class="form-control" type="number" ng-model="procedure.minutes" min="0" numbers-only /></td>
+            <td class="ede-width"><input class="form-control" type="number" ng-model="procedure.ede" value="{{getProcedureEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="scansyear-width"><input class="form-control" type="number" ng-model="procedure.annualscans" min="1" max="{{procedure.scans}}" numbers-only /></td>
+            <td class="annualede-width"><input class="form-control" type="number" ng-model="procedure.annualede" value="{{getProcedureAnnualEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="text-center vert-align close-width">
+               <button type="button" class="close no-print" ng-click="removeProcedure('Flouro', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+           </td>
+        </tr>
+    </table>
+    <table class="procedure-totals" style="float:right;">
+        <tr>
+            <th>&nbsp;</th>
+            <th class="exam-headers">Total</th>
+            <th class="exam-headers">Annual</th>
+        </tr>
+        <tr>
+            <td class="rowlabel">Total additional EDE</td>
+            <td class="rowvalue">{{edeTotalWithoutSOC("Flouro")}}</td>
+            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("Flouro")}}</td>
+        </tr>
+        <tr>
+            <td class="rowlabel">Total EDE including Standard of Care</td>
+            <td class="rowvalue">{{edeTotal("Flouro")}}</td>
+            <td class="rowvalue">{{edeAnnualTotal("Flouro")}}</td>
+        </tr>
+    </table>
+</div>

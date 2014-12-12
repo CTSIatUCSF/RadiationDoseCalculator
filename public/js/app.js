@@ -16,7 +16,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         
         .state("data-entry", {
-            controller: "ReportCtrl",
+            controller: "DataEntryCtrl",
             url: "/",
             templateUrl: "views/partial-data-entry.html",
             resolve: {
@@ -35,293 +35,181 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/report-plaintext",
             templateUrl: "views/partial-report-plaintext.html"
         });
-});;angular.module("RadCalc.controllers").controller("CTFormCtrl", function($scope, UserDataService, StoredDataService) {
+});;angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scope, $state, UserDataService, StoredDataService, ConfigDataService) {
 
-    var uniqueProcedureId = 0;
-    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
-    var id = "CT";
+    var configData = ConfigDataService.data;
+    var storedData = StoredDataService.storedData();
+    var userData   = UserDataService.getAllProcedures();
 
-    defaultTomographyExam = function() {
-        uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
-    };
+    var enforceMinimumExamCount, defaultProcedure, getProcedureId,
+        getCategoryConfig, updateUserDataService, isValidProcedure;
 
-    enforceMinimumExamCount = function() {
-        if ($scope.form.exams.length < 1) {
-            $scope.form.exams.push(defaultTomographyExam());
+    enforceMinimumExamCount = function(categoryId) {
+        var procedures = $scope.getProcedures(categoryId);
+        if (procedures.length < 1) {
+            $scope.allProcedures.push(defaultProcedure(categoryId));
         }
     };
 
-    initializeForm = function() {
-        return {
-            id: id,
-            name: "X-ray Computed Tomography Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)"],
-            exams:[ defaultTomographyExam() ]
-        };
+    defaultProcedure = function(categoryId) {
+        var config = getCategoryConfig(categoryId);
+        var procedure = JSON.parse(JSON.stringify(config.defaultrow));
+        procedure.id = getProcedureId(categoryId);
+        return procedure;
     };
 
-    $scope.form = initializeForm();
-
-    if (UserDataService.getFormData(id) !== null) {
-        $scope.form.exams = UserDataService.getFormData(id).exams;
-    }
-
-    $scope.allProcedures = function() {
-        return StoredDataService.getAllProcedures(id);
-    };
-    
-    $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam() );
-    };
-    
-    $scope.submit = function(){
-        console.log($scope.form.exams);
+    getProcedureId = function(categoryId) {
+        var procedures = $scope.getProcedures(categoryId);
+        return procedures.length;
     };
 
-    $scope.socLabel = function(value) {
-        if (value) { return "Yes"; }
-        return "No";
+    getCategoryConfig = function(categoryId) {
+        var index, category;
+        var categories = configData.categories;
+        for (index in categories) {
+            category = categories[index];
+            if (categoryId === category.id) {
+                return category;
+            }
+        }
     };
 
-    $scope.$watch("form", function() {
-        UserDataService.updateFormData($scope.form);
-    }, true);
-
-    $scope.calculateEDE = function(exam) {
-        if (exam.exam === "" || exam.exam === undefined) { return 0; }
-
-        // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
-        var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
-        var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
-        exam.ede = parseFloat(adjustedEDE);
-        return exam.ede;
+    isValidProcedure = function(procedure) {
+        if (!procedure)                 { return false; }
+        if (!procedure.exam)            { return false; }
+        if (procedure.exam.length < 1)  { return false; }
+        return true;
     };
 
-    $scope.removeProcedure = function(procedureId) {
-        var i, procedure;
-        for (i=0; i<$scope.form.exams.length; i++) {
-            procedure = $scope.form.exams[i];
-            if (procedureId === procedure.id) {
-                $scope.form.exams.splice(i, 1);
-                enforceMinimumExamCount();
+    updateUserDataService = function() {
+        var validProcedures = [];
+        var index, procedure;
+        for (index=0; index<$scope.allProcedures.length; index++) {
+            procedure = $scope.allProcedures[index];
+            if (isValidProcedure(procedure)) {
+                validProcedures.push(procedure);
+            }
+        }
+        UserDataService.updateProcedures(validProcedures);
+    };
+
+    $scope.allProcedures = [];
+    $scope.supplementalConsentLanguage = UserDataService.getSupplementalConsentText() || "";
+    if (userData.length > 0) { $scope.allProcedures = userData; }
+    $scope.$watch("allProcedures", updateUserDataService, true);
+
+    $scope.getCategoryConfig = getCategoryConfig;
+
+    $scope.getProcedures = function(categoryId) {
+        var index, procedure;
+        var procedures = [];
+        for (index=0; index<$scope.allProcedures.length; index++) {
+            procedure = $scope.allProcedures[index];
+            if (categoryId === procedure.categoryid) {
+                procedures.push(procedure);
+            }
+        }
+        return procedures;
+    };
+
+    $scope.getStoredProcedures = function(categoryId) {
+        return StoredDataService.getAllProcedures(categoryId);
+    };
+
+    $scope.newProcedure = function(categoryId) {
+        $scope.allProcedures.push(defaultProcedure(categoryId));
+    };
+
+    $scope.removeProcedure = function(categoryId, procedureId) {
+        var index, procedure;
+        for (index=0; index<$scope.allProcedures.length; index++) {
+            procedure = $scope.allProcedures[index];
+            if (categoryId === procedure.categoryid && procedureId === procedure.id) {
+                $scope.allProcedures.splice(index, 1);
+                enforceMinimumExamCount(categoryId);
                 return;
             }
         }
     };
 
-    $scope.edeTotal = function() {
-        return UserDataService.edeTotal($scope.form.id);
+    $scope.getProcedureEdeCalculation = function(procedure) {
+        var baseEde = StoredDataService.getProcedurePropertyValue(procedure.categoryid, procedure.exam, procedure.gender);
+        var calculatedEde = UserDataService.getProcedureEdeCalculation(procedure, baseEde);
+        procedure.ede = calculatedEde;
+        return calculatedEde;
     };
 
-    $scope.edeTotalWithoutSOC = function() {
-        return UserDataService.edeTotalWithoutSOC($scope.form.id);
+    $scope.getProcedureAnnualEdeCalculation = function(procedure) {
+        var baseEde = StoredDataService.getProcedurePropertyValue(procedure.categoryid, procedure.exam, procedure.gender);
+        var calculatedEde = UserDataService.getProcedureEdeCalculation(procedure, baseEde);
+        var annualEde = calculatedEde/(procedure.scans/procedure.annualscans);
+        annualEde = Math.round10(annualEde, -2);
+        procedure.annualede = annualEde;
+        return annualEde;
     };
 
-    $scope.edeTotalOnlySOC = function() {
-        return UserDataService.edeTotalOnlySOC($scope.form.id);
+    $scope.edeTotal = function(categoryId) {
+        return UserDataService.edeTotal(categoryId);
     };
 
-});;angular.module("RadCalc.controllers").controller("FlouroscopyFormCtrl", function($scope, UserDataService, StoredDataService) {
-
-    var uniqueProcedureId = 0;
-    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
-    var id = "Flouro";
-
-    defaultTomographyExam = function() {
-        uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 };
+    $scope.edeTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeTotalWithoutSOC(categoryId);
     };
 
-    enforceMinimumExamCount = function() {
-        if ($scope.form.exams.length < 1) {
-            $scope.form.exams.push(defaultTomographyExam());
-        }
+    $scope.edeTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeTotalOnlySOC(categoryId);
     };
 
-    initializeForm = function() {
-        return {
-            id: id,
-            name: "Flouroscopy Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)"],
-            exams:[ defaultTomographyExam() ]
-        };
+    $scope.edeAnnualTotal = function(categoryId) {
+        return UserDataService.edeAnnualTotal(categoryId);
     };
 
-    $scope.form = initializeForm();
+    $scope.edeAnnualTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalWithoutSOC(categoryId);
+    };
 
-    if (UserDataService.getFormData(id) !== null) {
-        $scope.form.exams = UserDataService.getFormData(id).exams;
+    $scope.edeAnnualTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalOnlySOC(categoryId);
+    };
+
+    $scope.GenerateReportClicked = function() {
+        validateUserData();
+        updateSupplementalConsentText();
+        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
+    };
+
+    function validateUserData() {
+        console.log("validateUserData");
     }
-
-    $scope.allProcedures = function() {
-        return StoredDataService.getAllProcedures(id);
-    };
     
-    $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam() );
-    };
-    
-    $scope.submit = function(){
-        console.log($scope.form.exams);
-    };
-
-    $scope.socLabel = function(value) {
-        if (value) { return "Yes"; }
-        return "No";
-    };
-
-    $scope.$watch("form", function() {
-        UserDataService.updateFormData($scope.form);
-    }, true);
-
-    $scope.calculateEDE = function(exam) {
-        if (exam.exam === "" || exam.exam === undefined) { return 0; }
-
-        // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
-        var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        unadjustedEDE = unadjustedEDE * exam.minutes;
-        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
-        var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
-        exam.ede = parseFloat(adjustedEDE);
-        return exam.ede;
-    };
-
-    $scope.removeProcedure = function(procedureId) {
-        var i, procedure;
-        for (i=0; i<$scope.form.exams.length; i++) {
-            procedure = $scope.form.exams[i];
-            if (procedureId === procedure.id) {
-                $scope.form.exams.splice(i, 1);
-                enforceMinimumExamCount();
-                return;
-            }
-        }
-    };
-
-    $scope.edeTotal = function() {
-        return UserDataService.edeTotal($scope.form.id);
-    };
-
-    $scope.edeTotalWithoutSOC = function() {
-        return UserDataService.edeTotalWithoutSOC($scope.form.id);
-    };
-
-    $scope.edeTotalOnlySOC = function() {
-        return UserDataService.edeTotalOnlySOC($scope.form.id);
-    };
-
-});;angular.module("RadCalc.controllers").controller("NMFormCtrl", function($scope, UserDataService, StoredDataService) {
-
-    var uniqueProcedureId = 0;
-    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
-    var id = "NM";
-
-    defaultTomographyExam = function() {
-        uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 };
-    };
-
-    enforceMinimumExamCount = function() {
-        if ($scope.form.exams.length < 1) {
-            $scope.form.exams.push(defaultTomographyExam());
-        }
-    };
-
-    initializeForm = function() {
-        return {
-            id: id,
-            name: "Nuclear Medicine Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)"],
-            exams:[ defaultTomographyExam() ]
-        };
-    };
-
-    $scope.form = initializeForm();
-
-    if (UserDataService.getFormData(id) !== null) {
-        $scope.form.exams = UserDataService.getFormData(id).exams;
+    function updateSupplementalConsentText() {
+        UserDataService.addSupplementalConsentText($scope.supplementalConsentLanguage);
     }
-
-    $scope.allProcedures = function() {
-        return StoredDataService.getAllProcedures(id);
-    };
-    
-    $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam() );
-    };
-    
-    $scope.submit = function(){
-        console.log($scope.form.exams);
-    };
-
-    $scope.socLabel = function(value) {
-        if (value) { return "Yes"; }
-        return "No";
-    };
-
-    $scope.$watch("form", function() {
-        UserDataService.updateFormData($scope.form);
-    }, true);
-
-    $scope.calculateEDE = function(exam) {
-        if (exam.exam === "" || exam.exam === undefined) { return 0; }
-
-        // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
-        var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        unadjustedEDE = unadjustedEDE * exam.injectedDose;
-        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
-        var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
-        exam.ede = parseFloat(adjustedEDE);
-        return exam.ede;
-    };
-
-    $scope.removeProcedure = function(procedureId) {
-        var i, procedure;
-        for (i=0; i<$scope.form.exams.length; i++) {
-            procedure = $scope.form.exams[i];
-            if (procedureId === procedure.id) {
-                $scope.form.exams.splice(i, 1);
-                enforceMinimumExamCount();
-                return;
-            }
-        }
-    };
-
-    $scope.edeTotal = function() {
-        return UserDataService.edeTotal($scope.form.id);
-    };
-
-    $scope.edeTotalWithoutSOC = function() {
-        return UserDataService.edeTotalWithoutSOC($scope.form.id);
-    };
-
-    $scope.edeTotalOnlySOC = function() {
-        return UserDataService.edeTotalOnlySOC($scope.form.id);
-    };
 
 });;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
 
     var storedData = StoredDataService.storedData();
-    var userData = UserDataService.userData();
+    var userData   = UserDataService.getAllProcedures();
     var plainTextFormattingOptions = {
         "col1":1,
-        "col2":25,
-        "col3":45,
-        "col4":80
+        "col2":30,
+        "col3":40,
+        "col4":50,
+        "col5":60,
+        "col6":70,
     };
-    var comparisonDoseMsv, effectiveDose, convertMsvToRem, convertRemToMsv, comparisonDoseQuotient, addPadding;
+    var comparisonDoseMsv, effectiveDose, convertMsvToRem, convertRemToMsv,
+        comparisonDoseQuotient, buildBibliography, addPadding, getCitationText,
+        footnotePlainText;
 
     comparisonDoseMsv = function () {
+        var dose;
         if (storedData.ComparisonDoseUnit === "rem") {
-            return convertRemToMsv(storedData.ComparisonDose);
+            dose = convertRemToMsv(storedData.ComparisonDose);
         } else if (storedData.ComparisonDoseUnit === "mSv") {
-            return storedData.ComparisonDose;
+            dose = storedData.ComparisonDose;
         }
+        return Math.round10(dose, -2);
     };
 
     effectiveDose = function(unit) {
@@ -334,15 +222,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         if (unit === "rem") {
             dose = convertMsvToRem(dose);
         }
-        return dose;
+        return Math.round10(dose, -2);
     };
 
     convertMsvToRem = function(mSv_number) {
-        return mSv_number/10;
+        return Math.round10(mSv_number/10, -2);
     };
 
     convertRemToMsv = function(rem_number) {
-        return rem_number*10;
+        return Math.round10(rem_number*10, -2);
     };
 
     comparisonDoseQuotient = function() {
@@ -350,6 +238,57 @@ app.config(function($stateProvider, $urlRouterProvider) {
         var cdq = dose / comparisonDoseMsv();
         cdq = cdq || 0;
         return Math.round10(cdq, -2);
+    };
+
+    buildBibliography = function() {
+        var categoryIds = ["CT", "NM", "XRay", "Flouro"];
+        var bibliography = {};
+        var footnotes = {};
+        var citations = [];
+        var counter = 1;
+        var categoryIndex, categoryId, procedures, procedureIndex, procedure;
+        for (categoryIndex in categoryIds) {
+            categoryId = categoryIds[categoryIndex];
+            procedures = UserDataService.getProcedures(categoryId);
+            footnotes[categoryId] = [];
+            for (procedureIndex in procedures) {
+                footnotes[categoryId].push(counter);
+                procedure = procedures[procedureIndex];
+                citations.push(counter++ + ". " + getCitationText(procedure));
+            }
+        }
+        bibliography = {"footnotes": footnotes, "citations": citations};
+
+        console.log("bibliography:");
+        console.log(bibliography);
+
+        return bibliography;
+    };
+
+    getCitationText = function(procedure) {
+        var citation = "";
+        if (procedure.exam) {
+            citation = StoredDataService.getProcedureCitation(procedure.categoryid, procedure.exam);
+        }
+        return citation;
+    };
+
+    addPadding = function(string, maxWidth, spacer) {
+        spacer = spacer || " ";
+        spacer = spacer.charAt(0);
+        string = "" + string;
+        while (string.length < maxWidth) {
+            string += spacer;
+        }
+        return string;
+    };
+
+    footnotePlainText = function(categoryId) {
+        var footnotes = $scope.footnotes(categoryId);
+        if (footnotes !== "") {
+            footnotes = "[" + footnotes + "]";
+        }
+        return footnotes;
     };
 
     $scope.consentNarrative = function() {
@@ -365,85 +304,125 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
     
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
+    $scope.bibliography = buildBibliography();
 
-    addPadding = function(string, maxWidth, spacer) {
-        spacer = spacer || " ";
-        spacer = spacer.charAt(0);
-        string = "" + string;
-        while (string.length < maxWidth) {
-            string += spacer;
+    $scope.citations = function() {
+        return $scope.bibliography.citations;
+    };
+
+    $scope.footnotes = function(categoryId) {
+        var footnotes = $scope.bibliography.footnotes[categoryId];
+        var shrunk = "";
+        if (footnotes.length === 1) {
+            shrunk = "" + footnotes[0];
+        } else if (footnotes.length > 1) {
+            first = footnotes[0];
+            last = footnotes[footnotes.length-1];
+            shrunk = first + "-" + last;
         }
-        return string;
+        return shrunk;
     };
 
     $scope.makePlainText = function() {
         var opt = plainTextFormattingOptions;
+        var citations = $scope.bibliography.citations;
+        var citationIndex, citation;
+        var edeLabelText = "EDE(mSv)";
+
         var plaintext = "\n";
         plaintext += "Radiation Dose Calculator\n";
         plaintext += "\n";
 
+        plaintext += addPadding(" ", opt.col2);
+        plaintext += addPadding("Total", opt.col3 - opt.col2);
+        plaintext += addPadding("Total", opt.col4 - opt.col3);
+        plaintext += addPadding("Annual", opt.col5 - opt.col4);
+        plaintext += addPadding("Annual", opt.col6 - opt.col5);
+        plaintext += "\n";
+
         plaintext += addPadding("Types of Procedures", opt.col2);
-        plaintext += addPadding("Number of Scans", opt.col3 - opt.col2);
-        plaintext += "EDE (mSv)\n";
-
-        plaintext += addPadding("", 56, "-");
+        plaintext += addPadding("Scans", opt.col3 - opt.col2);
+        plaintext += addPadding(edeLabelText, opt.col4 - opt.col3);
+        plaintext += addPadding("Scans", opt.col5 - opt.col4);
+        plaintext += addPadding(edeLabelText, opt.col6 - opt.col5);
         plaintext += "\n";
 
-        plaintext += addPadding("X-Ray CT", opt.col2);
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
+        plaintext += "\n";
+
+        plaintext += addPadding("X-Ray CT " + footnotePlainText("CT"), opt.col2);
         plaintext += addPadding($scope.getScanCount("CT"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("CT") + "\n";
+        plaintext += addPadding($scope.edeTotal("CT"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("CT"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("CT"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
-        plaintext += addPadding("Nuclear Medicine", opt.col2);
+        plaintext += addPadding("Nuclear Medicine " + footnotePlainText("NM"), opt.col2);
         plaintext += addPadding($scope.getScanCount("NM"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("NM") + "\n";
+        plaintext += addPadding($scope.edeTotal("NM"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("NM"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("NM"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
-        plaintext += addPadding("Radiography", opt.col2);
+        plaintext += addPadding("Radiography " + footnotePlainText("XRay"), opt.col2);
         plaintext += addPadding($scope.getScanCount("XRay"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("XRay") + "\n";
+        plaintext += addPadding($scope.edeTotal("XRay"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("XRay"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("XRay"), opt.col6 - opt.col5);
+        plaintext += "\n";
 
-        plaintext += addPadding("Flouroscopy", opt.col2);
+        plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
         plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += $scope.edeTotal("Flouro") + "\n";
-
-        plaintext += "\n";
-        plaintext += addPadding("", 56, "-");
-        plaintext += "\n";
-
-        plaintext += addPadding("Research EDE (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotalWithoutSOC() + "\n";
-
-        plaintext += addPadding("Standard of Care (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotalOnlySOC() + "\n";
-
-        plaintext += addPadding("Total EDE (mSv)", opt.col3);
-        plaintext += $scope.edeReportTotal() + "\n";
-
-        plaintext += "\n";
-        plaintext += addPadding("", 56, "-");
+        plaintext += addPadding($scope.edeTotal("Flouro"), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
+        plaintext += addPadding($scope.edeAnnualTotal("Flouro"), opt.col6 - opt.col5);
         plaintext += "\n";
 
-        plaintext += addPadding("Comparison Dose (mSv)", opt.col3);
-        plaintext += $scope.comparisonDose + "\n";
+        plaintext += "\n";
+        plaintext += "\n";
+        plaintext += addPadding(" ", opt.col2);
+        plaintext += addPadding("Total", opt.col3 - opt.col2);
+        plaintext += addPadding("Annual", opt.col4 - opt.col3);
+        plaintext += "\n";
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += "\n";
 
-        plaintext += "Comparison Dose Support Language" + "\n";
-        plaintext += $scope.comparisonDoseSupportingLanguage + "\n";
+        plaintext += addPadding("Research EDE (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotalWithoutSOC(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotalWithoutSOC(), opt.col4 - opt.col3);
+        plaintext += "\n";
+
+        plaintext += addPadding("Standard of Care (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotalOnlySOC(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotalOnlySOC(), opt.col4 - opt.col3);
+        plaintext += "\n";
+
+        plaintext += addPadding("Total EDE (mSv)", opt.col2);
+        plaintext += addPadding($scope.edeReportTotal(), opt.col3 - opt.col2);
+        plaintext += addPadding($scope.edeReportAnnualTotal(), opt.col4 - opt.col3);
+        plaintext += "\n";
+
+        plaintext += "\n";
+        plaintext += "\n";
+        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += "\n";
 
         plaintext += "Consent Narrative" + "\n";
-        plaintext += $scope.consentNarrative + "\n";
+        plaintext += $scope.consentNarrative() + "\n";
         plaintext += "\n";
 
         plaintext += "Supplemental Consent Language" + "\n";
-        plaintext += $scope.supplementalConsentLanguage + "\n";
+        plaintext += $scope.getSupplementalConsentText() + "\n";
+        plaintext += "\n";
+
+        plaintext += "Citations" + "\n";
+        console.log(citations);
+        for (citationIndex in citations) {
+            citation = citations[citationIndex];
+            plaintext += citation + "\n";
+        }
 
         return plaintext;
-    };
-
-    $scope.GenerateReportClicked = function() {
-        validateUserData();
-        updateSupplementalConsentText();
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.DataEntryClicked = function() {
@@ -461,29 +440,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.Print = function() {
         window.print();
     };
-    
-    function updateSupplementalConsentText() {
-        UserDataService.updateSupplementalConsentText($scope.supplementalConsentLanguage);
-    }
 
-    function validateUserData() {
-        console.log("validateUserData");
-    }
-
-    $scope.getScanCount = function(formId) {
-        return UserDataService.getScanCount(formId);
+    $scope.getSupplementalConsentText = function() {
+        return UserDataService.getSupplementalConsentText();
     };
 
-    $scope.edeTotal = function(formId) {
-        return UserDataService.edeTotal(formId);
+    $scope.getScanCount = function(categoryId) {
+        return UserDataService.getScanCount(categoryId);
     };
 
-    $scope.edeTotalWithoutSOC = function(formId) {
-        return UserDataService.edeTotalWithoutSOC(formId);
+    $scope.getAnnualScanCount = function(categoryId) {
+        return UserDataService.getAnnualScanCount(categoryId);
     };
 
-    $scope.edeTotalOnlySOC = function(formId) {
-        return UserDataService.edeTotalOnlySOC(formId);
+    $scope.edeTotal = function(categoryId) {
+        return UserDataService.edeTotal(categoryId);
+    };
+
+    $scope.edeTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeTotalWithoutSOC(categoryId);
+    };
+
+    $scope.edeTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeTotalOnlySOC(categoryId);
     };
 
     $scope.edeReportTotal = function() {
@@ -498,95 +477,47 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return UserDataService.edeReportTotalWithoutSOC();
     };
 
-});;angular.module("RadCalc.controllers").controller("XRayFormCtrl", function($scope, UserDataService, StoredDataService) {
-
-    var uniqueProcedureId = 0;
-    var defaultTomographyExam, enforceMinimumExamCount, initializeForm;
-    var id = "XRay";
-
-    defaultTomographyExam = function() {
-        uniqueProcedureId++;
-        return { id: uniqueProcedureId, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 };
+    $scope.edeReportAnnualTotal = function() {
+        return UserDataService.edeReportAnnualTotal();
     };
 
-    enforceMinimumExamCount = function() {
-        if ($scope.form.exams.length < 1) {
-            $scope.form.exams.push(defaultTomographyExam());
-        }
+    $scope.edeReportAnnualTotalOnlySOC = function() {
+        return UserDataService.edeReportAnnualTotalOnlySOC();
     };
 
-    initializeForm = function() {
-        return {
-            id: id,
-            name: "X-ray Examinations",
-            headers:["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)"],
-            exams:[ defaultTomographyExam() ]
-        };
+    $scope.edeReportAnnualTotalWithoutSOC = function() {
+        return UserDataService.edeReportAnnualTotalWithoutSOC();
     };
 
-    $scope.form = initializeForm();
-
-    if (UserDataService.getFormData(id) !== null) {
-        $scope.form.exams = UserDataService.getFormData(id).exams;
-    }
-
-    $scope.allProcedures = function() {
-        return StoredDataService.getAllProcedures(id);
-    };
-    
-    $scope.createRow = function () {
-        $scope.form.exams.push( defaultTomographyExam() );
-    };
-    
-    $scope.submit = function(){
-        console.log($scope.form.exams);
+    $scope.edeAnnualTotal = function(categoryId) {
+        return UserDataService.edeAnnualTotal(categoryId);
     };
 
-    $scope.socLabel = function(value) {
-        if (value) { return "Yes"; }
-        return "No";
+    $scope.edeAnnualTotalOnlySOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalOnlySOC(categoryId);
     };
 
-    $scope.$watch("form", function() {
-        UserDataService.updateFormData($scope.form);
-    }, true);
-
-    $scope.calculateEDE = function(exam) {
-        if (exam.exam === "" || exam.exam === undefined) { return 0; }
-
-        // Adjust the ede value to reflect level of precision and avoid floating point rounding errors
-        var singleScanEDE = StoredDataService.getProcedurePropertyValue($scope.form.id, exam.exam, exam.gender);
-        var unadjustedEDE = UserDataService.simpleEdeCalculation(singleScanEDE, exam.scans);
-        var decimalPlaces = UserDataService.countDecimalPlaces(singleScanEDE);
-        var adjustedEDE   = Math.round10(unadjustedEDE, -decimalPlaces);
-        exam.ede = parseFloat(adjustedEDE);
-        return exam.ede;
+    $scope.edeAnnualTotalWithoutSOC = function(categoryId) {
+        return UserDataService.edeAnnualTotalWithoutSOC(categoryId);
     };
-
-    $scope.removeProcedure = function(procedureId) {
-        var i, procedure;
-        for (i=0; i<$scope.form.exams.length; i++) {
-            procedure = $scope.form.exams[i];
-            if (procedureId === procedure.id) {
-                $scope.form.exams.splice(i, 1);
-                enforceMinimumExamCount();
-                return;
-            }
-        }
+});;angular.module("RadCalc").directive("ctTable", function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "views/partial-ct-table-header.html"
     };
-
-    $scope.edeTotal = function() {
-        return UserDataService.edeTotal($scope.form.id);
+});;angular.module("RadCalc").directive("flouroTable", function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "views/partial-flouro-table-header.html"
     };
-
-    $scope.edeTotalWithoutSOC = function() {
-        return UserDataService.edeTotalWithoutSOC($scope.form.id);
+});;angular.module("RadCalc").directive("nmTable", function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "views/partial-nm-table-header.html"
     };
-
-    $scope.edeTotalOnlySOC = function() {
-        return UserDataService.edeTotalOnlySOC($scope.form.id);
-    };
-
 });;angular.module("RadCalc").directive("numbersOnly", function() {
     return function(scope, element, attrs) {
         var keyCode = [8,9,37,39,48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,110,190];
@@ -601,6 +532,45 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         });
     };
+});;angular.module("RadCalc").directive("xrayTable", function() {
+    return {
+        restrict: 'E',
+        transclude: true,
+        templateUrl: "views/partial-xray-table-header.html"
+    };
+});;angular.module("RadCalc.services").factory("ConfigDataService", function() {
+
+    return {
+        "data": {
+            "categories": [
+                {
+                    "id": "CT",
+                    "name": "X-ray Computed Tomography Examinations",
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
+                },
+                {
+                    "id": "NM",
+                    "name": "Nuclear Medicine Examinations",
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "defaultrow": { "id": 0, "categoryid": "NM", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "injectedDose": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+                },
+                {
+                    "id": "XRay",
+                    "name": "X-ray Examinations",
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
+                },
+                {
+                    "id": "Flouro",
+                    "name": "Flouroscopy Examinations",
+                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                    "defaultrow": { "id": 0, "categoryid": "Flouro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+                }
+            ]
+        }
+    };
+
 });;angular.module("RadCalc.services").factory("StoredDataService", function($q, $http) {
 
     var storedData = {};
@@ -644,7 +614,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         },
 
         getProcedure: function(categoryID, procedureName) {
-            if (procedureName === null) { return; }
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var allProcedures = this.getAllProcedures(categoryID);
             for (var procedureIndex in allProcedures) {
                 var procedure = allProcedures[procedureIndex];
@@ -654,14 +624,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         },
 
-        getAllProcedureProperties: function(categoryID, procedureName) {
+        getProcedureCitation: function(categoryID, procedureName) {
             if (procedureName === null) { return; }
+            var procedure = this.getProcedure(categoryID, procedureName);
+            return procedure.citation;
+        },
+
+        getAllProcedureProperties: function(categoryID, procedureName) {
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var procedure = this.getProcedure(categoryID, procedureName);
             return procedure.properties;
         },
 
         getProcedurePropertyValue: function(categoryID, procedureName, genderPredominance) {
-            if (procedureName === null) { return; }
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var properties = this.getAllProcedureProperties(categoryID, procedureName);
             for (var propertyIndex in properties) {
                 var property = properties[propertyIndex];
@@ -675,210 +651,271 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });;angular.module("RadCalc.services").factory("UserDataService", function($q, $http) {
 
     // Private
-    var userData = { "formData": []};
-    var doesExist, edeTotal, getFormData, maxDecimalPlaces, countDecimalPlaces, getScanCount;
+    var userData = {};
+    var allProcedures = [];
+    var getProcedures, addProcedure, getCategoryEdeTotal,
+        addSupplementalConsentText, getSupplementalConsentText,
+        getProcedureEdeCalculation, getReportAnnualEdeTotal, updateProcedures,
+        getAnnualScanCount, getScanCount;
 
-    doesExist = function(formId) {
-        var index, item;
-        for (index in userData.formData) {
-            item = userData.formData[index];
-            if (item.id === formId) { return true; }
-        }
-        return false;
+    getAllProcedures = function() {
+        return allProcedures;
     };
 
-    edeTotal = function(onlySOC, formId) {
-        var decimalPlaceCount = 0;
-        var total = 0;
-        if (doesExist(formId)) {
-            var formData = getFormData(formId);
-            angular.forEach(formData.exams, function(item) {
-                if (item.soc === onlySOC) {
-                    decimalPlaceCount = -maxDecimalPlaces(total, item.ede);
-                    total += item.ede;
-                }
-            });
+    getProcedures = function(categoryId) {
+        var procedureIndex, procedure,
+            procedures = [];
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.categoryid === categoryId) {
+                procedures.push(procedure);
+            }
         }
-        return Math.round10(total, decimalPlaceCount);
+        return procedures;
     };
 
-    getFormData = function(formId) {
-        var index, item;
-        for (index in userData.formData) {
-            item = userData.formData[index];
-            if (item.id === formId) { return item; }
-        }
-        return null;
-    };
-
-    maxDecimalPlaces = function(n1, n2) {
-        var n1Count = countDecimalPlaces(n1);
-        var n2Count = countDecimalPlaces(n2);
-        if (n1Count > n2Count) {
-            return n1Count;
-        }
-        return n2Count;
-    };
-
-    countDecimalPlaces = function(value) {
-        var valueString = "" + value;
-        var ary = valueString.split(("."));
-        if (ary.length < 2) {
-            return 0;
-        } else {
-            return ary[1].length;
+    addProcedure = function(procedure) {
+        if (procedure.exam !== "" && procedure.exam !== undefined) {
+            allProcedures.push(procedure);
         }
     };
 
-    getScanCount = function(formId) {
+    getCategoryEdeTotal = function(categoryId, onlySOC) {
+        var procedureIndex, procedure,
+            ede = 0,
+            procedures = getProcedures(categoryId);
+        for (procedureIndex in procedures) {
+            procedure = procedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                ede += procedure.ede;
+            }
+        }
+        return Math.round10(ede, -2);
+    };
+
+    getCategoryAnnualEdeTotal = function(categoryId, onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0,
+            procedures = getProcedures(categoryId);
+        for (procedureIndex in procedures) {
+            procedure = procedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
+    };
+
+    getReportAnnualEdeTotal = function(onlySOC) {
+        var procedureIndex, procedure,
+            annualede = 0;
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === onlySOC) {
+                annualede += procedure.annualede;
+            }
+        }
+        return Math.round10(annualede, -2);
+    };
+
+    addSupplementalConsentText = function(supplementalConsentText) {
+        userData.supplementalConsentText = supplementalConsentText;
+    };
+
+    getSupplementalConsentText = function() {
+        return userData.supplementalConsentText ;
+    };
+
+    getProcedureEdeCalculation = function(procedure, baseEde) {
+        var calculation = 0;
+        
+        // simple calculation for all
+        if (procedure.hasOwnProperty("scans")) {
+            calculation = procedure.scans * baseEde;
+        }
+
+        // adjust for NM calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "NM" ) {
+            if (procedure.hasOwnProperty("injectedDose")) {
+                calculation = procedure.injectedDose * calculation;
+            }
+        }
+
+        // adjust for Flouro calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Flouro" ) {
+            if (procedure.hasOwnProperty("minutes")) {
+                calculation = procedure.minutes * calculation;
+            }
+        }
+
+        return Math.round10(calculation, -2);
+    };
+
+    updateProcedures = function(procedures) {
+        allProcedures = procedures;
+    };
+
+    getScanCount = function(categoryId) {
         var count = 0;
-        if (doesExist(formId)) {
-            var formData = getFormData(formId);
-            angular.forEach(formData.exams, function(item) {
-                if (item.exam !== "") {
-                    count += item.scans;
-                }
-            });
-        }
+        var procedures = getProcedures(categoryId);
+        angular.forEach(procedures, function(procedure) {
+            count += procedure.scans;
+        });
         return count;
     };
 
-  return {
-    // Public
-
-    // Getters
-    getScanCount: getScanCount,
-    getFormData: getFormData,
-
-    userData: function() {
-        return userData;
-    },
-
-    // Setters
-    updateFormData: function(formData) {
-        if (doesExist(formData.id) === false) {
-            userData.formData.push(formData);
-            return;
-        }
-
-        var oldFormData = userData.formData;
-        userData.formData = [];
-        angular.forEach(oldFormData, function(item) {
-            if (item.exam !== "") {
-                if (item.id === formData.id) {
-                    userData.formData.push(formData);
-                } else {
-                    userData.formData.push(item);
-                }
-            }
+    getAnnualScanCount = function(categoryId) {
+        var count = 0;
+        var procedures = getProcedures(categoryId);
+        angular.forEach(procedures, function(procedure) {
+            count += procedure.annualscans;
         });
-    },
-
-    updateSupplementalConsentText: function(supplementalConsentText) {
-        userData.supplementalConsentText = supplementalConsentText;
-    },
-
-    // Basic Calculations
-    countDecimalPlaces:countDecimalPlaces,
-
-    simpleEdeCalculation: function(singleEde, scanCount) {
-        return singleEde * scanCount;
-    },
+        return count;
+    };
 
     // Section Totals
 
     /*
-    formId = identifies which section of the report to return data for.
+    categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, regardless of Standard of Care value
     */
-    edeTotal: function(formId) {
-        var onlySOC = this.edeTotalOnlySOC(formId);
-        var withoutSOC = this.edeTotalWithoutSOC(formId);
+    edeTotal = function(categoryId) {
+        var onlySOC = edeTotalOnlySOC(categoryId);
+        var withoutSOC = edeTotalWithoutSOC(categoryId);
         var totalSOC = onlySOC + withoutSOC;
-        var decimalPlaceCount = -maxDecimalPlaces(onlySOC, withoutSOC);
-        return Math.round10(totalSOC, decimalPlaceCount);
-    },
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
 
     /*
-    formId = Identifies which section of the report to return data for.
+    categoryId = Identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, excluding items marked as Standard of Care
     */
-    edeTotalWithoutSOC: function(formId) {
-        return edeTotal(false, formId);
-    },
+    edeTotalWithoutSOC = function(categoryId) {
+        return getCategoryEdeTotal(categoryId, false);
+    };
 
     /*
-    formId = identifies which section of the report to return data for.
+    categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
     Returns total EDE for a section of the report, excluding items that are not marked as Standard of Care
     */
-    edeTotalOnlySOC: function(formId) {
-        return edeTotal(true, formId);
-    },
+    edeTotalOnlySOC = function(categoryId) {
+        return getCategoryEdeTotal(categoryId, true);
+    };
+
+
+    edeAnnualTotal = function(categoryId) {
+        var onlySOC = edeAnnualTotalOnlySOC(categoryId);
+        var withoutSOC = edeAnnualTotalWithoutSOC(categoryId);
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeAnnualTotalWithoutSOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, false);
+    };
+
+    edeAnnualTotalOnlySOC = function(categoryId) {
+        return getCategoryAnnualEdeTotal(categoryId, true);
+    };
 
     // Report Totals 
 
     /*
     Returns total EDE for the entire report, regardless of Standard of Care value
     */
-    edeReportTotal: function() {
-        var formIndex, form, ede;
+    edeReportTotal = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotal(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
-            }
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            total += procedure.ede;
         }
-        return total;
-    },
+        
+        return Math.round10(total, -2);
+    };
 
     /*
     Returns total EDE for the entire report, excluding items marked as Standard of Care
     */
-    edeReportTotalWithoutSOC: function() {
-        var formIndex, form, ede;
+    edeReportTotalWithoutSOC = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotalWithoutSOC(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === false) {
+                total += procedure.ede;
             }
         }
-        return total;
-    },
+        
+        return Math.round10(total, -2);
+    };
 
     /*
     Returns total EDE for the entire report, excluding items that are not marked as Standard of Care
     */
-    edeReportTotalOnlySOC: function() {
-        var formIndex, form, ede;
+    edeReportTotalOnlySOC = function() {
+        var procedureIndex, procedure;
         var total = 0;
-        var decimalPlaceCount = 0;
-        if (userData) {
-            for (formIndex in userData.formData) {
-                form = userData.formData[formIndex];
-                ede = this.edeTotalOnlySOC(form.id);
-                decimalPlaceCount = maxDecimalPlaces(total, ede);
-                total += ede;
-                total = Math.round10(total, -decimalPlaceCount);
+        for (procedureIndex in allProcedures) {
+            procedure = allProcedures[procedureIndex];
+            if (procedure.soc === true) {
+                total += procedure.ede;
             }
         }
-        return total;
-    }
+        
+        return Math.round10(total, -2);
+    };
+
+    edeReportAnnualTotal = function() {
+        var onlySOC = edeReportAnnualTotalOnlySOC();
+        var withoutSOC = edeReportAnnualTotalWithoutSOC();
+        var totalSOC = onlySOC + withoutSOC;
+        var answer = Math.round10(totalSOC, -2);
+        return answer;
+    };
+
+    edeReportAnnualTotalWithoutSOC = function() {
+        return getReportAnnualEdeTotal(false);
+    };
+
+    edeReportAnnualTotalOnlySOC = function() {
+        return getReportAnnualEdeTotal(true);
+    };
+
+  return {
+
+    // Public
+    
+    getAllProcedures: getAllProcedures,
+    getProcedures: getProcedures,
+    addProcedure: addProcedure,
+    getCategoryEdeTotal: getCategoryEdeTotal,
+    addSupplementalConsentText: addSupplementalConsentText,
+    getSupplementalConsentText: getSupplementalConsentText,
+    getProcedureEdeCalculation: getProcedureEdeCalculation,
+    updateProcedures: updateProcedures,
+    edeTotal: edeTotal,
+    edeTotalWithoutSOC: edeTotalWithoutSOC,
+    edeTotalOnlySOC: edeTotalOnlySOC,
+    edeAnnualTotal: edeAnnualTotal,
+    edeAnnualTotalOnlySOC: edeAnnualTotalOnlySOC,
+    edeAnnualTotalWithoutSOC: edeAnnualTotalWithoutSOC,
+    edeReportTotal: edeReportTotal,
+    edeReportTotalWithoutSOC: edeReportTotalWithoutSOC,
+    edeReportTotalOnlySOC: edeReportTotalOnlySOC,
+    edeReportAnnualTotal: edeReportAnnualTotal,
+    edeReportAnnualTotalWithoutSOC: edeReportAnnualTotalWithoutSOC,
+    edeReportAnnualTotalOnlySOC: edeReportAnnualTotalOnlySOC,
+    getScanCount: getScanCount,
+    getAnnualScanCount: getAnnualScanCount
 
   };
 });;/**

@@ -41,7 +41,7 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
         },
 
         getProcedure: function(categoryID, procedureName) {
-            if (procedureName === null) { return; }
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var allProcedures = this.getAllProcedures(categoryID);
             for (var procedureIndex in allProcedures) {
                 var procedure = allProcedures[procedureIndex];
@@ -51,14 +51,20 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
             }
         },
 
-        getAllProcedureProperties: function(categoryID, procedureName) {
+        getProcedureCitation: function(categoryID, procedureName) {
             if (procedureName === null) { return; }
+            var procedure = this.getProcedure(categoryID, procedureName);
+            return procedure.citation;
+        },
+
+        getAllProcedureProperties: function(categoryID, procedureName) {
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var procedure = this.getProcedure(categoryID, procedureName);
             return procedure.properties;
         },
 
         getProcedurePropertyValue: function(categoryID, procedureName, genderPredominance) {
-            if (procedureName === null) { return; }
+            if (procedureName === "" || procedureName === null || procedureName === undefined) { return; }
             var properties = this.getAllProcedureProperties(categoryID, procedureName);
             for (var propertyIndex in properties) {
                 var property = properties[propertyIndex];

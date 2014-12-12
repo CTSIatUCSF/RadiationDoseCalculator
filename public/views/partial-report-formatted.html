@@ -11,43 +11,61 @@
         <table class="table-over hover-table table-borders-report">
             <tr>
                 <th class="exam-headers" >Types of Procedures</th>
-                <th class="exam-headers" >Number of Scans</th>
-                <th class="exam-headers" >EDE (mSv)</th>
+                <th class="exam-headers" >Total Scans</th>
+                <th class="exam-headers" >Total EDE (mSv)</th>
+                <th class="exam-headers" >Annual Scans</th>
+                <th class="exam-headers" >Annual EDE (mSv)</th>
             </tr>
             <tr>
-                <td>X-Ray CT</td>
+                <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
                 <td>{{getScanCount("CT")}}</td>
                 <td>{{edeTotal("CT")}}</td>
+                <td>{{getAnnualScanCount("CT")}}</td>
+                <td>{{edeAnnualTotal("CT")}}</td>
             </tr>
             <tr>
-                <td>Nuclear Medicine</td>
+                <td>Nuclear Medicine <sup class="super">{{footnotes("NM")}}</sup></td>
                 <td>{{getScanCount("NM")}}</td>
                 <td>{{edeTotal("NM")}}</td>
+                <td>{{getAnnualScanCount("NM")}}</td>
+                <td>{{edeAnnualTotal("NM")}}</td>
             </tr>
             <tr>
-                <td>Radiography</td>
+                <td>Radiography <sup class="super">{{footnotes("XRay")}}</sup></td>
                 <td>{{getScanCount("XRay")}}</td>
                 <td>{{edeTotal("XRay")}}</td>
+                <td>{{getAnnualScanCount("XRay")}}</td>
+                <td>{{edeAnnualTotal("XRay")}}</td>
             </tr>
             <tr>
-                <td>Flouroscopy</td>
+                <td>Flouroscopy <sup class="super">{{footnotes("Flouro")}}</sup></td>
                 <td>{{getScanCount("Flouro")}}</td>
                 <td>{{edeTotal("Flouro")}}</td>
+                <td>{{getAnnualScanCount("Flouro")}}</td>
+                <td>{{edeAnnualTotal("Flouro")}}</td>
             </tr>
         </table>
 
         <table class="table-over hover-table table-borders-report">
             <tr>
+                <th class="exam-headers">&nbsp;</th>
+                <th class="exam-headers">Total</th>
+                <th class="exam-headers">Annual</th>
+            </tr>
+            <tr>
                 <td>Research EDE (mSv)</td>
                 <td class="total">{{edeReportTotalWithoutSOC()}}</td>
+                <td class="total">{{edeReportAnnualTotalWithoutSOC()}}</td>
             </tr>
             <tr>
                 <td>Standard of Care (mSv)</td>
                 <td class="total">{{edeReportTotalOnlySOC()}}</td>
+                <td class="total">{{edeReportAnnualTotalOnlySOC()}}</td>
             </tr>
             <tr>
                 <td>Total EDE (mSv)</td>
                 <td class="total">{{edeReportTotal()}}</td>
+                <td class="total">{{edeReportAnnualTotal()}}</td>
             </tr>
         </table>
         
@@ -58,7 +76,12 @@
 
         <div class="report-language-wrapper">
             <div class="report-language-title">Supplemental Consent Language</div>
-            <p class="language-text">{{supplementalConsentLanguage}}</p>
+            <p class="language-text">{{getSupplementalConsentText()}}</p>
+        </div>
+
+        <div class="report-language-wrapper">
+            <div class="report-language-title">Citations</div>
+            <p class="language-text" ng-repeat="citation in citations()">{{citation}}</p>
         </div>
 
     </div>

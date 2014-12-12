@@ -1,0 +1,137 @@
+/****************** GENERAL ******************/
+body {
+    color:#000000;
+    background-color: #ffffff;
+}
+
+a {
+    color:#308EB3;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/*********************************************/
+
+
+/*****************  HEADER  ******************/
+header {
+    color: #4d4d4d;
+    background-color: #f8f8f9;
+}
+
+div#logo {
+    background-image: url("/img/radsym.gif");
+    background-repeat: no-repeat;
+    height:43px;
+    width:46px;
+}
+
+div#title {
+    background-color: ##4d4d4d;
+    color:#121212;
+    top : 0.2em;
+}
+/*********************************************/
+
+
+/*****************  FOOTER  ******************/
+footer {
+    color: #4d4d4d;
+    background-color: #f8f8f9;
+}
+/*********************************************/
+
+
+/*****************  BUTTONS  *****************/
+button.standard-btn {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button.standard-btn:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
+
+button.generate-report {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button.generate-report:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
+
+button.back-to-data {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button.back-to-data:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
+
+button.plaintext {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button.plaintext:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
+
+button.print {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+button.print:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
+/*********************************************/
+
+
+/****************** TABLES *******************/
+div.exam-table-header-border {
+    border-bottom-color:#308EB3;
+}
+
+div.exam-table-title {
+    color:#ffffff;
+    background-color: #308EB3;
+    border: 1px solid #308EB3;
+    color: #ffffff;
+}
+
+table.table-borders-report th,
+table.table-borders-report tr,
+table.table-borders-report td {
+    border-color: #4d4d4d;
+    background-color: #ffffff;
+}
+/*********************************************/
+
+
+/************  PLAINTEXT REPORT  *************/
+pre.plaintext {
+    color: #000000;
+    background-color: #efefef;
+    border-color: #4d4d4d;
+}
+/*********************************************/

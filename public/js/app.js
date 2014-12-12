@@ -4,6 +4,7 @@ angular.module("RadCalc.directives", []);
 
 var app = angular.module("RadCalc", [
     "ui.router",
+    "ui.bootstrap",
     "RadCalc.services",
     "RadCalc.controllers",
     "RadCalc.directives"
@@ -19,6 +20,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: "DataEntryCtrl",
             url: "/",
             templateUrl: "views/partial-data-entry.html",
+            resolve: {
+                "storedDataService":function(StoredDataService) {
+                    return StoredDataService.promise;
+                }
+            }
+        })
+
+        .state("json-editor", {
+            url: "/json-editor",
+            controller: "JsonEditCtrl",
+            templateUrl: "views/partial-json-editor.html",
             resolve: {
                 "storedDataService":function(StoredDataService) {
                     return StoredDataService.promise;
@@ -185,6 +197,89 @@ app.config(function($stateProvider, $urlRouterProvider) {
     function updateSupplementalConsentText() {
         UserDataService.addSupplementalConsentText($scope.supplementalConsentLanguage);
     }
+
+});;angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope, $state, StoredDataService, ConfigDataService) {
+
+    var createNewProcedure, getCategory, getProcedureIndex;
+
+    createNewProcedure = function() {
+        return  {
+            "name":"new procedure ",
+            "citation": "sample citation",
+            "properties":[
+                {
+                    "name":"EDE (female)",
+                    "gender":"female",
+                    "value":0
+                },
+                {
+                    "name":"EDE (male)",
+                    "gender":"male",
+                    "value":0
+                },
+                {
+                    "name":"EDE (mixed)",
+                    "gender":"mixed",
+                    "value":0
+                }
+            ]
+        };
+    };
+
+    $scope.storedData = StoredDataService.storedData();
+
+    $scope.saveJson = function() {
+        console.log("saving...");
+        saveAs(
+            new Blob(
+                [JSON.stringify($scope.storedData, null, 4)], { type: "application/json" }
+            ), "data.json"
+        );
+    };
+
+    $scope.getCategoryName = function(categoryId) {
+        return ConfigDataService.getNameForId(categoryId);
+    };
+
+    $scope.removeProcedure = function(categoryId, procedureName) {
+        var category;
+        procedureIndex = getProcedureIndex(categoryId, procedureName);
+        category = getCategory(categoryId);
+        category.exams.splice(procedureIndex, 1);
+    };
+
+    $scope.addProcedure = function(categoryId) {
+        var category, newProc;
+        category = getCategory(categoryId);
+        newProcedure = createNewProcedure();
+        newProcedure.name += (category.exams.length + 1);
+        category.exams.splice(0, 0, newProcedure);
+    };
+
+    getCategory = function(categoryId) {
+            console.log(categoryId);
+
+        var doseData = $scope.storedData.DoseData;
+        var categoryIndex, category;
+        for (categoryIndex in doseData) {
+            console.log(categoryIndex);
+            category = doseData[categoryIndex];
+            if (category.name === categoryId) {
+                return category;
+            }
+        }
+    };
+
+    getProcedureIndex = function(categoryId, procedureName) {
+        var category = getCategory(categoryId);
+        var procedureIndex, procedure;
+        for (procedureIndex in category.exams) {
+            procedure = category.exams[procedureIndex];
+            if (procedure.name === procedureName) {
+                return procedureIndex;
+            }
+        }
+    };
 
 });;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
 
@@ -540,35 +635,49 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 });;angular.module("RadCalc.services").factory("ConfigDataService", function() {
 
-    return {
-        "data": {
-            "categories": [
-                {
-                    "id": "CT",
-                    "name": "X-ray Computed Tomography Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                    "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
-                },
-                {
-                    "id": "NM",
-                    "name": "Nuclear Medicine Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                    "defaultrow": { "id": 0, "categoryid": "NM", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "injectedDose": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
-                },
-                {
-                    "id": "XRay",
-                    "name": "X-ray Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                    "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
-                },
-                {
-                    "id": "Flouro",
-                    "name": "Flouroscopy Examinations",
-                    "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                    "defaultrow": { "id": 0, "categoryid": "Flouro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
-                }
-            ]
+    var data = {
+        "categories": [
+            {
+                "id": "CT",
+                "name": "X-ray Computed Tomography Examinations",
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
+            },
+            {
+                "id": "NM",
+                "name": "Nuclear Medicine Examinations",
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "defaultrow": { "id": 0, "categoryid": "NM", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "injectedDose": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+            },
+            {
+                "id": "XRay",
+                "name": "X-ray Examinations",
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
+            },
+            {
+                "id": "Flouro",
+                "name": "Flouroscopy Examinations",
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "defaultrow": { "id": 0, "categoryid": "Flouro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+            }
+        ]
+    };
+
+    getNameForId = function(id) {
+        var index, category;
+        for (index in data.categories) {
+            category = data.categories[index];
+            if (category.id === id) {
+                return category.name;
+            }
         }
+        return id;
+    };
+
+    return {
+        "data": data,
+        "getNameForId": getNameForId
     };
 
 });;angular.module("RadCalc.services").factory("StoredDataService", function($q, $http) {

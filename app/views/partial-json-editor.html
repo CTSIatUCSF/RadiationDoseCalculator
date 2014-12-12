@@ -1,0 +1,74 @@
+<script src="js/lib/FileSaver.js"></script>
+<script src="js/lib/angular-sortable-view.min.js"></script>
+
+<div id="json-editor-wrapper">
+
+    <form name="jsonData" novalidate>
+
+    <div class="button-row no-print">
+        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save JSON</button>
+    </div>
+
+    <!-- Consent Narrative table start -->
+    <table class="table">
+        <tr>
+            <td>Consent Narrative</td>
+            <td><textarea class="form-control" ng-model="storedData.ConsentNarrative" /></td>
+        </tr>
+        <tr>
+            <td>Comparison Dose</td>
+            <td><input class="form-control" type="number" ng-model="storedData.ComparisonDose" numbers-only /></td>
+        </tr>
+        <tr>
+            <td>Comparison Dose Unit</td>
+            <td>
+                <select class="form-control" ng-model="storedData.ComparisonDoseUnit">
+                    <option value="rem">rem</option>
+                    <option value="mSv">mSv</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Effective Dose Type</td>
+            <td>
+                <select class="form-control" ng-model="storedData.EffectiveDoseType">
+                    <option value="Total">Total</option>
+                    <option value="Research">Research</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <!-- Consent Narrative table end -->
+
+    <!-- Dose Data tables start -->
+    <div id="dosedata">
+        <accordion>
+            <accordion-group class="group-head category" heading="{{getCategoryName(category.name)}}" ng-repeat="category in storedData.DoseData track by category.name">
+                <button class="btn standard-btn add-procedure" ng-click="addProcedure(category.name)">Add Procedure</button>
+                <div accordion close-others="false" sv-root sv-part="category.exams">
+                    <div accordion-group class="group-head procedure" heading="{{exam.name}}" ng-repeat="exam in category.exams track by exam.name" sv-element>
+                        <button class="btn standard-btn remove-procedure" ng-click="removeProcedure(category.name, exam)">Remove</button>
+                        <table class="table">
+                            <tr>
+                                <td class="label-name">Name:</td>
+                                <td class="value-name"><input class="form-control name" type="text" ng-model="exam.name" /></td>
+                            </tr>
+                            <tr>
+                                <td class="label-citation">Citation:</td>
+                                <td class="value-citation"><textarea class="form-control citation" type="text" ng-model="exam.citation"></textarea></td>
+                            </tr>
+                            <tr ng-repeat="property in exam.properties track by property.gender">
+                                <td class="label-property">{{property.name}}:</td>
+                                <td class="value-property"><input class="form-control property" type="number" ng-model="property.value" numbers-only /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+    <!-- Dose Data tables end -->
+
+    </form>
+
+</div>

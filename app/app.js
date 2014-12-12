@@ -4,6 +4,7 @@ angular.module("RadCalc.directives", []);
 
 var app = angular.module("RadCalc", [
     "ui.router",
+    "ui.bootstrap",
     "RadCalc.services",
     "RadCalc.controllers",
     "RadCalc.directives"
@@ -19,6 +20,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: "DataEntryCtrl",
             url: "/",
             templateUrl: "views/partial-data-entry.html",
+            resolve: {
+                "storedDataService":function(StoredDataService) {
+                    return StoredDataService.promise;
+                }
+            }
+        })
+
+        .state("json-editor", {
+            url: "/json-editor",
+            controller: "JsonEditCtrl",
+            templateUrl: "views/partial-json-editor.html",
             resolve: {
                 "storedDataService":function(StoredDataService) {
                     return StoredDataService.promise;

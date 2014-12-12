@@ -7,7 +7,7 @@
         <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('NM').headers">{{header}}</th></tr>
         <tr ng-repeat="procedure in getProcedures('NM')">
             <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
-            <td class="procedures">
+            <td>
                 <select class="form-control" ng-model="procedure.exam" ng-options="procedureInfo.name as procedureInfo.name for procedureInfo in getStoredProcedures('NM')">
                     <option value="">Please select procedure...</option>
                 </select>

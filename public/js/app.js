@@ -193,11 +193,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.ResetAll = function() {
-        console.log("confirmed!");
+        console.log("Reset All!");
     };
 
     function validateUserData() {
-        console.log("validateUserData");
+        console.log("Validate User Data!");
     }
     
     function updateSupplementalConsentText() {
@@ -878,6 +878,47 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     // Private
     var userData = {};
+    userData.totals = {
+        "CT": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "NM": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "XRay": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "Flouro": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        }};
     var allProcedures = [];
     var getProcedures, addProcedure, getCategoryEdeTotal,
         addSupplementalConsentText, getSupplementalConsentText,
@@ -952,6 +993,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return userData.supplementalConsentText ;
     };
 
+    getTotals = function() {
+        return userData.totals ;
+    };
+
     getProcedureEdeCalculation = function(procedure, baseEde) {
         var calculation = 0;
         
@@ -979,6 +1024,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     updateProcedures = function(procedures) {
         allProcedures = procedures;
+        updateTotals();
+    };
+
+    updateTotals = function() {
+        var ary = ["CT", "NM", "XRay", "Flouro"];
+        var i, category;
+        for (i=0; i<ary.length; i++) {
+            categoryId = ary[i];
+            userData.totals[categoryId].total.additionalEde = edeTotalWithoutSOC(categoryId);
+            userData.totals[categoryId].total.includingSOC = edeTotal(categoryId);
+            userData.totals[categoryId].annual.additionalEde = edeAnnualTotalWithoutSOC(categoryId);
+            userData.totals[categoryId].annual.includingSOC = edeAnnualTotal(categoryId);
+        }
     };
 
     getScanCount = function(categoryId) {
@@ -1126,6 +1184,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     getCategoryEdeTotal: getCategoryEdeTotal,
     addSupplementalConsentText: addSupplementalConsentText,
     getSupplementalConsentText: getSupplementalConsentText,
+    getTotals: getTotals,
     getProcedureEdeCalculation: getProcedureEdeCalculation,
     updateProcedures: updateProcedures,
     edeTotal: edeTotal,

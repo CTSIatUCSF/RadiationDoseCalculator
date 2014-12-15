@@ -2,6 +2,47 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
 
     // Private
     var userData = {};
+    userData.totals = {
+        "CT": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "NM": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "XRay": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        },
+        "Flouro": {
+            "total": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            },
+            "annual": {
+                "additionalEde": 0,
+                "includingSOC": 0
+            }
+        }};
     var allProcedures = [];
     var getProcedures, addProcedure, getCategoryEdeTotal,
         addSupplementalConsentText, getSupplementalConsentText,
@@ -76,6 +117,10 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
         return userData.supplementalConsentText ;
     };
 
+    getTotals = function() {
+        return userData.totals ;
+    };
+
     getProcedureEdeCalculation = function(procedure, baseEde) {
         var calculation = 0;
         
@@ -103,6 +148,19 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
 
     updateProcedures = function(procedures) {
         allProcedures = procedures;
+        updateTotals();
+    };
+
+    updateTotals = function() {
+        var ary = ["CT", "NM", "XRay", "Flouro"];
+        var i, category;
+        for (i=0; i<ary.length; i++) {
+            categoryId = ary[i];
+            userData.totals[categoryId].total.additionalEde = edeTotalWithoutSOC(categoryId);
+            userData.totals[categoryId].total.includingSOC = edeTotal(categoryId);
+            userData.totals[categoryId].annual.additionalEde = edeAnnualTotalWithoutSOC(categoryId);
+            userData.totals[categoryId].annual.includingSOC = edeAnnualTotal(categoryId);
+        }
     };
 
     getScanCount = function(categoryId) {
@@ -250,6 +308,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     getCategoryEdeTotal: getCategoryEdeTotal,
     addSupplementalConsentText: addSupplementalConsentText,
     getSupplementalConsentText: getSupplementalConsentText,
+    getTotals: getTotals,
     getProcedureEdeCalculation: getProcedureEdeCalculation,
     updateProcedures: updateProcedures,
     edeTotal: edeTotal,

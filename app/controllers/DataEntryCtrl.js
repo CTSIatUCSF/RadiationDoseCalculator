@@ -142,11 +142,11 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     };
 
     $scope.ResetAll = function() {
-        console.log("confirmed!");
+        console.log("Reset All!");
     };
 
     function validateUserData() {
-        console.log("validateUserData");
+        console.log("Validate User Data!");
     }
     
     function updateSupplementalConsentText() {

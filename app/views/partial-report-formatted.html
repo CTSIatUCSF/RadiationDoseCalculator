@@ -19,30 +19,30 @@
             <tr>
                 <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
                 <td>{{getScanCount("CT")}}</td>
-                <td>{{edeTotal("CT")}}</td>
+                <td>{{edeTotal("CT") | twoDecimalsFilter}}</td>
                 <td>{{getAnnualScanCount("CT")}}</td>
-                <td>{{edeAnnualTotal("CT")}}</td>
+                <td>{{edeAnnualTotal("CT") | twoDecimalsFilter}}</td>
             </tr>
             <tr>
                 <td>Nuclear Medicine <sup class="super">{{footnotes("NM")}}</sup></td>
                 <td>{{getScanCount("NM")}}</td>
-                <td>{{edeTotal("NM")}}</td>
+                <td>{{edeTotal("NM") | twoDecimalsFilter}}</td>
                 <td>{{getAnnualScanCount("NM")}}</td>
-                <td>{{edeAnnualTotal("NM")}}</td>
+                <td>{{edeAnnualTotal("NM") | twoDecimalsFilter}}</td>
             </tr>
             <tr>
                 <td>Radiography <sup class="super">{{footnotes("XRay")}}</sup></td>
                 <td>{{getScanCount("XRay")}}</td>
-                <td>{{edeTotal("XRay")}}</td>
+                <td>{{edeTotal("XRay") | twoDecimalsFilter}}</td>
                 <td>{{getAnnualScanCount("XRay")}}</td>
-                <td>{{edeAnnualTotal("XRay")}}</td>
+                <td>{{edeAnnualTotal("XRay") | twoDecimalsFilter}}</td>
             </tr>
             <tr>
                 <td>Flouroscopy <sup class="super">{{footnotes("Flouro")}}</sup></td>
                 <td>{{getScanCount("Flouro")}}</td>
-                <td>{{edeTotal("Flouro")}}</td>
+                <td>{{edeTotal("Flouro") | twoDecimalsFilter}}</td>
                 <td>{{getAnnualScanCount("Flouro")}}</td>
-                <td>{{edeAnnualTotal("Flouro")}}</td>
+                <td>{{edeAnnualTotal("Flouro") | twoDecimalsFilter}}</td>
             </tr>
         </table>
 
@@ -54,18 +54,18 @@
             </tr>
             <tr>
                 <td>Research EDE (mSv)</td>
-                <td class="total">{{edeReportTotalWithoutSOC()}}</td>
-                <td class="total">{{edeReportAnnualTotalWithoutSOC()}}</td>
+                <td class="total">{{edeReportTotalWithoutSOC() | twoDecimalsFilter}}</td>
+                <td class="total">{{edeReportAnnualTotalWithoutSOC() | twoDecimalsFilter}}</td>
             </tr>
             <tr>
                 <td>Standard of Care (mSv)</td>
-                <td class="total">{{edeReportTotalOnlySOC()}}</td>
-                <td class="total">{{edeReportAnnualTotalOnlySOC()}}</td>
+                <td class="total">{{edeReportTotalOnlySOC() | twoDecimalsFilter}}</td>
+                <td class="total">{{edeReportAnnualTotalOnlySOC() | twoDecimalsFilter}}</td>
             </tr>
             <tr>
                 <td>Total EDE (mSv)</td>
-                <td class="total">{{edeReportTotal()}}</td>
-                <td class="total">{{edeReportAnnualTotal()}}</td>
+                <td class="total">{{edeReportTotal() | twoDecimalsFilter}}</td>
+                <td class="total">{{edeReportAnnualTotal() | twoDecimalsFilter}}</td>
             </tr>
         </table>
         

@@ -71,9 +71,6 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         }
         bibliography = {"footnotes": footnotes, "citations": citations};
 
-        console.log("bibliography:");
-        console.log(bibliography);
-
         return bibliography;
     };
 

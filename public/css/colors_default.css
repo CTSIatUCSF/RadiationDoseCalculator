@@ -69,6 +69,18 @@ button.generate-report:hover {
     color: #ffffff;
 }
 
+button.reset-all {
+    background-color: #ffffff;
+    border: 1px solid #dd0000;
+    color: #dd0000;
+}
+
+button.reset-all:hover {
+    background-color: #dd0000;
+    border: 1px solid #dd0000;
+    color: #ffffff;
+}
+
 button.back-to-data {
     background-color: #ffffff;
     border: 1px solid #4d4d4d;

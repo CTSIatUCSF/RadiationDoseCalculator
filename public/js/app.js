@@ -192,6 +192,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
+    $scope.ResetAll = function() {
+        console.log("confirmed!");
+    };
+
     function validateUserData() {
         console.log("validateUserData");
     }
@@ -600,7 +604,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
         transclude: true,
         templateUrl: "views/partial-ct-table-header.html"
     };
-});;angular.module("RadCalc").directive("flouroTable", function() {
+});;angular.module("RadCalc").directive('ngConfirmClick', [function(){
+        return {
+            link: function (scope, element, attr) {
+                var msg = attr.ngConfirmClick || "Are you sure?";
+                var clickAction = attr.confirmedClick;
+                element.bind('click',function (event) {
+                    if ( window.confirm(msg) ) {
+                        scope.$eval(clickAction);
+                    }
+                });
+            }
+        };
+}]);;angular.module("RadCalc").directive("flouroTable", function() {
     return {
         restrict: 'E',
         transclude: true,

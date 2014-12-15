@@ -161,30 +161,30 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
 
         plaintext += addPadding("X-Ray CT " + footnotePlainText("CT"), opt.col2);
         plaintext += addPadding($scope.getScanCount("CT"), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeTotal("CT"), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("CT"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("CT"), opt.col5 - opt.col4);
-        plaintext += addPadding($scope.edeAnnualTotal("CT"), opt.col6 - opt.col5);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("CT"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += addPadding("Nuclear Medicine " + footnotePlainText("NM"), opt.col2);
         plaintext += addPadding($scope.getScanCount("NM"), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeTotal("NM"), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("NM"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("NM"), opt.col5 - opt.col4);
-        plaintext += addPadding($scope.edeAnnualTotal("NM"), opt.col6 - opt.col5);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("NM"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += addPadding("Radiography " + footnotePlainText("XRay"), opt.col2);
         plaintext += addPadding($scope.getScanCount("XRay"), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeTotal("XRay"), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("XRay"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("XRay"), opt.col5 - opt.col4);
-        plaintext += addPadding($scope.edeAnnualTotal("XRay"), opt.col6 - opt.col5);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("XRay"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
         plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeTotal("Flouro"), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Flouro"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
-        plaintext += addPadding($scope.edeAnnualTotal("Flouro"), opt.col6 - opt.col5);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Flouro"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += "\n";
@@ -197,18 +197,18 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += "\n";
 
         plaintext += addPadding("Research EDE (mSv)", opt.col2);
-        plaintext += addPadding($scope.edeReportTotalWithoutSOC(), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeReportAnnualTotalWithoutSOC(), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalWithoutSOC(), 2), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalWithoutSOC(), 2), opt.col4 - opt.col3);
         plaintext += "\n";
 
         plaintext += addPadding("Standard of Care (mSv)", opt.col2);
-        plaintext += addPadding($scope.edeReportTotalOnlySOC(), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeReportAnnualTotalOnlySOC(), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalOnlySOC(), 2), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalOnlySOC(), 2), opt.col4 - opt.col3);
         plaintext += "\n";
 
         plaintext += addPadding("Total EDE (mSv)", opt.col2);
-        plaintext += addPadding($scope.edeReportTotal(), opt.col3 - opt.col2);
-        plaintext += addPadding($scope.edeReportAnnualTotal(), opt.col4 - opt.col3);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportTotal(), 2), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotal(), 2), opt.col4 - opt.col3);
         plaintext += "\n";
 
         plaintext += "\n";

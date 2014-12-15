@@ -1,13 +1,15 @@
 angular.module("RadCalc.controllers", []);
 angular.module("RadCalc.services", []);
 angular.module("RadCalc.directives", []);
+angular.module("RadCalc.filter", []);
 
 var app = angular.module("RadCalc", [
     "ui.router",
     "ui.bootstrap",
     "RadCalc.services",
     "RadCalc.controllers",
-    "RadCalc.directives"
+    "RadCalc.directives",
+    "RadCalc.filter"
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -627,11 +629,113 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         });
     };
-});;angular.module("RadCalc").directive("xrayTable", function() {
+});;angular.module("RadCalc").directive("twoDecimals", [function () {
+  
+    countDecimalPlaces = function(s) {
+        var len = s.length;
+        var pos = s.indexOf(".") + 1;
+        if (pos === 0 ) { return 0; }
+        return len - pos;
+    };
+  
+    formatForView = function(n) {
+        // convert to string
+        var s = "" + n;
+    
+        var decimalPlaces = countDecimalPlaces(s);
+    
+        // already has two decimal places
+        if (decimalPlaces === 2) { return s; }
+    
+        // round if already more than 2 decimal places
+        if (decimalPlaces > 2) {
+            return "" + Math.round10(n, -2);
+        }
+    
+        // has no decimal places, add a dot
+        if (decimalPlaces === 0) {
+            s = addDot(s);
+        }
+    
+        // fill with zeros to 2 places
+        while(countDecimalPlaces(s) < 2) {
+            s = addZero(s);
+        }
+    
+        return s;
+    };
+  
+    addDot = function(s) {
+        return s + ".";
+    };
+  
+    addZero = function(s) {
+        return s + "0";
+    };
+  
+    return {
+        require: 'ngModel',
+        link: function (scope, elem, attrs, ngModel) {
+      
+            var toView = function (val) {
+                return formatForView(val);
+            };
+      
+            ngModel.$formatters.unshift(toView);
+        }
+    };
+}]);;angular.module("RadCalc").directive("xrayTable", function() {
     return {
         restrict: 'E',
         transclude: true,
         templateUrl: "views/partial-xray-table-header.html"
+    };
+});;angular.module("RadCalc").filter('twoDecimalsFilter', function () {
+
+    countDecimalPlaces = function(s) {
+        var len = s.length;
+        var pos = s.indexOf(".") + 1;
+        if (pos === 0 ) { return 0; }
+        return len - pos;
+    };
+  
+    formatForView = function(n) {
+        // convert to string
+        var s = "" + n;
+    
+        var decimalPlaces = countDecimalPlaces(s);
+    
+        // already has two decimal places
+        if (decimalPlaces === 2) { return s; }
+    
+        // round if already more than 2 decimal places
+        if (decimalPlaces > 2) {
+            return "" + Math.round10(n, -2);
+        }
+    
+        // has no decimal places, add a dot
+        if (decimalPlaces === 0) {
+            s = addDot(s);
+        }
+    
+        // fill with zeros to 2 places
+        while(countDecimalPlaces(s) < 2) {
+            s = addZero(s);
+        }
+    
+        return s;
+    };
+  
+    addDot = function(s) {
+        return s + ".";
+    };
+  
+    addZero = function(s) {
+        return s + "0";
+    };
+
+    return function (value) {
+        return formatForView(value);
     };
 });;angular.module("RadCalc.services").factory("ConfigDataService", function() {
 

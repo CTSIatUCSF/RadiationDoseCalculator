@@ -25,9 +25,9 @@
                 </select>
             </td>
             <td class="timedose-width"><input class="form-control" type="number" ng-model="procedure.minutes" min="0" numbers-only /></td>
-            <td class="ede-width"><input class="form-control" type="number" ng-model="procedure.ede" value="{{getProcedureEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="ede-width"><input class="form-control" type="number" ng-model="procedure.ede" two-decimals value="{{getProcedureEdeCalculation(procedure)}}" ng-readonly="true" /></td>
             <td class="scansyear-width"><input class="form-control" type="number" ng-model="procedure.annualscans" min="1" max="{{procedure.scans}}" numbers-only /></td>
-            <td class="annualede-width"><input class="form-control" type="number" ng-model="procedure.annualede" value="{{getProcedureAnnualEdeCalculation(procedure)}}" ng-readonly="true" /></td>
+            <td class="annualede-width"><input class="form-control" type="number" ng-model="procedure.annualede" two-decimals value="{{getProcedureAnnualEdeCalculation(procedure)}}" ng-readonly="true" /></td>
             <td class="text-center vert-align close-width">
                <button type="button" class="close no-print" ng-click="removeProcedure('Flouro', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
            </td>
@@ -41,13 +41,13 @@
         </tr>
         <tr>
             <td class="rowlabel">Total additional EDE</td>
-            <td class="rowvalue">{{edeTotalWithoutSOC("Flouro")}}</td>
-            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("Flouro")}}</td>
+            <td class="rowvalue">{{edeTotalWithoutSOC("Flouro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("Flouro") | twoDecimalsFilter}}</td>
         </tr>
         <tr>
             <td class="rowlabel">Total EDE including Standard of Care</td>
-            <td class="rowvalue">{{edeTotal("Flouro")}}</td>
-            <td class="rowvalue">{{edeAnnualTotal("Flouro")}}</td>
+            <td class="rowvalue">{{edeTotal("Flouro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeAnnualTotal("Flouro") | twoDecimalsFilter}}</td>
         </tr>
     </table>
 </div>

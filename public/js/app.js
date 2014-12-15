@@ -140,7 +140,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             procedure = $scope.allProcedures[index];
             if (categoryId === procedure.categoryid && procedureId === procedure.id) {
                 $scope.allProcedures.splice(index, 1);
-                enforceMinimumExamCount(categoryId);
+                // enforceMinimumExamCount(categoryId);
                 return;
             }
         }
@@ -355,9 +355,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         }
         bibliography = {"footnotes": footnotes, "citations": citations};
-
-        console.log("bibliography:");
-        console.log(bibliography);
 
         return bibliography;
     };

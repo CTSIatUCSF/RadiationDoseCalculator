@@ -3,7 +3,7 @@
     <button class="btn btn-link no-print" ng-click="newProcedure('Flouro')">+ Add Exam</button>
 </div>
 <div class="data-entry-table">
-    <table class="table table-hover table-condensed">
+    <table class="table table-hover table-condensed" ng-show="getProcedures('Flouro').length">
         <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('Flouro').headers">{{header}}</th></tr>
         <tr ng-repeat="procedure in getProcedures('Flouro')">
             <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
@@ -33,7 +33,7 @@
            </td>
         </tr>
     </table>
-    <table class="procedure-totals" style="float:right;">
+    <table class="procedure-totals" style="float:right;" ng-show="getProcedures('Flouro').length">
         <tr>
             <th>&nbsp;</th>
             <th class="exam-headers">Total</th>

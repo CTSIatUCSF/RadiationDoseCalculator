@@ -89,7 +89,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
             procedure = $scope.allProcedures[index];
             if (categoryId === procedure.categoryid && procedureId === procedure.id) {
                 $scope.allProcedures.splice(index, 1);
-                enforceMinimumExamCount(categoryId);
+                // enforceMinimumExamCount(categoryId);
                 return;
             }
         }

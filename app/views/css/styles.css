@@ -250,6 +250,11 @@ img.rad-logo {
     margin-right:15px;
 }
 
+div#json-editor-wrapper div.notice {
+    font-size: 1.1em;
+    margin-bottom:30px;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

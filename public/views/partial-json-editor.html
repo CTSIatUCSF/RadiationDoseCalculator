@@ -3,11 +3,17 @@
 
 <div id="json-editor-wrapper">
 
+    <div class="notice">
+        <strong>Note:</strong> Updated data will not be immediately reflected in the calculator. 
+        Please make modifications below, click <strong>Save</strong>, and then send the file to 
+        your Radiation Dose Calculator webmaster.
+    </div>
+
     <form name="jsonData" novalidate>
 
     <div class="button-row no-print">
         <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()">Back to data entry</button>
-        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save JSON</button>
+        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save</button>
     </div>
 
     <!-- Consent Narrative table start -->

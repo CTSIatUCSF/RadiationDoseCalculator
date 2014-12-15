@@ -56,6 +56,10 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
         category.exams.splice(0, 0, newProcedure);
     };
 
+    $scope.DataEntryClicked = function() {
+        $state.go("data-entry", {location: true, inherit: false});
+    };
+
     getCategory = function(categoryId) {
             console.log(categoryId);
 

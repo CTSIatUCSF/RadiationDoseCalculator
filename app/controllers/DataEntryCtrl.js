@@ -141,6 +141,10 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
         $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
+    $scope.EditJsonDataClicked = function() {
+        $state.go("json-editor", {storedData: storedData}, {location: true, inherit: false});
+    };
+
     $scope.ResetAll = function() {
         console.log("Reset All!");
     };

@@ -192,6 +192,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
     };
 
+    $scope.EditJsonDataClicked = function() {
+        $state.go("json-editor", {storedData: storedData}, {location: true, inherit: false});
+    };
+
     $scope.ResetAll = function() {
         console.log("Reset All!");
     };
@@ -260,6 +264,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         newProcedure = createNewProcedure();
         newProcedure.name += (category.exams.length + 1);
         category.exams.splice(0, 0, newProcedure);
+    };
+
+    $scope.DataEntryClicked = function() {
+        $state.go("data-entry", {location: true, inherit: false});
     };
 
     getCategory = function(categoryId) {

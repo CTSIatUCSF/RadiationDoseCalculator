@@ -12,15 +12,15 @@
     <!-- Consent Narrative table start -->
     <table class="table">
         <tr>
-            <td>Consent Narrative</td>
-            <td><textarea class="form-control" ng-model="storedData.ConsentNarrative" /></td>
+            <td class="label-json space">Consent Narrative</td>
+            <td><textarea class="form-control space" ng-model="storedData.ConsentNarrative" /></td>
         </tr>
         <tr>
-            <td>Comparison Dose</td>
+            <td class="label-json">Comparison Dose</td>
             <td><input class="form-control" type="number" ng-model="storedData.ComparisonDose" numbers-only /></td>
         </tr>
         <tr>
-            <td>Comparison Dose Unit</td>
+            <td class="label-json">Comparison Dose Unit</td>
             <td>
                 <select class="form-control" ng-model="storedData.ComparisonDoseUnit">
                     <option value="rem">rem</option>
@@ -29,7 +29,7 @@
             </td>
         </tr>
         <tr>
-            <td>Effective Dose Type</td>
+            <td class="label-json">Effective Dose Type</td>
             <td>
                 <select class="form-control" ng-model="storedData.EffectiveDoseType">
                     <option value="Total">Total</option>

@@ -33,6 +33,13 @@ div#title {
     display:inline-block;
 }
 
+div#json-editor-wrapper {
+    margin-left:70px;
+    max-width:800px;
+    min-width:550px;
+    padding-top:30px;
+}
+
 div.exam-table-title {
     font-size: 18pt;
     font-weight: bold;
@@ -62,6 +69,10 @@ p.language-text {
     margin:0;
 }
 
+.category {
+    font-weight: bold !important;
+} 
+
 button.btn-link {
     font-size: 1.2em;
 }
@@ -70,6 +81,23 @@ button.standard-btn {
     width:140px;
     height:40px;
     margin-right:20px;
+}
+
+button.add-procedure,
+button.remove-procedure {
+    margin-bottom:15px;
+}
+
+div#json-editor-wrapper table td.label-json {
+    font-weight: bold;
+}
+
+div#json-editor-wrapper table td textarea.space {
+    height:150px;
+}
+
+div#json-editor-wrapper div#dosedata {
+    margin-right:10px;
 }
 
 td.exam-num {

@@ -197,7 +197,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     $scope.ResetAll = function() {
-        console.log("Reset All!");
+        var procedureIndex, procedure;
+        for (procedureIndex in $scope.allProcedures) {
+            procedure = $scope.allProcedures[procedureIndex];
+            $scope.removeProcedure(procedure.categoryid, procedure.id);
+        }
     };
 
     function validateUserData() {
@@ -619,7 +623,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 var clickAction = attr.confirmedClick;
                 element.bind('click',function (event) {
                     if ( window.confirm(msg) ) {
-                        scope.$eval(clickAction);
+                        scope.$apply(clickAction);
                     }
                 });
             }

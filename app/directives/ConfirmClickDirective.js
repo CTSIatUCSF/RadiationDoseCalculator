@@ -5,7 +5,7 @@ angular.module("RadCalc").directive('ngConfirmClick', [function(){
                 var clickAction = attr.confirmedClick;
                 element.bind('click',function (event) {
                     if ( window.confirm(msg) ) {
-                        scope.$eval(clickAction);
+                        scope.$apply(clickAction);
                     }
                 });
             }

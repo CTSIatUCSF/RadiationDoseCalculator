@@ -146,7 +146,11 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     };
 
     $scope.ResetAll = function() {
-        console.log("Reset All!");
+        var procedureIndex, procedure;
+        for (procedureIndex in $scope.allProcedures) {
+            procedure = $scope.allProcedures[procedureIndex];
+            $scope.removeProcedure(procedure.categoryid, procedure.id);
+        }
     };
 
     function validateUserData() {

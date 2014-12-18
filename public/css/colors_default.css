@@ -116,6 +116,139 @@ button.print:hover {
     border: 1px solid #4d4d4d;
     color: #ffffff;
 }
+
+button.green {
+    background-color: #ffffff;
+    border: 1px solid #11ab00;
+    color: #11ab00;
+}
+
+button.green:hover {
+    background-color: #11ab00;
+    border: 1px solid #11ab00;
+    color: #ffffff;
+}
+
+button.red {
+    background-color: #ffffff;
+    border: 1px solid #aa1111;
+    color: #aa1111;
+}
+
+button.red:hover {
+    background-color: #aa1111;
+    border: 1px solid #aa1111;
+    color: #ffffff;
+}
+
+/* label buttons */
+label.red {
+    background-color: #ffffff;
+    border: 1px solid #aa1111;
+    color: #aa1111;
+}
+
+label.red:hover {
+    background-color: #aa1111;
+    border: 1px solid #aa1111;
+    color: #ffffff;
+}
+
+label.red:active, label.red.active {
+    background-color: #aa1111;
+    border: 1px solid #aa1111;
+    color: #ffffff;
+}
+
+label.green {
+    background-color: #ffffff;
+    border: 1px solid #11ab00;
+    color: #11ab00;
+}
+
+label.green:hover {
+    background-color: #11ab00;
+    border: 1px solid #11ab00;
+    color: #ffffff;
+}
+
+label.green:active, label.green.active {
+    background-color: #11ab00;
+    border: 1px solid #11ab00;
+    color: #ffffff;
+}
+
+label.blue {
+    background-color: #ffffff;
+    border: 1px solid #3498DB;
+    color: #3498DB;
+}
+
+label.blue:hover {
+    background-color: #3498DB;
+    border: 1px solid #3498DB;
+    color: #ffffff;
+}
+
+label.blue:active, label.blue.active {
+    background-color: #3498DB;
+    border: 1px solid #3498DB;
+    color: #ffffff;
+}
+
+label.orange {
+    background-color: #ffffff;
+    border: 1px solid #E67E22;
+    color: #E67E22;
+}
+
+label.orange:hover {
+    background-color: #E67E22;
+    border: 1px solid #E67E22;
+    color: #ffffff;
+}
+
+label.orange:active, label.orange.active {
+    background-color: #E67E22;
+    border: 1px solid #E67E22;
+    color: #ffffff;
+}
+
+label.yellow {
+    background-color: #ffffff;
+    border: 1px solid #F1C40F;
+    color: #F1C40F;
+}
+
+label.yellow:hover {
+    background-color: #F1C40F;
+    border: 1px solid #F1C40F;
+    color: #ffffff;
+}
+
+label.yellow:active, label.yellow.active {
+    background-color: #F1C40F;
+    border: 1px solid #F1C40F;
+    color: #ffffff;
+}
+
+label.gray {
+    background-color: #ffffff;
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
+}
+
+label.gray:hover {
+    background-color: #797979;
+    border: 1px solid #797979;
+    color: #ffffff;
+}
+
+label.gray:active, label.gray.active {
+    background-color: #4d4d4d;
+    border: 1px solid #4d4d4d;
+    color: #ffffff;
+}
 /*********************************************/
 
 
@@ -147,3 +280,19 @@ pre.plaintext {
     border-color: #4d4d4d;
 }
 /*********************************************/
+
+
+/***************  EDIT DATA  *****************/
+div.add-procedure {
+    border-color: #11ab00;
+}
+div.panel-default > .add-procedure-heading {
+    background: #11ab00;
+    color: #ffffff;
+}
+div.panel-default > .section-heading {
+    background: #dedede;
+    color: #000000;
+}
+/*********************************************/
+

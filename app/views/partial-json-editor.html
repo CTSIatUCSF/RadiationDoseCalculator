@@ -4,9 +4,15 @@
 <div id="json-editor-wrapper">
 
     <div class="notice">
-        <strong>Note:</strong> Updated data will not be immediately reflected in the calculator. 
+        <p><strong>Note:</strong> Updated data will not be immediately reflected in the calculator. 
         Please make modifications below, click the <strong>Save</strong> button, and then send the downloaded file to 
-        your Radiation Dose Calculator webmaster.
+        your Radiation Dose Calculator webmaster.</p>
+        <p>To add a new procedure to the data file, click the <strong>Add Procedure</strong> button. New procedures 
+        will be added to the procedures list in alphabetical order.
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>Editing data should be done by administrators only</strong>
     </div>
 
     <form name="jsonData" novalidate>
@@ -14,9 +20,31 @@
     <div class="button-row no-print">
         <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()">Back to data entry</button>
         <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save</button>
+        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true"><strong>+</strong> Add Procedure</button>
     </div>
 
+    <!-- Add new procedure starts -->
+    <div id="addProcedureForm" ng-show="showAddForm" class="panel panel-default add-procedure">
+        <div class="panel-heading add-procedure-heading"><h3 class="panel-title">Add new procedure</h3></div>
+        <div class="panel-body add-procedure-body">
+            <h4>Select procedure type:</h4>
+            <div class="btn-group btn-block" style="margin-bottom:15px;">
+                <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'CT'">X-ray Computed Tomography</label>
+                <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'NM'">Nuclear Medicine</label>
+                <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'XRay'">X-ray</label>
+                <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'Flouro'">Flouroscopy</label>
+            </div>
+            <div ng-show="addFormData.categoryid" ng-include="addFormData.categoryid"></div>
+        </div>
+    </div>
+    <!-- Add new procedure ends -->
+
     <!-- Consent Narrative table start -->
+    <div class="panel panel-default editor-heading">
+      <div class="panel-body section-heading">
+        Consent Narrative Information
+      </div>
+    </div>
     <table class="table">
         <tr>
             <td class="label-json space">Consent Narrative</td>
@@ -48,13 +76,18 @@
     <!-- Consent Narrative table end -->
 
     <!-- Dose Data tables start -->
+    <div class="panel panel-default editor-heading">
+      <div class="panel-body section-heading">
+        Procedure Information
+      </div>
+    </div>
+    <p>Click a category heading to show the list of procedures. Click the procedure heading to view and edit the information for that procedure.</p>
     <div id="dosedata">
         <accordion>
-            <accordion-group class="group-head category" heading="{{getCategoryName(category.name)}}" ng-repeat="category in storedData.DoseData track by category.name">
-                <button class="btn standard-btn add-procedure" ng-click="addProcedure(category.name)">Add Procedure</button>
+            <accordion-group class="group-head category" heading="{{getCategoryName(category.name)}}" ng-click="testFunction(category.name)" ng-repeat="category in storedData.DoseData track by category.name">
                 <div accordion close-others="false" sv-root sv-part="category.exams">
                     <div accordion-group class="group-head procedure" heading="{{exam.name}}" ng-repeat="exam in category.exams track by exam.name" sv-element>
-                        <button class="btn standard-btn remove-procedure" ng-click="removeProcedure(category.name, exam)">Remove</button>
+                        <button class="btn standard-btn remove-procedure" ng-click="removeProcedure(category.name, exam.name); jsonData.$setDirty();">Remove</button>
                         <table class="table">
                             <tr>
                                 <td class="label-name">Name:</td>
@@ -79,3 +112,5 @@
     </form>
 
 </div>
+
+

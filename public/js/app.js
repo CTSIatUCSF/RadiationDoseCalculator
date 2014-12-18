@@ -212,7 +212,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         UserDataService.addSupplementalConsentText($scope.supplementalConsentLanguage);
     }
 
-});;angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope, $state, StoredDataService, ConfigDataService) {
+});;angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope, $state, $templateCache, StoredDataService, ConfigDataService) {
 
     var createNewProcedure, getCategory, getProcedureIndex;
 
@@ -240,10 +240,135 @@ app.config(function($stateProvider, $urlRouterProvider) {
         };
     };
 
+    addFormTemplate = function(categoryId) {
+        var html = "";
+        var genderLabelFemale = "EDE (female):";
+        var genderLabelMale   = "EDE (male):";
+        var genderLabelMixed  = "EDE (mixed):";
+        var categoryTitle = ConfigDataService.getTitleForId(categoryId);
+
+        if (categoryId.toUpperCase() === "NM") {
+            genderLabelFemale = "EDE/mCi (female):";
+            genderLabelMale   = "EDE/mCi (male):";
+            genderLabelMixed  = "EDE/mCi (mixed):";
+        }
+
+        html += "<ng-form name='addProcedure' isolate-form>";
+        html += "    <table class='table'>";
+        html += "        <tr>";
+        html += "            <td class='label-name'>Name:</td>";
+        html += "            <td class='value-name'><input name='name' class='form-control name' type='text' ng-model='addFormData.name' /></td>";
+        html += "        </tr>";
+        html += "        <tr>";
+        html += "            <td class='label-citation'>Citation:</td>";
+        html += "            <td class='value-citation'><textarea class='form-control citation' type='text' ng-model='addFormData.citation'></textarea></td>";
+        html += "        </tr>";
+        html += "        <tr>";
+        html += "            <td class='label-property'>" + genderLabelFemale + "</td>";
+        html += "            <td class='value-property'><input class='form-control property' type='number' ng-model='addFormData.female' numbers-only /></td>";
+        html += "        </tr>";
+        html += "        <tr>";
+        html += "            <td class='label-property'>" + genderLabelMale + "</td>";
+        html += "            <td class='value-property'><input class='form-control property' type='number' ng-model='addFormData.male' numbers-only /></td>";
+        html += "        </tr>";
+        html += "        <tr>";
+        html += "            <td class='label-property'>" + genderLabelMixed + "</td>";
+        html += "            <td class='value-property'><input class='form-control property' type='number' ng-model='addFormData.mixed' numbers-only /></td>";
+        html += "        </tr>";
+        html += "    </table>";
+        html += "    <div class='right'>";
+        html += "        <button class='btn standard-btn' ng-click='addProcedureCancelClicked()'>Cancel</button>";
+        html += "        <button class='btn standard-btn green' ng-disabled='!enableAddProcedureButton' ng-click='addProcedureAddClicked(); jsonData.$setDirty()'>Add</button>";
+        html += "    </div>";
+        html += "</ng-form>";
+
+        return html;
+    };
+
+    storeAddFormTemplates = function() {
+        $templateCache.put("CT", addFormTemplate("CT"));
+        $templateCache.put("NM", addFormTemplate("NM"));
+        $templateCache.put("XRay", addFormTemplate("XRay"));
+        $templateCache.put("Flouro", addFormTemplate("Flouro"));
+    };
+
+    initAddFormData = function() {
+        return {
+            "categoryid": "CT",
+            "name":       "",
+            "citation":   "",
+            "female":     0,
+            "male":       0,
+            "mixed":      0
+        };
+    };
+
+    sortProceduresList = function(proceduresList) {
+        proceduresList.sort(function(a, b) {
+            return (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : ((b.name.toLowerCase() > a.name.toLowerCase()) ? -1 : 0);
+        });
+    };
+
+    addNewProcedure = function(procedureData) {
+        var index, property;
+        var category = getCategory(procedureData.categoryid);
+        var procedure = createNewProcedure();
+        procedure.name = procedureData.name;
+        procedure.citation = procedureData.citation;
+        for (index in procedure.properties) {
+            property = procedure.properties[index];
+            property.value = procedureData[property.gender];
+        }
+        category.exams.push(procedure);
+        return category.exams;
+    };
+
+    getCategory = function(categoryId) {
+        var doseData = $scope.storedData.DoseData;
+        var categoryIndex, category;
+        for (categoryIndex in doseData) {
+            category = doseData[categoryIndex];
+            if (category.name === categoryId) {
+                return category;
+            }
+        }
+    };
+
+    getProcedureIndex = function(categoryId, procedureName) {
+        var category = getCategory(categoryId);
+        var procedureIndex, procedure;
+        for (procedureIndex in category.exams) {
+            procedure = category.exams[procedureIndex];
+            if (procedure.name === procedureName) {
+                return procedureIndex;
+            }
+        }
+    };
+
+    storeAddFormTemplates();
     $scope.storedData = StoredDataService.storedData();
+    $scope.showAddForm = false;
+    $scope.addFormData = initAddFormData();
+    $scope.enableSaveButton = false;
+    $scope.enableAddProcedureButton = false;
+    $scope.$watch("addFormData", function() { $scope.enableAddProcedureButton = ($scope.addFormData.name !== ""); }, true);
+    $scope.$watch("storedData", function() { $scope.enableSaveButton = true; }, true);
+
+    $scope.addProcedureCancelClicked = function() {
+        $scope.addFormData = initAddFormData();
+        $scope.showAddForm = false;
+    };
+
+    $scope.addProcedureAddClicked = function() {
+        if ($scope.addFormData.name !== "") {
+            var proceduresList = addNewProcedure($scope.addFormData);
+            sortProceduresList(proceduresList);
+            $scope.addFormData = initAddFormData();
+            $scope.showAddForm = false;
+        }
+    };
 
     $scope.saveJson = function() {
-        console.log("saving...");
         saveAs(
             new Blob(
                 [JSON.stringify($scope.storedData, null, 4)], { type: "application/json" }
@@ -272,31 +397,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.DataEntryClicked = function() {
         $state.go("data-entry", {location: true, inherit: false});
-    };
-
-    getCategory = function(categoryId) {
-            console.log(categoryId);
-
-        var doseData = $scope.storedData.DoseData;
-        var categoryIndex, category;
-        for (categoryIndex in doseData) {
-            console.log(categoryIndex);
-            category = doseData[categoryIndex];
-            if (category.name === categoryId) {
-                return category;
-            }
-        }
-    };
-
-    getProcedureIndex = function(categoryId, procedureName) {
-        var category = getCategory(categoryId);
-        var procedureIndex, procedure;
-        for (procedureIndex in category.exams) {
-            procedure = category.exams[procedureIndex];
-            if (procedure.name === procedureName) {
-                return procedureIndex;
-            }
-        }
     };
 
 });;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
@@ -634,7 +734,40 @@ app.config(function($stateProvider, $urlRouterProvider) {
         transclude: true,
         templateUrl: "views/partial-flouro-table-header.html"
     };
-});;angular.module("RadCalc").directive("nmTable", function() {
+});;angular.module('RadCalc').directive('isolateForm', [function () {
+    return {
+        restrict: 'A',
+        require: '?form',
+        link: function (scope, elm, attrs, ctrl) {
+            if (!ctrl) {
+                return;
+            }
+
+            // Do a copy of the controller
+            var ctrlCopy = {};
+            angular.copy(ctrl, ctrlCopy);
+
+            // Get the parent of the form
+            var parent = elm.parent().controller('form');
+            // Remove parent link to the controller
+            parent.$removeControl(ctrl);
+
+            // Replace form controller with a "isolated form"
+            var isolatedFormCtrl = {
+                $setValidity: function (validationToken, isValid, control) {
+                    ctrlCopy.$setValidity(validationToken, isValid, control);
+                    parent.$setValidity(validationToken, true, ctrl);
+                },
+                $setDirty: function () {
+                    elm.removeClass('ng-pristine').addClass('ng-dirty');
+                    ctrl.$dirty = true;
+                    ctrl.$pristine = false;
+                },
+            };
+            angular.extend(ctrl, isolatedFormCtrl);
+        }
+    };
+}]);;angular.module("RadCalc").directive("nmTable", function() {
     return {
         restrict: 'E',
         transclude: true,
@@ -709,20 +842,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
         ]
     };
 
-    getNameForId = function(id) {
+    getNameForId = function(categoryId) {
         var index, category;
         for (index in data.categories) {
             category = data.categories[index];
-            if (category.id === id) {
+            if (category.id === categoryId) {
                 return category.name;
             }
         }
-        return id;
+        return categoryId;
+    };
+
+    // removes the word Examinations from the name
+    getTitleForId = function(categoryId) {
+        var name = getNameForId(categoryId);
+        return name.replace(" Examinations", "");
     };
 
     return {
         "data": data,
-        "getNameForId": getNameForId
+        "getNameForId": getNameForId,
+        "getTitleForId": getTitleForId
     };
 
 });;angular.module("RadCalc.services").factory("StoredDataService", function($q, $http) {

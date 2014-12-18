@@ -29,20 +29,27 @@ angular.module("RadCalc.services").factory("ConfigDataService", function() {
         ]
     };
 
-    getNameForId = function(id) {
+    getNameForId = function(categoryId) {
         var index, category;
         for (index in data.categories) {
             category = data.categories[index];
-            if (category.id === id) {
+            if (category.id === categoryId) {
                 return category.name;
             }
         }
-        return id;
+        return categoryId;
+    };
+
+    // removes the word Examinations from the name
+    getTitleForId = function(categoryId) {
+        var name = getNameForId(categoryId);
+        return name.replace(" Examinations", "");
     };
 
     return {
         "data": data,
-        "getNameForId": getNameForId
+        "getNameForId": getNameForId,
+        "getTitleForId": getTitleForId
     };
 
 });

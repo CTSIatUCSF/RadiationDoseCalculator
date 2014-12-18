@@ -229,7 +229,8 @@ div.report-wrapper {
     margin-bottom:20px;
 }
 
-pre.plaintext {
+div.report-wrapper > div.plaintext {
+    font-family: "Lucida Console","Lucida Sans Typewriter",monaco,"Bitstream Vera Sans Mono",monospace;
     padding-top:20px;
     padding-bottom:20px;
     padding-left:50px;
@@ -237,6 +238,18 @@ pre.plaintext {
     min-width: 700px;
     background-color: #ffffff;
     border:2px solid #4d4d4d;
+}
+
+div.report-wrapper > pre.tables {
+    font-family: "Lucida Console","Lucida Sans Typewriter",monaco,"Bitstream Vera Sans Mono",monospace;
+    background-color: #ffffff !important;
+    border:0 !important;
+}
+
+div.report-wrapper > div.plaintext > div.heading {
+    font-weight: bold;
+    margin-top:25px;
+    margin-bottom:10px;
 }
 
 div.button-row {

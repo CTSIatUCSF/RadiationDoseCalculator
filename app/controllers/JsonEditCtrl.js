@@ -75,7 +75,7 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
         $templateCache.put("XRay", addFormTemplate("XRay"));
-        $templateCache.put("Flouro", addFormTemplate("Flouro"));
+        $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
     };
 
     initAddFormData = function() {

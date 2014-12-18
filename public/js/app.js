@@ -289,7 +289,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
         $templateCache.put("XRay", addFormTemplate("XRay"));
-        $templateCache.put("Flouro", addFormTemplate("Flouro"));
+        $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
     };
 
     initAddFormData = function() {
@@ -454,7 +454,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     buildBibliography = function() {
-        var categoryIds = ["CT", "NM", "XRay", "Flouro"];
+        var categoryIds = ["CT", "NM", "XRay", "Fluoro"];
         var bibliography = {};
         var footnotes = {};
         var citations = [];
@@ -533,106 +533,87 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return shrunk;
     };
 
-    $scope.makePlainText = function() {
+    $scope.plainTextTables = function() {
         var opt = plainTextFormattingOptions;
-        var citations = $scope.bibliography.citations;
-        var citationIndex, citation;
         var edeLabelText = "EDE(mSv)";
+        var linebreak = "\n";
 
-        var plaintext = "\n";
-        plaintext += "Radiation Dose Calculator\n";
-        plaintext += "\n";
+        var plaintext = "";
+        plaintext += linebreak;
 
         plaintext += addPadding(" ", opt.col2);
         plaintext += addPadding("Total", opt.col3 - opt.col2);
         plaintext += addPadding("Total", opt.col4 - opt.col3);
         plaintext += addPadding("Annual", opt.col5 - opt.col4);
         plaintext += addPadding("Annual", opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Types of Procedures", opt.col2);
         plaintext += addPadding("Scans", opt.col3 - opt.col2);
         plaintext += addPadding(edeLabelText, opt.col4 - opt.col3);
         plaintext += addPadding("Scans", opt.col5 - opt.col4);
         plaintext += addPadding(edeLabelText, opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("X-Ray CT " + footnotePlainText("CT"), opt.col2);
         plaintext += addPadding($scope.getScanCount("CT"), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeTotal("CT"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("CT"), opt.col5 - opt.col4);
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("CT"), 2), opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Nuclear Medicine " + footnotePlainText("NM"), opt.col2);
         plaintext += addPadding($scope.getScanCount("NM"), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeTotal("NM"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("NM"), opt.col5 - opt.col4);
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("NM"), 2), opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Radiography " + footnotePlainText("XRay"), opt.col2);
         plaintext += addPadding($scope.getScanCount("XRay"), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeTotal("XRay"), 2), opt.col4 - opt.col3);
         plaintext += addPadding($scope.getAnnualScanCount("XRay"), opt.col5 - opt.col4);
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("XRay"), 2), opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += linebreak;
 
-        plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
-        plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Flouro"), 2), opt.col4 - opt.col3);
-        plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
-        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Flouro"), 2), opt.col6 - opt.col5);
-        plaintext += "\n";
+        plaintext += addPadding("Fluoroscopy " + footnotePlainText("Fluoro"), opt.col2);
+        plaintext += addPadding($scope.getScanCount("Fluoro"), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Fluoro"), 2), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("Fluoro"), opt.col5 - opt.col4);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Fluoro"), 2), opt.col6 - opt.col5);
+        plaintext += linebreak;
 
-        plaintext += "\n";
-        plaintext += "\n";
+        plaintext += linebreak;
+        plaintext += linebreak;
         plaintext += addPadding(" ", opt.col2);
         plaintext += addPadding("Total", opt.col3 - opt.col2);
         plaintext += addPadding("Annual", opt.col4 - opt.col3);
-        plaintext += "\n";
+        plaintext += linebreak;
         plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Research EDE (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalWithoutSOC(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalWithoutSOC(), 2), opt.col4 - opt.col3);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Standard of Care (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalOnlySOC(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalOnlySOC(), 2), opt.col4 - opt.col3);
-        plaintext += "\n";
+        plaintext += linebreak;
 
         plaintext += addPadding("Total EDE (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotal(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotal(), 2), opt.col4 - opt.col3);
-        plaintext += "\n";
-
-        plaintext += "\n";
-        plaintext += "\n";
-        plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
-        plaintext += "\n";
-
-        plaintext += "Consent Narrative" + "\n";
-        plaintext += $scope.consentNarrative() + "\n";
-        plaintext += "\n";
-
-        plaintext += "Supplemental Consent Language" + "\n";
-        plaintext += $scope.getSupplementalConsentText() + "\n";
-        plaintext += "\n";
-
-        plaintext += "Citations" + "\n";
-        console.log(citations);
-        for (citationIndex in citations) {
-            citation = citations[citationIndex];
-            plaintext += citation + "\n";
-        }
 
         return plaintext;
+    };
+
+    $scope.getPlainTextCitations = function() {
+        return $scope.bibliography.citations;
     };
 
     $scope.DataEntryClicked = function() {
@@ -728,11 +709,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 });
             }
         };
-}]);;angular.module("RadCalc").directive("flouroTable", function() {
+}]);;angular.module("RadCalc").directive("fluoroTable", function() {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: "views/partial-flouro-table-header.html"
+        templateUrl: "views/partial-fluoro-table-header.html"
     };
 });;angular.module('RadCalc').directive('isolateForm', [function () {
     return {
@@ -834,10 +815,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
-                "id": "Flouro",
-                "name": "Flouroscopy Examinations",
+                "id": "Fluoro",
+                "name": "Fluoroscopy Examinations",
                 "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                "defaultrow": { "id": 0, "categoryid": "Flouro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+                "defaultrow": { "id": 0, "categoryid": "Fluoro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             }
         ]
     };
@@ -977,7 +958,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 "includingSOC": 0
             }
         },
-        "Flouro": {
+        "Fluoro": {
             "total": {
                 "additionalEde": 0,
                 "includingSOC": 0
@@ -1080,8 +1061,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         }
 
-        // adjust for Flouro calculation
-        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Flouro" ) {
+        // adjust for Fluoro calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Fluoro" ) {
             if (procedure.hasOwnProperty("minutes")) {
                 calculation = procedure.minutes * calculation;
             }
@@ -1096,7 +1077,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     updateTotals = function() {
-        var ary = ["CT", "NM", "XRay", "Flouro"];
+        var ary = ["CT", "NM", "XRay", "Fluoro"];
         var i, category;
         for (i=0; i<ary.length; i++) {
             categoryId = ary[i];

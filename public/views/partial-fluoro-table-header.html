@@ -1,14 +1,14 @@
 <div class="bottom-border exam-table-header-border">
-    <div class="exam-table-title">{{getCategoryConfig('Flouro').name}}</div>
-    <button class="btn btn-link no-print" ng-click="newProcedure('Flouro')">+ Add Exam</button>
+    <div class="exam-table-title">{{getCategoryConfig('Fluoro').name}}</div>
+    <button class="btn btn-link no-print" ng-click="newProcedure('Fluoro')">+ Add Exam</button>
 </div>
 <div class="data-entry-table">
-    <table class="table table-hover table-condensed" ng-show="getProcedures('Flouro').length">
-        <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('Flouro').headers">{{header}}</th></tr>
-        <tr ng-repeat="procedure in getProcedures('Flouro')">
+    <table class="table table-hover table-condensed" ng-show="getProcedures('Fluoro').length">
+        <tr><th class="exam-headers" ng-repeat="header in getCategoryConfig('Fluoro').headers">{{header}}</th></tr>
+        <tr ng-repeat="procedure in getProcedures('Fluoro')">
             <td class="text-center vert-align study-number exam-num">{{$index + 1}}</td>
             <td>
-                <select class="form-control" ng-model="procedure.exam" ng-options="procedureInfo.name as procedureInfo.name for procedureInfo in getStoredProcedures('Flouro')">
+                <select class="form-control" ng-model="procedure.exam" ng-options="procedureInfo.name as procedureInfo.name for procedureInfo in getStoredProcedures('Fluoro')">
                     <option value="">Please select procedure...</option>
                 </select>
             </td>
@@ -29,11 +29,11 @@
             <td class="scansyear-width"><input class="form-control" type="number" ng-model="procedure.annualscans" min="1" max="{{procedure.scans}}" numbers-only /></td>
             <td class="annualede-width"><input class="form-control" type="number" ng-model="procedure.annualede" two-decimals value="{{getProcedureAnnualEdeCalculation(procedure)}}" ng-readonly="true" /></td>
             <td class="text-center vert-align close-width">
-               <button type="button" class="close no-print" ng-click="removeProcedure('Flouro', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+               <button type="button" class="close no-print" ng-click="removeProcedure('Fluoro', procedure.id)"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
            </td>
         </tr>
     </table>
-    <table class="procedure-totals" style="float:right;" ng-show="getProcedures('Flouro').length">
+    <table class="procedure-totals" style="float:right;" ng-show="getProcedures('Fluoro').length">
         <tr>
             <th>&nbsp;</th>
             <th class="exam-headers">Total</th>
@@ -41,13 +41,13 @@
         </tr>
         <tr>
             <td class="rowlabel">Total additional EDE</td>
-            <td class="rowvalue">{{edeTotalWithoutSOC("Flouro") | twoDecimalsFilter}}</td>
-            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("Flouro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeTotalWithoutSOC("Fluoro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeAnnualTotalWithoutSOC("Fluoro") | twoDecimalsFilter}}</td>
         </tr>
         <tr>
             <td class="rowlabel">Total EDE including Standard of Care</td>
-            <td class="rowvalue">{{edeTotal("Flouro") | twoDecimalsFilter}}</td>
-            <td class="rowvalue">{{edeAnnualTotal("Flouro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeTotal("Fluoro") | twoDecimalsFilter}}</td>
+            <td class="rowvalue">{{edeAnnualTotal("Fluoro") | twoDecimalsFilter}}</td>
         </tr>
     </table>
 </div>

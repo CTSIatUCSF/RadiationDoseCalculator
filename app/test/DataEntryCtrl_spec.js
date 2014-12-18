@@ -21,7 +21,7 @@ describe ( "Form Controllers", function () {
         // forms.push({"id":"XRay", "formName":"X-ray Examinations", "scope":xrayScope, "exams": [{"ede": 100}]});
         // forms.push({"id":"CT", "formName":"X-ray Computed Tomography Examinations", "scope":ctScope, "exams": [{"ede": 100}]});
         // forms.push({"id":"NM", "formName":"Nuclear Medicine Examinations", "scope":nmScope, "exams": [{"ede": 100}]});
-        // forms.push({"id":"Flouro", "formName":"Flouroscopy Examinations", "scope":floScope, "exams": [{"ede": 100}]});
+        // forms.push({"id":"Fluoro", "formName":"Fluoroscopy Examinations", "scope":floScope, "exams": [{"ede": 100}]});
 
         // var formIndex, form;
         // for (formIndex in forms) {
@@ -36,7 +36,7 @@ describe ( "Form Controllers", function () {
     //     "CT":     { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 },
     //     "NM":     { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", injectedDose: 0, ede: 0 },
     //     "XRay":   { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", ede: 0 },
-    //     "Flouro": { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 }
+    //     "Fluoro": { id: 0, exam: "", scans: 0, soc: false, gender: "mixed", minutes: 0, ede: 0 }
     // };
 
     testdata = {
@@ -158,7 +158,7 @@ describe ( "Form Controllers", function () {
 
         it ( "added sucessfully", function () {
             scope.allProcedures = [];
-            scope.newProcedure("Flouro");
+            scope.newProcedure("Fluoro");
             scope.newProcedure("CT");
 
             expect(2).to.equal(scope.allProcedures.length);

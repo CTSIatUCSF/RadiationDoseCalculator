@@ -30,8 +30,8 @@ describe ( "UserDataService", function () {
                 var expectedValue = 0.66;
                 expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
             });
-            it ( "returns expected value for Flouro procedures", function() {
-                var testProcedure = { "id": 1, "categoryid": "Flouro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 };
+            it ( "returns expected value for Fluoro procedures", function() {
+                var testProcedure = { "id": 1, "categoryid": "Fluoro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 };
                 var baseEDE = 0.03;
                 var expectedValue = 1.14;
                 expect(UserDataService.getProcedureEdeCalculation(testProcedure, baseEDE)).to.equal(expectedValue);
@@ -45,7 +45,7 @@ describe ( "UserDataService", function () {
                                     { "id": 1, "categoryid": "CT", "scans": 3, "soc": false, "gender": "mixed", "ede": 0 },
                                     { "id": 1, "categoryid": "XRay",   "scans": 9, "soc": false, "gender": "mixed", "ede": 0 },
                                     { "id": 1, "categoryid": "NM", "scans": 11, "soc": false, "gender": "mixed", "injectedDose": 2, "ede": 0 },
-                                    { "id": 1, "categoryid": "Flouro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 }
+                                    { "id": 1, "categoryid": "Fluoro", "scans": 19, "soc": false, "gender": "mixed", "minutes": 2, "ede": 0 }
                                 ];
                 UserDataService.updateProcedures(procedures);
             });

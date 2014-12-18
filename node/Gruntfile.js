@@ -144,11 +144,15 @@ module.exports = function(grunt) {
 
 
   //-- Register tasks
-  grunt.registerTask( "test", ["jshint", "karma"] );
-  grunt.registerTask( "buildDebug", ["test", "clean", "minifyDebug", "copy"] );
-  grunt.registerTask( "minifyDebug", ["concat:dist", "uglify:debug"] );
-  grunt.registerTask( "minifyDist", ["concat:dist", "uglify:dist"] );
-  grunt.registerTask( "deploy", ["clean", "minifyDist", "copy"] );
-  grunt.registerTask( "default", ["clean", "minifyDebug", "copy", "concurrent:dev"] );
+  //---- Utility tasks
+  grunt.registerTask( "minifyDebug", [ "concat:dist", "uglify:debug" ] );
+  grunt.registerTask( "minifyDist",  [ "concat:dist", "uglify:dist" ] );
+
+ //---- Run tasks
+  grunt.registerTask( "test",    [ "jshint", "karma" ] );
+  grunt.registerTask( "build",   [ "test", "clean", "minifyDist", "copy" ] );
+  grunt.registerTask( "deploy",  [ "clean", "minifyDist", "copy" ] );
+  grunt.registerTask( "dev",     [ "clean", "minifyDebug", "copy", "concurrent:dev" ] );
+  grunt.registerTask( "default", [ "deploy" ] );
 
 };

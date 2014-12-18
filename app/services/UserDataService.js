@@ -33,7 +33,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
                 "includingSOC": 0
             }
         },
-        "Flouro": {
+        "Fluoro": {
             "total": {
                 "additionalEde": 0,
                 "includingSOC": 0
@@ -136,8 +136,8 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
             }
         }
 
-        // adjust for Flouro calculation
-        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Flouro" ) {
+        // adjust for Fluoro calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Fluoro" ) {
             if (procedure.hasOwnProperty("minutes")) {
                 calculation = procedure.minutes * calculation;
             }
@@ -152,7 +152,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     };
 
     updateTotals = function() {
-        var ary = ["CT", "NM", "XRay", "Flouro"];
+        var ary = ["CT", "NM", "XRay", "Fluoro"];
         var i, category;
         for (i=0; i<ary.length; i++) {
             categoryId = ary[i];

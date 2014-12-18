@@ -289,7 +289,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
         $templateCache.put("XRay", addFormTemplate("XRay"));
-        $templateCache.put("Flouro", addFormTemplate("Flouro"));
+        $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
     };
 
     initAddFormData = function() {
@@ -454,7 +454,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     buildBibliography = function() {
-        var categoryIds = ["CT", "NM", "XRay", "Flouro"];
+        var categoryIds = ["CT", "NM", "XRay", "Fluoro"];
         var bibliography = {};
         var footnotes = {};
         var citations = [];
@@ -581,11 +581,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("XRay"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
-        plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
-        plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Flouro"), 2), opt.col4 - opt.col3);
-        plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
-        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Flouro"), 2), opt.col6 - opt.col5);
+        plaintext += addPadding("Fluoroscopy " + footnotePlainText("Fluoro"), opt.col2);
+        plaintext += addPadding($scope.getScanCount("Fluoro"), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Fluoro"), 2), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("Fluoro"), opt.col5 - opt.col4);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Fluoro"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += "\n";
@@ -619,6 +619,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         plaintext += "Consent Narrative" + "\n";
         plaintext += $scope.consentNarrative() + "\n";
+        console.log($scope.consentNarrative());
         plaintext += "\n";
 
         plaintext += "Supplemental Consent Language" + "\n";
@@ -626,7 +627,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += "\n";
 
         plaintext += "Citations" + "\n";
-        console.log(citations);
+
         for (citationIndex in citations) {
             citation = citations[citationIndex];
             plaintext += citation + "\n";
@@ -728,11 +729,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 });
             }
         };
-}]);;angular.module("RadCalc").directive("flouroTable", function() {
+}]);;angular.module("RadCalc").directive("fluoroTable", function() {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: "views/partial-flouro-table-header.html"
+        templateUrl: "views/partial-fluoro-table-header.html"
     };
 });;angular.module('RadCalc').directive('isolateForm', [function () {
     return {
@@ -834,10 +835,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
-                "id": "Flouro",
-                "name": "Flouroscopy Examinations",
+                "id": "Fluoro",
+                "name": "Fluoroscopy Examinations",
                 "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
-                "defaultrow": { "id": 0, "categoryid": "Flouro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
+                "defaultrow": { "id": 0, "categoryid": "Fluoro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             }
         ]
     };
@@ -977,7 +978,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 "includingSOC": 0
             }
         },
-        "Flouro": {
+        "Fluoro": {
             "total": {
                 "additionalEde": 0,
                 "includingSOC": 0
@@ -1080,8 +1081,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         }
 
-        // adjust for Flouro calculation
-        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Flouro" ) {
+        // adjust for Fluoro calculation
+        if (procedure.hasOwnProperty("categoryid") && procedure.categoryid === "Fluoro" ) {
             if (procedure.hasOwnProperty("minutes")) {
                 calculation = procedure.minutes * calculation;
             }
@@ -1096,7 +1097,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     updateTotals = function() {
-        var ary = ["CT", "NM", "XRay", "Flouro"];
+        var ary = ["CT", "NM", "XRay", "Fluoro"];
         var i, category;
         for (i=0; i<ary.length; i++) {
             categoryId = ary[i];

@@ -53,7 +53,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     };
 
     buildBibliography = function() {
-        var categoryIds = ["CT", "NM", "XRay", "Flouro"];
+        var categoryIds = ["CT", "NM", "XRay", "Fluoro"];
         var bibliography = {};
         var footnotes = {};
         var citations = [];
@@ -180,11 +180,11 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("XRay"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
-        plaintext += addPadding("Flouroscopy " + footnotePlainText("Flouro"), opt.col2);
-        plaintext += addPadding($scope.getScanCount("Flouro"), opt.col3 - opt.col2);
-        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Flouro"), 2), opt.col4 - opt.col3);
-        plaintext += addPadding($scope.getAnnualScanCount("Flouro"), opt.col5 - opt.col4);
-        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Flouro"), 2), opt.col6 - opt.col5);
+        plaintext += addPadding("Fluoroscopy " + footnotePlainText("Fluoro"), opt.col2);
+        plaintext += addPadding($scope.getScanCount("Fluoro"), opt.col3 - opt.col2);
+        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Fluoro"), 2), opt.col4 - opt.col3);
+        plaintext += addPadding($scope.getAnnualScanCount("Fluoro"), opt.col5 - opt.col4);
+        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Fluoro"), 2), opt.col6 - opt.col5);
         plaintext += "\n";
 
         plaintext += "\n";
@@ -218,6 +218,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
 
         plaintext += "Consent Narrative" + "\n";
         plaintext += $scope.consentNarrative() + "\n";
+        console.log($scope.consentNarrative());
         plaintext += "\n";
 
         plaintext += "Supplemental Consent Language" + "\n";
@@ -225,7 +226,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += "\n";
 
         plaintext += "Citations" + "\n";
-        console.log(citations);
+
         for (citationIndex in citations) {
             citation = citations[citationIndex];
             plaintext += citation + "\n";

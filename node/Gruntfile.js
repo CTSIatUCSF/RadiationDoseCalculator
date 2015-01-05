@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     //-- CONCURRENT
     concurrent: {
         dev: {
-            tasks: ["test", "buildDebug", "copy", "nodemon", "watch"],
+            tasks: ["test", "build", "copy", "nodemon", "watch"],
             options: {
                 logConcurrentOutput: true
             }
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
     //-- WATCH
     watch: {
       files: ["<%= jshint.files %>", "../app/views/**/*"],
-      tasks: ["buildDebug"]
+      tasks: ["build"]
     },
 
 

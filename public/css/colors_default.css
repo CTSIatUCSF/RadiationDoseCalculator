@@ -12,6 +12,10 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+div#consentTextTitle {
+    color: #308EB3;
+}
 /*********************************************/
 
 

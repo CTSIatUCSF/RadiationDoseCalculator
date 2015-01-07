@@ -315,6 +315,10 @@ button.reset-all {
   border-width: 1px;
 }
 
+div#consentTextTitle {
+    font-size: 0.8em;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

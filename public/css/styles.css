@@ -298,6 +298,18 @@ div.editor-heading {
     color: #337ab7;
 }
 
+div.exambutton {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+button.reset-all {
+    float: right;
+    border: 0;
+    margin-right: 35px;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

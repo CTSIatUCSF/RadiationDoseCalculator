@@ -70,15 +70,10 @@ button.generate-report:hover {
 }
 
 button.reset-all {
-    background-color: #ffffff;
-    border: 1px solid #dd0000;
-    color: #dd0000;
+    color: #777777;
 }
 
 button.reset-all:hover {
-    background-color: #dd0000;
-    border: 1px solid #dd0000;
-    color: #ffffff;
 }
 
 button.back-to-data {
@@ -139,6 +134,10 @@ button.red:hover {
     background-color: #aa1111;
     border: 1px solid #aa1111;
     color: #ffffff;
+}
+
+div.exambutton:hover {
+    color: #ACDDEF;
 }
 
 /* label buttons */

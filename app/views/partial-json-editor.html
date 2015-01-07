@@ -18,7 +18,7 @@
     <form name="jsonData" novalidate>
 
     <div class="button-row no-print">
-        <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()">Back to data entry</button>
+        <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()"><span class="glyphicon glyphicon-arrow-left"></span> Back to data entry</button>
         <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save</button>
         <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true"><strong>+</strong> Add Procedure</button>
     </div>

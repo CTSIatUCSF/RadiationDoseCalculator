@@ -88,6 +88,10 @@ button.remove-procedure {
     margin-bottom:15px;
 }
 
+button.back-to-data {
+    width: 170px;
+}
+
 div#json-editor-wrapper table td.label-json {
     font-weight: bold;
 }

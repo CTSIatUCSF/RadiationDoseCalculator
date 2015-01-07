@@ -267,9 +267,20 @@ img.rad-logo {
     margin-right:15px;
 }
 
-div#json-editor-wrapper div.notice {
+div.notice {
     font-size: 1.1em;
     margin-bottom:30px;
+}
+
+div.notice-box {
+    border: 1px solid #777777;
+    padding: 20px;
+    margin-left:70px;
+    margin-right:80px;
+    margin-top: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 div.editor-heading {
@@ -281,6 +292,10 @@ div.editor-heading {
 
 .right {
     text-align: right;
+}
+
+.fake-btn-link {
+    color: #337ab7;
 }
 
 @media print {

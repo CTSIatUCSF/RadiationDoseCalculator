@@ -5,7 +5,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen, print" href="css/styles.css">
+    <!-- color scheme start -->
     <link rel="stylesheet" type="text/css" media="screen, print" href="css/colors_default.css">
+    <!-- color scheme end -->
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
@@ -16,18 +18,20 @@
 </head>
 <body ng-app="RadCalc">
     <header class="no-print">
-        <!-- place custom header here -->
+        <!-- custom header start -->
         <div id="placeholder-header">
             <div id="logo"></div>
             <div id="title">Radiation Dose Calculator</div>
         </div>
+         <!-- custom header end -->
     </header>
 
     <div ui-view></div>
 
     <footer class="no-print">
-        <!-- place custom footer here -->
+        <!-- place custom footer start -->
         <div id="placeholder-footer"></div>
+        <!-- place custom footer end -->
     </footer>
 </body>
 </html>

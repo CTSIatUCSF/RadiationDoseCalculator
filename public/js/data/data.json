@@ -3,6 +3,7 @@
     "ComparisonDose":0.3, 
     "ComparisonDoseUnit": "rem",
     "EffectiveDoseType":"Research",
+    "HelpEmailAddress":"admin@domain.com",
     "DoseData":[
         {
             "name":"CT",

@@ -109,6 +109,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.allProcedures = [];
     $scope.supplementalConsentLanguage = UserDataService.getSupplementalConsentText() || "";
+    $scope.helpEmailAddress = StoredDataService.helpEmailAddress() || "";
     if (userData.length > 0) { $scope.allProcedures = userData; }
     $scope.$watch("allProcedures", updateUserDataService, true);
 
@@ -907,6 +908,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         effectiveDoseType: function() {
             return storedData.EffectiveDoseType;
+        },
+
+        helpEmailAddress: function() {
+            return storedData.HelpEmailAddress;
         },
 
         getAllProcedures: function(categoryID) {

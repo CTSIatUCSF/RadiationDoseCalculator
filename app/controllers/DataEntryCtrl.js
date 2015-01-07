@@ -58,6 +58,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
 
     $scope.allProcedures = [];
     $scope.supplementalConsentLanguage = UserDataService.getSupplementalConsentText() || "";
+    $scope.helpEmailAddress = StoredDataService.helpEmailAddress() || "";
     if (userData.length > 0) { $scope.allProcedures = userData; }
     $scope.$watch("allProcedures", updateUserDataService, true);
 

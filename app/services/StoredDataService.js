@@ -31,6 +31,10 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
             return storedData.EffectiveDoseType;
         },
 
+        helpEmailAddress: function() {
+            return storedData.HelpEmailAddress;
+        },
+
         getAllProcedures: function(categoryID) {
             for (var categoryIndex in storedData.DoseData) {
                 var category = storedData.DoseData[categoryIndex];

@@ -310,6 +310,11 @@ button.reset-all {
     margin-right: 35px;
 }
 
+.ng-invalid {
+  border-color: red;
+  border-width: 1px;
+}
+
 @media print {
     .no-print, .no-print * {
         display: none !important;

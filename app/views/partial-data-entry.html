@@ -12,34 +12,36 @@
         </p>
     </div>
 
-    <!-- routing navigation -->
-    <div class="no-print" style="margin:20px 40px 30px 70px;">
-        <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1)">Generate Report</button>
-        <button class="btn btn-link reset-all" confirmed-click="ResetAll()" ng-confirm-click="Remove all exams from the calculation?" ng-disabled="(allProcedures.length<1)">Remove all exams</button>
-    </div>
-
-    <!-- allforms start -->
-    <div id="allforms">
-
-        <div class="data-entry-tables-wrapper table-responsive">
-            
-            <ct-table></ct-table>
-            <nm-table></nm-table>
-            <xray-table></xray-table>
-            <fluoro-table></fluoro-table>
-            
+    <form name="DataEntryForm" novalidate>
+        <!-- routing navigation -->
+        <div class="no-print" style="margin:20px 40px 30px 70px;">
+            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)">Generate Report</button>
+            <button class="btn btn-link reset-all" confirmed-click="ResetAll()" ng-confirm-click="Remove all exams from the calculation?" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)">Remove all exams</button>
+            <!-- <button class="btn standard-btn" ng-show="DataEntryForm.$invalid">Validation Errors!</button> -->
         </div>
 
-    </div>
-    <!-- allforms end -->
+        <!-- allforms start -->
+        <div id="allforms">
+                <div class="data-entry-tables-wrapper table-responsive">
+                    
+                    <ct-table></ct-table>
+                    <nm-table></nm-table>
+                    <xray-table></xray-table>
+                    <fluoro-table></fluoro-table>
+                    
+                </div>
+        </div>
+        <!-- allforms end -->
 
-    <div id="consentTextContainer" class="alert-heading">
-        <div id="consentTextTitle" class="exam-table-title">Supplemental Consent Language</div>
-        <textarea id="consentText" class="form-control" ng-model="supplementalConsentLanguage"></textarea>
-    </div>
+        <div id="consentTextContainer" class="alert-heading">
+            <div id="consentTextTitle" class="exam-table-title">Supplemental Consent Language (Optional)</div>
+            <textarea id="consentText" class="form-control" ng-model="supplementalConsentLanguage"></textarea>
+        </div>
 
-    <div style="margin:20px 40px 30px 70px;">
-        <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1)">Generate Report</button>
-    </div>
+        <div style="margin:20px 40px 30px 70px;">
+            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1)">Generate Report</button>
+        </div>
+
+    </form>
 
 </div>

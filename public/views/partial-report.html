@@ -6,8 +6,8 @@
             <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()"><span class="glyphicon glyphicon-arrow-left"></span> Back to data</button>
             <button class="btn standard-btn print" ng-click="Print()">Print</button>
             <div class="btn-group btn-block">
-                <label class="btn standard-btn gray" ng-model="reportFormat" btn-radio="'Formatted'" style="height:40px; line-height:1.42857143; padding:9px;">Formatted</label>
-                <label class="btn standard-btn gray" ng-model="reportFormat" btn-radio="'PlainText'" style="height:40px; line-height:1.42857143; padding:9px;">Plain Text</label>
+                <label class="btn standard-btn gray reportFormatToggle" ng-model="reportFormat" btn-radio="'Formatted'">Formatted</label>
+                <label class="btn standard-btn gray reportFormatToggle" ng-model="reportFormat" btn-radio="'PlainText'">Plain Text</label>
             </div>
         </div>
 

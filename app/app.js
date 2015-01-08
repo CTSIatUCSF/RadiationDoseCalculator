@@ -40,13 +40,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
-        .state("report-formatted", {
-            url: "/report-formatted",
-            templateUrl: "views/partial-report-formatted.html"
-        })
-
-        .state("report-plaintext", {
-            url: "/report-plaintext",
-            templateUrl: "views/partial-report-plaintext.html"
+        .state("report", {
+            url: "/report",
+            templateUrl: "views/partial-report.html"
         });
 });

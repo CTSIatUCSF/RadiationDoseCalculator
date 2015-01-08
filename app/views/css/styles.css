@@ -245,7 +245,7 @@ div.report-wrapper > div.plaintext {
 }
 
 div.report-wrapper > div.formatted {
-    padding-top:20px;
+    padding-top:45px;
     padding-bottom:20px;
     padding-left:50px;
     padding-right:50px;
@@ -327,6 +327,12 @@ button.reset-all {
 
 div#consentTextTitle {
     font-size: 0.8em;
+}
+
+label.reportFormatToggle {
+    height:40px; 
+    line-height:1.42857143; 
+    padding:9px;
 }
 
 @media print {

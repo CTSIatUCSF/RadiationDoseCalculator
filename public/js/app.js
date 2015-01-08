@@ -40,14 +40,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
 
-        .state("report-formatted", {
-            url: "/report-formatted",
-            templateUrl: "views/partial-report-formatted.html"
-        })
-
-        .state("report-plaintext", {
-            url: "/report-plaintext",
-            templateUrl: "views/partial-report-plaintext.html"
+        .state("report", {
+            url: "/report",
+            templateUrl: "views/partial-report.html"
         });
 });;angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scope, $state, UserDataService, StoredDataService, ConfigDataService) {
 
@@ -190,7 +185,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.GenerateReportClicked = function() {
         validateUserData();
         updateSupplementalConsentText();
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
+        $state.go("report", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.EditJsonDataClicked = function() {
@@ -620,14 +615,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.DataEntryClicked = function() {
         $state.go("data-entry", {storedData: storedData}, {location: true, inherit: false});
-    };
-
-    $scope.FormattedReportClicked = function() {
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
-    };
-
-    $scope.PlainTextReportClicked = function() {
-        $state.go("report-plaintext", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.Print = function() {

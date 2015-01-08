@@ -220,14 +220,6 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         $state.go("data-entry", {storedData: storedData}, {location: true, inherit: false});
     };
 
-    $scope.FormattedReportClicked = function() {
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
-    };
-
-    $scope.PlainTextReportClicked = function() {
-        $state.go("report-plaintext", {storedData: storedData}, {location: true, inherit: false});
-    };
-
     $scope.Print = function() {
         window.print();
     };

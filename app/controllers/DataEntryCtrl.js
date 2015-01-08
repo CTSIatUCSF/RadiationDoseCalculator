@@ -139,7 +139,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     $scope.GenerateReportClicked = function() {
         validateUserData();
         updateSupplementalConsentText();
-        $state.go("report-formatted", {storedData: storedData}, {location: true, inherit: false});
+        $state.go("report", {storedData: storedData}, {location: true, inherit: false});
     };
 
     $scope.EditJsonDataClicked = function() {

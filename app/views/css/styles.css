@@ -340,10 +340,20 @@ div#consentTextTitle {
     font-size: 0.8em;
 }
 
+span.glyphicon-question-sign {
+    font-size:2.0em; 
+    margin-top:3px;
+}
+
 label.reportFormatToggle {
     height:40px; 
     line-height:1.42857143; 
     padding:9px;
+}
+
+.tooltip-inner {
+    max-width: 350px;
+    white-space: pre-wrap;
 }
 
 @media print {

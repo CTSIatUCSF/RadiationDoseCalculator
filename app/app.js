@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state("json-editor", {
-            url: "/json-editor-dan",
+            url: "/json-editor",
             controller: "JsonEditCtrl",
             templateUrl: "views/partial-json-editor.html",
             resolve: {

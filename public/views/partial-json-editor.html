@@ -23,8 +23,12 @@
     <form name="jsonData" novalidate>
 
     <div class="button-row no-print">
-        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine"><span class="glyphicon glyphicon-download icon-left"></span> Save</button>
-        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true"><span class="glyphicon glyphicon-plus icon-left"></span> Add Exam</button>
+        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">
+            <span class="glyphicon glyphicon-download icon-left"></span> Save
+        </button>
+        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true">
+            <span class="glyphicon glyphicon-plus icon-left"></span> Add Exam
+        </button>
     </div>
 
     <!-- Add new exam starts -->

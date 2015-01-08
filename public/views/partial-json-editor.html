@@ -23,13 +23,13 @@
     <form name="jsonData" novalidate>
 
     <div class="button-row no-print">
-        <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">
-            <span class="glyphicon glyphicon-download icon-left"></span> Save
-        </button>
-        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true">
-            <span class="glyphicon glyphicon-plus icon-left"></span> Add Exam
-        </button>
-    </div>
+       <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">
+           <span class="glyphicon glyphicon-download icon-left"></span> Save
+       </button>
+       <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true">
+           <span class="glyphicon glyphicon-plus icon-left"></span> Add Exam
+       </button>
+   </div>
 
     <!-- Add new exam starts -->
     <div id="addProcedureForm" ng-show="showAddForm" class="panel panel-default add-procedure">
@@ -46,6 +46,46 @@
         </div>
     </div>
     <!-- Add new exam ends -->
+
+    <!-- Dose Data tables start -->
+    <div class="panel panel-default editor-heading">
+      <div class="panel-body section-heading">
+        Exam Information
+      </div>
+    </div>
+    <p>Click a category heading to show the list of exams. Click the exam heading to view and edit the information for that exam.</p>
+    <div id="dosedata">
+        <accordion>
+            <accordion-group is-open="group.open" ng-repeat="category in storedData.DoseData track by category.name">
+                <accordion-heading class="group-head procedure">
+                    {{getCategoryName(category.name)}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': group.open, 'glyphicon-chevron-right': !group.open}"></i>
+                </accordion-heading>
+                <div accordion close-others="false" sv-root sv-part="category.exams">
+                    <accordion-group is-open="examHeader.open" ng-repeat="exam in category.exams track by exam.name" sv-element>
+                        <accordion-heading class="group-head procedure">
+                             {{exam.name}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': examHeader.open, 'glyphicon-chevron-right': !examHeader.open}"></i>
+                        </accordion-heading>
+                        <button class="btn standard-btn remove-procedure" ng-click="removeProcedure(category.name, exam.name); jsonData.$setDirty();">Remove</button>
+                            <table class="table">
+                                <tr>
+                                    <td class="label-name">Name:</td>
+                                    <td class="value-name"><input class="form-control name" type="text" ng-model="exam.name" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="label-citation">Citation:</td>
+                                    <td class="value-citation"><textarea class="form-control citation" type="text" ng-model="exam.citation"></textarea></td>
+                                </tr>
+                                <tr ng-repeat="property in exam.properties track by property.gender">
+                                    <td class="label-property">{{property.name}}:</td>
+                                    <td class="value-property"><input class="form-control property" type="number" ng-model="property.value" numbers-only /></td>
+                                </tr>
+                            </table>
+                    </accordion-group>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+    <!-- Dose Data tables end -->
 
     <!-- Contact Info table start -->
     <div class="panel panel-default editor-heading">
@@ -72,7 +112,7 @@
             <td class="label-json space">Consent Narrative</td>
             <td><textarea class="form-control space" ng-model="storedData.ConsentNarrative" /></td>
             <td>
-                <span class="glyphicon glyphicon-question-sign"></span>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipConsentNarrative}}" tooltip-trigger="mouseenter" tooltip-popup-delay="250"></span>
             </td>
         </tr>
         <tr>
@@ -92,7 +132,7 @@
                 </select>
             </td>
             <td>
-                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipComparisonDoseUnit}}" tooltip-trigger="mouseenter"></span>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipComparisonDoseUnit}}" tooltip-trigger="mouseenter" tooltip-popup-delay="250"></span>
             </td>
         </tr>
         <tr style="white-space:nowrap;">
@@ -104,45 +144,11 @@
                 </select>
             </td>
             <td>
-                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipEffectiveDoseType}}" tooltip-trigger="mouseenter"></span>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipEffectiveDoseType}}" tooltip-trigger="mouseenter" tooltip-popup-delay="250"></span>
             </td>
         </tr>
     </table>
     <!-- Consent Narrative table end -->
-
-    <!-- Dose Data tables start -->
-    <div class="panel panel-default editor-heading">
-      <div class="panel-body section-heading">
-        Exam Information
-      </div>
-    </div>
-    <p>Click a category heading to show the list of exams. Click the exam heading to view and edit the information for that exam.</p>
-    <div id="dosedata">
-        <accordion>
-            <accordion-group class="group-head category" heading="{{getCategoryName(category.name)}}" ng-click="testFunction(category.name)" ng-repeat="category in storedData.DoseData track by category.name">
-                <div accordion close-others="false" sv-root sv-part="category.exams">
-                    <div accordion-group class="group-head procedure" heading="{{exam.name}}" ng-repeat="exam in category.exams track by exam.name" sv-element>
-                        <button class="btn standard-btn remove-procedure" ng-click="removeProcedure(category.name, exam.name); jsonData.$setDirty();">Remove</button>
-                        <table class="table">
-                            <tr>
-                                <td class="label-name">Name:</td>
-                                <td class="value-name"><input class="form-control name" type="text" ng-model="exam.name" /></td>
-                            </tr>
-                            <tr>
-                                <td class="label-citation">Citation:</td>
-                                <td class="value-citation"><textarea class="form-control citation" type="text" ng-model="exam.citation"></textarea></td>
-                            </tr>
-                            <tr ng-repeat="property in exam.properties track by property.gender">
-                                <td class="label-property">{{property.name}}:</td>
-                                <td class="value-property"><input class="form-control property" type="number" ng-model="property.value" numbers-only /></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </accordion-group>
-        </accordion>
-    </div>
-    <!-- Dose Data tables end -->
 
     </form>
 

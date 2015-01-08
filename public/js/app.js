@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state("json-editor", {
-            url: "/json-editor",
+            url: "/json-editor-dan",
             controller: "JsonEditCtrl",
             templateUrl: "views/partial-json-editor.html",
             resolve: {
@@ -368,7 +368,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         saveAs(
             new Blob(
                 [JSON.stringify($scope.storedData, null, 4)], { type: "application/json" }
-            ), "data.json"
+            ), "RadiationDataTables.json"
         );
     };
 
@@ -389,10 +389,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         newProcedure = createNewProcedure();
         newProcedure.name += (category.exams.length + 1);
         category.exams.splice(0, 0, newProcedure);
-    };
-
-    $scope.DataEntryClicked = function() {
-        $state.go("data-entry", {location: true, inherit: false});
     };
 
 });;angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, $state, UserDataService, StoredDataService) {
@@ -870,7 +866,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var storedData = {};
     var promise;
 
-    promise = $http.get("/js/data/data.json").success(function (response) {
+    promise = $http.get("/js/data/RadiationDataTables.json").success(function (response) {
       storedData = response;
     });
 

@@ -3,31 +3,35 @@
 
 <div id="json-editor-wrapper">
 
+    <!-- help text -->
     <div class="notice">
-        <p><strong>Note:</strong> Updated data will not be immediately reflected in the calculator. 
-        Please make modifications below, click the <strong>Save</strong> button, and then send the downloaded file to 
-        your Radiation Dose Calculator webmaster.</p>
-        <p>To add a new procedure to the data file, click the <strong>Add Procedure</strong> button. New procedures 
-        will be added to the procedures list in alphabetical order.
-    </div>
-
-    <div class="alert alert-warning" role="alert">
-        <strong>Editing data should be done by administrators only</strong>
+        <p>
+            This page allows you to edit the data tables underneath the Radiation Dose Calculator.<br>
+            <ul>
+                <li>To add a new exam to the data file, click the <span style="font-weight: bold">Add Exam</span> button.<br> New exams will be added to the exam list in alphabetical order.</li>
+                <li>Modify values in existing exams by clicking on the type, then the exam itself below.</li>
+                <li>When you have made all needed changes, click the Save button to download and save the revised data tables.</li>
+                <li>Send the downloaded file to your Radiation Dose Calculator webmaster.</li>
+            </ul>
+        </p>
+        <p>
+            <br>
+            <span style="font-weight: bold">Note: </span> Updated data will not be reflected in the calculator until the new file is installed by the webmaster. 
+        </p>
     </div>
 
     <form name="jsonData" novalidate>
 
     <div class="button-row no-print">
-        <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()"><span class="glyphicon glyphicon-arrow-left"></span> Back to data entry</button>
         <button id="saveJson" class="btn standard-btn save-json" ng-click="saveJson()" ng-disabled="jsonData.$pristine">Save</button>
-        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true"><strong>+</strong> Add Procedure</button>
+        <button class="btn standard-btn green" ng-disabled="showAddForm" ng-click="showAddForm = true"><strong>+</strong> Add Exam</button>
     </div>
 
-    <!-- Add new procedure starts -->
+    <!-- Add new exam starts -->
     <div id="addProcedureForm" ng-show="showAddForm" class="panel panel-default add-procedure">
-        <div class="panel-heading add-procedure-heading"><h3 class="panel-title">Add new procedure</h3></div>
+        <div class="panel-heading add-procedure-heading"><h3 class="panel-title">Add new exam</h3></div>
         <div class="panel-body add-procedure-body">
-            <h4>Select procedure type:</h4>
+            <h4>Select exam type:</h4>
             <div class="btn-group btn-block" style="margin-bottom:15px;">
                 <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'CT'">X-ray Computed Tomography</label>
                 <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'NM'">Nuclear Medicine</label>
@@ -37,7 +41,7 @@
             <div ng-show="addFormData.categoryid" ng-include="addFormData.categoryid"></div>
         </div>
     </div>
-    <!-- Add new procedure ends -->
+    <!-- Add new exam ends -->
 
     <!-- Contact Info table start -->
     <div class="panel panel-default editor-heading">
@@ -92,10 +96,10 @@
     <!-- Dose Data tables start -->
     <div class="panel panel-default editor-heading">
       <div class="panel-body section-heading">
-        Procedure Information
+        Exam Information
       </div>
     </div>
-    <p>Click a category heading to show the list of procedures. Click the procedure heading to view and edit the information for that procedure.</p>
+    <p>Click a category heading to show the list of exams. Click the exam heading to view and edit the information for that exam.</p>
     <div id="dosedata">
         <accordion>
             <accordion-group class="group-head category" heading="{{getCategoryName(category.name)}}" ng-click="testFunction(category.name)" ng-repeat="category in storedData.DoseData track by category.name">

@@ -47,5 +47,13 @@ If you want to use Node.js as your web server, follow steps 1-4 of the **Simple 
 If you want to edit any of the javascript files or create your own css color scheme, it is best to make your changes in the `/app` folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
 
 1. **WARNING!:** If you have already edited any of the files in the `/public` folder, you'll want to copy your changes into the `/app` folder. Otherwise, Step 2 will overwrite the `/public` folder and wipe out your changes.
-2. From the `/node` folder, run `grunt deploy`. This will rebuild the application and replace the files in the `public` folder.
-3. Follow the **Simple Install** or **Node.js Install** instructions to complete the installation  
+2. From the `/node` folder, run `grunt`. This will rebuild the application and replace the files in the `public` folder.
+3. Follow the **Simple Install** or **Node.js Install** instructions to complete the installation
+
+#####Changing the json-editor URL:#####
+
+The default json editor is located at `/#/json-editor`. To change this URL:  
+1. Open `app/app.js`.  
+2. Look for the line that reads `url: "/json-editor"`.  
+3. Change `json-editor` to the desired URL and save file.  
+4. From the `/node` folder, run `grunt`. This will rebuild the application and replace the files in the `public` folder.

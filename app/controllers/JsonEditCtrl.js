@@ -158,7 +158,7 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
         saveAs(
             new Blob(
                 [JSON.stringify($scope.storedData, null, 4)], { type: "application/json" }
-            ), "data.json"
+            ), "RadiationDataTables.json"
         );
     };
 
@@ -179,10 +179,6 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
         newProcedure = createNewProcedure();
         newProcedure.name += (category.exams.length + 1);
         category.exams.splice(0, 0, newProcedure);
-    };
-
-    $scope.DataEntryClicked = function() {
-        $state.go("data-entry", {location: true, inherit: false});
     };
 
 });

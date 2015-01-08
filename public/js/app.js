@@ -210,7 +210,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 });;angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope, $state, $templateCache, StoredDataService, ConfigDataService) {
 
-    var createNewProcedure, getCategory, getProcedureIndex;
+    var createNewProcedure, addFormTemplate, tooltipHtmlConsentNarrative, getCategory, getProcedureIndex;
 
     createNewProcedure = function() {
         return  {
@@ -281,6 +281,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return html;
     };
 
+    tooltipHtmlConsentNarrative = function() {
+        var html = "";
+
+        html += "<p>When editing the consent narrative, there are tags wrapped in &lt;&lt&gt;&gt that get replaced with various settings or calculated values when they are displayed to the end user:</p>";
+        html += "<table class=''>";
+        html += "    <tr>";
+        html += "        <th class='tooltip-label'>Tag:</th>";
+        html += "        <th class='tooltip-value'>Description:</th>";
+        html += "    </tr>";
+        html += "    <tr>";
+        html += "        <td class='tooltip-label'>&lt;&lt;effectiveDose&gt;&gt;</td>";
+        html += "        <td class='tooltip-value'>Calculated value based on data entered by the user. See Effective Dose Type below for more details.</td>";
+        html += "    </tr>";
+        html += "    <tr>";
+        html += "        <td class='tooltip-label'>&lt;&lt;comparisonDoseUnit&gt;&gt;</td>";
+        html += "        <td class='tooltip-value'>See Comparison Dose Unit below.</td>";
+        html += "    </tr>";
+        html += "    <tr>";
+        html += "        <td class='tooltip-label'>&lt;&lt;comparisonDoseQuotient&gt;&gt;</td>";
+        html += "        <td class='tooltip-value'>Calculated value (effective dose / comparison dose). Indicates the number of comparison doses.</td>";
+        html += "    </tr>";
+        html += "    <tr>";
+        html += "        <td class='tooltip-label'>&lt;&lt;comparisonDose&gt;&gt;</td>";
+        html += "        <td class='tooltip-value'>See Comparison Dose below.</td>";
+        html += "    </tr>";
+        html += "</table>";
+
+        return html;
+    };
+
     storeAddFormTemplates = function() {
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
@@ -347,9 +377,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.addFormData = initAddFormData();
     $scope.enableSaveButton = false;
     $scope.enableAddProcedureButton = false;
-    $scope.tooltipComparisonDose = 'Numeric value. Indicates the comparison dose to display in the &lt;&lt;comparisonDose&gt;&gt tag in the consent narrative.';
-    $scope.tooltipComparisonDoseUnit = '<p>Indicates which unit (<b>rem</b> or <b>mSv</b>) to use for the &lt;&lt;effectiveDose&gt;&gt; and &lt;&lt;comparisonDose&gt;&gt; in the consent narrative.</p><b>Note:</b> Reports produced by the application always show their data in mSv. This value only applies to the consent narrative.';
-    $scope.tooltipEffectiveDoseType = '<p>Determines how the effective dose is calculated.</p><p>Selecting <b>Total</b> will show the total of all exams entered into the calculator, regardless of whether they are marked as "standard of care."</p>Selecting <b>Research</b> will exclude exams marked as "standard of care" from the calculation.';
+    $scope.tooltipConsentNarrative = tooltipHtmlConsentNarrative();
+
+
+// <<effectiveDose>>   Calculated value based on data entered by the user. See Effective Dose Type below for more details.
+// <<comparisonDoseUnit>>  See Comparison Dose Unit below.
+// <<comparisonDoseQuotient>>  Calculated value (effective dose / comparison dose). Indicates the number of comparison doses.
+// <<comparisonDose>>  See Comparison Dose below.
+
+    $scope.tooltipComparisonDose = "Numeric value. Indicates the comparison dose to display in the &lt;&lt;comparisonDose&gt;&gt tag in the consent narrative.";
+    $scope.tooltipComparisonDoseUnit = "<p>Indicates which unit (<b>rem</b> or <b>mSv</b>) to use for the &lt;&lt;effectiveDose&gt;&gt; and &lt;&lt;comparisonDose&gt;&gt; in the consent narrative.</p><b>Note:</b> Reports produced by the application always show their data in mSv. This value only applies to the consent narrative.";
+    $scope.tooltipEffectiveDoseType = "<p>Determines how the effective dose is calculated.</p><p>Selecting <b>Total</b> will show the total of all exams entered into the calculator, regardless of whether they are marked as \"standard of care.\"</p>Selecting <b>Research</b> will exclude exams marked as \"standard of care\" from the calculation.";
     $scope.$watch("addFormData", function() { $scope.enableAddProcedureButton = ($scope.addFormData.name !== ""); }, true);
     $scope.$watch("storedData", function() { $scope.enableSaveButton = true; }, true);
 

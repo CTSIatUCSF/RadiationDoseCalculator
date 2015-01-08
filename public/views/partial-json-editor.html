@@ -67,10 +67,17 @@
         <tr>
             <td class="label-json space">Consent Narrative</td>
             <td><textarea class="form-control space" ng-model="storedData.ConsentNarrative" /></td>
+            <td>
+                <span class="glyphicon glyphicon-question-sign"></span>
+            </td>
         </tr>
         <tr>
             <td class="label-json">Comparison Dose</td>
             <td><input class="form-control" type="number" ng-model="storedData.ComparisonDose" numbers-only /></td>
+            <td>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipComparisonDose}}" tooltip-trigger="mouseenter" tooltip-popup-delay="250"></span>
+            </td>
+
         </tr>
         <tr>
             <td class="label-json">Comparison Dose Unit</td>
@@ -80,14 +87,20 @@
                     <option value="mSv">mSv</option>
                 </select>
             </td>
+            <td>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipComparisonDoseUnit}}" tooltip-trigger="mouseenter"></span>
+            </td>
         </tr>
-        <tr>
+        <tr style="white-space:nowrap;">
             <td class="label-json">Effective Dose Type</td>
             <td>
                 <select class="form-control" ng-model="storedData.EffectiveDoseType">
                     <option value="Total">Total</option>
                     <option value="Research">Research</option>
                 </select>
+            </td>
+            <td>
+                <span class="glyphicon glyphicon-question-sign" tooltip-html-unsafe="{{tooltipEffectiveDoseType}}" tooltip-trigger="mouseenter"></span>
             </td>
         </tr>
     </table>

@@ -137,6 +137,9 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
     $scope.addFormData = initAddFormData();
     $scope.enableSaveButton = false;
     $scope.enableAddProcedureButton = false;
+    $scope.tooltipComparisonDose = 'Numeric value. Indicates the comparison dose to display in the &lt;&lt;comparisonDose&gt;&gt tag in the consent narrative.';
+    $scope.tooltipComparisonDoseUnit = '<p>Indicates which unit (<b>rem</b> or <b>mSv</b>) to use for the &lt;&lt;effectiveDose&gt;&gt; and &lt;&lt;comparisonDose&gt;&gt; in the consent narrative.</p><b>Note:</b> Reports produced by the application always show their data in mSv. This value only applies to the consent narrative.';
+    $scope.tooltipEffectiveDoseType = '<p>Determines how the effective dose is calculated.</p><p>Selecting <b>Total</b> will show the total of all exams entered into the calculator, regardless of whether they are marked as "standard of care."</p>Selecting <b>Research</b> will exclude exams marked as "standard of care" from the calculation.';
     $scope.$watch("addFormData", function() { $scope.enableAddProcedureButton = ($scope.addFormData.name !== ""); }, true);
     $scope.$watch("storedData", function() { $scope.enableSaveButton = true; }, true);
 

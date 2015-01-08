@@ -15,7 +15,7 @@
     <form name="DataEntryForm" novalidate>
         <!-- routing navigation -->
         <div class="no-print" style="margin:20px 40px 30px 70px;">
-            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)">Generate Report</button>
+            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)"><span class="glyphicon glyphicon-align-justify icon-left"></span> Generate Report</button>
             <button class="btn btn-link reset-all" confirmed-click="ResetAll()" ng-confirm-click="Remove all exams from the calculation?" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)">Remove all exams</button>
             <!-- <button class="btn standard-btn" ng-show="DataEntryForm.$invalid">Validation Errors!</button> -->
         </div>

@@ -20,6 +20,17 @@ footer {
     height: 50px;
 }
 
+input[type="text"].ng-invalid,
+input[type="number"].ng-invalid,
+input[type="email"].ng-invalid,
+textarea.ng-invalid,
+select.ng-invalid {
+    outline: none;
+    box-shadow:none !important;
+    border-color: red !important;
+    border-width: 1px;
+}
+
 div#logo {
     display:inline-block;
     margin-right:15px;
@@ -71,14 +82,14 @@ p.language-text {
 
 .category {
     font-weight: bold !important;
-} 
+}
 
 button.btn-link {
     font-size: 1.2em;
 }
 
 button.standard-btn {
-    width:140px;
+    min-width:140px;
     height:40px;
     margin-right:20px;
 }
@@ -89,7 +100,6 @@ button.remove-procedure {
 }
 
 button.back-to-data {
-    width: 170px;
 }
 
 div#json-editor-wrapper table td.label-json {
@@ -320,9 +330,10 @@ button.reset-all {
     margin-right: 35px;
 }
 
-.ng-invalid {
-  border-color: red;
-  border-width: 1px;
+button.icon-left {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.3em;
 }
 
 div#consentTextTitle {

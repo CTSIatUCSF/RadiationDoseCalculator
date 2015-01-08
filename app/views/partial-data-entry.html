@@ -42,7 +42,7 @@
         </div>
 
         <div style="margin:20px 40px 30px 70px;">
-            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1)">
+            <button class="btn standard-btn generate-report" ng-click="GenerateReportClicked()" ng-disabled="(allProcedures.length<1 || DataEntryForm.$invalid)">
                 <span class="glyphicon glyphicon-align-justify icon-left"></span> Generate Report
             </button>
         </div>

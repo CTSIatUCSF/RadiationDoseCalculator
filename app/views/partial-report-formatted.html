@@ -3,86 +3,114 @@
     <div class="report-wrapper">
     
         <div class="button-row no-print">
-            <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()">Back to data</button>
-            <button class="btn standard-btn plaintext" ng-click="PlainTextReportClicked()">Plain Text</button>
+            <button class="btn standard-btn back-to-data" ng-click="DataEntryClicked()"><span class="glyphicon glyphicon-arrow-left"></span> Back to data</button>
             <button class="btn standard-btn print" ng-click="Print()">Print</button>
+            <div class="btn-group btn-block">
+                <label class="btn standard-btn gray" ng-model="reportFormat" btn-radio="'Formatted'" style="height:40px; line-height:1.42857143; padding:9px;">Formatted</label>
+                <label class="btn standard-btn gray" ng-model="reportFormat" btn-radio="'PlainText'" style="height:40px; line-height:1.42857143; padding:9px;">Plain Text</label>
+            </div>
         </div>
 
-        <table class="table-over hover-table table-borders-report">
-            <tr>
-                <th class="exam-headers" >Types of Procedures</th>
-                <th class="exam-headers" >Total Scans</th>
-                <th class="exam-headers" >Total EDE (mSv)</th>
-                <th class="exam-headers" >Annual Scans</th>
-                <th class="exam-headers" >Annual EDE (mSv)</th>
-            </tr>
-            <tr>
-                <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
-                <td>{{getScanCount("CT")}}</td>
-                <td>{{edeTotal("CT") | twoDecimalsFilter}}</td>
-                <td>{{getAnnualScanCount("CT")}}</td>
-                <td>{{edeAnnualTotal("CT") | twoDecimalsFilter}}</td>
-            </tr>
-            <tr>
-                <td>Nuclear Medicine <sup class="super">{{footnotes("NM")}}</sup></td>
-                <td>{{getScanCount("NM")}}</td>
-                <td>{{edeTotal("NM") | twoDecimalsFilter}}</td>
-                <td>{{getAnnualScanCount("NM")}}</td>
-                <td>{{edeAnnualTotal("NM") | twoDecimalsFilter}}</td>
-            </tr>
-            <tr>
-                <td>Radiography <sup class="super">{{footnotes("XRay")}}</sup></td>
-                <td>{{getScanCount("XRay")}}</td>
-                <td>{{edeTotal("XRay") | twoDecimalsFilter}}</td>
-                <td>{{getAnnualScanCount("XRay")}}</td>
-                <td>{{edeAnnualTotal("XRay") | twoDecimalsFilter}}</td>
-            </tr>
-            <tr>
-                <td>Fluoroscopy <sup class="super">{{footnotes("Fluoro")}}</sup></td>
-                <td>{{getScanCount("Fluoro")}}</td>
-                <td>{{edeTotal("Fluoro") | twoDecimalsFilter}}</td>
-                <td>{{getAnnualScanCount("Fluoro")}}</td>
-                <td>{{edeAnnualTotal("Fluoro") | twoDecimalsFilter}}</td>
-            </tr>
-        </table>
+    <!-- Formatted Report Start-->
+        <div class="formatted" ng-show="reportFormat==='Formatted'">
+            <table class="table-over hover-table table-borders-report">
+                <tr>
+                    <th class="exam-headers" >Types of Procedures</th>
+                    <th class="exam-headers" >Total Scans</th>
+                    <th class="exam-headers" >Total EDE (mSv)</th>
+                    <th class="exam-headers" >Annual Scans</th>
+                    <th class="exam-headers" >Annual EDE (mSv)</th>
+                </tr>
+                <tr>
+                    <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
+                    <td>{{getScanCount("CT")}}</td>
+                    <td>{{edeTotal("CT") | twoDecimalsFilter}}</td>
+                    <td>{{getAnnualScanCount("CT")}}</td>
+                    <td>{{edeAnnualTotal("CT") | twoDecimalsFilter}}</td>
+                </tr>
+                <tr>
+                    <td>Nuclear Medicine <sup class="super">{{footnotes("NM")}}</sup></td>
+                    <td>{{getScanCount("NM")}}</td>
+                    <td>{{edeTotal("NM") | twoDecimalsFilter}}</td>
+                    <td>{{getAnnualScanCount("NM")}}</td>
+                    <td>{{edeAnnualTotal("NM") | twoDecimalsFilter}}</td>
+                </tr>
+                <tr>
+                    <td>Radiography <sup class="super">{{footnotes("XRay")}}</sup></td>
+                    <td>{{getScanCount("XRay")}}</td>
+                    <td>{{edeTotal("XRay") | twoDecimalsFilter}}</td>
+                    <td>{{getAnnualScanCount("XRay")}}</td>
+                    <td>{{edeAnnualTotal("XRay") | twoDecimalsFilter}}</td>
+                </tr>
+                <tr>
+                    <td>Fluoroscopy <sup class="super">{{footnotes("Fluoro")}}</sup></td>
+                    <td>{{getScanCount("Fluoro")}}</td>
+                    <td>{{edeTotal("Fluoro") | twoDecimalsFilter}}</td>
+                    <td>{{getAnnualScanCount("Fluoro")}}</td>
+                    <td>{{edeAnnualTotal("Fluoro") | twoDecimalsFilter}}</td>
+                </tr>
+            </table>
 
-        <table class="table-over hover-table table-borders-report">
-            <tr>
-                <th class="exam-headers">&nbsp;</th>
-                <th class="exam-headers">Total</th>
-                <th class="exam-headers">Annual</th>
-            </tr>
-            <tr>
-                <td>Research EDE (mSv)</td>
-                <td class="total">{{edeReportTotalWithoutSOC() | twoDecimalsFilter}}</td>
-                <td class="total">{{edeReportAnnualTotalWithoutSOC() | twoDecimalsFilter}}</td>
-            </tr>
-            <tr>
-                <td>Standard of Care (mSv)</td>
-                <td class="total">{{edeReportTotalOnlySOC() | twoDecimalsFilter}}</td>
-                <td class="total">{{edeReportAnnualTotalOnlySOC() | twoDecimalsFilter}}</td>
-            </tr>
-            <tr>
-                <td>Total EDE (mSv)</td>
-                <td class="total">{{edeReportTotal() | twoDecimalsFilter}}</td>
-                <td class="total">{{edeReportAnnualTotal() | twoDecimalsFilter}}</td>
-            </tr>
-        </table>
-        
-        <div class="report-language-wrapper">
-            <div class="report-language-title">Consent Narrative</div>
-            <p class="language-text">{{consentNarrative()}}</p>
-        </div>
+            <table class="table-over hover-table table-borders-report">
+                <tr>
+                    <th class="exam-headers">&nbsp;</th>
+                    <th class="exam-headers">Total</th>
+                    <th class="exam-headers">Annual</th>
+                </tr>
+                <tr>
+                    <td>Research EDE (mSv)</td>
+                    <td class="total">{{edeReportTotalWithoutSOC() | twoDecimalsFilter}}</td>
+                    <td class="total">{{edeReportAnnualTotalWithoutSOC() | twoDecimalsFilter}}</td>
+                </tr>
+                <tr>
+                    <td>Standard of Care (mSv)</td>
+                    <td class="total">{{edeReportTotalOnlySOC() | twoDecimalsFilter}}</td>
+                    <td class="total">{{edeReportAnnualTotalOnlySOC() | twoDecimalsFilter}}</td>
+                </tr>
+                <tr>
+                    <td>Total EDE (mSv)</td>
+                    <td class="total">{{edeReportTotal() | twoDecimalsFilter}}</td>
+                    <td class="total">{{edeReportAnnualTotal() | twoDecimalsFilter}}</td>
+                </tr>
+            </table>
+            
+            <div class="report-language-wrapper">
+                <div class="report-language-title">Consent Narrative</div>
+                <p class="language-text">{{consentNarrative()}}</p>
+            </div>
 
-        <div class="report-language-wrapper">
-            <div class="report-language-title">Supplemental Consent Language</div>
-            <p class="language-text">{{getSupplementalConsentText()}}</p>
-        </div>
+            <div class="report-language-wrapper">
+                <div class="report-language-title">Supplemental Consent Language</div>
+                <p class="language-text">{{getSupplementalConsentText()}}</p>
+            </div>
 
-        <div class="report-language-wrapper">
-            <div class="report-language-title">Citations</div>
-            <p class="language-text" ng-repeat="citation in citations()">{{citation}}</p>
+            <div class="report-language-wrapper">
+                <div class="report-language-title">Citations</div>
+                <p class="language-text" ng-repeat="citation in citations()">{{citation}}</p>
+            </div>
         </div>
+        <!-- Formatted Report End-->
+
+        <!-- Plain Text Report -->
+        <div class="plaintext" ng-show="reportFormat==='PlainText'">
+
+            <div class="heading">Radiation Dose Calculator</div>
+            <pre class="tables">
+                {{plainTextTables()}}
+            </pre>
+
+            <div class="heading">Consent Narrative</div>
+            <div class="content">{{consentNarrative()}}</div>
+
+            <div class="heading">Supplemental Consent Narrative</div>
+            <div class="content">{{getSupplementalConsentText()}}</div>
+
+            <div class="heading">Citations</div>
+            <div class="content" ng-repeat="citation in getPlainTextCitations()">{{citation}}</div>
+
+        </div>
+        <!-- Plain Text Report End-->
+
 
     </div>
 </div>

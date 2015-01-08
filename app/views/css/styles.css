@@ -240,8 +240,18 @@ div.report-wrapper > div.plaintext {
     padding-left:50px;
     padding-right:50px;
     min-width: 700px;
-    background-color: #ffffff;
     border:2px solid #4d4d4d;
+    background-color: #ffffff;
+}
+
+div.report-wrapper > div.formatted {
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:50px;
+    padding-right:50px;
+    min-width: 700px;
+    border:2px solid #4d4d4d;
+    background-color: #ffffff;
 }
 
 div.report-wrapper > pre.tables {

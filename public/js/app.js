@@ -516,6 +516,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
     $scope.bibliography = buildBibliography();
+    $scope.reportFormat = "Formatted";
 
     $scope.citations = function() {
         return $scope.bibliography.citations;

@@ -114,6 +114,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
     $scope.bibliography = buildBibliography();
+    $scope.reportFormat = "Formatted";
 
     $scope.citations = function() {
         return $scope.bibliography.citations;

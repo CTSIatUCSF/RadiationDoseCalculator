@@ -155,7 +155,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     };
 
     function validateUserData() {
-        console.log("Validate User Data!");
+        // console.log("Validate User Data!");
     }
     
     function updateSupplementalConsentText() {

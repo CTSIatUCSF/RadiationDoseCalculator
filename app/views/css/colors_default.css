@@ -26,7 +26,7 @@ header {
 }
 
 div#logo {
-    background-image: url("/img/radsym.gif");
+    background-image: url("../img/radsym.gif");
     background-repeat: no-repeat;
     height:43px;
     width:46px;

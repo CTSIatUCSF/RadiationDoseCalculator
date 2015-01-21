@@ -201,7 +201,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     function validateUserData() {
-        console.log("Validate User Data!");
+        // console.log("Validate User Data!");
     }
     
     function updateSupplementalConsentText() {
@@ -907,7 +907,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var storedData = {};
     var promise;
 
-    promise = $http.get("/js/data/RadiationDataTables.json").success(function (response) {
+    promise = $http.get("js/data/RadiationDataTables.json").success(function (response) {
       storedData = response;
     });
 

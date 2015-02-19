@@ -5,25 +5,25 @@ angular.module("RadCalc.services").factory("ConfigDataService", function() {
             {
                 "id": "CT",
                 "name": "X-ray Computed Tomography Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "NM",
                 "name": "Nuclear Medicine Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "NM", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "injectedDose": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "XRay",
                 "name": "X-ray Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "Fluoro",
                 "name": "Fluoroscopy Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "Fluoro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             }
         ]

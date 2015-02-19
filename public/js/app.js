@@ -218,17 +218,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             "citation": "sample citation",
             "properties":[
                 {
-                    "name":"EDE (female)",
+                    "name":"ED (female)",
                     "gender":"female",
                     "value":0
                 },
                 {
-                    "name":"EDE (male)",
+                    "name":"ED (male)",
                     "gender":"male",
                     "value":0
                 },
                 {
-                    "name":"EDE (mixed)",
+                    "name":"ED (mixed)",
                     "gender":"mixed",
                     "value":0
                 }
@@ -238,15 +238,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     addFormTemplate = function(categoryId) {
         var html = "";
-        var genderLabelFemale = "EDE (female):";
-        var genderLabelMale   = "EDE (male):";
-        var genderLabelMixed  = "EDE (mixed):";
+        var genderLabelFemale = "ED (female):";
+        var genderLabelMale   = "ED (male):";
+        var genderLabelMixed  = "ED (mixed):";
         var categoryTitle = ConfigDataService.getTitleForId(categoryId);
 
         if (categoryId.toUpperCase() === "NM") {
-            genderLabelFemale = "EDE/mCi (female):";
-            genderLabelMale   = "EDE/mCi (male):";
-            genderLabelMixed  = "EDE/mCi (mixed):";
+            genderLabelFemale = "ED/mCi (female):";
+            genderLabelMale   = "ED/mCi (male):";
+            genderLabelMixed  = "ED/mCi (mixed):";
         }
 
         html += "<ng-form name='addProcedure' isolate-form>";
@@ -569,7 +569,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $scope.plainTextTables = function() {
         var opt = plainTextFormattingOptions;
-        var edeLabelText = "EDE(mSv)";
+        var edeLabelText = "ED(mSv)";
         var linebreak = "\n";
 
         var plaintext = "";
@@ -629,7 +629,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += linebreak;
 
-        plaintext += addPadding("Research EDE (mSv)", opt.col2);
+        plaintext += addPadding("Research ED (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalWithoutSOC(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalWithoutSOC(), 2), opt.col4 - opt.col3);
         plaintext += linebreak;
@@ -639,7 +639,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalOnlySOC(), 2), opt.col4 - opt.col3);
         plaintext += linebreak;
 
-        plaintext += addPadding("Total EDE (mSv)", opt.col2);
+        plaintext += addPadding("Total ED (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotal(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotal(), 2), opt.col4 - opt.col3);
 
@@ -855,25 +855,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
             {
                 "id": "CT",
                 "name": "X-ray Computed Tomography Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "CT", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "NM",
                 "name": "Nuclear Medicine Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Injected Dose (mCi)", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "NM", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "injectedDose": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "XRay",
                 "name": "X-ray Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", " ", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "XRay", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "ede": 0, "annualscans": 1, "annualede": 0 }
             },
             {
                 "id": "Fluoro",
                 "name": "Fluoroscopy Examinations",
-                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "EDE (mSv)", "# Scans/year", "Annual EDE (mSv)"],
+                "headers": ["Study", "Examination", "# Scans", "Standard of Care?", "Gender Predominance", "Minutes", "ED (mSv)", "# Scans/year", "Annual ED (mSv)"],
                 "defaultrow": { "id": 0, "categoryid": "Fluoro", "exam": "", "scans": 1, "soc": false, "gender": "mixed", "minutes": 0, "ede": 0, "annualscans": 1, "annualede": 0 }
             }
         ]
@@ -1172,7 +1172,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, regardless of Standard of Care value
+    Returns total ED for a section of the report, regardless of Standard of Care value
     */
     edeTotal = function(categoryId) {
         var onlySOC = edeTotalOnlySOC(categoryId);
@@ -1186,7 +1186,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     categoryId = Identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, excluding items marked as Standard of Care
+    Returns total ED for a section of the report, excluding items marked as Standard of Care
     */
     edeTotalWithoutSOC = function(categoryId) {
         return getCategoryEdeTotal(categoryId, false);
@@ -1196,7 +1196,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, excluding items that are not marked as Standard of Care
+    Returns total ED for a section of the report, excluding items that are not marked as Standard of Care
     */
     edeTotalOnlySOC = function(categoryId) {
         return getCategoryEdeTotal(categoryId, true);
@@ -1222,7 +1222,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // Report Totals 
 
     /*
-    Returns total EDE for the entire report, regardless of Standard of Care value
+    Returns total ED for the entire report, regardless of Standard of Care value
     */
     edeReportTotal = function() {
         var procedureIndex, procedure;
@@ -1236,7 +1236,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     /*
-    Returns total EDE for the entire report, excluding items marked as Standard of Care
+    Returns total ED for the entire report, excluding items marked as Standard of Care
     */
     edeReportTotalWithoutSOC = function() {
         var procedureIndex, procedure;
@@ -1252,7 +1252,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     /*
-    Returns total EDE for the entire report, excluding items that are not marked as Standard of Care
+    Returns total ED for the entire report, excluding items that are not marked as Standard of Care
     */
     edeReportTotalOnlySOC = function() {
         var procedureIndex, procedure;

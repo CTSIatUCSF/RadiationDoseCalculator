@@ -17,9 +17,9 @@
                 <tr>
                     <th class="exam-headers" >Types of Procedures</th>
                     <th class="exam-headers" >Total Scans</th>
-                    <th class="exam-headers" >Total EDE (mSv)</th>
+                    <th class="exam-headers" >Total ED (mSv)</th>
                     <th class="exam-headers" >Annual Scans</th>
-                    <th class="exam-headers" >Annual EDE (mSv)</th>
+                    <th class="exam-headers" >Annual ED (mSv)</th>
                 </tr>
                 <tr>
                     <td>X-Ray CT <sup class="super">{{footnotes("CT")}}</sup></td>
@@ -58,7 +58,7 @@
                     <th class="exam-headers">Annual</th>
                 </tr>
                 <tr>
-                    <td>Research EDE (mSv)</td>
+                    <td>Research ED (mSv)</td>
                     <td class="total">{{edeReportTotalWithoutSOC() | twoDecimalsFilter}}</td>
                     <td class="total">{{edeReportAnnualTotalWithoutSOC() | twoDecimalsFilter}}</td>
                 </tr>
@@ -68,7 +68,7 @@
                     <td class="total">{{edeReportAnnualTotalOnlySOC() | twoDecimalsFilter}}</td>
                 </tr>
                 <tr>
-                    <td>Total EDE (mSv)</td>
+                    <td>Total ED (mSv)</td>
                     <td class="total">{{edeReportTotal() | twoDecimalsFilter}}</td>
                     <td class="total">{{edeReportAnnualTotal() | twoDecimalsFilter}}</td>
                 </tr>

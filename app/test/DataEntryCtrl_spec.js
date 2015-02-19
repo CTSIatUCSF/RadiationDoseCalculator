@@ -113,7 +113,7 @@ describe ( "Form Controllers", function () {
         });
     });
 
-    describe ( "EDE", function() {
+    describe ( "ED", function() {
 
         it ( "blank name returns NaN", function () {
             var testProcedure = { "id": 1, "categoryid": "CT", "exam": "", "scans": 0, "soc": false, "gender": "mixed", "ede": 0 };
@@ -127,7 +127,7 @@ describe ( "Form Controllers", function () {
 
     });
 
-    describe("EDE totals", function() {
+    describe("ED totals", function() {
 
         beforeEach(function() {
             var procedures = [

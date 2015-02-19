@@ -8,17 +8,17 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
             "citation": "sample citation",
             "properties":[
                 {
-                    "name":"EDE (female)",
+                    "name":"ED (female)",
                     "gender":"female",
                     "value":0
                 },
                 {
-                    "name":"EDE (male)",
+                    "name":"ED (male)",
                     "gender":"male",
                     "value":0
                 },
                 {
-                    "name":"EDE (mixed)",
+                    "name":"ED (mixed)",
                     "gender":"mixed",
                     "value":0
                 }
@@ -28,15 +28,15 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
 
     addFormTemplate = function(categoryId) {
         var html = "";
-        var genderLabelFemale = "EDE (female):";
-        var genderLabelMale   = "EDE (male):";
-        var genderLabelMixed  = "EDE (mixed):";
+        var genderLabelFemale = "ED (female):";
+        var genderLabelMale   = "ED (male):";
+        var genderLabelMixed  = "ED (mixed):";
         var categoryTitle = ConfigDataService.getTitleForId(categoryId);
 
         if (categoryId.toUpperCase() === "NM") {
-            genderLabelFemale = "EDE/mCi (female):";
-            genderLabelMale   = "EDE/mCi (male):";
-            genderLabelMixed  = "EDE/mCi (mixed):";
+            genderLabelFemale = "ED/mCi (female):";
+            genderLabelMale   = "ED/mCi (male):";
+            genderLabelMixed  = "ED/mCi (mixed):";
         }
 
         html += "<ng-form name='addProcedure' isolate-form>";

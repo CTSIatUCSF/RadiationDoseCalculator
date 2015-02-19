@@ -135,7 +135,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
 
     $scope.plainTextTables = function() {
         var opt = plainTextFormattingOptions;
-        var edeLabelText = "EDE(mSv)";
+        var edeLabelText = "ED(mSv)";
         var linebreak = "\n";
 
         var plaintext = "";
@@ -195,7 +195,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += addPadding("", opt.col5 + edeLabelText.length, "-");
         plaintext += linebreak;
 
-        plaintext += addPadding("Research EDE (mSv)", opt.col2);
+        plaintext += addPadding("Research ED (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotalWithoutSOC(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalWithoutSOC(), 2), opt.col4 - opt.col3);
         plaintext += linebreak;
@@ -205,7 +205,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotalOnlySOC(), 2), opt.col4 - opt.col3);
         plaintext += linebreak;
 
-        plaintext += addPadding("Total EDE (mSv)", opt.col2);
+        plaintext += addPadding("Total ED (mSv)", opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportTotal(), 2), opt.col3 - opt.col2);
         plaintext += addPadding(decimalFormatter.format($scope.edeReportAnnualTotal(), 2), opt.col4 - opt.col3);
 

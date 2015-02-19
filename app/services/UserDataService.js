@@ -187,7 +187,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, regardless of Standard of Care value
+    Returns total ED for a section of the report, regardless of Standard of Care value
     */
     edeTotal = function(categoryId) {
         var onlySOC = edeTotalOnlySOC(categoryId);
@@ -201,7 +201,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     categoryId = Identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, excluding items marked as Standard of Care
+    Returns total ED for a section of the report, excluding items marked as Standard of Care
     */
     edeTotalWithoutSOC = function(categoryId) {
         return getCategoryEdeTotal(categoryId, false);
@@ -211,7 +211,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     categoryId = identifies which section of the report to return data for.
         Should correspond to the id value on a form controller. (ex: CT)
 
-    Returns total EDE for a section of the report, excluding items that are not marked as Standard of Care
+    Returns total ED for a section of the report, excluding items that are not marked as Standard of Care
     */
     edeTotalOnlySOC = function(categoryId) {
         return getCategoryEdeTotal(categoryId, true);
@@ -237,7 +237,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     // Report Totals 
 
     /*
-    Returns total EDE for the entire report, regardless of Standard of Care value
+    Returns total ED for the entire report, regardless of Standard of Care value
     */
     edeReportTotal = function() {
         var procedureIndex, procedure;
@@ -251,7 +251,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     };
 
     /*
-    Returns total EDE for the entire report, excluding items marked as Standard of Care
+    Returns total ED for the entire report, excluding items marked as Standard of Care
     */
     edeReportTotalWithoutSOC = function() {
         var procedureIndex, procedure;
@@ -267,7 +267,7 @@ angular.module("RadCalc.services").factory("UserDataService", function($q, $http
     };
 
     /*
-    Returns total EDE for the entire report, excluding items that are not marked as Standard of Care
+    Returns total ED for the entire report, excluding items that are not marked as Standard of Care
     */
     edeReportTotalOnlySOC = function() {
         var procedureIndex, procedure;

@@ -34,7 +34,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         if (unit === "rem") {
             dose = convertMsvToRem(dose);
         }
-        return Math.round10(dose, -2);
+        return Math.round10(dose, 0);
     };
 
     convertMsvToRem = function(mSv_number) {
@@ -49,7 +49,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
         var dose = effectiveDose("mSv");
         var cdq = dose / comparisonDoseMsv();
         cdq = cdq || 0;
-        return Math.round10(cdq, -2);
+        return Math.round10(cdq, 0);
     };
 
     buildBibliography = function() {

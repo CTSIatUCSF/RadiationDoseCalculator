@@ -470,7 +470,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         if (unit === "rem") {
             dose = convertMsvToRem(dose);
         }
-        return Math.round10(dose, -2);
+        return Math.round10(dose, 0);
     };
 
     convertMsvToRem = function(mSv_number) {
@@ -485,7 +485,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         var dose = effectiveDose("mSv");
         var cdq = dose / comparisonDoseMsv();
         cdq = cdq || 0;
-        return Math.round10(cdq, -2);
+        return Math.round10(cdq, 0);
     };
 
     buildBibliography = function() {

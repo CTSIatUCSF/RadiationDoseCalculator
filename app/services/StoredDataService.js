@@ -2,14 +2,28 @@ angular.module("RadCalc.services").factory("StoredDataService", function($q, $ht
 
     var storedData = {};
     var promise;
+    var hideFluoro = true;
 
     promise = $http.get("js/data/RadiationDataTables.json").success(function (response) {
       storedData = response;
+      if (hideFluoro) {
+        //remove Flouro section from storedData
+        var name = "Fluoro";
+        var data = storedData.DoseData;
+        // iterate through the list, find the matching name, splice, and then break to exit the loop
+        for(var i = 0; i < data.length; i++) {
+            if(data[i].name === name) {
+                data = data.splice(i, 1);
+                break;
+            }
+        }
+      }
     });
 
     return {
 
         promise:promise,
+        hideFluoro:hideFluoro,
 
         storedData: function() {
             return storedData;

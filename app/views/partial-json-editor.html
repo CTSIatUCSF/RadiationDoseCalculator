@@ -40,7 +40,7 @@
                 <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'CT'">X-ray Computed Tomography</label>
                 <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'NM'">Nuclear Medicine</label>
                 <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'XRay'">X-ray</label>
-                <label class="btn btn-default gray" ng-model="addFormData.categoryid" btn-radio="'Fluoro'">Fluoroscopy</label>
+                <label class="btn btn-default gray" ng-model="addFormData.categoryid" ng-hide="hideFluoro" btn-radio="'Fluoro'">Fluoroscopy</label>
             </div>
             <div ng-show="addFormData.categoryid" ng-include="addFormData.categoryid"></div>
         </div>

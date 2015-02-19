@@ -109,6 +109,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.$watch("allProcedures", updateUserDataService, true);
 
     $scope.getCategoryConfig = getCategoryConfig;
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
     $scope.getProcedures = function(categoryId) {
         var index, procedure;
@@ -315,7 +316,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
         $templateCache.put("XRay", addFormTemplate("XRay"));
-        $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
+        // $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
     };
 
     initAddFormData = function() {
@@ -378,6 +379,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.enableSaveButton = false;
     $scope.enableAddProcedureButton = false;
     $scope.tooltipConsentNarrative = tooltipHtmlConsentNarrative();
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
 
 // <<effectiveDose>>   Calculated value based on data entered by the user. See Effective Dose Type below for more details.
@@ -549,6 +551,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
     $scope.bibliography = buildBibliography();
     $scope.reportFormat = "Formatted";
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
     $scope.citations = function() {
         return $scope.bibliography.citations;
@@ -906,14 +909,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     var storedData = {};
     var promise;
+    var hideFluoro = true;
 
     promise = $http.get("js/data/RadiationDataTables.json").success(function (response) {
       storedData = response;
+      if (hideFluoro) {
+        //remove Flouro section from storedData
+        var name = "Fluoro";
+        var data = storedData.DoseData;
+        // iterate through the list, find the matching name, splice, and then break to exit the loop
+        for(var i = 0; i < data.length; i++) {
+            if(data[i].name === name) {
+                data = data.splice(i, 1);
+                break;
+            }
+        }
+      }
     });
 
     return {
 
         promise:promise,
+        hideFluoro:hideFluoro,
 
         storedData: function() {
             return storedData;

@@ -42,7 +42,7 @@
                     <td>{{getAnnualScanCount("XRay")}}</td>
                     <td>{{edeAnnualTotal("XRay") | twoDecimalsFilter}}</td>
                 </tr>
-                <tr>
+                <tr ng-hide="hideFluoro">
                     <td>Fluoroscopy <sup class="super">{{footnotes("Fluoro")}}</sup></td>
                     <td>{{getScanCount("Fluoro")}}</td>
                     <td>{{edeTotal("Fluoro") | twoDecimalsFilter}}</td>

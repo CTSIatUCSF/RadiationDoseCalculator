@@ -105,7 +105,7 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
         $templateCache.put("CT", addFormTemplate("CT"));
         $templateCache.put("NM", addFormTemplate("NM"));
         $templateCache.put("XRay", addFormTemplate("XRay"));
-        $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
+        // $templateCache.put("Fluoro", addFormTemplate("Fluoro"));
     };
 
     initAddFormData = function() {
@@ -168,6 +168,7 @@ angular.module("RadCalc.controllers").controller("JsonEditCtrl", function($scope
     $scope.enableSaveButton = false;
     $scope.enableAddProcedureButton = false;
     $scope.tooltipConsentNarrative = tooltipHtmlConsentNarrative();
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
 
 // <<effectiveDose>>   Calculated value based on data entered by the user. See Effective Dose Type below for more details.

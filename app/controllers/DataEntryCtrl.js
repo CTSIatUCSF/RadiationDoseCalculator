@@ -63,6 +63,7 @@ angular.module("RadCalc.controllers").controller("DataEntryCtrl", function($scop
     $scope.$watch("allProcedures", updateUserDataService, true);
 
     $scope.getCategoryConfig = getCategoryConfig;
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
     $scope.getProcedures = function(categoryId) {
         var index, procedure;

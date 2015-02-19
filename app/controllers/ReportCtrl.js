@@ -115,6 +115,7 @@ angular.module("RadCalc.controllers").controller("ReportCtrl", function($scope, 
     $scope.supplementalConsentLanguage = userData.supplementalConsentText || "";
     $scope.bibliography = buildBibliography();
     $scope.reportFormat = "Formatted";
+    $scope.hideFluoro = StoredDataService.hideFluoro;
 
     $scope.citations = function() {
         return $scope.bibliography.citations;

@@ -616,12 +616,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
         plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("XRay"), 2), opt.col6 - opt.col5);
         plaintext += linebreak;
 
-        plaintext += addPadding("Fluoroscopy " + footnotePlainText("Fluoro"), opt.col2);
-        plaintext += addPadding($scope.getScanCount("Fluoro"), opt.col3 - opt.col2);
-        plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Fluoro"), 2), opt.col4 - opt.col3);
-        plaintext += addPadding($scope.getAnnualScanCount("Fluoro"), opt.col5 - opt.col4);
-        plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Fluoro"), 2), opt.col6 - opt.col5);
-        plaintext += linebreak;
+        if (StoredDataService.hideFluoro === false) {
+            plaintext += addPadding("Fluoroscopy " + footnotePlainText("Fluoro"), opt.col2);
+            plaintext += addPadding($scope.getScanCount("Fluoro"), opt.col3 - opt.col2);
+            plaintext += addPadding(decimalFormatter.format($scope.edeTotal("Fluoro"), 2), opt.col4 - opt.col3);
+            plaintext += addPadding($scope.getAnnualScanCount("Fluoro"), opt.col5 - opt.col4);
+            plaintext += addPadding(decimalFormatter.format($scope.edeAnnualTotal("Fluoro"), 2), opt.col6 - opt.col5);
+            plaintext += linebreak;
+        }
 
         plaintext += linebreak;
         plaintext += linebreak;

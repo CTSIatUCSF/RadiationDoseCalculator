@@ -12,7 +12,7 @@ The `/public` folder contains all of the files needed to run the calculator. Jus
 3. When you are done editing `/public/index.html`, save your changes.
 4. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
 5. Copy all files in the `/public` folder to your web server and start it up.
-6. Go to [your-server-name/#/json-editor] (http://your-server-name/#/json-editor) to edit the consent narrative and add, remove, and modify procedure data. This page will allow you to generate a new `data.json` file, but it will not update the data on your web server. You'll need to replace the existing `/public/js/data/data.json` file with your version of the file. 
+6. Go to [your-server-name/#/json-editor] (http://your-server-name/#/json-editor) to edit the consent narrative and add, remove, and modify procedure data. (The default configuration bundled with the application contains dummy/experimental dose values, and will need to be replaced.) This page will allow you to generate a new `data.json` file, but it will not update the data on your web server. You'll need to replace the existing `/public/js/data/data.json` file with your version of the file. 
 
 ###### Notes about Consent Narrative
 When editing the consent narrative, there are tags wrapped in **<<>>** that get replaced with various settings or calculated values when they are displayed to the end user:

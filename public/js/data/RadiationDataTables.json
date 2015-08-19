@@ -1,3427 +1,1180 @@
 {
-    "ConsentNarrative":"By participating in this study, you will be exposed to ionizing radiation. This radiation will result from the use of standard medical procedures required by the study. This radiation is not required for your medical care and is for research purposes only. The levels of radiation that you will receive are within the range of that typically given to individuals receiving these medical procedures. The amount of radiation you will receive in this study is equal to an effective dose of <<effectiveDose>> <<comparisonDoseUnit>>. This amount of radiation is about the equivalent to what you would receive from <<comparisonDoseQuotient>> years of natural exposure i.e. <<comparisonDose>> <<comparisonDoseUnit>> per year (known as background radiation) but would be in addition to the normal background radiation you are already exposed to and, therefore, potentially carries an increased risk of cancer over your lifetime. If you are especially concerned with exposure to ionizing radiation, you may wish to discuss this with your study doctor.",
-    "ComparisonDose":0.3, 
-    "ComparisonDoseUnit": "rem",
-    "EffectiveDoseType":"Research",
-    "HelpEmailAddress":"admin@domain.com",
-    "DoseData":[
+    "ConsentNarrative": "By participating in this study, you will be exposed to ionizing radiation. This radiation will result from the use of standard medical procedures required by the study. This radiation is not required for your medical care and is for research purposes only. The levels of radiation that you will receive are within the range of that typically given to individuals receiving these medical procedures. The amount of radiation you will receive in this study is equal to an effective dose of <<effectiveDose>> <<comparisonDoseUnit>>. This amount of radiation is about the equivalent to what you would receive from <<comparisonDoseQuotient>> years of natural exposure i.e. <<comparisonDose>> <<comparisonDoseUnit>> per year (known as background radiation) but would be in addition to the normal background radiation you are already exposed to and, therefore, potentially carries an increased risk of cancer over your lifetime. If you are especially concerned with exposure to ionizing radiation, you may wish to discuss this with your study doctor.",
+    "ComparisonDose": 3,
+    "ComparisonDoseUnit": "mSv",
+    "EffectiveDoseType": "Research",
+    "HelpEmailAddress": "admin@domain.com",
+    "DoseData": [
         {
-            "name":"CT",
-            "exams":[
+            "name": "CT",
+            "exams": [
                 {
-                    "name":"Abdominal CT slngle slice",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Abdomen Biopsy",
+                    "citation": "CT Abdomen Biopsy: Journal of BlahBlah January 2012-January 2015 296 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.24
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 9.2
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.24
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 9.2
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.24
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 9.2
                         }
                     ]
                 },
                 {
-                    "name":"Abdominal CT with AND without constrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Abdominal CT",
+                    "citation": "Abdominal CT:  Journal of BlahBlah January 2012-January 2015 291 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":7.8
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 4.3
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":7.8
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 4.3
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":7.8
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 4.3
                         }
                     ]
                 },
                 {
-                    "name":"Abdominal CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Attenuation Correction with CT",
+                    "citation": "CT Attenuation Correction: RADAR;DUKE UNIVERSITY",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":3.9
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":3.9
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":3.9
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.6
                         }
                     ]
                 },
                 {
-                    "name":"Attenuation Correction with CT",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Brain CT",
+                    "citation": "Brain CT: Journal of BlahBlah January 2012-January 2015 5959 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":3.5
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 2.5
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":3.5
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 2.5
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":3.5
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 2.5
                         }
                     ]
                 },
                 {
-                    "name":"Attenuation Correction with Sealed Source",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cardiac Calcium Score: Prospective Gating",
+                    "citation": "Cardiac Calcium Score-Prospective Gating:  ASRT Technology May/June 2014  Current Issues in Radiation Dose: Monitoring and Reporting",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.12
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 1.8
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.12
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 1.8
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.12
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 1.8
                         }
                     ]
                 },
                 {
-                    "name":"Brain CT with AND without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cardiac Calcium Score: Retrospective Gating",
+                    "citation": "Cardiac Calcium Score-Retrospective Gating: ASRT Technology May/June 2014  Current Issues in Radiation Dose: Monitoring and Reporting",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":6
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 6.2
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":6
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 6.2
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":6
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 6.2
                         }
                     ]
                 },
                 {
-                    "name":"Brain CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Chest Biopsy",
+                    "citation": "CT Chest Biopsy: Journal of BlahBlah January 2012-January 2015 346 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":3
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 4
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":3
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 4
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":3
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 4
                         }
                     ]
                 },
                 {
-                    "name":"CT coronary angiography with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Chest CT",
+                    "citation": "Chest CT:  Journal of BlahBlah January 2012-January 2015 8625 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":22
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 5.1
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":22
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 5.1
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":22
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 5.1
                         }
                     ]
                 },
                 {
-                    "name":"CT femoral angiogram",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Chest/Abdomen/Pelvis CT",
+                    "citation": "Chest/Abdomen/Pelvis CT:  Journal of BlahBlah January 2012-January 2015 7145 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.07
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 11.5
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.07
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 11.5
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.07
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 11.5
                         }
                     ]
                 },
                 {
-                    "name":"CT femoral vein patch",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "CT coronary angiography",
+                    "citation": "CT Coronary Angiography: Journal of BlahBlah January 2012-January 2015 222 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.6
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 14.8
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.6
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 14.8
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.6
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 14.8
                         }
                     ]
                 },
                 {
-                    "name":"CT-CoRegistration scan for PET/CT",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "CT-CoRegistration scan for PET/CT",
+                    "citation": "CT-CoRegistration scan for PET/CT:  RADAR, Duke University",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":8.6
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 8.6
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":8.6
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 8.6
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":8.6
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 8.6
                         }
                     ]
                 },
                 {
-                    "name":"Cardiac Calcium Score",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Deep Bone Biopsy",
+                    "citation": "CT Deep Bone Biopsy: Journal of BlahBlah January 2012-January 2015 96 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":11
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 5.8
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":11
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 5.8
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":11
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 5.8
                         }
                     ]
                 },
                 {
-                    "name":"Chest CT with AND without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Dental Cone Beam CT",
+                    "citation": "Dental Cone Beam CT:Oral Radiology/ Stuart C. White  Principles and Interpretation  2009 and Oral Health and Hygiene  19 Sept 2011",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":10.8
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":10.8
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":10.8
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.6
                         }
                     ]
                 },
                 {
-                    "name":"Chest CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Head CT",
+                    "citation": "Head CT: Journal of BlahBlah January 2012-January 2015 257 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5.4
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 2.4
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5.4
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 2.4
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5.4
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 2.4
                         }
                     ]
                 },
                 {
-                    "name":"Chest/Abdomen/Pelvis CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "High Resolution Lung CT",
+                    "citation": "High Resolution Lung CT: Journal of BlahBlah January 2012-January 2015 1331 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":13
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 5
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":13
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 5
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":13
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 5
                         }
                     ]
                 },
                 {
-                    "name":"Enteroclysis Helical CT 2-phase",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "High Resolution Peripheral CT (Radius/Tibia)",
+                    "citation": "High Resolution Peripheral CT (Radius/Tibia): Clinical Orthopaedics & Related Research ..Andrew Burghardt, et al UCSF 2011 August   469",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":32
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.013
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":32
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.013
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":32
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.013
                         }
                     ]
                 },
                 {
-                    "name":"Guided biopsy with fluoro (low dose)",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Liver Biopsy",
+                    "citation": "CT Liver Biopsy: Journal of BlahBlah January 2012-January 2015 130 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":6.1
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 10
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":6.1
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 10
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":6.1
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 10
                         }
                     ]
                 },
                 {
-                    "name":"Guided biopsy without fluoro",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Lymph Node Biopsy",
+                    "citation": "CT Lymph Node Biopsy: Journal of BlahBlah January 2012-January 2015 28 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":23
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 7.1
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":23
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 7.1
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":23
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 7.1
                         }
                     ]
                 },
                 {
-                    "name":"Head CT with AND without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Neck CT",
+                    "citation": "Neck CT: Journal of BlahBlah January 2012-January 2015 971 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 4
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 4
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 4
                         }
                     ]
                 },
                 {
-                    "name":"Head CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Neuro/Vertebral Biopsy",
+                    "citation": "CT Neuro/Vertebral Biopsy: Journal of BlahBlah January 2012-January 2015 102 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.5
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 3.2
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":2.5
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 3.2
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.5
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 3.2
                         }
                     ]
                 },
                 {
-                    "name":"Hepatobiliary CT single slice",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Pelvic CT",
+                    "citation": "Pelvic CT: Journal of BlahBlah January 2012-January 2015 174 scans; ICRP 103",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.06
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 6.7
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.06
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 6.7
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.06
-                        }
-                    ]
-                },
-                {
-                    "name":"High Resolution Lung CT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Hypervascular Liver Lesion Protocol",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":17
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":17
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":17
-                        }
-                    ]
-                },
-                {
-                    "name":"Hypervascular Liver Lesion Protocol (low kVp variant)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":4.8
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":4.8
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":4.8
-                        }
-                    ]
-                },
-                {
-                    "name":"Knee CT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.02
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.02
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.02
-                        }
-                    ]
-                },
-                {
-                    "name":"Lower Extremity CT (5 positions)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.12
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.12
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.12
-                        }
-                    ]
-                },
-                {
-                    "name":"Lumbar Spine CT (Axial)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5.9
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5.9
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5.9
-                        }
-                    ]
-                },
-                {
-                    "name":"Lumbar Spine CT (Helical)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
-                        }
-                    ]
-                },
-                {
-                    "name":"Neck CT with AND without contrast",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
-                        }
-                    ]
-                },
-                {
-                    "name":"Neck CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":2.5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Pelvic CT with AND without contrast",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":10
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":10
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":10
-                        }
-                    ]
-                },
-                {
-                    "name":"Pelvic CT with OR without contrast",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
-                        }
-                    ]
-                },
-                {
-                    "name":"Thigh CT single slice",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.05
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.05
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.05
-                        }
-                    ]
-                },
-                {
-                    "name":"Whole body CT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":8.5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":8.5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":8.5
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 6.7
                         }
                     ]
                 }
             ]
         },
         {
-            "name":"NM",
-            "exams":[
+            "name": "NM",
+            "exams": [
                 {
-                    "name":"C-11 Carbon Monoxide",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "F-18 FDG PET Scan",
+                    "citation": "F-18 FDG PET: Delbeke D, Coleman RE, Guiberteau MJ, et al. Procedure guideline for tumor imaging with 18F-FDG PET/CT 1.0. J Nucl Med, 2006;47(5):885-95. (0.019 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.24
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.703
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.24
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.703
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.24
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.703
                         }
                     ]
                 },
                 {
-                    "name":"C-11 Nicotine (IV)",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "F-18 Sodium Fluoride PET Scan",
+                    "citation": "F-18 NaF PET Scan:  Data from Nuclear Regulatory Commission Report, Radiation Dose Estimates for Radiopharmaceuticals, NUREG/CR-6345, page 10, 1996 (0.027 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.148
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.999
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.148
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.999
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.148
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.999
                         }
                     ]
                 },
                 {
-                    "name":"C-11 Nicotine Inhalation",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "I-123 MIBG",
+                    "citation": "123-MIBG Scan: Eur J Nucl Med Mol Imaging. 2010 Dec;37(12):2436-46 (0.013 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.32
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.481
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.32
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.481
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.32
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.481
                         }
                     ]
                 },
                 {
-                    "name":"Cu-62 ATSM",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "I-131 MIBG",
+                    "citation": "I-131 MIBG: Eur J Nucl Med Mol Imaging. 2010 Dec;37(12):2436-46 (0.14 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.11
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 5.18
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.11
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 5.18
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.11
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 5.18
                         }
                     ]
                 },
                 {
-                    "name":"F-18 FDG PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Rb-82 Rubidium Cloride Perfusion PET Scan",
+                    "citation": "RB-82 Cl Perfusion PET: Cerquiera MD et al, Recommendations for reducing radiation exposure in myocardial perfusion imaging, J Nucl Cardiol. 2010 Aug;17(4):709-18. (ICRP 60, 13.5 mSv from summed 50 mCi rest + 50 mCi stress)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.1
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.135
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.1
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.135
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.1
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.135
                         }
                     ]
                 },
                 {
-                    "name":"F-18 Fluoro L-Dopa PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Tc-99m DTPA Injection for Renal GFR",
+                    "citation": "Tc-99m DTPA Renal GFR: www.drugs.com/pro/an-dtpa.html Doses calculated using the model in MIRD Dose Estimate Report No. 12 (Journal Nuclear Medicine 24:503-505, 1984) (5.9 mSv EDE from a 20 mCi injected dose)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":2
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.295
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":2
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.295
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":2
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.295
                         }
                     ]
                 },
                 {
-                    "name":"F-18 Fluorothymidine (FLT) PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Tc-99m MDP Bone Scan",
+                    "citation": "Tc-99m MDP Bone Scan: RADAR (RAdiation Dose Assessment Resource) and Metter D et al Society of Nuclear Medicine, Radiation Dose in Nuclear Medicine (0.0057 MSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.17
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.22
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.17
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.22
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.17
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.22
                         }
                     ]
                 },
                 {
-                    "name":"F-18 PET/CT (Select appropriate CT from CT Studies)",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Tc-99m MUGA (Tagged Red Blood Cells)",
+                    "citation": "Tc-99m MUGA: Metter D et al Society of Nuclear Medicine, Radiation Dose in Nuclear Medicine (0.26 MSv/mCi)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.1
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.26
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.1
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.26
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.1
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.26
                         }
                     ]
                 },
                 {
-                    "name":"F-18 Sodium Fluoride PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Tc-99m Sestamibi Cardiac Scan (Rest)",
+                    "citation": "Tc-99m Sestamibi Cardiac Scan (Rest): Cerquiera MD et al, Recommendations for reducing radiation exposure in myocardial perfusion imaging, J Nucl Cardiol. 2010 Aug;17(4):709-18. (3.4 mSv for 10 mCi injected dose)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.95
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.34
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.95
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.34
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.95
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.34
                         }
                     ]
                 },
                 {
-                    "name":"F-18 Thiapalmitate PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Tc-99m Sestamibi Cardiac Scan (Stress)",
+                    "citation": "Tc-99m Sestamibi Cardiac Scan (Stress): Cerquiera MD et al, Recommendations for reducing radiation exposure in myocardial perfusion imaging, J Nucl Cardiol. 2010 Aug;17(4):709-18. (7.9 mSv for a 27.5 mCi injected dose)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.705
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 0.287
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.705
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 0.287
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.705
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 0.287
                         }
                     ]
                 },
                 {
-                    "name":"Ga-67 Gallium Citrate Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Thallium-201 Cardiac Scan (Rest)",
+                    "citation": "Thallium-201 Cardiac Scan (Rest): www.lantheus.com/PDF/pi/Thallium, citing:\nKrahwinkel et al. J. Nucl. Med. 29(9):1582-1586, 1988) and Gupta et al. (Int. J. Nucl. Med. & Biol. 8:211-213, 1981)\n(0.36 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":4.1
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 13.32
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":4.1
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 13.32
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":4.1
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 13.32
                         }
                     ]
                 },
                 {
-                    "name":"I-123 Altropane (IACFT) Brain Scan",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Thallium-201 Cardiac Scan (Stress)",
+                    "citation": "Thallium-201 Cardiac Scan (Rest): www.lantheus.com/PDF/pi/Thallium, citing:\nKrahwinkel et al. J. Nucl. Med. 29(9):1582-1586, 1988) and Gupta et al. (Int. J. Nucl. Med. & Biol. 8:211-213, 1981)\n(0.36 mSv/MBq)",
+                    "properties": [
                         {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.4
+                            "name": "EDE/mCi (female)",
+                            "gender": "female",
+                            "value": 13.32
                         },
                         {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.4
+                            "name": "EDE/mCi (male)",
+                            "gender": "male",
+                            "value": 13.32
                         },
                         {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.4
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 Beta-CIT Brain",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.3
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.3
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.3
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 HSA Brain (IntraCerebral Infusion)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.9
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.9
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.9
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 Hippuran Renal",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.88
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.88
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.88
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 MIBG",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.71
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.71
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.71
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 Sodium Iodide",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":4.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":4.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":4.5
-                        }
-                    ]
-                },
-                {
-                    "name":"I-123 Thyroid",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":4.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":4.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":4.5
-                        }
-                    ]
-                },
-                {
-                    "name":"I-125 Sodium Iodide",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":120
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":120
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":120
-                        }
-                    ]
-                },
-                {
-                    "name":"I-131 MIBG",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":7.8
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":7.8
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":7.8
-                        }
-                    ]
-                },
-                {
-                    "name":"I-131 Sodium Iodide Thyroid Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":390
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":390
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":390
-                        }
-                    ]
-                },
-                {
-                    "name":"In-111 Capromab Pendetide (Prostascint Scan)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":10.7
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":10.7
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":10.7
-                        }
-                    ]
-                },
-                {
-                    "name":"In-111 DTPA CSF Flow (Cisternography)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":3.1
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":3.1
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":3.1
-                        }
-                    ]
-                },
-                {
-                    "name":"In-111 Dendritic Cells (Brain Tumor)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":11
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":11
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":11
-                        }
-                    ]
-                },
-                {
-                    "name":"In-111 Platelet Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":7.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":7.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":7.5
-                        }
-                    ]
-                },
-                {
-                    "name":"In-111 White Cell Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":24
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":24
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":24
-                        }
-                    ]
-                },
-                {
-                    "name":"N-13 Ammonia PET Perfusion Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.083
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.083
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.083
-                        }
-                    ]
-                },
-                {
-                    "name":"O-15 Bolus Water PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.042
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.042
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.042
-                        }
-                    ]
-                },
-                {
-                    "name":"O-15 Continuous Inhalation PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.041
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.041
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.041
-                        }
-                    ]
-                },
-                {
-                    "name":"O-15 Water 3-D PET Acquisition",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.042
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.042
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.042
-                        }
-                    ]
-                },
-                {
-                    "name":"P-32 Sodium Phosphate",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":45
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":45
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":45
-                        }
-                    ]
-                },
-                {
-                    "name":"Rb-82 Rubidium Cloride Perfusion PET Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.043
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.043
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.043
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Apomate",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.356
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.356
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.356
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m DMSA Renal Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.6
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.6
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.6
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m DTPA Aerosol Ventilation",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.22
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.22
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.22
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m DTPA Injection",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.3
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.3
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.3
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Gastic Emptying Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.93
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.93
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.93
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Glucoheptonate Renal Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.38
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.38
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.38
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m HMPAO Brain Perfusion",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Hepatobiliary (Gallbladder/Biliary)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.93
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.93
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.93
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Human Serum Albumin",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.29
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.29
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.29
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m MAA (Lung Perfusion Scan)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.47
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.47
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.47
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m MAG (3) Renal Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.44
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.44
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.44
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m MDP Bone Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.22
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.22
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.22
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m MUGA (Tagged Red Blood Cells)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.27
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.27
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.27
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m NC100697 Brain Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Pertechnate Thyroid Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.39
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.39
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.39
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Lung)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.2
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.2
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.2
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sentinel Node Localization Scan (Lymphoscintigraphy Melanoma)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":1.2
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":1.2
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":1.2
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sestamibi Cardiac Scan (Rest)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.55
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.55
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.55
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sestamibi Cardiac Scan (Stress)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.48
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.48
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.48
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Setamibi Breast Scan",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.55
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.55
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.55
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sulfur Colloid Aerosol",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":2.55
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":2.55
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":2.55
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sulfur Colloid Liver (Cirrhosis)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.8
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.8
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.8
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m Sulfur Colloid Liver (Normal)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Tc-99m White Cells",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.74
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.74
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.74
-                        }
-                    ]
-                },
-                {
-                    "name":"Thallium-201 Cardiac Scan (Rest)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":6.7
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":6.7
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":6.7
-                        }
-                    ]
-                },
-                {
-                    "name":"Thallium-201 Cardiac Scan (Stress)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":6
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":6
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":6
-                        }
-                    ]
-                },
-                {
-                    "name":"Xenon-133 Ventilation (5 minute rebreathe)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.028
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.028
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.028
-                        }
-                    ]
-                },
-                {
-                    "name":"Xenon-133 Xenon Ventilation (breath hold)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED/mCi (female)",
-                            "gender":"female",
-                            "value":0.0071
-                        },
-                        {
-                            "name":"ED/mCi (male)",
-                            "gender":"male",
-                            "value":0.0071
-                        },
-                        {
-                            "name":"ED/mCi (mixed)",
-                            "gender":"mixed",
-                            "value":0.0071
+                            "name": "EDE/mCi (mixed)",
+                            "gender": "mixed",
+                            "value": 13.32
                         }
                     ]
                 }
             ]
         },
         {
-            "name":"XRay",
-            "exams":[
+            "name": "XRay",
+            "exams": [
                 {
-                    "name":"AP DXA Spine/Hip",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cervical Spine X-ray",
+                    "citation": "Cervical Spine X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.02
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.2
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.02
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.2
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.02
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.2
                         }
                     ]
                 },
                 {
-                    "name":"Abdomen X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Chest X-ray (2 views)",
+                    "citation": "Chest X-ray (2 views):  Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.94
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.1
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.49
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.1
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.94
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.1
                         }
                     ]
                 },
                 {
-                    "name":"Arm X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Dental Panorex",
+                    "citation": "Dental Panorex: Oral Radiology/ Stuart C. White  Principles and Interpretation  2009 and Oral Health and Hygiene  19 Sept 2011",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.03
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.026
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.03
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.026
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.03
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.026
                         }
                     ]
                 },
                 {
-                    "name":"Barium Swallow",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Dental X-ray",
+                    "citation": "Routine Dental X-ray: Oral Radiology/ Stuart C. White  Principles and Interpretation  2009 and Oral Health and Hygiene  19 Sept 2011",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.61
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.03
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.36
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.03
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.61
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.03
                         }
                     ]
                 },
                 {
-                    "name":"Breast Tomosynthesis",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Dental x-ray (bitewing)",
+                    "citation": "Dental x-ray (bitewing): Oral Radiology/ Stuart C. White  Principles and Interpretation  2009 and Oral Health and Hygiene  19 Sept 2011",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.18
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.06
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.18
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.06
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.18
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.06
                         }
                     ]
                 },
                 {
-                    "name":"Cervical Spine X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "DXA Lumbar Spine",
+                    "citation": "DXA Lumbar Spine: Blake GM, Naeem M, Boutros M. Comparison of effective dose to children and adults from dual X-ray absorptiometry examinations. Bone. 2006 Jun;38(6):935-42. \nEpub 2005 Dec 22. PubMed PMID: 16376161.",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.35
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.0133
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.35
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.0133
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.35
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.0133
                         }
                     ]
                 },
                 {
-                    "name":"Chest X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "DXA Proximal Femur",
+                    "citation": "DXA Proximal Femur: Blake GM, Naeem M, Boutros M. Comparison of effective dose to children and adults from dual X-ray absorptiometry examinations. Bone. 2006 Jun;38(6):935-42. Epub 2005 Dec 22. PubMed PMID: 16376161. (Note: Hologic QDR 4500 Array Mode)",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.21
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.0093
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.19
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.0093
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.21
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.0093
                         }
                     ]
                 },
                 {
-                    "name":"Cholecystogram",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "DXA Total Body Composition",
+                    "citation": "DXA Total Body Composition: Blake GM, Naeem M, Boutros M. Comparison of effective dose to children and adults from dual X-ray absorptiometry examinations. Bone. 2006 Jun;38(6):935-42. Epub 2005 Dec 22. PubMed PMID: 16376161. (Note: Hologic QDR 4500 Discovery W Mode)",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.25
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.0084
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.25
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.0084
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.25
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.0084
                         }
                     ]
                 },
                 {
-                    "name":"DXA (Wrist/Ankle/Heel)",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Foot X-ray",
+                    "citation": "Foot X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.05
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.001
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.05
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.001
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.05
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.001
                         }
                     ]
                 },
                 {
-                    "name":"DXA Distal Forearm",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Hand X-ray ",
+                    "citation": "Hand X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.0001
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.001
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.0001
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.001
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.0001
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.001
                         }
                     ]
                 },
                 {
-                    "name":"DXA Hip",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Hip X-ray",
+                    "citation": "Hip X-ray:  Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.0059
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.7
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.0059
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.7
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.0059
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.7
                         }
                     ]
                 },
                 {
-                    "name":"DXA Lateral Spine",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Knee X-ray",
+                    "citation": "Knee X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.0012
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.005
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.0012
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.005
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.0012
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.005
                         }
                     ]
                 },
                 {
-                    "name":"DXA Lumbar Spine",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Lumbar Spine X-Ray",
+                    "citation": "Lumbar Spine X-Ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.023
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 1.5
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.0145
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 1.5
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.023
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 1.5
                         }
                     ]
                 },
                 {
-                    "name":"DXA Proximal Femur",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Mammography",
+                    "citation": "Mammography: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.0059
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.4
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.0059
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.4
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.0059
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.4
                         }
                     ]
                 },
                 {
-                    "name":"DXA Total Body Composition",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Pelvic X-ray",
+                    "citation": "Pelvic X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.05
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.04
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.6
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.05
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.6
                         }
                     ]
                 },
                 {
-                    "name":"Dental X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Scoliosis (3-foot -xray)",
+                    "citation": "Scoliosis (3-foot X-Ray): Chamberlain CC, Huda W, Hojnowski LS, Perkins A, Scaramuzzino A. Radiation doses to patients undergoing scoliosis radiography. Br J Radiol. 2000; Aug;73(872):847-53. PubMed PMID: 11026860.",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.03
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 0.18
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.03
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 0.18
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.03
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 0.18
                         }
                     ]
                 },
                 {
-                    "name":"Femur X-ray",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Skeletal Survey",
+                    "citation": "Skeletal Survey X-Ray: From UCSD Radiation Risk Statement Calculator, Calculated using DCFs from FDA/CDRH Pub. No. 89-8031 and ICRP tissue weighting factors for lungs, breasts, thyroid, marrow gonads and total body; SEEs for AP abdomen LAT c-spine, AP chest, femur, LAT l-spine, AP pelvis, LAT ribs, AP/LAT skull, LAT t-spine",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.04
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 2.47
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.04
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 2.47
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.04
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 2.47
                         }
                     ]
                 },
                 {
-                    "name":"Femur/Tib/Fib/Ankle Digital ",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Thoracic Spine X-Ray",
+                    "citation": "Thoracic Spine X-ray: Mettler FA, et al: Effective Doses in Radiology and Diagnostic Nuclear Medicine: A Catalog, Radiology 2008 248:254-263",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.15
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 1
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.15
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 1
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.15
-                        }
-                    ]
-                },
-                {
-                    "name":"Femur/Tib/Fib/Ankle Screen-Film",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.51
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.51
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.51
-                        }
-                    ]
-                },
-                {
-                    "name":"Foot X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.03
-                        }
-                    ]
-                },
-                {
-                    "name":"Full Spine X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.13
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.62
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.13
-                        }
-                    ]
-                },
-                {
-                    "name":"Hand X-ray ",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.03
-                        }
-                    ]
-                },
-                {
-                    "name":"Hip X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.47
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.17
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.17
-                        }
-                    ]
-                },
-                {
-                    "name":"Intravenous Pyelogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.3
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.01
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.3
-                        }
-                    ]
-                },
-                {
-                    "name":"Knee X-ray AP AND LAT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.06
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.06
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.06
-                        }
-                    ]
-                },
-                {
-                    "name":"Knee X-ray AP OR LAT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.03
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.03
-                        }
-                    ]
-                },
-                {
-                    "name":"Knee X-ray Bilateral AP AND LAT",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.12
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.12
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.12
-                        }
-                    ]
-                },
-                {
-                    "name":"Lumbar Spine (LAT ONLY)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.58
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.26
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.58
-                        }
-                    ]
-                },
-                {
-                    "name":"Lumbar Spine X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.3
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.45
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.3
-                        }
-                    ]
-                },
-                {
-                    "name":"Mammography (2 views)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.33
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.33
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.33
-                        }
-                    ]
-                },
-                {
-                    "name":"Mammography (4 views)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.65
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.65
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.65
-                        }
-                    ]
-                },
-                {
-                    "name":"Pelvic X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.85
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.65
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.85
-                        }
-                    ]
-                },
-                {
-                    "name":"Rib X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.61
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.36
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.61
-                        }
-                    ]
-                },
-                {
-                    "name":"Shoulder X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.18
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.1
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.18
-                        }
-                    ]
-                },
-                {
-                    "name":"Skeletal Survey",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.63
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":2.31
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.63
-                        }
-                    ]
-                },
-                {
-                    "name":"Skull X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.42
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.42
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.42
-                        }
-                    ]
-                },
-                {
-                    "name":"Thoracic Spine X-ray",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.79
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":2.34
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.34
-                        }
-                    ]
-                },
-                {
-                    "name":"Upper GI Study",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.92
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.82
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.92
-                        }
-                    ]
-                },
-                {
-                    "name":"Venogram (Lower Extremity)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.35
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.35
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.35
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 1
                         }
                     ]
                 }
             ]
         },
         {
-            "name":"Fluoro",
-            "exams":[
+            "name": "Fluoro",
+            "exams": [
                 {
-                    "name":"Abdominal Aortogram",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cardiac Catheterization",
+                    "citation": "Cardiac Catherization: UCSD Radiation Risk Statement Calculator (4.4 mSv/min); Estimated from FDA/CDRH Pub. No. 95-8288 (Stern SH et al. Handbook of Selected Tissue Doses for Fluoroscopic and Cineangiographic Examination of the Coronary Arteries) assuming the following fluoroscopy times: 5.6 min for diagnostic CA, 14.8 min for angi",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":13
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 4.4
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":13
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 4.4
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":13
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 4.4
                         }
                     ]
                 },
                 {
-                    "name":"Ankle/Knee Kinematics Analysis",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cardiac Electrophysiology/Defibrillator Implant",
+                    "citation": "Cardiac Electrophysiology/Defibrillator Implant: UCSD Radiation Risk Statement Calculator (27.5 mSv/min); Estimated from FDA/CDRH Pub. No. 95-8288 (Stern SH et al. Handbook of Selected Tissue Doses for Fluoroscopic and Cineangiographic Examination of the Coronary Arteries) assuming the following fluoroscopy times: 5.6 min for diagnostic CA, 14.8 min for angi",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.144
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 27.5
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.144
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 27.5
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.144
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 27.5
                         }
                     ]
                 },
                 {
-                    "name":"Barium Enema",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Cardiac Electrophysiology/Diagnostic",
+                    "citation": "Cardiac Electrophysiology/Diagnostic: UCSD Radiation Risk Statement Calculator (7.05 mSv/min); Estimated from FDA/CDRH Pub. No. 95-8288 (Stern SH et al. Handbook of Selected Tissue Doses for Fluoroscopic and Cineangiographic Examination of the Coronary Arteries) assuming the following fluoroscopy times: 5.6 min for diagnostic CA, 14.8 min for angi",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 7.05
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 7.05
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 7.05
                         }
                     ]
                 },
                 {
-                    "name":"Brachial Catheter Placement/Fistulogram",
-                    "citation": "sample citation",
-                    "properties":[
+                    "name": "Coronary Angioplasty",
+                    "citation": "Coronary Angioplasty: UCSD Radiation Risk Statement Calculator (11.6 mSv/min); Estimated from FDA/CDRH Pub. No. 95-8288 (Stern SH et al. Handbook of Selected Tissue Doses for Fluoroscopic and Cineangiographic Examination of the Coronary Arteries) assuming the following fluoroscopy times: 5.6 min for diagnostic CA, 14.8 min for angi",
+                    "properties": [
                         {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":6.6
+                            "name": "EDE (female)",
+                            "gender": "female",
+                            "value": 11.6
                         },
                         {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":6.6
+                            "name": "EDE (male)",
+                            "gender": "male",
+                            "value": 11.6
                         },
                         {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":6.6
-                        }
-                    ]
-                },
-                {
-                    "name":"CT Cerebral Angiogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Catheterization",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":4.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":4.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":4.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Electrophysiology/Ablation",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":70.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":70.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":70.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Electrophysiology/Defibrillator Implant",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":27.5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":27.5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":27.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Electrophysiology/Diagnostic",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":7.05
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":7.05
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":7.05
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Electrophysiology/Pacemaker Implant",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":9.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":9.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":9.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Cardiac Occluder/Stent Placement",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":16.4
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":16.4
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":16.4
-                        }
-                    ]
-                },
-                {
-                    "name":"Carotid Stent Placement",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":34
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":34
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":34
-                        }
-                    ]
-                },
-                {
-                    "name":"Carotid or Cerebral Angiogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5.08
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5.08
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5.08
-                        }
-                    ]
-                },
-                {
-                    "name":"Coronary Angioplasty",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":11.6
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":11.6
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":11.6
-                        }
-                    ]
-                },
-                {
-                    "name":"Enteroclysis Procedure",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":21
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":21
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":21
-                        }
-                    ]
-                },
-                {
-                    "name":"Femoral Arteriogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":15
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":15
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":15
-                        }
-                    ]
-                },
-                {
-                    "name":"Femoral CT Angiogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":3
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":3
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":3
-                        }
-                    ]
-                },
-                {
-                    "name":"Fistulogram (upper extremity)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":3.8
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":3.8
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":3.8
-                        }
-                    ]
-                },
-                {
-                    "name":"Hepatic Angioplasty",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
-                        }
-                    ]
-                },
-                {
-                    "name":"Hysterosalpingogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.57
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.57
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.57
-                        }
-                    ]
-                },
-                {
-                    "name":"Knee Positioning",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.07
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.07
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.07
-                        }
-                    ]
-                },
-                {
-                    "name":"Lumbar Puncture (Fluoro-guided)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":1.25
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":1.25
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":1.25
-                        }
-                    ]
-                },
-                {
-                    "name":"Occipital Electrode Placement",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.48
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.48
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.48
-                        }
-                    ]
-                },
-                {
-                    "name":"Pulmonary Angiogram",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":2.66
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":2.66
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":2.66
-                        }
-                    ]
-                },
-                {
-                    "name":"Right Heart Catheterization",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Swallow Study (Speech Pathology)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":0.18
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":0.18
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":0.18
-                        }
-                    ]
-                },
-                {
-                    "name":"Thoracic Spine",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":5
-                        }
-                    ]
-                },
-                {
-                    "name":"Trans Bronchial Biopsy (Fuoro-guided)",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":7.5
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":7.5
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":7.5
-                        }
-                    ]
-                },
-                {
-                    "name":"Vertebroplasty/Kyphoplasty",
-                    "citation": "sample citation",
-                    "properties":[
-                        {
-                            "name":"ED (female)",
-                            "gender":"female",
-                            "value":12.8
-                        },
-                        {
-                            "name":"ED (male)",
-                            "gender":"male",
-                            "value":12.8
-                        },
-                        {
-                            "name":"ED (mixed)",
-                            "gender":"mixed",
-                            "value":12.8
+                            "name": "EDE (mixed)",
+                            "gender": "mixed",
+                            "value": 11.6
                         }
                     ]
                 }

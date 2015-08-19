@@ -1,7 +1,17 @@
 # Radiation Dose Calculator
 ![Circle CI](https://circleci.com/gh/CranestyleLabs/RadiationDoseCalculator.png?circle-token=c352826043e69c5309b91e489d06f0a16e4b7392)
 
-The **Radiation Dose Calculator** was created at [UC San Francisco (UCSF)](http://www.ucsf.edu/) as a collaboration between the [Office of Ethics and Compliance](http://compliance.ucsf.edu/) and the [Clinical & Translational Science Institute](http://ctsi.ucsf.edu/). Thanks to advisor [Thomas Lang](http://profiles.ucsf.edu/thomas.lang) and the developers at [Crane Style Labs](http://www.cranestylelabs.com/).
+## About
+
+The **Radiation Dose Calculator** is a simple web application used to compute the effective dose of radiation associated with a human subjects imaging research protocol. All you need to do is add your own list of effective dose values created by local subject matter experts (e.g. scientists in a radiation safety office).
+
+End-users enter a list of procedures (specifying the subjects' gender and whether a given procedure is for research only or is part of the standard of care. The software generates the total effective dose, as well as a customizable risk statement which relates the total radiation dose to a comparator dose, such as the annual background radiation dose. 
+ 
+The program is intended both for technical staff within radiation safety committees and human subjects researchers. The aim is to streamline the process of radiation dose safety evaluation for radiation safety committees and to provide investigators with information on the risks conferred by the research protocol on their human subjects.
+
+_The **Radiation Dose Calculator** was created at [UC San Francisco (UCSF)](http://www.ucsf.edu/) as a collaboration between the [Office of Ethics and Compliance](http://compliance.ucsf.edu/) and the [Clinical & Translational Science Institute](http://ctsi.ucsf.edu/). Thanks to advisor [Thomas Lang](http://profiles.ucsf.edu/thomas.lang) and the developers at [Crane Style Labs](http://www.cranestylelabs.com/)._
+
+## Technology
 
 The application is built as static HTML and JavaScript, and can be deployed on any web server on any platform. Radiation dose configurations are stored in a single JSON file, which can be edited using a built-in editor, and deployed by uploading a single file to the website. (At UCSF, we use a separate tool to make that uploads easier for non-technical product owners.)
 
@@ -50,7 +60,7 @@ If you want to use Node.js as your web server, follow steps 1-4 of the **Simple 
 
 ### Advanced Install / Rebuilding the Project
 
-If you want to edit any of the javascript files or create your own css color scheme, it is best to make your changes in the `/app` folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
+If you want to edit any of the JavaScript files or create your own CSS color scheme, it is best to make your changes in the `/app` folder and rebuild the project.  This requires that you have the [grunt command line interface] (https://github.com/gruntjs/grunt-cli) installed on your machine.
 
 1. **WARNING!:** If you have already edited any of the files in the `/public` folder, you'll want to copy your changes into the `/app` folder. Otherwise, Step 2 will overwrite the `/public` folder and wipe out your changes.
 2. From the `/node` folder, run `grunt`. This will rebuild the application and replace the files in the `public` folder.

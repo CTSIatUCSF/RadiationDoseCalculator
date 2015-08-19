@@ -1,18 +1,24 @@
 # Radiation Dose Calculator
 ![Circle CI](https://circleci.com/gh/CranestyleLabs/RadiationDoseCalculator.png?circle-token=c352826043e69c5309b91e489d06f0a16e4b7392)
 
+The **Radiation Dose Calculator** was developed at [UC San Francisco (UCSF)](http://www.ucsf.edu/), as a collaboration between [Thomas Lang](http://profiles.ucsf.edu/thomas.lang), [UCSF's Clinical & Translational Science Institute (CTSI at UCSF)](http://ctsi.ucsf.edu/), and [Crane Style Labs](http://www.cranestylelabs.com/).
+
+The application is built as static HTML and JavaScript, and can be deployed on any web server on any platform. Radiation dose configurations are stored in a single JSON file, which can be edited using a built-in editor, and deployed by uploading a single file to the website. (At UCSF, we use a separate tool to make that uploads easier for non-technical product owners.)
+
+
 ## Installation Instructions
 
 ### Simple Install
 
 The `/public` folder contains all of the files needed to run the calculator. Just follow these steps:  
 
-1. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. 
-2. You'll also see comments indicating where you can change the application's color scheme. Three color schemes are included in the `/public/css/` folder. Simply change the href to point at the color scheme you want to use.
-3. When you are done editing `/public/index.html`, save your changes.
-4. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
-5. Copy all files in the `/public` folder to your web server and start it up.
-6. Go to [your-server-name/#/json-editor] (http://your-server-name/#/json-editor) to edit the consent narrative and add, remove, and modify procedure data. (The default configuration bundled with the application contains dummy/experimental dose values, and will need to be replaced.) This page will allow you to generate a new `data.json` file, but it will not update the data on your web server. You'll need to replace the existing `/public/js/data/data.json` file with your version of the file. 
+1. Copy the contents of `/public` to your web server and/or staging area
+2. Open `/public/index.html`. You'll see comments indicating where you can place a custom header and footer. 
+3. You'll also see comments indicating where you can change the application's color scheme. Three color schemes are included in the `/public/css/` folder. Simply change the href to point at the color scheme you want to use.
+4. When you are done editing `/public/index.html`, save your changes.
+5. You can replace `/public/favicon.ico` with an image of your choice. If you change the image, make sure you name your image **favicon.ico**
+6. Copy all files in the `/public` folder to your web server and start it up.
+7. Go to [your-server-name/#/json-editor] (http://your-server-name/#/json-editor) to edit the consent narrative and add, remove, and modify procedure data. (The default configuration bundled with the application contains dummy/experimental dose values, and will need to be replaced.) This page will allow you to generate a new `data.json` file, but it will not update the data on your web server. You'll need to replace the existing `/public/js/data/data.json` file with your version of the file. 
 
 ###### Notes about Consent Narrative
 When editing the consent narrative, there are tags wrapped in **<<>>** that get replaced with various settings or calculated values when they are displayed to the end user:
